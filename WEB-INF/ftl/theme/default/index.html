@@ -1,0 +1,261 @@
+[#compress]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>寻鹰网-最专业的民航招聘、民航招聘、飞行员招聘、机务招聘、空乘招聘、通用航空招聘.最专业的民航招聘平台！</title>
+    <meta name="keywords" content="民航人才、寻鹰招聘，通航招聘、公务机招聘、航空招聘、航空人才、飞行员招聘、空姐招聘、航空公司招聘、机场招聘、机务维修、地面服务、民航招聘、民航求职、空乘招聘、安检招聘">
+    <meta name="description" content="寻鹰招聘(www.yingjobs.com)是一个专注航空领域人才服务的垂直招聘网站，利用互联网技术提升传统航空公司的招聘效率，达到降低费用提高功效的目的，为国内外航空公司等航企提供免费人才服务，为大学生毕业生，归国留学生提供免费的民航就业渠道。">
+    <link rel="Shortcut Icon" href="${siteurl}dist/img/favicon_logo.ico">
+    <link rel="stylesheet" type="text/css" href="${siteurl}dist/less/mMain.css">
+    <link type="text/css" rel="stylesheet" href="${siteurl}dist/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/swiper/swiper-3.4.2.min.css">
+    <style type="text/css">
+        .container .cont-body .sidebar .menu-box .menu-sub dl dd  a:hover {
+            color: #09f;;
+            text-decoration: underline;
+        }
+    </style>
+    [#macro jobitem job]
+    <li>
+        <div class="pli-top">
+            <div class="top-l clearfix">
+                <div class="name fl">
+                    <h2>
+                        <a href="${siteurl}jobs/${job.id}.htm" target="_blank" class="link fl wordCut" data-index="0" title="${job.name!''}">${job.name!''}</a>
+                    </h2>
+                    <span class="dib create-time">&ensp;[${(job.addDate?string('MM:dd'))!''}发布]&ensp;</span>
+                </div>
+            </div>
+            <div class="main-info wordCut">
+                <span>经验${(job.workYear.name)!''}</span>
+                <span>本科</span>
+            </div>
+            <div class="labels">
+                <div class="btm">
+                    [#if job.labels??]
+                    [#list job.labels as item]
+                    <span class="wordCut">${item.name!''}</span>
+                    [/#list]
+                   [/#if]
+                </div>
+            </div>
+        </div>
+        <div class="pli-btm clearfix">
+            <a href="${siteurl}company/${(job.company.id)!'-1'}.htm" class="fl" target="_blank">
+                [#if (job.company.logo)??]
+                <img   src="[@image src=job.company.logo /]"  alt="公司logo" class="company-logo" width="40" height="40">
+                [/#if]
+            </a>
+            <div class="btm-right">
+                <div class="company-name wordCut">
+                    <a href="${siteurl}company/${(job.company.id)!'-1'}.htm" target="_blank">${(job.company.name)!''}</a>
+                </div>
+                <div class="industry wordCut">
+                    <span>${(job.company.industry.name)!''}</span>
+                    <!--<span>${(job.company.financing.name)!''}</span>-->
+                    <span>${(job.company.city.name)!''}</span>
+                </div>
+            </div>
+        </div>
+    </li>
+    [/#macro]
+</head>
+<body>
+<!-- 引入导航条 -->
+[#include "/theme/default/common/navBar.html"]
+[@navBar active = 1 /]
+<div class="container clearfix">
+    <div class="cont-header">
+        <div class="search-wrapper">
+            <div class="search-box">
+                <form action="${siteurl}jobs/index.htm" method="post">
+                    <input class="search-input" type="text" name="name" placeholder="搜索职位、公司">
+                    <input class="search-button" type="submit" value="搜索">
+                </form>
+            </div>
+            <dl class="hot-search">
+                <dt>热门搜索：</dt>
+                [@jobkeyword size=6]
+                [#list list as item]
+                <dd><a href="${siteurl}jobs/jobkeyword.htm?id=${item.id}" class="highlight" target="_blank">${item.name!""}</a></dd>
+                [/#list]
+                [/@jobkeyword]
+            </dl>
+        </div>
+    </div>
+    <div class="cont-body">
+        <div class="clearfix">
+            <div class="sidebar">
+                [@categorys ]
+                [#list list as item]
+                <div class="menu-box">
+                    <div class="menu-main">
+                        <div class="menu-item">
+                            <h2>${item.name!''}</h2>
+                            [@categorys id=item.id]
+                            [#list list as item1]
+                            <a href="#">${item1.name}</a>
+                            [/#list]
+                            [/@categorys]
+                            <i class="arrow-right"></i>
+                        </div>
+                    </div>
+                    <div class="menu-sub dn">
+                        [@categorys id=item.id]
+                        [#list list as item1]
+                        <dl>
+                            <dt>
+                                <span>${item1.name}</span>
+                            </dt>
+                            <dd>
+                                [@categorys id=item1.id]
+                                [#list list as item2]
+                                <a href="${siteurl}jobs/catalog.htm?id=${item2.id}">${item2.name}</a>
+                                [/#list]
+                                [/@categorys]
+                                <!--<a href="#" class="active">Java</a>
+                                <a href="#">全栈工程师</a>-->
+                            </dd>
+                        </dl>
+                        [/#list]
+                        [/@categorys]
+                    </div>
+                </div>
+                [/#list]
+                [/@categorys]
+            </div>
+            <div class="home-banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    [@ads id=2 size=10]
+                    [#if list??]
+                    [#list list as item]
+                    <div class="swiper-slide">
+                        <a href="${item.url!''}"><img src="[@image src=item.path /]" alt="" width="840" height="346"></a>
+                    </div>
+                    [/#list]
+                    [/#if]
+                    [/@ads]
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+            <ul class="hot-company">
+                <li class="active">热门公司</li>
+            </ul>
+            <div class="companys">
+                <ul class="company-list clearfix">
+                    [@hotcompanys size=12]
+                    [#list list as item]
+                    <li>
+                        <div class="top">
+                            <p>
+                                <a href="${siteurl}company/${item.id}.htm" target="_blank">
+                                    <img src="[@image src=item.logo /]" alt="公司logo" width="80" height="80">
+                                </a>
+                            </p>
+                            <p class="company-name wordCut">
+                                <a href="${siteurl}company/${item.id}.htm" target="_blank">${item.name!'xx公司'}</a>
+                            </p>
+                            <p class="indus-stage wordCut">
+                                <span>${(item.industry.name)!""}</span>
+                                <!--<span>${(item.financing.name)!""}</span>-->
+                            </p>
+                            <p class="advantage wordCut">
+                                [@html.textcut s=item.demo len=18 append=".." /]
+                            </p>
+                        </div>
+                        <div class="btm">
+                            <a class="btm-item btm-1 fl" href="#" target="_blank">
+                                <p class="green">
+                                    <span>${item.comments!"0"}</span>
+                                </p>
+                                <p class="gray">面试评价</p>
+                            </a>
+                            <a class="btm-item btm-2 fl" href="${siteurl}company/j${item.id}.htm" target="_blank">
+                                <p class="green">
+                                    <span>${item.jobs!"0"}</span>
+                                </p>
+                                <p class="gray">在招职位</p>
+                            </a>
+                            <a class="btm-item btm-3 fl" href="${siteurl}company/${item.id}.htm" target="_blank">
+                                <p class="green">
+                                    <span>${item.jobs!"100"}%</span>
+                                </p>
+                                <p class="gray">简历处理率</p>
+                            </a>
+                        </div>
+                    </li>
+                    [/#list]
+                    [/@hotcompanys]
+                </ul>
+                <a href="${siteurl}company/index.htm" class="list_more" target="_blank">查看更多</a>
+            </div>
+            <ul class="job-tab">
+                <!--<li data-tab="recommendJob" class="active">推荐职位</li>-->
+                <li data-tab="hotJob" class="active">热门职位</li>
+                <li data-tab="newJob" class="">最新职位</li>
+            </ul>
+            <div class="job-list clearfix">
+                <div class="recommendJob dn">
+                    <ul class="clearfix">
+                        [@jobrecommends size=12]
+                        [#list list as item]
+                        [@jobitem job=item /]
+                        [/#list]
+                        [/@jobrecommends]
+                    </ul>
+                    <a href="${siteurl}jobs/index.htm" class="list_more" target="_blank">查看更多</a>
+                </div>
+                <div class="hotJob">
+                    <ul class="clearfix">
+                        [@jobhots size=12]
+                        [#list list as item]
+                       [@jobitem job=item /]
+                        [/#list]
+                        [/@jobhots]
+                    </ul>
+                    <a href="${siteurl}jobs/index.htm" class="list_more" target="_blank">查看更多</a>
+                </div>
+                <div class="newJob dn">
+                    <ul class="clearfix">
+                        [@jobnews size=12]
+                        [#list list as item]
+                        [@jobitem job=item /]
+                        [/#list]
+                        [/@jobnews]
+                    </ul>
+                    <a href="${siteurl}jobs/index.htm" class="list_more" target="_blank">查看更多</a>
+                </div>
+            </div>
+            <div class="linkbox show-linkbox">
+                <dl>
+                    <dt>
+                        <span class="active">友情链接</span>
+                    </dt>
+                    <dd class="links">
+                        [@link id=2 size=30]
+                        [#list list as item]
+                        <a href="${item.url!''}" target="${item.target!'_blank'}" class="friend-link">${item.name!""}</a>
+                        [/#list]
+                        [/@link]
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+<script src="${siteurl}plugins/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script src="${siteurl}dist/js/main.js"></script>
+</body>
+</html>
+[/#compress]

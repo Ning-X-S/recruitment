@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>${(model.member.name)!""}简历</title>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<!-- Bootstrap 3.3.6 -->
+	<link rel="stylesheet" href="${siteurl}bootstrap/css/bootstrap.min.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="${siteurl}plugins/FontAwesome/css/font-awesome.min.css">
+	<!-- Ionicons -->
+	<link rel="stylesheet" href="${siteurl}plugins/ionicons201/css/ionicons.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="${siteurl}dist/css/AdminLTE.min.css">
+	<!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+	<link rel="stylesheet" href="${siteurl}dist/css/skins/_all-skins.min.css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	[#include "/admin/common/commons.html"]
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+	<header class="main-header">
+		<!-- Header Navbar: style can be found in header.less -->
+		[#include "/admin/common/nav.html"]
+	</header>
+
+	<!-- =============================================== -->
+
+	<!-- Left side column. contains the sidebar -->
+	<aside class="main-sidebar">
+		<!-- sidebar: style can be found in sidebar.less -->
+		<section class="sidebar">
+			<!-- Sidebar user panel -->
+			[@user_panel /]
+			<!-- search form -->
+			[@sidebar_form /]
+			<!-- /.search form -->
+			<!-- sidebar menu: : style can be found in sidebar.less -->
+			<ul class="sidebar-menu">
+				<li class="header">主面板</li>
+				[@menustag id=1]
+				[#list list as item]
+				[@menu item "1,22,24"]
+				[/@menu]
+				[/#list]
+				[/@menustag]
+			</ul>
+		</section>
+		<!-- /.sidebar -->
+	</aside>
+
+	<!-- =============================================== -->
+
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>
+				个人简历
+				<small>Version 2.0</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li ><a href="${siteurl}admin/resume/view_list.htm">简历管理</a></li>
+				<li class="active">${(model.member.name)!""}简历</li>
+			</ol>
+		</section>
+		<!-- Main content -->
+		<section class="content">
+			<h4>基本信息</h4>
+			<div>
+				<dl class="dl-horizontal">
+					<dt>姓名</dt>
+					<dd>${(model.member.name)!""}</dd>
+				</dl>
+			</div>
+
+
+			[#if model.workExperiences??]
+          	<h4>工作经验</h4>
+			[#list model.workExperiences as item]
+			<div>
+				<dl class="dl-horizontal">
+					<dt>所在公司</dt>
+					<dd>${item.companyName!""}</dd>
+					<dt>工作时间</dt>
+					<dd>${(item.startDate?string('yyyy-MM-dd'))!""}--${(item.endDate?string('yyyy-MM-dd'))!"至今"}</dd>
+					<dt>职位</dt>
+					<dd>${item.post!""}</dd>
+					<dt>工作内容</dt>
+					<dd>${item.note!""}</dd>
+				</dl>
+			</div>
+			[/#list]
+            [/#if]
+			[#if model.educationalExperiences??]
+			<h4>教育经历</h4>
+			[#list model.educationalExperiences as item]
+			<div>
+				<dl class="dl-horizontal">
+					<dt>所在学习</dt>
+					<dd>${item.schoolName!""}</dd>
+					<dt>毕业时间</dt>
+					<dd>${item.year!""}</dd>
+					<dt>所学专业</dt>
+					<dd>${item.major!""}</dd>
+					<dt>学历</dt>
+					<dd>${(item.degree.name)!""}</dd>
+				</dl>
+			</div>
+			[/#list]
+			[/#if]
+
+			[#if model.projectExperiences??]
+			<h4>项目经验</h4>
+			[#list model.projectExperiences as item]
+			<div>
+				<dl class="dl-horizontal">
+					<dt>项目名称</dt>
+					<dd>${item.name!""}</dd>
+					<dt>项目时间</dt>
+					<dd>${(item.startDate?string('yyyy-MM-dd'))!""}--${(item.endDate?string('yyyy-MM-dd'))!"至今"}</dd>
+					<dt>职务</dt>
+					<dd>${item.duty!""}</dd>
+					<dt>工作描述</dt>
+					<dd>${(item.note)!""}</dd>
+				</dl>
+			</div>
+			[/#list]
+			[/#if]
+
+
+			<h4>期望工作</h4>
+			<div>
+				<dl class="dl-horizontal">
+					<dt>期望职位</dt>
+					<dd>${model.expjobName!""}</dd>
+				</dl>
+				<dl class="dl-horizontal">
+					<dt>职位类型</dt>
+					<dd>${(model.workType.name)!""}</dd>
+				</dl>
+				<dl class="dl-horizontal">
+					<dt>期望城市</dt>
+					<dd>${(model.city.name)!""}</dd>
+				</dl>
+				<dl class="dl-horizontal">
+					<dt>期望月薪</dt>
+					<dd>${(model.salary.name)!""}</dd>
+				</dl>
+				<dl class="dl-horizontal">
+					<dt>补充说明（若有）</dt>
+					<dd>${(model.otherNote)!""}</dd>
+				</dl>
+			</div>
+
+
+			[#if model.skills??]
+			<h4>技能评价</h4>
+			[#list model.skills as item]
+			<div>
+				<dl class="dl-horizontal">
+					<dt>${item.name!""}</dt>
+					<dd>${item.score!""}分</dd>
+				</dl>
+			</div>
+			[/#list]
+			[/#if]
+
+		</section>
+		<!-- /.content -->
+	</div>
+	<!-- /.content-wrapper -->
+
+	[#include "/admin/common/footer.html"]
+
+	<!-- Control Sidebar -->
+	[#include "/admin/common/aside.html"]
+
+	<!-- /.control-sidebar -->
+	<!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+	<div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="${siteurl}bootstrap/js/bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="${siteurl}plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="${siteurl}plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="${siteurl}dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="${siteurl}dist/js/demo.js"></script>
+</body>
+</html>

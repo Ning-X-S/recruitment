@@ -1,0 +1,74 @@
+[#macro companyright]
+<div class="item_container" id="basic_container">
+    <div class="item_ltitle">公司基本信息</div>
+    <div class="item_content" style="min-height: 250px;">
+        <ul>
+            <!--<li>
+                <i class="type"></i>
+                <span>${(model.industry.name)!""}</span>
+            </li>-->
+            <!--<li>
+                <i class="process"></i>
+                <span>${(model.financing.name)!""}</span>
+            </li>-->
+            <li>
+                <span style="color: #000;">规模：</span>
+                <span>${(model.scale.name)!""}</span>
+            </li>
+            <li>
+                <span style="color: #000;">城市：</span>
+                <span>${(model.city.name)!""}</span>
+            </li>
+            <li>
+                <span style="color: #000;">简介：</span>
+                <span>${(model.other)!""}</span>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+[#if model.users?? && model.users?size>0]
+<div class="company_managers item_container" id="company_managers">
+    <div class="item_ltitle">管理团队</div>
+    <div class="company_mangers_item">
+        <div class="managelist_wrap"  >
+            <ul class="manager_list">
+                [#list model.users as item]
+                <li class="item_has rotate_item  rotate_active ">
+                    <img class="item_manger_photo_show"
+                         src="${item.avatar!''}"
+                         alt="创始人头像" width="118" height="118"/>
+                    <p class="item_manager_name">
+                        <span>${item.name!""}</span>
+                    </p>
+                    <p class="item_manager_title">${item.position!""}</p>
+                    <div class="item_manager_content"><p style="padding-left: 10px;">${item.note!""}</p></div>
+                </li>
+                [/#list]
+            </ul>
+        </div>
+    </div>
+</div>
+[/#if]
+
+
+[#if model.labels?? && model.labels?size>0]
+<div class="tags_container item_container" id="tags_container">
+    <div class="item_ltitle">公司标签</div>
+    <div class="tags_warp">
+        <div class="item_content">
+            <ul class="item_con_ul clearfix">
+
+                [#list model.labels as item]
+                <li class="con_ul_li">
+                    ${item.name!""}
+                </li>
+                [/#list]
+
+            </ul>
+        </div>
+    </div>
+</div>
+[/#if]
+[/#macro]

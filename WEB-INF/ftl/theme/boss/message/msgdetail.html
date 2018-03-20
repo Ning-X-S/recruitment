@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "我的消息" cssNames = [
+        "pkg/message/page/index/main.html_aio_bf14db1.css",
+        "pkg/message/page/index/main.html_aio_2_d7f5ffd.css"
+    ]/]
+    <style>
+        body{
+            background-color: #ffffff;
+        }
+        #messageContaner .content-left {
+            border-right: none;
+            width: 100%;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+<!-- header -->
+[#include "/theme/default/common/navBar.html"]
+[#include "/theme/default/common/common.html"]
+
+[@navBar /]
+
+<!-- 页面主体START -->
+<div class="container clearfix" id="messageContaner">
+
+    <div class="content-left">
+        <div class="left-wrap">
+
+            <div class="setting-box">
+                <h2 class="main-title">我的消息</h2>
+                <div class="setting-btn">
+                    <!--<a href="${siteurl}message/settingsdetail.htm">设置</a>-->
+                </div>
+            </div>
+            <div class="category-tab">
+                <div class="item-wrap">
+                    <ul class="tab" id="tabContainer">
+                        <li class="tab-item active"><a href="#all">全部</a></li>
+                        <li class="sep"><span>|</span></li>
+                        <li class="tab-item"><a href="#deliver">投递反馈</a></li>
+                        <li class="sep"><span>|</span></li>
+                        <li class="tab-item"><a href="#plus">职位邀请</a></li>
+                        <li class="sep"><span>|</span></li>
+                        <li class="tab-item"><a href="#community">言职社区</a></li>
+                        <li class="sep"><span>|</span></li>
+                        <li class="tab-item"><a href="#system">系统通知</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="twrap">
+                <div class="loading-layout" id="loadingLayout" style="display: none;"></div>
+                <div class="tab-content" id="msgContent">
+                    <div class="t-content-item active" data-id="#all" data-tag="">
+                        <ul class="msg-list" id="allListContainer">
+                            <li class="msg-box">
+                                <div class="msg-body">
+                                    <div class="msg-type"><i class="msg-avant system-v"></i></div>
+                                    <div class="msg-content clearfix">
+                                        <div class="msg-head clearfix">
+                                            <div class="fl">社区消息</div>
+                                            <div class="fr">2017-08-29 14:17</div>
+                                        </div>
+                                        <div class="info">
+                                            <!-- TODO 标题字数限制40，详情限制1000，无后台落地页面，消息不可点击 -->
+                                            <p class="community-info">
+                                                <a target="_blank" href="${siteurl}skills/5.htm">
+                                                    很遗憾，你的提问<span class="highlight">在石榴花科技工作是一种什么样的体验？</span>未通过审核
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="item_con_pager" data-container-id="allListContainer" data-template-id="msgListTpl" data-keyword=""></div>
+                    </div>
+
+                    <div class="t-content-item" data-id="#deliver"  data-tag="DELIVER">
+                        <ul class="msg-list" id="applyListContainer">
+                            [@noMsg /]
+                        </ul>
+                        <div class="item_con_pager" data-container-id="applyListContainer" data-template-id="msgListTpl" data-keyword=""></div>
+                    </div>
+
+                    <div class="t-content-item" data-id="#plus" data-tag="PLUS">
+                        <ul class="msg-list" id="invitationListContainer">
+                            <li class="msg-box">
+                                <div class="msg-body">
+                                    <div class="msg-type"><i class="msg-avant system-v"></i></div>
+                                    <div class="msg-content clearfix">
+                                        <div class="msg-head clearfix">
+                                            <div class="fl">社区消息</div>
+                                            <div class="fr">2017-08-29 14:17</div>
+                                        </div>
+                                        <div class="info">
+                                            <!-- TODO 标题字数限制40，详情限制1000，无后台落地页面，消息不可点击 -->
+                                            <p class="community-info">
+                                                <a target="_blank" href="${siteurl}skills/5.htm">
+                                                    很遗憾，你的提问<span class="highlight">在石榴花科技工作是一种什么样的体验？</span>未通过审核
+                                                </a>
+
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="item_con_pager" data-container-id="invitationListContainer" data-template-id="msgListTpl" data-keyword=""></div>
+                    </div>
+
+                    <div class="t-content-item" data-id="#community" data-tag="COMMUNITY">
+                        <ul class="msg-list" id="communityContainer">
+                            [@noMsg /]
+                        </ul>
+                        <div class="item_con_pager" data-container-id="communityContainer" data-template-id="msgListTpl" data-keyword=""></div>
+                    </div>
+
+                    <div class="t-content-item" data-id="#system" data-tag="SYSTEM">
+                        <ul class="msg-list" id="systemListContainer">
+                            [@noMsg /]
+                        </ul>
+                        <div class="item_con_pager" data-container-id="systemListContainer" data-template-id="msgListTpl" data-keyword=""></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 页面主体END -->
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+<script>
+    (function ($) {
+
+        $('#tabContainer').on('click', 'li.tab-item', function (e) {
+            resetCls();
+            $(this).addClass('active');
+            var href = $(this).find('a').attr('href');
+            $('div[data-id="'+ href +'"]').addClass('active');
+        });
+
+        function resetCls() {
+            var cls = $('#tabContainer li');
+            for (var i = 0; i < cls.length; i++) {
+                var obj = cls[i];
+                $(obj).removeClass('active');
+            }
+            var conts = $('.t-content-item');
+            for (var j = 0; j < conts.length; j++) {
+                var obj2 = conts[j];
+                $(obj2).removeClass('active');
+            }
+        }
+
+    })(jQuery);
+</script>
+</body>
+</html>

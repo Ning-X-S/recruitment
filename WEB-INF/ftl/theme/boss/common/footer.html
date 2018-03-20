@@ -1,0 +1,36 @@
+<div id="footer" class="footer">
+    <div class="wrapper">
+        <i class="footer_lagou_icon"></i>
+        <div class="inner_wrapper">
+            <a href="https://weibo.com/u/6457110177" target="_blank" rel="nofollow">寻鹰微博</a>
+            <a id="weixin" class="footer_wechat" href="javascript:;" rel="nofollow">寻鹰微信
+                <img id="weixinQR" width="160" height="160" src="${siteurl}dist/img/weixin.png" style="display: none; opacity: 1;">
+            </a>
+            <!--<a href="https://www.lagou.com/qa.html?t=1" target="_blank" rel="nofollow">帮助中心</a>-->
+            <a href="${siteurl}about.htm" target="_blank" rel="nofollow">联系我们</a>
+            <span class="tel">服务热线：<em>15000984049 18088320160</em></span>
+        </div>
+        <div class="copyright">
+            <span><em>©</em>${.now?string("yyyy")} 寻鹰招聘</span>
+            <a target="_blank" href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" rel="nofollow">沪ICP备18005409号-1</a>
+            <a target="_blank" href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" rel="nofollow">沪ICP备18005409号</a>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="${siteurl}plugins/sweetalert/sweetalert.css">
+<script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="${siteurl}dist/js/toolbar.js"></script>
+<script src="${siteurl}plugins/sweetalert/sweetalert.min.js"></script>
+<script>
+    [#if msg?? && msg != ""]
+    swal("成功!", "${msg}", "success")
+    [/#if]
+        function showAlert(content, msg, type) {
+            swal(content, msg, type)
+        }
+        $("#weixin").hover(function () {
+            $('#weixinQR').show();
+        },function () {
+            $('#weixinQR').hide();
+        })
+</script>

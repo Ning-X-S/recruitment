@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header_hr.html"]
+    [@header_hr title="个人信息" cssNames=[
+    "mds/static/pkg/settings/page/members/main.html_aio_2d4f728.css"
+    ]/]
+</head>
+
+<body>
+
+[#include "/theme/default/common/commonhr.html"]
+[@header index=4/]
+
+[#include "/theme/default/hr/settings/common_search.html"]
+
+<div id="main-content-wrapper">
+
+    <div class="container">
+        <div class="setting-pannel">
+            <div class="head clearfix">
+                <div class="title">招聘设置</div>
+            </div>
+            <div class="menu-container head-son clearfix" id="recruit-menu">
+                [@settab index=5]
+                <div class="set-tool fr">
+                    <div class="add-member add-menu invite" data="ivite-new">
+                        <i class="icon-add" style="font-size: 14px;"></i>
+                        邀请同事
+                    </div>
+                </div>
+                [/@settab]
+            </div>
+            <div class="member-table panel panel-default">
+                <table class="table table-striped " style="overflow: visible">
+                    <tr data-item="2573158">
+                        <td>
+                            <span class="photo bg_2">li</span>
+                            <span class="member-name" title="lianbin">lianbin</span>
+                            <span>(管理员)</span>
+                        </td>
+                        <td>
+                            <span>lianbin@shiliuflower.com</span>
+                        </td>
+                    </tr>
+                    <tr data-item="8817112">
+                        <td>
+                            <span class="photo bg_0">陈坤</span>
+                            <span class="member-name" title="陈坤">陈坤</span>
+                            <span></span>
+                        </td>
+                        <td>
+                            <span>2601035599@qq.com</span>
+                        </td>
+                        <td class="options">
+                            <span class="remove  ">移出本公司</span><span>|</span><span class="transfer  ">转让管理员</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <form action="" id="memberPageForm"></form>
+        </div>
+    </div>
+</div>
+<!--邀请弹窗内容-->
+<script type="text/html" id="inviteForm">
+    <div class="modal-body clearfix">
+        <div class="invite-box">
+            <div class="invite-title"><span>通过公开链接邀请</span></div>
+            <div class="invite-descriptions">将下面的公共邀请链接通过QQ、微信等任何方式发给同事，即可点击加入公司。</div>
+            <div class="input-group invite-input">
+                <input id="invite-input-url" type="text" class="input" placeholder="Recipient's username" style="border-right: none;">
+                <button class="btn btn_green btn_active" id="basic-addon2">复制链接</button>
+            </div>
+            <div class="invite-tips">注意：任何看到邀请链接的人，都可以申请加入公司。意外泄漏请<a>重新生成邀请链接</a></div>
+
+        </div>
+        <div class="invite-line">    </div>
+        <div class="invite-box">
+            <div class="invite-title"><span>通过邮件邀请</span></div>
+            <div class="invite-descriptions">你可以发送邀请给指定的邮箱，对方只需进行个人帐号设置即可直接加入公司，链接有效期7天。</div>
+            <div class="form-group invite-input invite-email invite-email-list clearfix">
+                <input type="email" class="input" placeholder="请输入同事的邮箱">
+            </div>
+            <div class="invite-email-add" id="invite-email-add"><span>+</span>再加一个</div>
+
+            <div class="filter-gridview-box" style="margin: 18px 0 0 0;">
+                <div class="share-checkbox" style="display: none;">
+                    <label for="sharePosition" class="box_checkbox">
+
+                        <input type="checkbox" value="" id="sharePosition" class="checkbox" data-text="" style="display: none;">
+                        <span class="checkbox_icon"></span>
+
+                    </label>
+                    同时将职位共享给他们
+                </div>
+                <div class="share-position-info" style="display: none;">对方将能够查看和处理该职位下的所有简历，并参与到该职位的招聘流程。</div>
+                <div class="top-head" style="display: none;">
+                    <span class="title">共享职位</span>
+                    <div class="fr">
+                        <a class="search">搜索</a>
+                        <div class="options">
+                            <a class="selectAll">全选</a>
+                            <a class="selectNone">清空</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="filterInput" style="display: none;"><input class="input" placeholder="查找职位"> </div>
+                <div class="filter-gridview" style="display: none;" data-propertyname="filterGridView"><table class="table"></table></div>
+            </div>
+
+            <button class="btn btn_green btn_active invite-email-submit">发送邀请</button>
+
+        </div>
+    </div>
+</script>
+[#include "/theme/default/hr/settings/common_footer.html"]
+[#include "/theme/default/common/footer.html"]
+
+</body>
+</html>
+

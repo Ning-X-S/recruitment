@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title ="推荐赚钱" cssNames = [
+
+    ]/]
+    <!-- 引入Vue -->
+    <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/at-ui-style/css/at.min.css">
+    <!-- 引入组件库 -->
+    <script src="//cdn.jsdelivr.net/npm/at-ui/dist/at.min.js"></script>
+    <style type="text/css">
+        #container{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+        }
+        .head{
+            background-color: #f2f5f4;
+            padding: 30px 0 11px;
+        }
+        .head-content{
+            display: flex;
+            flex-direction: column;
+        }
+        .head-top{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .h-t-l{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 0 13px;
+        }
+        .h-t-r{
+            margin-top: 10px;
+        }
+        .collection{
+            color: #0099ff;
+            width: 100px;
+            height: 50px;
+        }
+        .recommend{
+            color: #fff;
+            background-color: #0099ff;
+            width: 140px;
+            height: 50px;
+            margin-left: 10px;
+        }
+        .company-name{
+            color: #555;
+            font-size: 14px;
+            margin: -2px 0 8px 0;
+        }
+        .job-name{
+            font-size: 36px;
+            color: #333;
+            line-height: 36px;
+        }
+        .head-bot{
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .head-bot p{
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        .salary{
+            font-size: 18px;
+            color: #fd5f39;
+        }
+        .job-label{
+            display: flex;
+            flex-direction: row;
+        }
+        .labels{
+            height: 22px;
+            margin-right: 8px;
+            padding: 0 10px;
+            line-height: 22px;
+            background-color: #fff;
+            color: #70797b;
+            font-size: 12px;
+            border-radius: 10px;
+        }
+        .publish-time{
+            font-size: 14px;
+            padding-top: 10px;
+            color: #999;
+        }
+        .at-btn__text {
+            font-size: 18px;
+        }
+        .at-btn:hover {
+            background-color: #0099ff;
+            color: #fff;
+        }
+        .at-btn__icon, .at-btn__loading {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .content{
+            display: flex;
+            flex-direction: row;
+        }
+        .content-l{
+            display: flex;
+            flex-direction: column;
+            padding-top: 26px;
+            background: url(/web/dist/third/job-detail/page/index/img/gradient_e624ed8.png) repeat-y;
+            background-position: right;
+        }
+        .job-detail dd{
+            padding: 15px 0 10px;
+            color: #333;
+            word-wrap: break-word;
+        }
+        .advantage{
+            font-size: 16px;
+            color: #333;
+            font-weight: 700;
+        }
+        .job-bt{
+            font-size: 14px;
+            line-height: 22px;
+        }
+        .description{
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            line-height: 16px;
+            margin-bottom: 22px;
+            margin-top: 5px;
+        }
+        .job-address{
+            padding-top: 25px;
+            margin-top: -26px;
+            margin-bottom: 10px;
+        }
+        .address{
+            font-size: 16px;
+            color: #333;
+            font-weight: 700;
+        }
+        .job-publisher{
+            padding: 5px 0 10px;
+            position: relative;
+            margin-top: 38px;
+            margin-bottom: 40px;
+        }
+        .job-publisher h3{
+            width: 90px;
+            height: 22px;
+            margin: 0 0 0 -45px;
+            position: absolute;
+            left: 44px;
+            top: -24px;
+            z-index: 2;
+            font-size: 16px;
+            line-height: 22px;
+            color: #333;
+            font-weight: 700;
+            text-align: center;
+        }
+        .job-publisher .border{
+            height: 70px;
+            padding: 14px 10px;
+            padding-left: 10px;
+            padding-left: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .job-publisher .border img{
+            position: absolute;
+            left: 0;
+            top: 14px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+        }
+        .publisher-name{
+            float: left;
+        }
+        .publisher-name span.name{
+            float: left;
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0 0 65px;
+            max-width: 140px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .publisher-name span.pos{
+            clear: left;
+            float: left;
+            font-size: 14px;
+            color: #999;
+            margin: 5px 0 5px 65px;
+            max-width: 120px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .content-r{
+            display: flex;
+            flex-direction: column;
+            padding: 26px 0 0 20px;
+        }
+        .job_company dt{
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+[#include "/theme/default/common/navBar.html"]
+
+[@navBar /]
+
+<div id="container">
+    <div class="head">
+        <div class="head-content col-md-offset-3 col-md-18">
+            <div class="head-top">
+                <div class="h-t-l">
+                    <div class="company-name">瑞丽航空有限公司招聘</div>
+                    <span class="job-name">教务专员</span>
+                </div>
+                <div class="h-t-r">
+                    <at-button icon="icon-star" class="collection" hollow="true">收藏</at-button>
+                    <at-button icon="icon-thumbs-up" class="recommend">推荐简历</at-button>
+                </div>
+            </div>
+            <div class="head-bot">
+                <p>
+                    <span class="salary">10~20K</span>
+                    <span>/ /</span>
+                    <span>5-10年</span>
+                    <span>硕士 /</span>
+                    <span>全职</span>
+                </p>
+                <ul class="job-label">
+                    <li class="labels">五险一金</li>
+                    <li class="labels">带薪年假</li>
+                    <li class="labels">节日福利</li>
+                </ul>
+                <div class="publish-time">10天前  发布于寻鹰</div>
+            </div>
+        </div>
+    </div>
+    <div class="content col-md-offset-3 col-md-18">
+        <div class="content-l col-md-18">
+            <dl class="job-detail">
+                <dd class="job-advantage">
+                    <h3 class="advantage">职位诱惑：</h3>
+                    <p>五险一金,年终奖励,餐补</p>
+                </dd>
+                <dd class="job-bt">
+                    <h3 class="description">职位描述：</h3>
+                    <div>
+                        <p>【注：需要美国留学背景】【注：需要美国留学背景】</p>
+                        <p><br></p>
+                        <p>岗位职责</p>
+                        <p>1、协助 CEO 对各部门工作进行追踪;</p>
+                        <p>2、安排总经理日常工作行程包括会议记录;</p>
+                        <p>3、参与对外商业合作、谈判及关系维护;</p>
+                        <p>4、部分行政事务跟进。</p>
+                        <p>任职要求</p>
+                        <p>1、英语听说读写能达到八级以上水平，笔译熟练，口语非常流利，能参与国际业务拓展、合作及谈判;&nbsp;</p>
+                        <p>2、有美国留学背景，本科及以上学历，金融、工商管理、市场营销、新闻、英语等专业优先;&nbsp;</p>
+                        <p>3、有良好的商务礼仪素质，形象端庄、气质大方，有良好的沟通协调能力和观察力，有良好的全局观和整体驾驭能力;&nbsp;</p>
+                        <p>4、具有良好的团队及服务意识，责任心强，有较强的跨部门协调能力及优秀的危机公关能力;&nbsp;</p>
+                        <p>5、有投行、券商、银行工作经历者优先。</p>
+                        <p><br></p>
+                        <p>【注：需要美国留学背景】【注：需要美国留学背景】</p>
+
+                    </div>
+                </dd>
+                <dd class="job-address">
+                    <h3 class="address">工作地址</h3>
+                    <span>岳麓大道588号芯城科技园3栋5层</span>
+                </dd>
+                <dd class="job-publisher">
+                    <h3>职位发布者:</h3>
+                    <div class="border">
+                        <img src="//www.lgstatic.com/thumbnail_120x120/i/image2/M00/11/CE/CgoB5lntSTeAEQ4qAAAjVRcCn5w534.png" height="60" width="60">
+                        <div class="publisher-name">
+                            <span class="name">刘先生</span>
+                            <span class="pos"> 招聘经理 </span>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="content-r col-md-6">
+            <dl class="job_company" id="job_company">
+                <dt>
+                    <a href="/web/company/56.htm" target="_blank" data-lg-tj-track-code="jobs_logo">
+                        <img class="b2" src="http://img.yingjobs.com/upload/image/201802/c48297ab-eb76-4c35-bc60-89eeb873675c.jpg" alt="青岛九天国际飞行学院" height="96" width="96">
+                        <div>
+                            <h2 class="fl">
+                                <i class="icon-glyph-valid"></i>
+                            </h2>
+                        </div>
+                    </a>
+                </dt>
+                <dd>
+                    <ul class="c_feature">
+                        <li>
+                            <i class="icon-glyph-fourSquare"></i>  航空公司
+                        </li>
+                        <li>
+                            <i class="icon-glyph-figure"></i>少于15人
+                        </li>
+                        <li>
+                            <i class="icon-glyph-home"></i>
+                            <a href="http://www.jtfa.cn/" target="_blank" title="http://www.jtfa.cn/&quot;" rel="nofollow">http://www.jtfa.cn/</a>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<script>
+    new Vue({
+        el: '#container',
+        data: {
+            inputValue: ''
+        },
+        methods: {
+
+        }
+    })
+</script>
+</body>
+</html>

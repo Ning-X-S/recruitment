@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header_hr.html"]
+    [@header_hr title="个人信息" cssNames=[
+        "mds/static/pkg/settings/page/usercopy/main.html_aio_bd8f74a.css"
+    ]/]
+</head>
+
+<body>
+
+[#include "/theme/default/common/commonhr.html"]
+[@header index=4/]
+
+[#include "/theme/default/hr/settings/common_search.html"]
+
+<div id="main-content-wrapper">
+
+    <div class="container">
+        <div class="setting-pannel">
+            <div class="head clearfix">
+                <div class="title">招聘设置</div>
+            </div>
+            <div class="menu-container head-son clearfix" id="recruit-menu">
+               [@settab index=8 /]
+            </div>
+            <div class="setting-container">
+                <div class="container-title" id="container-copyer">
+                    <i class="icon-checkedbox"></i>
+                    <span>简历加载完成后自动开启复制</span>
+                </div>
+                <div class="container-containts">
+                    <div>*勾选此项将影响简历加载速度。</div>
+                    <div>**为提高简历加载速度，我们对简历进行了优化，但是优化后的简历内信息无法复制（可在简历预览页点击按钮开启复制）。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="groupSharePosition">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close icon-close" data-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body clearfix">
+                    <div class="invite-box">
+                        <div class="invite-title">批量共享职位</div>
+                        <div class="invite-descriptions">职位招聘者能够查看和处理该职位下的所有简历，并参与到该职位的招聘流程。</div>
+                        <div class="filter-select" data-propertyname="sharefilterSelect"><input class="input" placeholder="查找同事" /> </div>
+                        <div class="recruiter-list">
+                            <ul data-propertyname="GroupAddRecruiterMemberCheckBoxList" class="member_checkbox_list clearfix"></ul>
+                        </div>
+                        <div class="filter-gridview-box">
+                            <div class="top-head">
+                                <span class="title">共享职位</span>
+                                <div class="fr">
+                                    <a class="search">搜索</a>
+                                    <div class="options">
+                                        <a class="selectAll">全选</a>
+                                        <a class="selectNone">清空</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filterInput"><input class="input" placeholder="查找职位"> </div>
+                            <div class="filter-gridview" data-propertyname="filterGridView"></div>
+                        </div>
+                        <button class="btn btn_green btn_active submit">共享</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+[#include "/theme/default/common/footer.html"]
+
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+<div class="side fl">
+    [@shiro.guest]
+    <div class="user_card">
+        <div class="user_card_login" id="userCardLogin">
+            <div class="user_card_login_box">
+                <div class="avatar">
+                    <a rel="nofollow" class="passport_login_pop" href="${siteurl}frontLogin.do">
+                        <img src="//static.lagou.com/www/static/community/modules/common/img/avatar_default_7225407.png" width="96" height="96">
+                    </a>
+                </div>
+                <p class="title">
+                    Hi,<span>你好</span>
+                </p>
+                <p class="subtitle">
+                    登录后可以blablabla~
+                </p>
+                <div class="toolbar">
+                    <a rel="nofollow" class="btn login_btn passport_login_pop" href="${siteurl}frontLogin.do">登录</a>
+                    <a rel="nofollow" class="btn btn_invert register_btn" href="${siteurl}frontRegister.do">注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="more_topic_link btn btn_invert" href="${siteurl}topic/list.htm">查看更多话题</a>
+    [/@shiro.guest]
+    [@shiro.authenticated]
+    <!--已登录-->
+    <div class="user_card">
+        <div class="user_card_normal" id="userCardNormal">
+            <div class="user_card_normal_box">
+                <div class="userinfo_base clearfix">
+                    <div class="avatar">
+                        <a href="" target="_blank">
+                            <img src="${user.avatar!}" width="96" height="96" alt="${user.name!}">
+                        </a>
+                    </div>
+                    <div class="username">
+                        <a href="${siteurl}account/userInfo.htm" target="_blank">
+                            <span>${(user.name)!''}</span>
+                            <!--<i class="boy">${(user.sex)!''}</i>-->
+                        </a>
+                    </div>
+                </div>
+                <a class="userinfo_edit" href="${siteurl}account/userInfo.htm" target="_blank" style="color: #0099ff;">编辑</a>
+                <p class="userinfo_job" title="我还没填写职业信息"><a href="" target="_blank">${user.position!""}</a></p>
+                <p class="userinfo_intro" title="我还没填写个人介绍"><a href="" target="_blank">${user.introduce!""}</a></p>
+                <a class="ask_btn btn new_question_btn" href="${siteurl}resume/myresume.htm">查看我的简历</a>
+            </div>
+        </div>
+    </div>
+    [/@shiro.authenticated]
+</div>

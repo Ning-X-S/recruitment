@@ -1,0 +1,19 @@
+[#macro header_hr title cssNames]
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="renderer" content="webkit">
+<meta charset="UTF-8">
+
+<title>${title!'寻鹰网'}</title>
+
+<link rel="stylesheet" type="text/css" href="${siteurl}dist/css/base.css">
+<link rel="stylesheet" type="text/css" href="${siteurl}dist/css/mCustomScrollerbar.css">
+<link rel="stylesheet" type="text/css" href="${siteurl}dist/css/layout.css">
+<link rel="stylesheet" type="text/css" href="${siteurl}dist/css/widgets.css">
+<link rel="Shortcut Icon" href="${siteurl}dist/img/favicon-2017110110271267.ico">
+<link rel="stylesheet" type="text/css" href="${siteurl}dist/third/mds/static/common/static/less/parent.base_5abf53c.css">
+<link rel="stylesheet" type="text/css" href="${siteurl}plugins/layer/theme/default/layer.css">
+[#list cssNames as cssName]
+<link rel="stylesheet" type="text/css" href="${siteurl}dist/third/${cssName}">
+[/#list]
+<link rel="stylesheet" type="text/css" href="${siteurl}dist/less/footer.css">
+[/#macro]

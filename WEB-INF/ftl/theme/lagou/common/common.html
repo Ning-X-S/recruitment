@@ -1,0 +1,156 @@
+[#macro header]
+
+<div id="lg_header">
+
+    <!--C端头部黑色导航-->
+    <div id="lg_tbar">
+
+        <div class="inner">
+
+            <div class="lg_tbar_l">
+                <a rel="nofollow" href="https://www.lagou.com/app/download.htm" class="lg_app" data-lg-tj-id="5500" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" target="_blank">拉勾APP</a>
+                <a rel="nofollow" href="https://easy.lagou.com/dashboard/index.htm?from=c_index" class="lg_os" data-lg-tj-id="5600" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-tj-track-code="index_qiyeban">企业免费入驻</a>
+            </div>
+
+            [@shiro.authenticated]
+            <ul class="lg_tbar_r">
+                <!-- if has unread message, add class unreaded -->
+                <li class="msg_dropdown" data-lg-tj-track-code="index_message">
+                    <a class="msg_group" href="javascript: void 0;" data-lg-tj-id="5h00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow">
+                        消息
+                        <em class="msg_amount hide" id="headMsgAmount"></em>
+                    </a>
+                    <div class="lg_msg_popup">
+                        <div class="lg_msg_pu_body mCustomScrollbar _mCS_1" id="lgPopupMsgBody" style="overflow: hidden;"><div class="mCustomScrollBox mCS-dark-2" id="mCSB_1" style="position: relative; height: 100%; overflow: hidden; max-width: 100%; max-height: 250px;"><div class="mCSB_container mCS_no_scrollbar" style="position:relative; top:0;">
+                            <ul class="lg_top_msg_list">
+
+
+
+
+
+
+                                <!-- 三个为什么消息 -->
+
+                                <li class="lg_msg_item "><div>
+                                    <a class="detail" target="_blank" href="https://yanzhi.lagou.com/user/userIndex-2573158.html" data-lg-tj-id="18q0" data-lg-tj-no="idnull" data-lg-tj-cid="2573158">
+                                        很遗憾，你的提问<span class="empha">在石榴花科技工作是一种什么样的体验？</span>未通过审核
+                                    </a>
+                                </div></li>
+
+
+
+                            </ul>
+
+                        </div><div class="mCSB_scrollTools" style="position: absolute; display: none;"><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position:relative;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+                        <div class="lg_msg_pu_footer">
+                            <a href="${siteurl}settingsdetail.htm" target="_blank" class="lg_msg_setting fl"><i class="lg_msg_avatar setting_i" data-lg-tj-id="18B0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull"></i>&nbsp;</a>
+                            <a href="${siteurl}message/msgdetail.htm" class="lg_msg_more fr" data-lg-tj-id="18A0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">查看更多</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="${siteurl}resume/myresume.htm" class="bl" data-lg-tj-id="5700" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow" data-lg-tj-track-code="index_resume">我的简历</a>
+                </li>
+                <li>
+                    <a href="${siteurl}mycenter/delivery.htm" class="bl" id="deliveryLink" data-lg-tj-id="5800" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow" data-lg-tj-track-code="index_deliver" data-lg-tj-track-type="1">投递箱</a>
+                    <em class="noticeDot dn" id="noticeDot_delivery"></em>
+                </li>
+                <li>
+                    <a href="${siteurl}mycenter/collections.htm" class="bl" data-lg-tj-id="5900" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow" data-lg-tj-track-code="index_favorite" data-lg-tj-track-type="1">收藏夹</a>
+                </li>
+                <li class="user_dropdown" data-lg-tj-track-code="index_user">
+                    <span class="unick bl">lianbin@shiliuf</span>
+                    <em class="noticeDot dn" id="noticeDot_name"></em>
+                    <i></i>
+                    <ul>
+                        <!--<li>-->
+                            <!--<a href="${siteurl}mycenter/subscribe.htm" data-lg-tj-id="5a00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow">我的订阅</a>-->
+                        <!--</li>-->
+                        <li>
+                            <a href="${siteurl}mycenter/invitation.htm" id="invitationLink" data-lg-tj-id="5b00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow" data-lg-gatj-msg="header_c,职位邀请,number">职位邀请</a>
+                            <em class="noticeDot dn" id="noticeDot_invitation"></em>
+                        </li>
+
+                        <li>
+                            <a href="${siteurl}account/userInfo.htm" data-lg-tj-id="5c00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow">帐号设置</a>
+                        </li>
+
+                        <li>
+                            <a href="${siteurl}hr/index.htm?from=c_index" data-lg-tj-id="5d00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow">去企业版</a>
+                        </li>
+
+                        <li>
+                            <a href="${siteurl}frontLogout.htm" data-lg-tj-id="5e00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow">退出</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            [/@shiro.authenticated]
+            [@shiro.guest]
+            <ul class="lg_tbar_r">
+                <li>
+                    <a href="${siteurl}frontLogin.htm" data-lg-tj-id="5f00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow">登录</a>
+                </li>
+                <li>
+                    <a href="${siteurl}frontRegister.htm" class="bl" data-lg-tj-id="5g00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow">注册</a>
+                </li>
+            </ul>
+            [/@shiro.guest]
+
+        </div>
+
+    </div><!--end #lg_tbar-->
+
+
+    <!--C端头部白色导航-->
+    <div id="lg_tnav">
+
+        <div class="inner">
+            <div class="lg_tnav_l">
+                <a href="${siteurl}index.htm" class="lg_logo" data-lg-tj-id="5h00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">
+                    <h1>寻鹰网</h1>
+                </a>
+
+
+                <div class="suggestCity"><strong>北京站</strong><em id="changeCity_btn">[切换城市]</em></div>
+            </div>
+            <ul class="lg_tnav_wrap">
+                <li>
+                    <a href="${siteurl}index.htm" class="current" data-lg-tj-id="5i00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">首页</a>
+                </li>
+                <li>
+                    <a href="${siteurl}company/index.htm"  data-lg-tj-id="5j00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-tj-track-code="index_company">公司</a>
+                </li>
+                <li>
+                    <a href="${siteurl}company/index.htm"  data-lg-tj-id="5j00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-tj-track-code="index_company">人才</a>
+                </li>
+                <li>
+                    <a href="${siteurl}company/index.htm"  data-lg-tj-id="5j00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-tj-track-code="index_company">院校</a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="${siteurl}jobs/index.htm" data-lg-tj-id="19xc" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" target="_blank" data-lg-tj-track-code="index_campus">培训信息</a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="${siteurl}jobs/index.htm"  data-lg-tj-id="ic00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-tj-track-code="index_yanzhi">求职技巧</a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="${siteurl}jobs/index.htm"  target="_blank" data-lg-tj-id="1NI0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">企业入驻</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div><!--end #lg_tnav-->
+
+
+</div><!--end #header-->
+
+[/#macro]
+
+[#macro noMsg]
+<li class="no-msg">
+    <div class="no-msg-text">
+        <p class="lg_msg_avatar no_msg_i">暂时没有新的消息~</p>
+    </div>
+</li>
+[/#macro]

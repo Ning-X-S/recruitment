@@ -1,0 +1,366 @@
+@main-color: #0099ff;
+@logo: '//img.yingjobs.com/www/static/common/widgets/header_c/modules/img/logo_1c5763c.png';
+@banner: '../../dist/img/banner-bg_21a3371.jpg';
+@header-height: 54px;
+@logo-height: 34px;
+@body-width: 1200px;
+@import "base";
+@import "header";
+html,body{
+  padding: 0;
+  margin: 0;
+}
+.btn {
+  background-color: #0099ff;
+  border: 0 none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  min-width: 66px;
+  padding: 0 12px;
+  text-align: center;
+}
+.btn_invert {
+  background-color: transparent;
+  border: 1px solid #0099ff;
+  color: #0099ff;
+  line-height: 28px;
+}
+a {
+  background-color: transparent;
+  color: #555;
+  text-decoration: none;
+}
+.btn_invert:hover {
+  background-color: #0099ff;
+  color: #fff;
+}
+.btn:hover {
+  background-color: #0099ff;
+  color: #fff;
+}
+a:hover {
+  color: #0099ff;
+}
+.banner {
+  background: #100f06 url(@banner) no-repeat scroll center center;
+  height: 125px;
+  min-width: 1024px;
+  padding-top: 35px;
+  h2{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  h3{
+    color: #fff;
+    font-size: 26px;
+    line-height: 36px;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+}
+.container{
+  margin: 35px auto 0;
+  padding-bottom: 80px;
+  width: 1024px;
+  .content{
+    box-shadow: 5px 0 5px -5px #ededed;
+    margin-right: 40px;
+    padding-right: 40px;
+    position: relative;
+    text-align: justify;
+    width: 710px;
+    word-break: break-all;
+    .fl {
+      float: left;
+    }
+    .news{
+      margin-bottom: 30px;
+      .newsTab{
+        font-size: 0;
+        height: 30px;
+        position: absolute;
+        top: -65px;
+        li{
+          color: #fff;
+          cursor: pointer;
+          display: inline-block;
+          font-size: 18px;
+          font-weight: 700;
+          height: 18px;
+          line-height: 18px;
+          margin-right: 30px;
+          padding-bottom: 10px;
+        }
+        li.current{
+          border-bottom: 2px solid #0099ff;
+          color: #0099ff;
+        }
+      }
+      .news_list {
+        display: none;
+      }
+      .news_list.current {
+        display: block;
+      }
+      .list {
+        .news_answer{
+          .item_header {
+            position: relative;
+            .answerer_avatar{
+              left: -54px;
+              position: absolute;
+              top: 0;
+              img{
+                border-radius: 22px;
+                display: block;
+                height: 44px;
+                overflow: hidden;
+                width: 44px;
+              }
+            }
+            .supporter_avatar{
+              left: -54px;
+              position: absolute;
+              top: 0;
+              img{
+                border-radius: 22px;
+                display: block;
+                height: 44px;
+                overflow: hidden;
+                width: 44px;
+              }
+            }
+          }
+          .answerer_name, .supporter_name{
+            margin-right: 0.5em;
+            position: relative;
+            white-space: nowrap;
+            a{
+              color: #555;
+              font-size: 12px;
+            }
+            a.anonymous {
+              cursor: default;
+            }
+          }
+          .answerer_position {
+            display: inline-block;
+            max-width: 360px;
+            overflow: hidden;
+            overflow-wrap: normal;
+            text-overflow: ellipsis;
+            vertical-align: bottom;
+            white-space: nowrap;
+          }
+          .item_question {
+            margin-bottom: 18px;
+          }
+          .item_content {
+            position: relative;
+          }
+          .support_bar {
+            left: -54px;
+            position: absolute;
+            text-align: center;
+            top: 5px;
+            .support_btn::before {
+              -moz-border-bottom-colors: none;
+              -moz-border-left-colors: none;
+              -moz-border-right-colors: none;
+              -moz-border-top-colors: none;
+              border-color: transparent transparent #bcbcbc;
+              border-image: none;
+              border-style: solid;
+              border-width: 12px 7px;
+              content: "";
+              display: block;
+              height: 0;
+              left: 0;
+              position: absolute;
+              top: -12px;
+              width: 0;
+            }
+            .support_btn {
+              display: block;
+              height: 14px;
+              margin: 0 auto 6px;
+              overflow: hidden;
+              position: relative;
+              text-indent: -999em;
+              width: 14px;
+            }
+            .support_num {
+              color: #999;
+              display: block;
+              font-size: 12px;
+              line-height: 12px;
+              width: 44px;
+            }
+          }
+          .answer_thumbnail_box{
+            height: 110px;
+            margin-bottom: 5px;
+            margin-right: 14px;
+            margin-top: 5px;
+            overflow: hidden;
+            width: 180px;
+            .answer_thumbnail {
+              display: block;
+              min-height: 110px;
+              width: 180px;
+            }
+          }
+          .answer_summary{
+            margin-bottom: 5px;
+            margin-top: 25px;
+            max-height: 88px;
+            color: #777;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 22px;
+            overflow: hidden;
+            a.expand_answer {
+              color: #0099ff;
+              display: none;
+              i {
+                background-image: url("//img.yingjobs.com/www/static/community/modules/index/news/img/icon-expand@2x_f837659.png");
+                background-size: 14px 14px;
+                display: inline-block;
+                height: 14px;
+                transition: transform 0.5s ease 0s;
+                vertical-align: text-bottom;
+                width: 14px;
+              }
+            }
+            a.expand_answer:hover i {
+              -webkit-transform: rotate(-180deg);
+              -moz-transform: rotate(-180deg);
+              -o-transform: rotate(-180deg);
+              -ms-transform: rotate(-180deg);
+              transform: rotate(-180deg);
+            }
+          }
+        }
+        .item{
+          color: #333;
+          font-size: 14px;
+          .item_header {
+            color: #b1b1b1;
+            font-size: 12px;
+            height: 22px;
+            line-height: 22px;
+            margin-bottom: 4px;
+          }
+          .item_question {
+            font-size: 20px;
+            line-height: 30px;
+            margin-bottom: 6px;
+            max-height: 60px;
+            overflow: hidden;
+          }
+          .question_name a {
+            color: #333;
+            font-size: 20px;
+          }
+          .item_status {
+            height: 22px;
+            line-height: 22px;
+          }
+          .status_bar {
+            -moz-text-size-adjust: none;
+            font-size: 0;
+            span {
+              color: #b1b1b1;
+              font-size: 12px;
+            }
+            .status_item + .status_item::before {
+              content: "·";
+              display: inline-block;
+              text-align: center;
+              width: 1em;
+            }
+            .status_item + .status_item {
+              display: inline-block;
+            }
+            a {
+              color: #b1b1b1;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .side {
+    width: 234px;
+    .user_card {
+      width: 100%;
+      .user_card_login {
+        padding-bottom: 30px;
+        position: relative;
+        .avatar {
+          margin: 0 auto;
+          width: 96px;
+          img {
+            background-color: #f0f0f0;
+            border-radius: 48px;
+            display: block;
+            height: 96px;
+            overflow: hidden;
+            width: 96px;
+          }
+        }
+        p.title {
+          margin-bottom: 2px;
+          margin-top: 12px;
+        }
+        p {
+          font-size: 14px;
+          line-height: 24px;
+          text-align: center;
+        }
+        p.subtitle {
+          margin-bottom: 12px;
+        }
+        .toolbar {
+          text-align: center;
+          a.btn {
+            font-size: 15px;
+            height: 34px;
+            line-height: 34px;
+            width: 106px;
+          }
+          a.btn + a.btn {
+            line-height: 32px;
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+    .more_topic_link {
+      display: block;
+      font-size: 18px;
+      height: 46px;
+      line-height: 46px;
+      margin: -10px auto 30px;
+    }
+    .slider {
+      position: relative;
+    }
+    .slider_nav {
+      bottom: 8px;
+      position: absolute;
+      right: 8px;
+      z-index: 1;
+    }
+  }
+}

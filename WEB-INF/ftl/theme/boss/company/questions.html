@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "我的投递" cssNames = [
+        "common/widgets/country-code/main_a6d7b89.css",
+        "pkg/company-c/page/community/main.html_aio_3decc33.css"
+    ]/]
+</head>
+<body>
+<!--C端头部通栏广告位-->
+[#include "/theme/default/common/navBar.html"]
+[@navBar /]
+
+<input type="hidden" id="serverTime" value="1503988346636" />
+
+<!--
+@require "company-c/modules/common/main.less"
+@require "company-c/modules/top-info/main.less"
+-->
+<!--
+    @require "company-c/modules/event/activity1230/main.less"
+-->
+<input type="hidden" value="26399" id='companyId'>
+<div class="top_info">
+    <div class="top_info_wrap">
+        <img src="//img.yingjobs.com/thumbnail_300x300/i/image/M00/08/A0/CgqKkVbQMyOAXXZOAAEKX4X42qM875.png" alt="云图TVLogo" width="164" heihgt="164" />
+        <div class="company_info">
+            <div class="company_main">
+                <h1>
+                    <a  href="http://www.tvesou.com/" class="hovertips" target="_blank" rel="nofollow" title="珠海云迈网络科技有限公司">
+                        云图TV
+                    </a>
+                </h1>
+                <a href="http://www.tvesou.com/" class="icon-wrap" target="_blank" rel="nofollow" title="http://www.tvesou.com/">
+                    <i></i>
+                </a>
+                <a class="identification" title="拉勾认证企业">
+                    <i></i>
+                    <span>拉勾认证</span>
+                </a>
+
+                <div class="company_word">
+                    打造中国最好的手机电视直播软件                </div>
+            </div>
+            <div class="company_data">
+                <ul>
+                    <li>
+                        <strong>
+                            43个
+                        </strong>
+                        <br />
+                        <span class="tipsys" original-title="该公司的在招职位数量">
+                            <span>招聘职位</span><span class="tip"></span>
+                        </span>
+                    </li>
+                    <li>
+                        <strong>
+                            100%
+                        </strong>
+                        <span class="tipsys" original-title="该公司7日内处理简历数占收取简历数比例">
+                            <span>简历及时处理率</span><span class="tip"></span>
+                        </span>
+                    </li>
+                    <li>
+                        <strong>
+                            1天
+                        </strong>
+                        <br />
+                        <span class="tipsys" original-title="该公司7日内从简历收取到最终处理的平均用时">
+                            <span>简历处理用时</span><span class="tip"></span>
+                        </span>
+                    </li>
+                    <li>
+                        <strong>
+                            361个
+                        </strong>
+                        <br />
+                        <span class="tipsys" original-title="该公司收到的面试评价数量">
+                            <span>面试评价</span><span class="tip"></span>
+                        </span>
+                    </li>
+                    <li>
+                        <strong>今天</strong><br />
+                        <span class="tipsys" original-title="该公司职位管理者最近一次登录时间">
+                            <span>企业最近登录</span><span class="tip"></span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+@require "company-c/modules/common/main.less"
+@require "company-c/modules/tabs/main.less"
+-->
+
+<div id="company_navs" class="company_navs">
+    <div class="company_navs_wrap">
+        <ul data-pjax>
+            <li >
+                <a href="${siteurl}company/26399.htm" data-lg-tj-id="9100" data-lg-tj-no="0001" data-lg-tj-cid="idnull">公司主页</a>
+            </li>
+            <li >
+                <a href="${siteurl}company/j26399.htm" data-lg-tj-id="9100" data-lg-tj-no="0002" data-lg-tj-cid="idnull">招聘职位（42）</a>
+            </li>
+            <li >
+                <a href="${siteurl}company/j26399.htm?schoolJob=true" data-lg-tj-id="9100" data-lg-tj-no="0003" data-lg-tj-cid="idnull">校招职位（1）</a>
+            </li>
+            <li  class="current" >
+                <a href="${siteurl}company/q26399.htm" data-lg-tj-id="9100" data-lg-tj-no="0004" data-lg-tj-cid="idnull">公司问答</a>
+                <i class="icon_new"></i>
+            </li>
+        </ul>
+        <div class="company_share">
+            <span>分享</span>
+            <a href="javascript:;" class="share_weibo" rel="nofollow" title="分享到微博" data-lg-tj-id="19vs" data-lg-tj-no="0001" data-lg-tj-cid="26399"></a>
+            <a href="javascript:;" class="share_weixin" rel="nofollow" title="分享到微信" data-lg-tj-id="19vs" data-lg-tj-no="0002" data-lg-tj-cid="26399"></a>
+            <a href="javascript:;" class="share_rountline" rel="nofollow" title="微信扫一扫，用小程序打开分享" data-lg-tj-id="19vs" data-lg-tj-no="0003" data-lg-tj-cid="26399"></a>
+            <div class="share_weixin_success" id="companyQrcode">
+                <!-- <img alt="移动端公司主页二维码" /> -->
+                <div class="qrcode_box">
+                </div>
+            </div>
+            <div class="share_rountline_success" id="companyRountLineQrcode">
+                <div class="rountline_qrcode_box">
+                    <img src="" width="130" height="130">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="company_navs_shadow"></div>
+
+<div id="main_container" class="clearfix">
+    <div id="container_left">
+        <div id="containerCompanyDetails">
+            <!--
+@require "company-c/modules/common/main.less"
+@require "company-c/modules/community-topic/main.less"
+-->
+            <div class="question_container" id="question_container"  data-islogin="1"  data-lg-tj-track-code="hpage_questions">
+                <div class="topic">
+                    <p class="info">
+                        <a rel="nofollow" href="https://yanzhi.lagou.com/topic/5001.html" target="_blank">这家公司怎么样？大家都有怎样的好奇？来言职社区看看吧～</a>
+                    </p>
+                    <div class="topic-infos clearfix">
+                        <a rel="nofollow" href="https://yanzhi.lagou.com/topic/5001.html" target="_blank" class="logo-infos">
+                            <img class="lazy-company-img" data-original="//img.yingjobs.com/i/image/M00/08/A0/CgqKkVbQMyOAXXZOAAEKX4X42qM875.png" alt="云图TVLogo" width="60" height="60" />
+                        </a>
+                        <div class="company-info">
+                            <a class="shortname-info"  rel="nofollow" href="https://yanzhi.lagou.com/topic/5001.html"  target="_blank" title="珠海云迈网络科技有限公司">
+                                云图TV
+                            </a>
+                            <ul class="items-infos">
+                                <li><a class="info-item" rel="nofollow" href="https://yanzhi.lagou.com/topic/5001.html" target="_blank"><span class="count">3</span>个问题</a><em></em></li>&nbsp;&nbsp;
+                                <li><a class="info-item" rel="nofollow" href="https://yanzhi.lagou.com/topic/5001.html" target="_blank"><span class="count">0</span>个回答</a><em></em></li>&nbsp;&nbsp;
+                                <li><a class="info-item follows" rel="nofollow" href="https://yanzhi.lagou.com/topic/5001.html" target="_blank"><span class="count">190</span>人关注</a></li>
+                            </ul>
+                        </div>
+                        <div class="follow-infos">
+                            <a class="follow-btn unfollow" rel="nofollow" href="javascript:;"  data-complete-info="1"   data-acitved="1"  data-topic-id="5001"  style="display:none;"  target="_blank">已关注</a>
+                            <a class="follow-btn follow" rel="nofollow" href="javascript:;"  data-complete-info="1"   data-acitved="1"  data-topic-id="5001"  target="_blank">关注</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="question-answer">
+                    <ul id='question-answer-list'>
+                        <li class="items-question clearfix">
+                            <h4 class="item-title" data-question-id="8727">
+                                <a class="item-question" rel="nofollow" href="https://yanzhi.lagou.com/question/8727.html" target="_blank">云图TV的团队氛围和福利怎么样？</a>
+                                <span class="item-time"> <a class="item-items" rel="nofollow" href="https://yanzhi.lagou.com/question/8727.html" target="_blank">2016-11-8 </a></span>
+                            </h4>
+                            <p class='questionContent'><a rel="nofollow" href='https://yanzhi.lagou.com/question/8727.html'></a></p>
+                            <div class="item-status item-status-inside">
+                                <span class="status-item"><a rel="nofollow" href="https://yanzhi.lagou.com/question/8727.html" target="_blank"><em>0</em>个回答</a></span><i class="dot dotdot">&middot;</i>
+                                <span class="status-item"><a rel="nofollow" href="https://yanzhi.lagou.com/question/8727.html" target="_blank"><em>2</em>人关注</a></span>
+                            </div>
+                        </li>
+                        <li class="items-question clearfix">
+                            <h4 class="item-title" data-question-id="8726">
+                                <a class="item-question" rel="nofollow" href="https://yanzhi.lagou.com/question/8726.html" target="_blank">云图TV的面试流程是怎样的？</a>
+                                <span class="item-time"> <a class="item-items" rel="nofollow" href="https://yanzhi.lagou.com/question/8726.html" target="_blank">2016-11-8 </a></span>
+                            </h4>
+                            <p class='questionContent'><a rel="nofollow" href='https://yanzhi.lagou.com/question/8726.html'></a></p>
+                            <div class="item-status item-status-inside">
+                                <span class="status-item"><a rel="nofollow" href="https://yanzhi.lagou.com/question/8726.html" target="_blank"><em>0</em>个回答</a></span><i class="dot dotdot">&middot;</i>
+                                <span class="status-item"><a rel="nofollow" href="https://yanzhi.lagou.com/question/8726.html" target="_blank"><em>2</em>人关注</a></span>
+                            </div>
+                        </li>
+                        <li class="items-question clearfix">
+                            <h4 class="item-title" data-question-id="8725">
+                                <a class="item-question" rel="nofollow" href="https://yanzhi.lagou.com/question/8725.html" target="_blank">你如何看待云图TV的发展前景？</a>
+                                <span class="item-time"> <a class="item-items" rel="nofollow" href="https://yanzhi.lagou.com/question/8725.html" target="_blank">2016-11-8 </a></span>
+                            </h4>
+                            <p class='questionContent'><a rel="nofollow" href='https://yanzhi.lagou.com/question/8725.html'></a></p>
+                            <div class="item-status item-status-inside">
+                                <span class="status-item"><a rel="nofollow" href="https://yanzhi.lagou.com/question/8725.html" target="_blank"><em>0</em>个回答</a></span><i class="dot dotdot">&middot;</i>
+                                <span class="status-item"><a rel="nofollow" href="https://yanzhi.lagou.com/question/8725.html" target="_blank"><em>3</em>人关注</a></span>
+                            </div>
+                        </li>
+                        <li class="items-question clearfix">
+                            <div class="send_question" style='margin-top:10px;margin-bottom: 10px;'>
+                                <p>提出对云图TV感兴趣的问题，邀请过来人帮你解答~</p>
+                                <input type="text" id="searchQuestion" value="" maxlength="50" placeholder="你的问题是什么">
+                                <input type="hidden" class="questionPrompt" value="在云图TV工作是一种什么样的体验？">
+                                <ul class="company_question_list">
+                                </ul>
+                                <a href="javascript:;" class="edit_introduce" data-lg-tj-id="1V30" data-lg-tj-no="idnull" data-lg-tj-cid="26399">编辑问题补充</a>
+                                <a href="javascript:;" class="submit_question" data-topic-id="5001" data-topic-name="云图TV(公司)" data-is-company-topic="1" data-lg-tj-id="1V40" data-lg-tj-no="idnull" data-lg-tj-cid="26399">提问</a>
+                                <div class="edit_content">
+                                    <textarea class='question_supplement' maxlength='500' placeholder="在此补充问题的其他信息，如：背景、相关资料等"></textarea>
+                                    <ul class="answer_to">
+                                        <li class='ask-to'>向谁提问</li>
+                                    </ul>
+                                    <input type="hidden" value="1" class='default_man'>
+                                    <div class="submit_content">
+                                        <a href="javascript:;" data-topic-id="5001" data-topic-name="云图TV(公司)" data-is-company-topic="1" class="improve_sub" data-lg-tj-id="1V50" data-lg-tj-no="idnull" data-lg-tj-cid="26399">发布问题</a>
+                                        <span class="noncommit" data-lg-tj-id="1V60" data-lg-tj-no="idnull" data-lg-tj-cid="26399">匿名提问</span>
+                                        <input type="hidden" value="PC" class="mysource">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="container_right">
+        <!--
+@require "company-c/modules/common/main.less"
+@require "company-c/modules/basic-info/main.less"
+-->
+
+        <div class="item_container" id="basic_container">
+            <div class="item_ltitle">公司基本信息</div>
+            <div class="item_content">
+                <ul>
+                    <li>
+                        <i class="type"></i>
+                        <span>移动互联网</span>
+                    </li>
+                    <li>
+                        <i class="process"></i>
+                        <span>A轮</span>
+                    </li>
+                    <li>
+                        <i class="number"></i>
+                        <span>50-150人</span>
+                    </li>
+                    <li>
+                        <i class="address"></i>
+                        <span>深圳</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!--
+@require "company-c/modules/common/main.less"
+@require "company-c/modules/managers/main.less"
+-->
+
+        <div class="company_managers item_container" id="company_managers">
+            <div class="item_ltitle">管理团队</div>
+            <div class="company_mangers_item">
+                <div class="managelist_wrap">
+                    <ul class="manager_list">
+                        <li class="item_has rotate_item  rotate_active ">
+                            <img class="item_manger_photo_show" src="//img.yingjobs.com/thumbnail_200x200/i/image/M00/07/D9/Cgp3O1bOykSAVYg9AABK7j2feTU793.jpg" alt="创始人头像" width="118" height="118" />
+                            <p class="item_manager_name">
+                                <span>王乐</span>
+                            </p>
+                            <p class="item_manager_title">创始人兼CEO</p>
+                            <div class="item_manager_content"><p>云图直播、A8体育创始人兼CEO，其中云图直播已发展5000万用户 ，曾就职于腾讯</p></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--
+@require "company-c/modules/common/main.less"
+@require "company-c/modules/tags/main.less"
+-->
+
+        <div class="tags_container item_container" id="tags_container">
+            <div class="item_ltitle">公司标签</div>
+            <div class="tags_warp">
+                <div class="item_content">
+                    <ul class="item_con_ul clearfix">
+                        <li class="con_ul_li">
+                            带薪年假
+                        </li>
+                        <li class="con_ul_li">
+                            绩效奖金
+                        </li>
+                        <li class="con_ul_li">
+                            年度旅游
+                        </li>
+                        <li class="con_ul_li">
+                            扁平管理
+                        </li>
+                        <li class="con_ul_li">
+                            管理规范
+                        </li>
+                        <li class="con_ul_li">
+                            定期体检
+                        </li>
+                        <li class="con_ul_li">
+                            年终分红
+                        </li>
+                        <li class="con_ul_li">
+                            股票期权
+                        </li>
+                        <li class="con_ul_li">
+                            岗位晋升
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<a id="backtop" title="回到顶部" rel="nofollow"></a>
+<!-- feedback -->
+<!--
+    @require "common/widgets/footer_c/modules/feedback/feedback.less"
+-->
+
+<div id="product-fk">
+    <div id="feedback-icon">
+        <div class="fb-icon"></div>
+        <span>我要反馈</span>
+    </div>
+</div>
+
+<div id="footer">
+    <div class="wrapper">
+        <i class="footer_lagou_icon"></i>
+        <div class="inner_wrapper">
+            <a class="footer_app" href="https://www.lagou.com/app/download.html" rel="nofollow">拉勾APP<i class="icon_new">NEW</i><img data-delay-src="https://img.yingjobs.com/i/image/M00/35/06/CgpFT1lDioCAFqS2AAEeWsD3HHo535.PNG" width="160" height="160"></a>
+            <a href="http://e.weibo.com/lagou720" target="_blank" rel="nofollow">拉勾微博</a>
+            <a class="footer_wechat" href="javascript:;" rel="nofollow">拉勾微信<img data-delay-src="https://img.yingjobs.com/i/image/M00/38/BF/CgpEMllDipeAFlPXAABWmQdg7-E520.PNG" width="160" height="160"></a>
+            <a class="footer_mina" href="javascript:;" rel="nofollow">拉勾小程序<img src="//img.yingjobs.com/www/static/common/widgets/footer_c/layout/img/lagou-mina-code_d70848a.png" width="160" height="160"></a>
+            <a href="https://www.lagou.com/qa.html?t=1" target="_blank" rel="nofollow">帮助中心</a>
+            <a href="https://www.lagou.com/about.html" target="_blank" rel="nofollow">联系我们</a>
+            <a href="https://activity.lagou.com/activity/dist/business/index.html" target="_blank" rel="nofollow">招聘解决方案</a>
+            <span class="tel">服务热线：<em>4006-2828-35 (9:00 -18:00)</em></span>
+        </div>
+        <div class="copyright">
+            <span><em>&copy;</em>2017 Lagou</span>
+            <a target="_blank" href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" rel="nofollow">京ICP备14023790号-2</a>
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802024043" rel="nofollow">京公网安备 11010802024043号</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/vendor_e3ddeee.js"></script>
+<script type="text/javascript">/*resourcemap*/
+require.config({paths:{
+    "common/components/artTemplate/template-helper": "//img.yingjobs.com/www/static/common/components/artTemplate/template-helper_4b2f5f0",
+    "common/widgets/common/msgPopup": "//img.yingjobs.com/www/static/common/widgets/common/msgPopup_92e712a"
+}});</script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/company-c/page/community/main.html_aio_b1a1945.js"></script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/widgets_00f507c.js"></script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/common/widgets/common/userinfo_7f282e9.js"></script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/layout_6a3a86f.js"></script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/company-c/page/community/main.html_aio_2_68791f3.js"></script>
+<script type="text/javascript">
+    window.global = window.global || {};
+    global.companyInfo = JSON.parse(document.getElementById('companyInfoData').innerHTML);
+    global.comprehensiveScore = "";
+    global.describeScore =  "";
+    global.interviewerScore =  "";
+    global.companyScore =  "";
+
+
+    require(['common/widgets/header_c/modules/emailvalid/main']);
+
+
+    require(['common/widgets/passport/passport'], function() {
+
+
+        require(['common/widgets/common/msgPopup']);
+        // require('notice');
+
+
+    });
+
+
+    require(['common/widgets/header_c/layout/main']);
+
+
+    require(['company-c/modules/event/activity1230/main']);
+
+
+    require(['company-c/modules/top-info/main']);
+
+
+    require(['company-c/modules/tabs/main']);
+
+
+    window.global = window.global || {};
+    global.curUserid = "2573158";
+
+    global.curUserIsActive = true;
+
+    global.curUserIsCompleteInfo = true;
+
+    global.curUserIsForbid = false;
+
+
+    require(['company-c/modules/community-topic/main']);
+
+
+    require(['company-c/modules/managers/main']);
+
+
+    require(['common/widgets/footer_c/modules/feedback/feedback']);
+
+
+    require(['common/widgets/footer_c/layout/main']);
+
+    $(document).ready(function () {
+        var selector = '#webchat7moor';
+        if ($(selector).length) {
+            return;
+        }
+
+        var jqIframe = $('<iframe>', {
+            id: selector.slice(1),
+            src: '//img.yingjobs.com/third-parties/webchat7moor/main_22faef3.html',
+            style: 'margin:0;'
+            + 'padding:0;'
+            + 'width:320px;'
+            + 'height:500px;'
+            + 'border-width:0;'
+            + 'border-radius: 3px;'
+            + 'transition: height 0.5s ease-out;'
+            + 'z-index:-99999;'
+            + 'display: none;'
+            + 'bottom:0;'
+            + 'right:0;'
+            + 'position:fixed;'
+        });
+        $(document.body).append(jqIframe);
+
+        var child = jqIframe[0].contentWindow;
+        var target = window.location.protocol + '//' + (window.GLOBAL_CDN_DOMAIN || 'img.lagou.com');
+
+        $('#onlineService, #feedback-icon').on('click', function (e) {
+            jqIframe.css('z-index', 99999).show();
+            child.postMessage('{"code":1,"message":"open webchat plugin"}', target);
+        });
+
+        $(window).on('message', function (e) {
+            var origin = e.origin || e.originalEvent.origin;
+            if (origin.indexOf(target) !== 0) {
+                return;
+            }
+
+            var data = e.data || e.originalEvent.data;
+            if (data.code === 2 && typeof data.css !== 'undefined') {
+                jqIframe.css(data.css);
+            } else {
+                jqIframe.css('z-index', -99999).hide();
+            }
+        });
+    });
+</script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/lg-analytics_ea85146.js"></script>
+<script type="text/javascript" src="https://www.lagou.com/upload/oss.js"></script></body>
+</html>

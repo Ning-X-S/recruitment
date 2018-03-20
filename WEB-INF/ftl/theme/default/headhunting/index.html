@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "推荐赚钱" cssNames = [
+    ]/]
+    <!-- 引入Vue -->
+    <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/at-ui-style/css/at.min.css">
+    <!-- 引入组件库 -->
+    <script src="//cdn.jsdelivr.net/npm/at-ui/dist/at.min.js"></script>
+    <style type="text/css">
+        #container{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+        }
+        .search{
+            padding: 0px 100px;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            background-color: #f2f5f4;
+        }
+        .search_text{
+            width: 650px;
+        }
+        .search_btn{
+            height: 36px;
+        }
+        .order{
+            margin-top: 10px;
+            width: 960px;
+            height: 43px;
+            background-color: #fafafa;
+            border: 1px solid #ededed;
+        }
+        .order_item{
+            padding: 8px 5px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+        }
+        .order_item a{
+            padding: 5px 8px;
+            margin: 0 5px;
+        }
+        .item_title{
+            padding: 5px 8px;
+            line-height: 14px;
+            font-weight: 600;
+        }
+        .order_item .active{
+            background-color: #0099ff;
+            color: #fff;
+        }
+        .order_item a:hover{
+            background-color: #0099ff;
+            color: #fff;
+        }
+        .job_list{
+            padding: 0 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .item_list{
+            width: 960px;
+        }
+        .item{
+            position: relative;
+            color: #555;
+            border: 1px solid #ededed;
+            margin-top: 18px;
+        }
+        .item_top{
+            height: 68px;
+            padding: 14px 15px 0;
+            margin-bottom: 15px;
+        }
+        .position{
+            float: left;
+            width: 528px;
+            margin-right: 20px;
+        }
+        .p_top{
+            height: 34px;
+            line-height: 34px;
+        }
+        .p_top h3{
+            float: left;
+            max-width: 272px;
+            margin: 0;
+            font-size: 16px;
+            color: #0099ff;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-wrap: normal;
+        }
+        .p_top span{
+            float: left;
+            margin: 0 3px;
+            color: #999;
+        }
+        .p_top li_b_r{
+            font-size: 14px;
+            color: #555;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-wrap: normal;
+        }
+        .p_bot{
+            height: 24px;
+            line-height: 24px;
+        }
+        span.money{
+            margin-right: 1em;
+            font-size: 16px;
+            color: #fd5f39;
+        }
+        .company{
+            float: left;
+            width: 303px;
+            margin-right: 15px;
+        }
+        .company_name{
+            height: 34px;
+            line-height: 34px;
+        }
+        .company_name a{
+            display: inline-block;
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-wrap: normal;
+            color: #0099ff;
+            font-size: 16px;
+            vertical-align: middle;
+        }
+        .industry{
+            height: 24px;
+            line-height: 24px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-wrap: normal;
+        }
+        .com_logo{
+            float: left;
+            width: 62px;
+        }
+        .item_bot{
+            height: 40px;
+            padding: 0 15px;
+            background-color: #fafafa;
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+[#include "/theme/default/common/navBar.html"]
+[#include "/theme/default/common/commonsite.html"]
+
+[@navBar active=7/]
+
+<div id="container">
+    <div class="search">
+        <at-input class="search_text" size="large" v-model="inputValue" placeholder="请输入职位进行查询"></at-input>
+        <at-button class="search_btn" type="primary" size="large">搜 索</at-button>
+    </div>
+    <div class="job_list">
+        <div class="order">
+            <div class="order_item">
+                <span class="item_title">排序方式：</span>
+                <a class="active" href="">默认</a>
+                <a href="">最新</a>
+            </div>
+        </div>
+        <ul class="item_list">
+            <li class="item">
+                <div class="item_top">
+                    <div class="position">
+                        <div class="p_top">
+                            <a class="p_link" href="/web/jobs/10.htm">
+                                <h3 style="max-width: 180px">教务专员</h3>
+                            </a>
+                            <span class="p_time">08:00发布</span>
+                        </div>
+                        <div class="p_bot">
+                            <div class="li_b_l">
+                                <span class="money">10~12K</span>
+                                5~10年/硕士
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company">
+                        <div class="company_name">
+                            <a href="/web/company/3.htm">瑞丽航空有限公司</a>
+                        </div>
+                        <div class="industry">
+                            航空公司
+                        </div>
+                    </div>
+                    <div class="com_logo">
+                        <a href="/web/company/3.htm">
+                            <img width="60" height="60" src="http://img.yingjobs.com/upload/image/201712/5b78a912-4bd2-4009-8ef9-dc0cc06cc245.png">
+                        </a>
+                    </div>
+                </div>
+                <div class="item_bot">
+                    <div class="li_b_l"></div>
+                    <div class="li_b_r"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 页面主体END -->
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+
+<script>
+    new Vue({
+        el: '#container',
+        data: {
+          inputValue: ''
+        },
+        methods: {
+
+        }
+    })
+</script>
+</body>
+</html>

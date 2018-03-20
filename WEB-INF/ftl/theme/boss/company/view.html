@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"/]
+    [@header title = model.name cssNames = [
+        "pkg/company-c/page/index/main.html_aio_b061835.css"
+    ]/]
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/swiper/swiper-3.4.2.min.css">
+    <style>
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        .swiper-slide {
+            overflow: hidden;
+        }
+        #basic_container .item_content>ul>li{
+            line-height: 25px;
+        }
+    </style>
+
+</head>
+<body>
+
+[#include "/theme/default/common/navBar.html"/]
+[#include "/theme/default/company/common.html"/]
+
+[@navBar active = 2/]
+
+<div class="top_info">
+    [#include "/theme/default/company/comtop.html"/]
+</div>
+
+<div id="company_navs" class="company_navs">
+    <div class="company_navs_wrap">
+        <ul data-pjax>
+            <li  class="current" >
+                <a href="${siteurl}company/${(model.id)!''}.htm">公司主页</a>
+            </li>
+            <li >
+                <a href="${siteurl}company/j${(model.id)!''}.htm">招聘职位</a>
+            </li>
+            <!--<li >
+                <a href="${siteurl}company/j${(model.id)!''}.htm?schoolJob=true">校招职位</a>
+            </li>-->
+        </ul>
+    </div>
+</div>
+<div class="company_navs_shadow"></div>
+
+<div id="main_container">
+    <div id="container_left">
+        <div id="containerCompanyDetails">
+            <div class="item_container" id="company_intro">
+                <div class="item_ltitle">公司介绍</div>
+                <div class="item_content">
+                    <div style="margin-bottom: 50px;">
+                           ${model.noteWithTag!""}
+                    </div>
+
+                    <div class="company_image_gallery">
+                        <div id="companyDetailSwiper" class="swiper-container">
+                            <div class="swiper-wrapper">
+                                [@companyphotos id=model.id size=10]
+                                [#if list??]
+                                [#assign photolength=list?size /]
+                                [#list list as item]
+                                <div class="swiper-slide">
+                                    <a href="${item.url!''}"><img src="[@image src=item.url /]" height="340"></a>
+                                </div>
+                                [/#list]
+                                [/#if]
+                                [/@companyphotos]
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            [@companyproducts id=model.id size=10]
+            [#if list?? && list?size>0]
+            <div class="item_container" id="company_products">
+                <div class="item_ltitle">公司产品</div>
+                <div class="item_content">
+
+                    [#list list as item]
+                    <div class="product_content product_item clearfix" data-id="${item.id}" data-index="">
+                        <img src="[@image src=item.logo /]" alt="产品图片" width="300" height="180" />
+                        <div class="product_details">
+                            <h4 class="product_url_all">
+                                <div class="product_url">
+                                    <a  href=" ${item.url!''}" class="url_valid" target="_blank" rel="nofollow" title="${item.url!''}" >
+                                        ${item.name!""}
+                                    </a>
+                                    <a href="${item.url!''}" target="_blank" rel="nofollow" title="${item.url!''}">
+                                        <i></i>
+                                    </a>
+                                </div>
+                            </h4>
+                            <ul class="clearfix">
+                                <li> ${item.catalogs!""}</li>
+                            </ul>
+                            <div class="product_profile">
+                                ${item.note!""}
+                            </div>
+                        </div>
+                    </div>
+                    [/#list]
+
+                </div>
+            </div>
+            [/#if]
+            [/@companyproducts]
+
+            [@companyhistorys id=model.id size=10]
+            [#if list?? && list?size>0]
+            <div class="item_container" id="history_container">
+                <div class="item_ltitle">发展历程</div>
+                <div class="item_content">
+                    <ul class="history_ul">
+                        [#list list as item]
+                        <li class="history_li clearfix " data-id="104497">
+                            <div class="li_date">
+                                <p class="date_day">${(item.eventDate?string("dd"))!""}</p>
+                                <p class="date_year">${(item.eventDate?string("yyyy MMM"))!""}</p>
+                            </div>
+                            <div class="li_type_icon li_type_icon4" title="产品"></div>
+                            <div class="li_desc">
+                                <p class="desc_title desc_hover clearfix" data-href="http://t.qianzhan.com/daka/detail/160129-df20e745.html">
+                        <span class="desc_real_title  desc_real_title_hover ">
+                            <a  href="http://t.qianzhan.com/daka/detail/160129-df20e745.html" title="http://t.qianzhan.com/daka/detail/160129-df20e745.html" target="_blank" rel="nofollow">
+                                                                    ${item.name!""}
+                                                            </a>
+                                                        <a href="http://t.qianzhan.com/daka/detail/160129-df20e745.html" title="http://t.qianzhan.com/daka/detail/160129-df20e745.html" target="_blank" rel="nofollow">
+                                <i class="desc_link"></i>
+                            </a>
+                                                                                </span>
+                                </p>
+                                <div class="desc_intro">
+
+                                </div>
+                            </div>
+                            <span class="history_ul_vspilt"></span>
+                        </li>
+                        [/#list]
+                    </ul>
+                </div>
+            </div>
+            [/#if]
+            [/@companyhistorys]
+
+            <div class="address_container item_container" id="location_container">
+                <div class="item_ltitle">公司位置</div>
+                <div class="item_content">
+                    <p>
+                        地址：${model.addr!}
+                    </p>
+                    <p><img src="[@image src=model.addrImg /]" alt="地图" width="90%" height=""></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="container_right">
+        [@companyright /]
+    </div>
+</div>
+
+[#include "/theme/default/common/footer.html"/]
+[#include "/theme/default/common/backTop.html"]
+<script src="${siteurl}plugins/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script src="${siteurl}plugins/jquery.pin.min.js"></script>
+<script src="${siteurl}dist/js/company.js"></script>
+</body>
+</html>

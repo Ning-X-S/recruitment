@@ -1,0 +1,387 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Hiragino Sans GB", "Microsoft Yahei", SimSun, Arial, "Helvetica Neue", Helvetica;
+    color: #333;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block
+}
+
+progress {
+    display: inline-block;
+    vertical-align: baseline
+}
+
+a {
+    background-color: transparent;
+    outline: 0;
+    text-decoration: none
+}
+
+a:hover {
+    color: #0099ff;
+    text-decoration: underline
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0;
+    font-weight: 400
+}
+
+h1 {
+    font-size: 24px
+}
+
+h2 {
+    font-size: 20px
+}
+
+h3 {
+    font-size: 18px
+}
+
+h4 {
+    font-size: 16px
+}
+
+h5 {
+    font-size: 14px
+}
+
+h6 {
+    font-size: 12px
+}
+
+p {
+    margin: 0
+}
+
+p + p {
+    margin-top: 10px
+}
+
+img {
+    border: 0;
+    vertical-align: top;
+    display: inline-block
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ededed;
+    font-family: inherit
+}
+
+input {
+    font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", SimSun
+}
+
+label, select, button, input[type=button], input[type=reset], input[type=submit], input[type=radio], input[type=checkbox] {
+    cursor: pointer
+}
+
+input[type=checkbox], input[type=radio] {
+    padding: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+th, td {
+    padding: 0
+}
+
+em, strong {
+    font-weight: 400
+}
+
+i {
+    font-style: normal
+}
+
+dl, dt, dd {
+    margin: 0
+}
+
+::selection {
+    color: #fff;
+    background-color: #0099ff
+}
+
+::-moz-focus-inner {
+    border: 0
+}
+
+ul {
+    margin: 0;
+    padding: 0
+}
+
+li {
+    list-style: none
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.clearfix {
+    zoom: 1
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table
+}
+
+.clearfix:after {
+    clear: both
+}
+
+html {
+    font-size: 14px
+}
+
+body {
+    min-width: 1024px;
+    min-height: 100%;
+    background-color: #f8f9fc
+}
+
+.sso_header {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    background-color: #0099ff;
+}
+
+.sso_header .logo {
+    position: absolute;
+    z-index: 9999;
+    top: 76px;
+    left: 50%;
+    margin-left: -350px;
+    width: 200px;
+    height: 42px;
+    background: url(../../../../../img/logo_white@2x.png) no-repeat;
+    background-size: contain
+}
+
+.vender_login {
+    margin-top: 12px;
+    text-align: center
+}
+
+.vender_login li {
+    display: inline-block;
+    float: left;
+    margin-left: 22px
+}
+
+.vender_login li:first-child {
+    margin: 0
+}
+
+.vender_login li .vender_icon {
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.vender_login li .icon_sina {
+    background-image: url(../../modules/common/img/icon-sina_aa928cf.png)
+}
+
+.vender_login li .icon_sina:hover {
+    background-image: url(../../modules/common/img/icon-sina-hover_da8f3a8.png)
+}
+
+.vender_login li .icon_tencent {
+    background-image: url(../../modules/common/img/icon-tencent_3265c12.png)
+}
+
+.vender_login li .icon_tencent:hover {
+    background-image: url(../../modules/common/img/icon-tencent-hover_1675bbd.png)
+}
+
+.vender_login li .icon_wechat {
+    background-image: url(../../modules/common/img/icon-wechat_1341174.png)
+}
+
+.vender_login li .icon_wechat:hover {
+    background-image: url(../../modules/common/img/icon-wechat-hover_83a9dcc.png)
+}
+
+.vender_login li .icon_baidu {
+    background-image: url(../../modules/common/img/icon-baidu_bfb603c.png)
+}
+
+.vender_login li .icon_baidu:hover {
+    background-image: url(../../modules/common/img/icon-baidu-hover_37ac2ed.png)
+}
+
+.slogan {
+    margin-top: 50px;
+    text-align: center;
+    color: #d1d1d1
+}
+
+.content_box {
+    position: relative;
+    z-index: 1
+}
+
+@media only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 240dpi), only screen and (min-resolution: 2dppx) {
+    .sso_header .logo {
+        background-image: url(../../../../../img/logo_white@2x.png)
+    }
+
+    .vender_login li .icon_sina {
+        background-image: url(../../modules/common/img/icon-sina_402x_73f58fb.png)
+    }
+
+    .vender_login li .icon_sina:hover {
+        background-image: url(../../modules/common/img/icon-sina-hover_402x_9fcba2c.png)
+    }
+
+    .vender_login li .icon_tencent {
+        background-image: url(../../modules/common/img/icon-tencent_402x_e4cb4b6.png)
+    }
+
+    .vender_login li .icon_tencent:hover {
+        background-image: url(../../modules/common/img/icon-tencent-hover_402x_4fd8477.png)
+    }
+
+    .vender_login li .icon_wechat {
+        background-image: url(../../modules/common/img/icon-wechat_402x_60831ae.png)
+    }
+
+    .vender_login li .icon_wechat:hover {
+        background-image: url(../../modules/common/img/icon-wechat-hover_402x_0891cda.png)
+    }
+
+    .vender_login li .icon_baidu {
+        background-image: url(../../modules/common/img/icon-baidu_402x_f45ad8b.png)
+    }
+
+    .vender_login li .icon_baidu:hover {
+        background-image: url(../../modules/common/img/icon-baidu-hover_402x_b884a59.png)
+    }
+}
+
+.sso_header a.logo_birth_3rd {
+    background-image: url(../../modules/common/img/logo-birth-3rd_e1e307c.png)
+}
+
+@media only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 240dpi), only screen and (min-resolution: 2dppx) {
+    .sso_header a.logo_birth_3rd {
+        background-image: url(../../modules/common/img/logo-birth-3rd_402x_562ecbb.png);
+        background-size: 128px 54px
+    }
+}
+
+.sso_header .logo {
+    margin-left: -400px
+}
+
+.content_box {
+    margin: -205px auto 0 auto;
+    padding: 52px 72px 42px;
+    background-color: #fff;
+    border: 1px solid #dce1e6;
+    text-align: center;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    display: table
+}
+
+.content_box .register_type {
+    width: 258px
+}
+
+.content_box .worker_image {
+    width: 232px;
+    height: 172px;
+    background: url(img/worker_ba429d5.png) no-repeat;
+    background-size: contain;
+    margin: 44px 0 0 28px
+}
+
+.content_box .hr_image {
+    width: 212px;
+    height: 179px;
+    background: url(img/hr_d2f4f8e.png) no-repeat;
+    background-size: contain;
+    margin: 37px 0 0 15px
+}
+
+.content_box .divider {
+    position: relative;
+    border-left: 1px dashed #ededed;
+    height: 402px;
+    color: #d8d8d8;
+    margin: 0 70px
+}
+
+.content_box h3 {
+    font-size: 24px;
+    color: #333
+}
+
+.content_box h4 {
+    font-size: 14px;
+    color: #999
+}
+
+.content_box .btn_group {
+    margin-top: 36px;
+    text-align: center
+}
+
+.content_box .btn_group a {
+    display: inline-block;
+    width: 178px;
+    height: 38px;
+    border: 1px solid #0099ff;
+    text-decoration: none;
+    line-height: 40px;
+    color: #0099ff;
+    font-size: 16px;
+    border-radius: 3px
+}
+
+.page_footer {
+    text-align: center;
+    margin: 27px 0 60px;
+    font-size: 16px;
+    color: #777
+}
+
+.page_footer a {
+    color: #0099ff;
+    text-decoration: none
+}
+
+@media only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 240dpi), only screen and (min-resolution: 2dppx) {
+    .content_box .worker_image {
+        background-image: url(img/worker_402x_b7b2b49.png)
+    }
+
+    .content_box .hr_image {
+        background-image: url(img/hr_402x_929ee1a.png)
+    }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header_hr.html"]
+    [@header_hr title="个人信息" cssNames=[
+        "mds/static/pkg/settings/page/user-setting/main.html_aio_8c99c8b.css"
+    ]/]
+
+    <script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+    [#include "/theme/default/common/fileuploads.html"]
+</head>
+
+<body>
+
+[#include "/theme/default/common/commonhr.html"]
+
+[@header index=4/]
+
+
+<div id="go-to-pay-9kuai9"></div>
+
+
+<div id="nest-header"></div>
+
+
+
+<div id="ext_header_tips">
+</div>
+
+[#include "/theme/default/hr/settings/common_search.html"]
+
+<div id="main-content-wrapper">
+<form action="${siteurl}settings/updateme.htm" method="post">
+    <div class="container">
+        <div class="setting-pannel">
+            <div class="head">
+                <div class="title">招聘设置</div>
+            </div>
+            <div class="menu-container head-son clearfix" id="account-menu">
+                [@settab index=1 /]
+            </div>
+            <div class="setting-container" id="account-container">
+                <div class="setting-item" data-view="myinfoView">
+                    <div class="form-item clearfix " style="padding-left: 150px;">
+                        [@imageinput name="avatar" image=member.avatar width=100 height=100 /]
+                    </div>
+                    <div class="form-item" >
+                        <label for="" class="name-info">姓名</label>
+                        <div class="form-input" data-propertyname="name">
+                            <input type="text" id="myinfo-name-input" name="name" class="input input_white" placeholder="请填写你的常用名" value="${model.name!''}" >
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="" class="hrName4JD">称呼</label>
+                        <div class="form-input" data-propertyname="hrName4JD">
+                            <input type="text" id="myinfo-hrName4JD-input" name="nickName" class="input input_white" placeholder="请填写你的称呼" value="${model.nickName!''}">
+                            <div class="input-tips hrName">*用于向求职者展示</div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-item" >
+                        <label for="">职位</label>
+                        <div class="form-input" data-propertyname="title">
+                            <input type="text" id="myinfo-title-input" name="job" class="input input_white" placeholder="请填写你的职位" value="${model.job!''}">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <label for="">部门</label>
+                        <div class="form-input"  data-propertyname="department">
+                            <input type="text" id="myinfo-department-input" name="department" class="input input_white" placeholder="请填写你的部门" value="${model.department!''}">
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <label for="" class="phone-info">手机</label>
+                        <div class="form-input"  data-propertyname="phone">
+                            <input type="text" id="myinfo-phone-input" name="phone" class="input input_white" placeholder="手机号，不会公布给候选人" value="${model.phone!''}">
+                            <div class="input-tips phone-input-tips">*用于电话呼叫</div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <label for="" class="email-tip">邮箱</label>
+                        <div class="form-input email-input"  data-propertyname="email">
+                            <input type="text" id="myinfo-email-input" name="email" class="input input_white" placeholder="该邮箱用于接收简历" value="${model.email!''}">
+                            <div class="input-tips email-input-tips">*用于接收简历</div>
+                        </div>
+                    </div>
+                    <div class="form-item" data-propertyname="submit">
+                        <label for=""></label>
+                        <button id="myinfo-save-button" name="submit" class="btn btn_green btn_active">保存</button>
+                    </div>
+                    <div class="footer-menu clearfix">
+                        <div class="set-tab">
+                            <a href="http://account.lagou.com/account/updatePwd.html" target="_blank"><span class="menu-item">修改密码<span class="mds-setting-quot"></span></span></a>
+                            <!-- <span class="divider"></span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    [#include "/theme/default/common/footer.html"]
+
+</div>
+</body>
+</html>
+

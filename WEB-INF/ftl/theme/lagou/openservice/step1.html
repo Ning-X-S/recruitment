@@ -1,0 +1,216 @@
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "职位" cssNames = [
+        "pkg/service/page/new-open1-personal-Info/main.html_aio_0c49bb1.css",
+        "pkg/service/page/new-open1-personal-Info/main.html_aio_2_af4d8c3.css"
+    ]/]
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/nicevalidator/jquery.validator.css"/>
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/layer/theme/default/layer.css">
+    <style>
+        .upload-area .msg-box{
+            top: 80px;
+            left: -54px;
+        }
+    </style>
+</head>
+<body style="background-color: #ffffff">
+[#include "/theme/default/common/navBar.html"]
+[#include "/theme/default/common/commonsite.html"]
+
+[@navBar header="false"/]
+<div id="lg_header">
+
+    <!--B端头部白色导航-->
+    <div id="lg_tnav">
+
+        <div class="inner">
+            <div class="lg_tnav_l">
+                <a href="${siteurl}index.htm" class="lg_logo">
+                    <h1>寻鹰网</h1>
+                    <span>企业版</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+</div><!--end #header-->
+
+<div id="banner">
+    <h1>加入公司，开始招聘</h1>
+</div>
+
+
+<div id="app">
+    <div id="appMainContent">
+        <div id="step">
+            <div id="step_1" class="step_num"><span>完善个人信息</span></div>
+            <div class="step_line"></div>
+            <div id="step_2" class="step_num step_disable"><span>确认公司信息</span></div>
+        </div>
+        <form id="personalInfo" action="${siteurl}account/openservice/step1.htm" autocomplete="off" method="post"
+              class="content_container no_label">
+            <table class="table-layout">
+                <tbody>
+                <tr>
+                    <td class="title"><span class="required">头像</span></td>
+                    <td>
+                        <div class="upload-area">
+                            [#include "/theme/default/common/fileuploads.html"]
+                            [@uploadAvatar name="avatar" image="${model.avatar!}" width="80px"]
+                                $('#avatarPreview').attr("src", "${siteurl}" + response.url);
+                            [/@uploadAvatar]
+                        </div>
+                        <span class="tips">建议使用招聘者真实头像提升真实性、专业性
+                                <br>支持jpg、jpeg、gif、png，小于10MB</span>
+                        <span class="vue-error" style="display: none;">
+                            <i class="icon-glyph-attention2"></i> 
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title"><span class="required">姓名</span></td>
+                    <td>
+                        <input type="text" placeholder="请填写你工作中的姓名，用于向求职者展示" name="name" value="${model.name!}">
+                        <span class="vue-error" style="display: none;">
+                            <i class="icon-glyph-attention2"></i> 
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title"><span class="required">职位</span></td>
+                    <td>
+                        <div need-validate="true" class="comp-wrap vue-input-suggest" scope="props">
+                            <input name="job" placeholder="请填写当前公司的任职职位" type="text" value="${model.job!}">
+                            <span class="vue-error" style="display: none;">
+                                <i class="icon-glyph-attention2"></i> </span>
+                            <ul class="suggests" style="display: none;"></ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title"><span>接收简历邮箱</span></td>
+                    <td>
+                        <input type="text" placeholder="请填写常用邮箱，支持招聘设置中修改" name="email"  value="${model.email!}">
+                        <span class="vue-error" style="display: none;">
+                            <i class="icon-glyph-attention2"></i> 
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title"><span class="required">公司全称</span></td>
+                    <td class="company-name-td">
+                        <div need-validate="true" class="comp-wrap vue-input-suggest" scope="props">
+                            <input name="company.name" placeholder="请填写与营业执照/劳动合同一致的全称，不可随便修改" type="text"  value="${(model.company.name)!}">
+                            <span class="vue-error" style="display: none;">
+                                <i class="icon-glyph-attention2"></i> 
+                            </span>
+                            <ul class="suggests" style="display: none;"></ul>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <input type="submit" value="下一步" class="submit">
+            <div class="preview">
+                <p class="top">
+                    [#if model.avatar??]
+                    <img id="avatarPreview" src="[@image src=model.avatar/]" alt="用户头像" width="80" height="80">
+                    [#else]
+                    <img id="avatarPreview" src="${siteurl}dist/img/default_boy_headpic.png" alt="用户头像" width="80" height="80">
+                    [/#if]
+                    <img src="" alt="用户头像" width="80" height="80" style="display: none;">
+                    <span class="userName">${model.name!"姓名"}</span>
+                    <span class="positionName">${model.job!"职位"}</span>
+                </p>
+                <p class="bottom">
+                    <span class="receiveEmail">${model.email!"接收简历邮箱"}</span>
+                    <span class="companyName">${(model.company.name)!"公司全称"}</span>
+                </p>
+                <span class="tail">示例</span>
+            </div>
+        </form> <!---->
+    </div>
+</div>
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+<script src="${siteurl}plugins/nicevalidator/jquery.validator.min.js?local=zh-CN"></script>
+<script src="${siteurl}/plugins/layer/layer.js"></script>
+<script>
+    $('input[name="name"]').bind('input propertychange', function() {
+        var target = $('.userName');
+        var value = $(this).val();
+        if(value){
+            target.html(value);
+        }else {
+            target.html("姓名");
+        }
+    });
+    $('input[name="job"]').bind('input propertychange', function() {
+        var target = $('.positionName');
+        var value = $(this).val();
+        if(value){
+            target.html(value);
+        }else {
+            target.html("职位");
+        }
+    });
+    $('input[name="email"]').bind('input propertychange', function() {
+        var target = $('.receiveEmail');
+        var value = $(this).val();
+        if(value){
+            target.html(value);
+        }else {
+            target.html("接收简历邮箱");
+        }
+    });
+    $('input[name="company.name"]').bind('input propertychange', function() {
+        var target = $('.companyName');
+        var value = $(this).val();
+        if(value){
+            target.html(value);
+        }else {
+            target.html("公司全称");
+        }
+    });
+    $.validator.setTheme("default", {
+        msgClass: "n-bottom"
+    });
+    $('#personalInfo').validator({
+        fields: {
+            'avatar': {
+                rule: 'required;',
+                msg: {
+                    required: '请选择头像'
+                }
+            },
+            'name': {
+                rule: 'required;',
+                msg: {
+                    required: '请输入姓名'
+                }
+            },
+            'job': {
+                rule: 'required;',
+                msg: {
+                    required: '请输入职位'
+                }
+            },
+            'email': {
+                rule: 'email;',
+                msg: {
+                    required: '请输入邮箱'
+                }
+            },
+            'company.name': {
+                rule: 'required;',
+                msg: {
+                    required: '请输入公司全称'
+                }
+            },
+        }
+    })
+</script>
+</body>
+</html>

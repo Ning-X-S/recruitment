@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "账号设置" cssNames = [
+        "pkg/plus-c/page/resume-privacy/main.html_aio_ab851dc.css",
+        "pkg/plus-c/page/resume-privacy/main.html_aio_2_b9e7f0d.css"
+    ]/]
+</head>
+<body>
+<!-- header -->
+[#include "/theme/default/common/navBar.html"]
+[@navBar /]
+
+<input type="hidden" id="serverTime" value="1504231736181" />
+
+<!-- 页面主体START -->
+<div id="container" class="clearfix">
+    <!--
+@require "common/widgets/account-c-sidebar/main.less"
+-->
+    <div class="user_bindSidebar">
+        <ul class="user_sideBarmenu">
+            <li>
+                <a href="${siteurl}account/userInfo.htm"  data-lg-tj-id="18g0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">个人信息</a>
+            </li>
+            <!--<li>
+                <a href="${siteurl}account/accountBind.htm"   data-lg-tj-id="18h0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">帐号绑定</a>
+            </li>-->
+            <li>
+                <a href="${siteurl}account/resumePrivacy.htm"   class="hover"  data-lg-tj-id="18i0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">隐私设置</a>
+            </li>
+            <li>
+                <a href="${siteurl}account/updatePwd.htm"  data-lg-tj-id="18j0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">修改密码</a>
+            </li>
+        </ul>
+    </div>
+    <input type="hidden" value="1" id="hasSidebar" />
+
+    <div class="new_section resumePrivacy fl">
+        <div class="c_section">
+            <div class="switch_resume">
+                <ul class="select_content">
+                    <li>
+                        <span class="btn_radio " data-type="1"></span>
+                        <span class="btn_title">所有公司都能看到我</span>
+                    </li>
+                    <li>
+                        <span class="btn_radio  btn_radio_active " data-type="2"></span>
+                        <span class="btn_title">不希望以下企业看到我</span>
+                        <span class="btn_tip">(最多添加5个)</span>
+                        <p>如果不想被某企业搜到，可以设置企业黑名单。设置后，含有该关键词的公司都被屏蔽。<br>例如：输入“3W”，“3W咖啡”、“3W空间”，“3W基金”等都将被屏蔽。</p>
+                        <div class="ipt_content">
+                            <input type="text" placeholder="请输入你想屏蔽的公司简称" style="background-color: transparent;" class="search_company">
+                            <span class="ipt_btn ">确定</span>
+                            <ul id='companySuggestion'>
+
+                            </ul>
+                        </div>
+                        <ul class="company_list">
+                            [#if shields??]
+                            [#list shields as item]
+                            <li><span><span>${item.name!""}</span><i class="delete_btn" data-id="${item.id}">删除</i></span></li>
+                            [/#list]
+                            [/#if]
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="btn_radio " data-type="3"></span>
+                        <span class="btn_title">投递前，所有人都不能看到我</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- <div  class="open_resume_notice" >
+                <span>完善基本信息，机会即刻找上门。</span>
+                <a href="https://www.lagou.com/resume/threestep.html" data-lg-tj-id="6W00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-gatj-msg="resume,完善,button">去完善简历</a>
+            </div>
+             -->
+        </div>
+    </div>
+    <input type="hidden" value="2" class="flagBtn">
+    <input type="hidden" value="[{id:1957977, createtime:Wed Aug 30 16:56:21 CST 2017, isenable:true, isdel:false, plusid:5343876, suffix:陕西同纳信息技术有限公司, type:1}]">
+    <!-- 确定关闭plus弹窗 by honge -->
+    <!-- <div style="display:none;">
+          <div id="closeplus" class="popup" style="overflow:hidden">
+              <h3>关闭后将错失许多职业机会</h3>
+              <a href="javascript:;" class="btn" data-lg-tj-id="6X00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-gatj-msg="plus,关闭,button">关 闭</a>
+          </div>
+    </div> -->
+
+</div>
+<!-- 页面主体END -->
+
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+<script>
+    $('.btn_radio').click(function () {
+        var a = $(this), _ = $(this).data("type");
+        $(".btn_radio_active").removeClass("btn_radio_active");
+        0 == a.hasClass("btn_radio_active") && a.addClass("btn_radio_active");
+        3 == _ || 1 == _ ? ($(".ipt_content").hide(), $(".company_list").hide()) : ($(".ipt_content").show(), $(".company_list").show())
+    });
+    $('.search_company').on({
+        focus: function () {
+            $(".company_list li").length < 5 && $(this).addClass("onfocus_ipt");
+            $(".search_company").css("borderColor", "#0099ff");
+       },
+        blur: function () {
+            $(this).removeClass("onfocus_ipt");
+        }
+    });
+    $('.ipt_btn').click(function (e) {
+        var a = $.trim($(".search_company").val());
+        if ( a != "" && $(".company_list li").length < 5){
+            var data={};
+            data.name=a;
+            $.post("${siteurl}rest/member/shield.htm",data,function (backdata) {
+                if (backdata.code==0){
+                    var c = "<li><span><span>" + a + '</span><i class="delete_btn" data-id="' + 0 + '">删除</i></span></li>';
+                    if ($(".company_list").append(c), $(".company_list li") && 0 != $(".company_list li").length) {
+                        var _ = $(".company_list li").length;
+                        5 == _ ? ($(".ipt_btn").addClass("ipt_btn_disabled")) : ($(".ipt_btn").removeClass("ipt_btn_disabled"))
+                    }
+                }else {
+                    alert(backdata.msg);
+                }
+            });
+
+            $(".search_company").val("");
+        } else{
+            $(".search_company").css("borderColor", "#ff414f");
+        }
+    });
+    $('.company_list').on("click","i",function (e) {
+        var a = $(this).parent().parent("li"), c = $(this).data("id");
+        var data={};
+        data.id=c;
+        $.post("${siteurl}rest/member/removeshield.htm",data,function (backdata) {
+            if (backdata.code==0){
+                a.remove(), $(".ipt_btn").hasClass("ipt_btn_disabled") ? $(".ipt_btn").removeClass("ipt_btn_disabled") : ""
+            }else {
+
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

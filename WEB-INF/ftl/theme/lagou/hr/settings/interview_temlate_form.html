@@ -1,0 +1,32 @@
+[#macro form id="" templateName="" linkMan="" address="" linkPhone="" action="" formId=""]
+<div id="${formId!''}" class="edit-modules" style="display: none;">
+    <form action="${action}" method="post">
+        <div class="form-item">
+            <label for="">名称</label>
+            <div class="form-input" data-propertyname="templateName">
+                <input type="text" value="${templateName}" class="input input_white" placeholer="">
+            </div>
+        </div>
+        <div class="form-item">
+            <label for="">联系人</label>
+            <div class="form-input" data-propertyname="linkMan">
+                <input type="text" value="${linkMan}" class="input input_white" placeholer="">
+            </div>
+        </div>
+        <div class="form-item">
+            <label for="">面试地点</label>
+            <div class="form-input" data-propertyname="address">
+                <input type="text" value="${address}" class="input input_white" placeholer="">
+            </div>
+        </div>
+        <div class="form-item"><label for="">联系电话</label>
+            <div class="form-input" data-propertyname="linkPhone">
+                <input type="text" value="${linkPhone}" class="input input_white" placeholer=""></div>
+        </div>
+        <div class="form-item"><label for=""></label>
+            <button class="btn btn_green btn_active" type="submit">保存</button>
+            <button class="btn btn_link cancel" type="reset">取消</button>
+        </div>
+    </form>
+</div>
+[/#macro]

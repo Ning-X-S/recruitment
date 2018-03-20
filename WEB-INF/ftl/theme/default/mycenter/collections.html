@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- meta -->
+    [#include "/theme/default/common/header.html"]
+    [@header title = "我的收藏" cssNames = [
+        "common/widgets/country-code/main_a6d7b89.css",
+        "pkg/mycenter-sidenav/page/collections/main.html_aio_5F3e6df56.css"
+    ]/]
+    <!-- 公共样式 -->
+    <!-- header样式 -->	<!-- footer样式 -->
+    <!-- 页面样式 -->
+    <!-- 动态token，防御伪造请求，重复提交 -->
+    <script type="text/javascript">
+        window.X_Anti_Forge_Token = 'cdf50109-a13e-41db-815b-360445fa66f4';
+        window.X_Anti_Forge_Code = '77996528';
+    </script>
+
+
+</head>
+<body>
+<!-- header -->
+<!--C端头部通栏广告位-->
+
+
+<!--验证注册邮箱-->
+<!--
+@require "common/widgets/header_c/modules/emailvalid/main.less"
+-->
+
+
+[#include "/theme/default/common/navBar.html"]
+
+[@navBar /]
+
+<input type="hidden" id="serverTime" value="1504168430244" />
+
+<!-- 页面主体START -->
+<div id="container">
+    <input type="hidden" value="8816059" name="userid" id="userid" />
+
+    <div class="clearfix">
+        <div class="new_section fl">
+            <dl class="c_collections">
+                <dt>
+                    <h1>
+                        <em></em> 我收藏的职位
+                    </h1>
+                </dt>
+                <dd>
+                    <form id="collectionsForm">
+                        <ul class="reset my_collections">
+                            [#if page??]
+                            [#list page.content as item]
+                            <li data-id="1560569" data-company="118198">
+                                <a href="${siteurl}company/${(item.job.company.id)!'-1'}.htm" target="_blank" title="${(item.job.company.name)!'无名称'}"> <img src="${(item.job.company.logo)!'无名称'}" alt="${(item.job.company.name)!'无名称'}" />
+                                </a>
+                                <div class="co_item">
+                                    <h2 title="${(item.job.name)!''}">
+                                        <a href="${siteurl}jobs/${item.job.id}.htm" target="_blank">
+                                            <em style='max-width: 200px;'>${(item.job.name)!""}</em>
+                                            <span>（${(item.job.minMoney)!""}-${(item.job.maxMoney)!""}）</span>
+
+                                            <!-- <span class="tcy"></span> -->
+
+                                            <!-- <span class="canAll"></span> -->
+                                        </a>
+                                    </h2>
+                                    <span class="co_time">发布时间：${(item.job.addDate)!""}</span>
+                                    <div class="co_cate">${(item.job.company.name)!'无名称'} / ${(item.job.address.city.name)!""} / ${(item.job.workYear.name)!""}/  ${(item.job.degree.name)!""}</div>
+                                    <span class="co_youhuo c7">有机会赴美国出差、进修、长期工作</span>
+                                    <a href="${siteurl}jobs/${item.job.id}.htm" target="_blank" class="collection_link">投个简历</a>
+                                    <i></i> <a href="${siteurl}mycenter/collection_remove.htm?id=${item.id}" class="collectionCancel collection_link collected"> 取消收藏 <span>已取消收藏</span></a>
+                                </div>
+                            </li>
+                            [/#list]
+                            [/#if]
+                        </ul>
+                    </form>
+                </dd>
+            </dl>
+        </div>
+        <div class="content_r">
+            <div class="collections_nav_button">
+                <div class="mr_r_nav">
+                    <ul class="clearfix">
+                        <li data-lg-tj-track-code="deliver_deliver" data-lg-tj-track-type="1">
+                            <a  href="${siteurl}mycenter/delivery.htm"  target="_blank">
+                                投递箱<i class="td"></i>
+                            </a>
+                            <!-- <a  href="https://www.lagou.com/mycenter/delivery.html" target="_blank">我的投递<i class="td"></i><em class="count2">99</em></a> -->
+                        </li>
+                        <li data-lg-tj-track-code="invite_invite" data-lg-tj-track-type="1">
+                            <a href="${siteurl}mycenter/invitation.htm" target="_blank">邀请函<i class="yq"></i>
+                            </a>
+                        </li>
+                        <li data-lg-tj-track-code="favorite_favorite" data-lg-tj-track-type="1">
+                            <a href="${siteurl}mycenter/collections.htm" target="_blank">收藏夹<i class="sc"></i></a>
+                        </li>
+                        <!--<li class="mr_none">
+                            <a href="${siteurl}mycenter/subscribe.htm" target="_blank">订阅栏<i class="dy"></i></a>
+                        </li>-->
+                    </ul>
+                </div>
+
+            </div>
+            <div class="collections_recommend" data-lg-tj-track-code="favorite_guess" data-lg-tj-track-type="1">
+                <div id="position_recommend">
+                    <input type="hidden" value="false" id="hasRecommendPositionList"> </div>
+
+            </div>
+
+            <!--广告位-->
+            <div key="ZHIWEITOUDIXIANGYAOQINGHANSHOUZANGJIADINGYUELAN_ZHIWEITOUDIXIANGYAOQINGHANSHOUZANGJIADINGYUELAN" class="lgad_jsonp" style="margin-top: 20px;"></div>
+
+        </div>
+        <div style="display:none;">
+
+            <div id="infoBeforeDeliverResume" class="popup" style="height:300px; overflow:visible;">
+                <div class="f18">为方便所投递企业HR查阅，请确认个人信息</div>
+                <form id="basicInfoForm" method="post">
+                    <table width="100%">
+                        <tr>
+                            <td valign="middle">
+                                <span class="redstar">*</span>
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="姓名" />
+                            </td>
+                            <td valign="middle">
+                                <span class="redstar">*</span>
+                            </td>
+                            <td>
+                                <input type="hidden" name="degree" value="" id="degree" />
+                                <input type="button" class="profile_select_190 profile_select_normal" id="select_degree" value="最高学历" />
+                                <div id="box_degree" class="boxUpDown boxUpDown_190 dn"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="middle">
+                                <span class="redstar">*</span>
+                            </td>
+                            <td>
+                                <input type="hidden" name="workyear" value="" id="workyear" />
+                                <input type="button" class="profile_select_190 profile_select_normal" id="select_workyear" value="工作年限" />
+                                <div id="box_workyear" class="boxUpDown boxUpDown_190 dn"></div>
+                            </td>
+                            <td valign="middle">
+                                <span class="redstar">*</span>
+                            </td>
+                            <td>
+                                <input type="hidden" name="expectCity" value="" id="expectCity" />
+                                <input type="button" class="profile_select_190 profile_select_normal" id="select_expectCity" value="期望工作城市" />
+                                <div id="box_expectCity" class="boxUpDown boxUpDown_596 dn"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="middle">
+                                <span class="redstar">*</span>
+                            </td>
+                            <td>
+                                <input type="text" name="tel" placeholder="手机号码" />
+                            </td>
+                            <td valign="middle">
+                                <span class="redstar">*</span>
+                            </td>
+                            <td>
+                                <input type="text" name="email" placeholder="邮箱地址" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="3">
+                                <input type="hidden" name="type" value="" />
+                                <input type="submit" class="btn" value="确认并投递" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <!--/#infoBeforeDeliverResume-->
+            <!-- 投递简历时  - 设置默认投递简历 -->
+            <div id="setResumeApply" class="popup" style="height:280px;">
+                <table width="100%">
+                    <tr>
+                        <td class="f18 c5">请选择你要投出去的简历：</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form id="resumeSendForm" class="resumeSetForm">
+                                <label class="radio">
+                                    <input type="radio" name="resumeName" class="resume1" value="1"  /> 在线简历：                                 <span class="red">在线简历还不完善，请完善后选择投递</span>                             </label>
+                                <div class="setBtns">
+                                    <a href="https://www.lagou.com/resume/myresume.html" target="_blank">修改</a>
+                                </div>
+                                <div class="clear"></div>
+                                <label class="radio">
+                                    <input type="radio" name="resumeName" class="resume0" value="0"  /> 附件简历：                                 <span class="uploadedResume red">暂无附件简历</span>                             </label>
+                                <div class="setBtns" style="cursor:pointer">
+                                    <a href="https://www.lagou.com/nearBy/downloadResume" class="downloadResume dn" style="cursor:pointer">下载</a> <span class="dn">|</span>
+                                    <a target="_blank" title="上传附件简历" class="reUpload" style="cursor:pointer">上传附件简历</a>                                 <input title="支持word、pdf、ppt、txt、wps格式文件，大小不超过10M" name="newResume" id="reUploadResume2" type="file" onchange="file_check(this,'https://www.lagou.com/nearBy/updateMyResume.json','reUploadResume2')" />
+
+                                </div>
+                                <div class="clear"></div>
+                                <span class="error" style="display:none;">只支持word、pdf、ppt、txt、wps格式文件，请重新上传</span>
+                                <label class="bgPink">
+                                    <input type="checkbox" checked="checked" />默认使用此简历直接投递，下次不再提示</label>
+                                <span class="setTip error"></span>
+                                <input type="submit" class="btn_profile_save btn" value="确认投递简历" />
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--/#setResumeApply-->
+            <!-- 投递时，一个简历都没有弹窗 -->
+            <div id="sendNoResume" class="popup">
+                <table width="100%">
+                    <tr>
+                        <td class="f18 c5" align="center">你还没有可以投递的简历呢</td>
+                    </tr>
+                    <tr>
+                        <td class="c5" align="center">请上传附件简历或填写在线简历后再投递吧~</td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <form>
+                                <a href="javascript:void(0);" class="btn_addPic">
+                                    <span>选择上传文件</span>
+                                    <input title="支持word、pdf、ppt、txt、wps格式文件，大小不超过10M" size="3" name="newResume" id="resumeUpload2" class="filePrew" type="file" onchange="file_check(this,'https://www.lagou.com/nearBy/updateMyResume.json','resumeUpload2')" />
+                                </a>
+                            </form>
+                            <a class="btn" rel="nofollow" href="https://www.lagou.com/resume/basic.html" target="_blank">完善在线简历</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--/#sendNoResume-->
+            <!-- 投简历成功前二次确认 -->
+            <div id="deliverResumeConfirm" class="popup">
+                <table width="100%">
+                    <tr>
+                        <td class="msg">
+                            <div class="f18 count allContent">你当前共有<span class="f18 confirm_field allNum">0</span>个职位可以一键投递简历，
+                                <br />是否确认继续投递？</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <input type="hidden" name="type" value="" />
+                            <a href="javascript:;" class="btn" id="delayConfirmDeliver">确认投递</a>
+                            <a href="javascript:;" class="btn_s" style="background:#fff;color:#0099ff;border:1px solid #0099ff;">放弃投递</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--/#deliverResumeConfirm-->
+            <!-- 投简历成功前二次确认 -->
+            <div id="deliverResumeLimit" class="popup">
+                <table width="100%">
+                    <tr>
+                        <td class="msg">
+                            <div class="f18 count allContent">你当前共有<span class="f18 confirm_field allNum">0</span>个职位可以一键投递简历，
+                                <br />是否确认继续投递？</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <input type="hidden" name="type" value="" />
+                            <a href="javascript:;" class="btn" id="delayConfirmDeliver">确认投递</a>
+                            <a href="javascript:;" class="btn_s" style="background:#fff;color:#0099ff;border:1px solid #0099ff;">放弃投递</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--/#deliverResumeConfirm-->
+            <!-- 投简历成功 -->
+            <div id="deliverResumesCanNot" class="popup" style="width:480px;padding-bottom:30px;">
+                <table width="100%">
+                    <tr class="drawGGJ">
+                        <td align="center">
+                            <p class="count" style="font-size:18px;margin:0 0 10px;"><span class="resume_delay_txt">投递失败：今日你已投递<span class='confirm_field allNum' style="font-size:26px;"></span>个职位，投递数达到上限。</p>
+                            <p class="font_16 share" style="border:none;padding:0;margin:0 0 10px;">快来领取每日奖励，轻松提升投递次数&nbsp;&nbsp;</p>
+                        </td>
+                    </tr>
+                    <tr class="drawQD">
+                        <td align="center">
+                            <a href="https://www.lagou.com/share/inviteJoin.html" class="btn" style="margin-right:15px;">提升投递次数</a>
+                            <a href="javascript:;" class="btn_s">关闭</a>
+                        </td>
+                    </tr>
+                    <tr class="weixinQR dn">
+                        <td>
+                            <div class="weixin">
+                                <div class="qr">
+                                    <img src="" width="120" height="120" />
+                                    <div>[仅限本人使用]</div>
+                                </div>
+                                <div class="qr_text">
+                                    微信绑定拉勾网服务号
+                                    <br /> 随时接收简历处理结果
+                                    <br />
+                                    <span><< 微信扫一扫，立即绑定</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--/#deliverResumesSuccess-->
+            <!-- 投简历成功 -->
+            <div id="deliverResumesCanNot1" class="popup" style="width:480px;padding-bottom:25px">
+                <table width="100%">
+                    <tr class="drawGGJ">
+                        <td align="center">
+                            <p class="count" style="font-size:18px;margin:0 0 10px;"><span class="resume_delay_txt">投递失败:今日你已投递<span class="confirm_field allNum" style="font-size:26px;">" + deliveredCount + "</span>个职位，继续使用“一键投递”将超过投递上限，请逐个职位进行投递</p>
+                        </td>
+                    </tr>
+                    <tr class="drawQD">
+                        <td align="center">
+                            <a href="javascript:;" class="btn_s">关闭</a>
+                        </td>
+                    </tr>
+                    <tr class="weixinQR dn">
+                        <td>
+                            <div class="weixin">
+                                <div class="qr">
+                                    <img src="" width="120" height="120" />
+                                    <div>[仅限本人使用]</div>
+                                </div>
+                                <div class="qr_text">
+                                    微信绑定拉勾网服务号
+                                    <br /> 随时接收简历处理结果
+                                    <br />
+                                    <span><< 微信扫一扫，立即绑定</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--/#deliverResumesSuccess-->
+            <!-- 投简历成功 -->
+            <div id="deliverResumesNull" class="popup" style="width:480px;padding-bottom:25px;">
+                <table width="100%">
+                    <tr class="drawGGJ">
+                        <td align="center">
+                            <p class="count" style="font-size:18px;margin:0 0 10px;"><span class="resume_delay_txt" style="color: black;"></span>你当前暂无可一键投递的职位</p>
+                            <p class="font_16 share" style="border:none;padding:0;margin:0 0 10px;">只有2月6号-2月13号收藏的职位才可一键投递简历哦~</p>
+                        </td>
+                    </tr>
+                    <tr class="drawQD">
+                        <td align="center">
+                            <a href="javascript:;" class="btn_s">关闭</a>
+                        </td>
+                    </tr>
+                    <tr class="weixinQR dn">
+                        <td>
+                            <div class="weixin">
+                                <div class="qr">
+                                    <img src="" width="120" height="120" />
+                                    <div>[仅限本人使用]</div>
+                                </div>
+                                <div class="qr_text">
+                                    微信绑定拉勾网服务号
+                                    <br /> 随时接收简历处理结果
+                                    <br />
+                                    <span><< 微信扫一扫，立即绑定</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--/#deliverResumesSuccess-->
+            <!-- 上传简历 -->
+            <div id="uploadFile" class="popup">
+                <table width="100%">
+                    <tr>
+                        <td align="center">
+                            <form>
+                                <a href="javascript:void(0);" class="btn_addPic">
+                                    <span>选择上传文件</span>
+                                    <input tabindex="3" title="支持word、pdf、ppt、txt、wps格式文件，大小不超过10M" size="3" name="newResume" id="resumeUpload" class="filePrew" type="file" onchange="file_check(this,'https://www.lagou.com/nearBy/updateMyResume.json','resumeUpload')" />
+                                </a>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">支持word、pdf、ppt、txt、wps格式文件
+                            <br />文件大小需小于10M</td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="color:#dd4a38; padding-top:10px;">注：若从其它网站下载的word简历，请将文件另存为.docx格式后上传</td>
+                    </tr>
+                    <tr>
+                        <td align="center"><img src="//img.yingjobs.com/www/static/mycenter-sidenav/modules/common/img/loading_1e48bce.gif" width="55" height="16" id="loadingImg" style="visibility: hidden;" alt="loading" /></td>
+                    </tr>
+                </table>
+            </div>
+            <!--/#uploadFile-->
+            <!-- 投简历成功 -->
+            <div id="deliverResumesSuccess" class="popup" style="width:440px;">
+                <table width="100%">
+                    <tr class="drawGGJ">
+                        <td align="center">
+                            <p class="text_wrapper">
+                                <span class="resume_delay_txt">6号 - 13号之间收藏的职位已全部投递。</span>
+
+                                <!-- <span class="font_16">更多热门职位，尽在<span class="color_green">2015拉勾互联网招聘风暴周</span></span> -->
+                            </p>
+
+                            <p class="img_wrapper">
+
+                                <i class="app_qr"></i>
+
+                            </p>
+
+                            <!--  <p class="font_16 share dn">邀请好友成功注册拉勾，可提升每日投递量 &nbsp;&nbsp; <a href="https://www.lagou.com/share/invite.html" target="_blank">邀请好友>></a></p> -->
+                        </td>
+                    </tr>
+                    <!--   -->
+                </table>
+            </div>
+            <!--/#deliverResumesSuccess-->
+
+            <!-- 简历上传成功 -->
+            <div id="uploadFileSuccess" class="popup">
+                <h4>简历上传成功！</h4>
+                <table width="100%">
+                    <tr>
+                        <td align="center">
+                            <p>你可以将简历投给你中意的公司了。</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center"><a href="javascript:top.location.reload();" class="btn_s">确&nbsp;定</a></td>
+                    </tr>
+                </table>
+            </div>
+            <!--/#uploadFileSuccess-->
+
+            <!-- 上传附件简历操作说明-重新上传 -->
+            <div id="fileResumeUpload" class="popup">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <div class="f18 mb10">请上传标准格式的word简历</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="f16">
+                                操作说明：
+                                <br /> 打开需要上传的文件 - 点击文件另存为 - 选择.docx - 保存
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <a class="inline btn fileResumeUpload" title="上传附件简历" style="cursor:pointer">重新上传</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--/#fileResumeUpload-->
+
+            <!-- 上传附件简历操作说明-重新上传 -->
+            <div id="fileResumeUploadSize" class="popup">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <div class="f18 mb10">上传文件大小超出限制</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="f16">
+                                提示：
+                                <br /> 单个附件不能超过10M，请重新选择附件简历！
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <a class="inline btn fileResumeUploadSize" title="上传附件简历"  style="cursor:pointer">重新上传</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- 页面主体END -->
+
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "培训信息" cssNames = [
+    "pkg/community/page/question-detail/main.html_aio_46c78cd.css",
+    "pkg/community/page/question-detail/main.html_aio_2_165525e.css"
+    ]/]
+</head>
+<body>
+<!-- header -->
+<!-- 引入导航条 -->
+[#include "/theme/default/common/navBar.html"]
+[@navBar active = 5 /]
+<!-- 页面主体START -->
+<div class="container clearfix" id="container">
+    <div class="main-content fl">
+
+        <div class="question-detail" data-id="60626">
+
+            <h1 class="title">${model.title!''}</h1>
+
+            <p class="content">
+                ${model.contents!''}
+            </p>
+        </div>
+
+    </div>
+</div>
+<!-- 页面主体END -->
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+</body>
+</html>

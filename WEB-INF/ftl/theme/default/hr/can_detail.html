@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "寻鹰简招" cssNames = [
+        "mds/static/common/static/less/parent.base_142fcd4.css",
+        "pkg/candidate-list/page/main.html_aio_7ee07e3.css"
+    ]/]
+    <style>
+        .btn + .btn {
+            margin-top: 0
+        }
+    </style>
+</head>
+<body>
+
+<div id="root">
+    <div data-reactroot="" class="wrapper">
+        <div class="container" style="top: 42px;">
+            <div>
+                <div class="fl"><i class="icon-candidate-arrow-left is-disabled-left"></i></div>
+                <div class="fr"><i class="icon-candidate-arrow-right"></i></div>
+            </div>
+            <div class="top-back-list">
+                <a href="${siteurl}hr/index.htm">&lt;&lt;候选人列表</a>
+                <div class="page-to-other" style="display: none">
+                    <span class="page-to-other-text">第1位/共11位</span>
+                    <span class="page-turning">
+                        <span class="page-turning-left is-disabled-left">
+                            <i class="icon-candidate-previous-page"></i>
+                            <span>上一位</span>
+                        </span>
+                        <span class="middle">|</span>
+                        <span class="page-turning-right">
+                            <span>下一位</span>
+                            <i class="icon-candidate-next-page"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="top-toolbar clearfix">
+                <div class="top-bar-left-content">
+                    <span class="item">新简历</span>
+                    <span class="item">
+                        <a target="_blank" href="">Java</a>
+                    </span>
+                </div>
+                <div class="resume-tool-bar">
+                    <div class="btn green toolbar-btn  ">
+                        <a  href="${siteurl}hr/can/updatestate.htm?id=${model.id}&tag=2">
+                           移动到待沟通
+                        </a>
+                    </div>
+                    <div class="btn green toolbar-btn  ">
+                        <a href="${siteurl}hr/can/updatestate.htm?id=${model.id}&tag=5">
+                            淘汰
+                        </a>
+                    </div>
+                    <div class="btn green toolbar-btn  ">
+                        <a href="${siteurl}hr/can/updatestate.htm?id=${model.id}&tag=4">
+                           面试
+                        </a>
+                    </div>
+                    <div class="btn green toolbar-btn  ">
+                        <a href="${siteurl}hr/can/updatestate.htm?id=${model.id}&tag=6">
+                            录用
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content clearfix">
+                <div class="scrollarea left-content" style="overflow-y: scroll;width: 100%;">
+                    <div class="scrollarea-content " tabindex="1" style="margin-top: 0px; margin-left: 0px;">
+                        <div class="information-content clearfix">
+                            <div class="inoformation-portrait">
+                                <div class="photo-detail  bg_3">${model.member.name!""}</div>
+                            </div>
+                            <i class="icon-edit" style="display: none"></i>
+                            <div class="information-right">
+                                <div class="information-body">
+                                    <div>
+                                        <div>
+                                            <span class="candidate-name" title="${model.member.name!''}">${model.member.name!""}</span>
+                                            <a style="display: none" class="btn green small-btn is_can_chat with_chat_msgs" href="" target="_blank">
+                                                <span>1</span>条沟通记录
+                                            </a>
+                                            <div style="display: none"  class="btn green small-btn">1 次应聘</div>
+                                        </div>
+                                        <div class="information-base-info">
+                                            <span class="base-info-workyear-education">
+                                                <span>${(model.resume.workYear.name)!""}</span>
+                                                <span>${(model.resume.degree.name)!""}</span>
+                                                <span>${(model.resume.city.name)!""}</span>
+                                            </span>
+                                        </div>
+                                        <div class="information-link">
+                                            <span class="relations"></span>
+                                            <span>手机号：
+                                                <span class="phone-tips">
+                                                    <span>${(model.resume.phone)!""}
+                                                    </span>
+                                                    <span>(西安)</span>
+                                                </span>
+                                            </span>
+                                            <span> 邮箱：
+                                                <a class="info-email-url" href="mailto:${(model.resume.email)!''}">${(model.resume.email)!""}</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tags-content" style="display: none">
+                                    <ul>
+                                        <li class="add-box">
+                                            <span class="tag-add ">
+                                                <i class="icon-candidate-add"></i>
+                                                <span>添加标签</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resume-preview-container">
+                            <div class="resume-preview">
+                                <div id="resumePreviewContainer">
+                                    <div class="online-preview">
+                                        <div id="mr_mr_head">
+                                            <div class="resume-position-header mr_w604">
+                                                <div class="mr_baseinfo" style="display: none">
+                                                    <div class="mr_p_info mr_infoed mr_w604 clearfixs">
+                                                        <div class="info_t">
+                                                            <span class="mr_name">${model.member.name!""}</span>
+                                                            <div class="mr_p_introduce mr_w604 clearfixs">
+                                                                <span class="mr_intro">oc,swift,js,html,go,python,java...未完待续</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="info_b mr_w604">
+                                                        <span class="mobile"><i class="icon-phone"></i>
+                                                            <em>15891785575</em>
+                                                        </span>
+                                                        <span class="email">
+                                                            <i class="icon-email"></i>
+                                                            <em>cto.kang@qq.com</em>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mr_content">
+                                            <div class="mr_w604">
+                                                [#if model.resume.workExperiences??]
+                                                <div id="workExperience">
+                                                    <div>
+                                                        <div class="mr_moudle_head clearfixs">
+                                                            <div class="mr_head_l">
+                                                                <div class="mr_title">
+                                                                    <span class="mr_title_l"></span>
+                                                                    <span class="mr_title_c"> 工作经历 </span>
+                                                                    <span class="mr_title_r"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mr_moudle_content">
+                                                            <div class="list_show">
+                                                                [#list model.resume.workExperiences as item]
+                                                                <div class="mr_jobe_list">
+                                                                    <div class="clearfixs">
+                                                                        <div class="mr_content_l">
+                                                                            <div class="l2">
+                                                                                <h4>${(item.company.name)!""}</h4>
+                                                                                <span>${item.post!""}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="mr_content_r">
+                                                                            <span>${(item.startDate?string('yyyy-MM'))!""}--${(item.endDate?string('yyyy-MM'))!"至今"}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                [/#list]
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                [/#if]
+                                                [#if model.resume.educationalExperiences??]
+                                                <div id="educationalBackground">
+                                                    <div>
+                                                        <div class="mr_moudle_head clearfixs">
+                                                            <div class="mr_head_l">
+                                                                <div class="mr_title">
+                                                                    <span class="mr_title_l"></span>
+                                                                    <span class="mr_title_c">教育经历</span>
+                                                                    <span class="mr_title_r"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mr_moudle_content">
+                                                            <div class="clearfixs mb46 mr_jobe_list">
+                                                                [#list model.resume.educationalExperiences as item]
+                                                                <div class="mr_content_l clearfix">
+                                                                    <div class="l2">
+                                                                        <h4>${item.schoolName!""}</h4>
+                                                                        <span>${(item.degree.name)!""} · ${item.major!""}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mr_content_r">
+                                                                    <span>${item.year!""} 年毕业 </span>
+                                                                </div>
+                                                                [/#list]
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                [/#if]
+                                                [#if model.resume.note??]
+                                                <div id="self-introduction" class="item_container_target">
+                                                    <div class="mr_moudle_head clearfixs mr_w604">
+                                                        <div class="mr_head_l">
+                                                            <div class="mr_title">
+                                                                <span class="mr_title_l"></span><span class="mr_title_c">自我描述</span><span
+                                                                    class="mr_title_r"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mr_moudle_content mr_w604">
+                                                        <div class="self_des_list clearfixs">
+                                                            <div class="mr_content_l">
+                                                                <div class="mr_content_m ueditor_parse">
+                                                                    ${model.resume.note!}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                [/#if]
+                                                <div id="certChecked" class="item_container_target">
+                                                    <div class="mr_moudle_head clearfixs mr_w604">
+                                                        <div class="mr_head_l">
+                                                            <div class="mr_title">
+                                                                <span class="mr_title_l"></span><span class="mr_title_c">证件</span><span
+                                                                    class="mr_title_r"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mr_moudle_content mr_w604">
+                                                        [#if model.resume.certNames??]
+                                                        [#list model.resume.certNames  as item]
+                                                        <label for="cc11">${item.name!""}</label>
+                                                        [/#list]
+                                                        [/#if]
+                                                    </div>
+                                                </div>
+                                                [#if certs??]
+                                                <div id="certShow" class="item_container_target">
+                                                    <div class="mr_moudle_head clearfixs mr_w604">
+                                                        <div class="mr_head_l">
+                                                            <div class="mr_title">
+                                                                <span class="mr_title_l"></span><span class="mr_title_c">证件展示</span><span
+                                                                    class="mr_title_r"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mr_moudle_content mr_w604">
+                                                        <div id="imgCont" style="overflow: auto">
+                                                            [#if certs?? && certs?size>0]
+                                                            [#list certs as item]
+                                                            <div style="float: left;position: relative;padding: 10px">
+                                                                <img height="200px" layer-src="${siteurl}${item.path!}" src="${imageurl}${item.path!}" alt="图片"
+                                                                     onerror="javascript:this.src='${imageurl}${item.path!}';this.onerror=null;">
+                                                            </div>
+                                                            [/#list]
+                                                            [/#if]
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                [/#if]
+                                            </div>
+                                            <div class="mr_self_state">
+                                                <div class="form_wrap mr_self_s resume_status">· ${(model.resume.selfState)!""} ·</div>
+                                            </div>
+                                        </div>
+                                        <div class="mr_bottom_r" id="mr_pre_bot">
+                                            <span>© ${(model.member.name)!""}  简历更新于 ${(model.resume.lastDate)!""} </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="resume-preview-toolbar" style="display: none">
+                                    <div class="preview-toolbar-item">
+                                        <i class="icon-download"></i>
+                                        <span>下载</span>
+                                    </div>
+                                    <div class="preview-toolbar-item">
+                                        <i class="icon-print"></i>
+                                        <span>打印</span>
+                                    </div>
+                                    <div class="preview-toolbar-item ">
+                                        <i class="icon-share-resume"></i>
+                                        <span>转发给同事</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="form_to_page" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

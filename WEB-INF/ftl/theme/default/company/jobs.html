@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = model.name cssNames = [
+        "common/widgets/country-code/main_a6d7b89.css",
+        "pkg/company-c/page/positions/main.html_aio_09332d1.css"
+    ]/]
+    <style>
+        .posfilterlist_container .item_con_filter {
+            display: block;
+        }
+        .posfilterlist_container .item_con_filter .con_filter_li{
+            padding: 0 5px;
+            margin: 0 5px;
+        }
+        #basic_container .item_content>ul>li{
+            line-height: 25px;
+        }
+    </style>
+</head>
+<body>
+<!--C端头部通栏广告位-->
+[#include "/theme/default/common/navBar.html"]
+[@navBar /]
+[#include "/theme/default/company/common.html"/]
+
+<input type="hidden" id="serverTime" value="1503988330262"/>
+
+<div class="top_info">
+    [#include "/theme/default/company/comtop.html"/]
+</div>
+
+<div id="company_navs" class="company_navs">
+    <div class="company_navs_wrap">
+        <ul data-pjax>
+            <li>
+                <a href="${siteurl}company/${(model.id)!''}.htm">公司主页</a>
+            </li>
+            <li class="[#if schoolJob?? && schoolJob == true] [#else]current[/#if]">
+                <a href="${siteurl}company/j${(model.id)!''}.htm">招聘职位</a>
+            </li>
+           <!-- <li class="[#if schoolJob?? && schoolJob == true]current[/#if]">
+                <a href="${siteurl}company/j${(model.id)!''}.htm?schoolJob=true">校招职位</a>
+            </li>-->
+        </ul>
+    </div>
+</div>
+<div class="company_navs_shadow"></div>
+
+<div id="main_container">
+    <div id="container_left">
+        <div id="containerCompanyDetails">
+
+            <div class="posfilterlist_container item_container" id="posfilterlist_container">
+                <div class="item_ltitle">
+                    近两月共有 <span class="list_total"> ${page.total!'0'} </span> 个在招职位
+                </div>
+                <div class="item_content">
+                    <div class="item_con_filter">
+                        <span class="con_filter_type">职位：</span>
+                        <ul class="con_filter_ul">
+                            [#if categoryId??]
+                            <li class="con_filter_li no_select" data-id="">全部</li>
+                            [#else]
+                            <li class="con_filter_li no_select selected" data-id="">全部</li>
+                            [/#if]
+                            [@categorys ]
+                            [#list list as item]
+                            [#if categoryId?? && categoryId == item.id]
+                            <li class="con_filter_li no_select selected" data-id="${item.id}">${item.name}</li>
+                            [#else]
+                            <li class="con_filter_li no_select" data-id="${item.id}">${item.name}</li>
+                            [/#if]
+                            [/#list]
+                            [/@categorys]
+                        </ul>
+                    </div>
+                    <div class="item_con_list_container">
+                        <div id="positionsLoading" style="margin-top: 20px; display: none;">加载中...</div>
+                        <div class="list-content">
+                            <ul class="item_con_list">
+                                [#if page.content??]
+                                [#list page.content as item]
+                                <li class="con_list_item default_list">
+                                    <div class="item_title_date">
+                                        <a href="${siteurl}jobs/${item.id}.htm" target="_blank" class="item_title position_link">
+                                           ${item.name}
+                                        </a>
+                                        <span class="item_date"> ${item.addDate!""} 发布</span>
+                                    </div>
+                                    <p class="item_detail">
+                                        <span class="item_salary">${item.minMoney!""}-${item.maxMoney!""}</span>
+                                        <span class="item_desc">${(item.workYear.name)!""}/${(item.degree.name)!""}/${(item.workType.name)!""}</span>
+                                    </p>
+                                    <i class="left_border"></i>
+                                </li>
+                                [/#list]
+                                [/#if]
+                            </ul>
+                        </div>
+                        <div class="pages" style="display: none"><span class="first disable">首页</span><span
+                                class="prev disable">上一页</span><span class="number current">1</span><span
+                                class="number">2</span><span class="next">下一页</span><span class="last">尾页</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="container_right">
+
+    [@companyright /]
+
+    </div>
+</div>
+
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+<script>
+    $('.con_filter_ul').on('click', 'li', function (e) {
+        var id = $(this).data('id');
+        window.location = '${siteurl}company/j${model.id!}.htm?categoryId=' + id;
+    })
+</script>
+</body>
+</html>

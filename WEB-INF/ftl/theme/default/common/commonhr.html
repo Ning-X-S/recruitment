@@ -1,0 +1,112 @@
+[#macro header index]
+<header id="top-header">
+    <div class="center">
+        <span class="company-name">We<div class="heart">
+            <svg version="1.1" viewBox="0 0 1024 1024" preserveAspectRatio="xMinYMin meet" class="svg-content"
+                 width="18" height="18">
+                <path class="st0"
+                      d="M921.5,492.1L561.4,847.9c0,0-15.1,21.6-47.4,21.6s-47.4-21.6-47.4-21.6L106.3,492.1 c-41-43.1-66.9-99.2-66.9-163.9c0-129.4,105.7-235.1,232.9-235.1c64.7,0,122.9,25.9,163.9,66.9l75.5,86.3l75.5-86.3 c43.1-41,99.2-66.9,163.9-66.9c129.4,0,232.9,105.7,232.9,235.1C988.4,390.7,962.5,448.9,921.5,492.1L921.5,492.1z"/>
+            </svg>
+        </div>
+            <span class="name" data-name="">
+                            HR中心
+                    </span></span>
+
+        <nav class="top-navs">
+            <ul class="clearfix">
+                <li><a href="${siteurl}index.htm" >首页</a></li>
+                <li><a href="${siteurl}hr/index.htm" class="[#if index==1] active[/#if]">候选人</a></li>
+                <li><a href="${siteurl}hr/my_online_positions.htm" class="talents [#if index==2] active[/#if]">职位</a>
+                <li><a href="${siteurl}hr/resumelist.htm" class="[#if index==3] active[/#if]">简历库</a></li>
+            </ul>
+        </nav>
+
+        <div class="preferences clearfix">
+            <div class="profile" data-lg-tj-id="2620" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">
+                <span class="icon">
+                    <span class="head_bg_2">li</span>
+                </span>
+                <span class="name">${nickName!"Hr"}</span>
+                <i class="icon-downArrow"></i>
+                <ul class="options ">
+                    <li>
+                        <a class="company-page" href="${siteurl}hr/mycompany.htm" target="_blank">公司主页</a>
+                    </li>
+                    <li>
+                        <a href="${siteurl}hr/settings/me.htm">招聘设置</a>
+                    </li>
+                    <li style="display: none">
+                        <a class="help" href="${siteurl}hr/helps.htm" target="_blank">使用帮助</a>
+                    </li>
+                    <li>
+                        <a id="logoutNode" href="${siteurl}signout.htm">退出</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="msg-bell">
+                <i class="bell-icon icon-notice"></i>
+                <span class="badge"></span>
+                <div class="messages">
+                    <header>
+                        <span class="left">通知</span>
+                        <span class="all-readed">全部标记为已读</span>
+                    </header>
+                    <ul class="msg-list"></ul>
+                    <footer>
+                        <a href="https://easy.lagou.com/notification/allNotifications.htm" target="_blank">查看全部</a>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+[/#macro]
+
+
+[#macro nav index]
+
+<nav class="sub-navs">
+    <ul class="center">
+        <li class="candidate c" data-guid="MockResumeGuid" data-step="piplineHover">
+            <a data-lg-tj-id="1IT0" data-lg-tj-no="idnull" data-lg-tj-cid="candidate"
+               href="${siteurl}hr/can.htm">候选人</a>
+        </li>
+
+
+        <li class="inverview-calender-navigage  [#if index==2]active[/#if]">
+            <a data-lg-tj-id="1J20" data-lg-tj-no="idnull" data-lg-tj-cid="interview" href="${siteurl}hr/interview.htm">面试日程</a>
+        </li>
+        <li class="position  [#if index==3]active[/#if]">
+            <a data-lg-tj-id="19g5" data-lg-tj-no="idnull" data-lg-tj-cid="position"
+               href="${siteurl}hr/my_online_positions.htm">职位</a>
+        </li>
+        <li class="resume-library   [#if index==4]active[/#if] ">
+            <a data-lg-tj-id="1J30" data-lg-tj-no="idnull" data-lg-tj-cid="resumelib"
+               href="${siteurl}hr/resumelist.htm">简历库</a>
+        </li>
+        <!--         <li class="campus">
+                    <a data-lg-tj-id="19yn" data-lg-tj-no="idnull" data-lg-tj-cid="campus" href="https://easy.lagou.com/campus/recruit/index.htm">校园招聘</a>
+                </li> -->
+    </ul>
+</nav>
+
+
+[/#macro]
+
+
+[#macro settab index]
+
+<div class="set-tab">
+    <a href="${siteurl}hr/settings/me.htm"> <span class="menu-item [#if index==1]active[/#if]">个人信息</span></a>
+    <span class="divider "></span>
+    <a href="${siteurl}hr/settings/template.htm"><span class="menu-item [#if index==2]active[/#if]">招呼模板</span></a>
+    <span class="divider"></span>
+    <a href="${siteurl}hr/settings/interview_temlate.htm"><span class="menu-item [#if index==3]active[/#if]">面试信息</span></a>
+    <span class="divider"></span>
+    <a href="${siteurl}hr/settings/refuse_temp.htm"><span class="menu-item [#if index==4]active[/#if]">淘汰模板</span></a>
+    [#nested]
+</div>
+
+[/#macro]
+

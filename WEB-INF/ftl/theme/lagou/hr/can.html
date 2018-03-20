@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "全部候选人" cssNames = [
+    "mds/static/common/static/less/parent.base_142fcd4.css",
+    "pkg/candidate-list/page/main.html_aio_e2e6c5e.css"
+    ]/]
+    <style>
+        .btn + .btn {
+            margin-top: 0
+        }
+    </style>
+</head>
+<body>
+
+[#include "/theme/default/common/commonhr.html"]
+
+[@header index=1 /]
+[#include "/theme/default/common/commonsite.html"]
+
+<div id="candidate_list">
+    <div data-reactroot="" class="wrapper">
+        <div class="wrapper_containers">
+            <div class="wrapper">
+                <div class="stage_list">
+                    <ul class="stage_li">
+                        <li class="stage_item [#if tag==0] stage_item_select[/#if]">
+                            <div class="stage_item_inner" data-stage="NEW">
+                                <a href="${siteurl}hr/index.htm?tag=0" class="stage_item_name">新简历</a>
+                            </div>
+                        </li>
+                        <li class="stage_item [#if tag==2] stage_item_select[/#if]">
+                            <div class="stage_item_inner" data-stage="LINK">
+                                <a href="${siteurl}hr/index.htm?tag=2" class="stage_item_name">待沟通</a>
+                            </div>
+                        </li>
+                        <li class="stage_item [#if tag==4] stage_item_select[/#if]">
+                            <div class="stage_item_inner" data-stage="INTERVIEW">
+                                <a href="${siteurl}hr/index.htm?tag=4" class="stage_item_name">面试</a>
+                            </div>
+                        </li>
+                        <li class="stage_item [#if tag==6] stage_item_select[/#if]">
+                            <div class="stage_item_inner" data-stage="LUYONG">
+                                <a href="${siteurl}hr/index.htm?tag=6"  class="stage_item_name">录用</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="wrapper" style="display: none">
+                <div class="position_toolbar_box">
+                    <div class="position_toolbar">
+                        <div class="clearfix">
+                            <div class="toolbar-filter_btn">
+                                <i class="icon-candidate-filters null"></i>
+                                <span class="toolbar-filter_text null">筛选</span>
+                            </div>
+                            <div class="toolbar-filter_subTags">
+                                <span class="lagou_dropdown_link">全部
+                                    <i class="icon-candidate-arrow-down lagou_icon_down"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <div class="input-wrapper">
+                                    <div class="input-wrapper">
+                                        <input type="text" class="input search_input" placeholder="搜索姓名/手机/邮箱/公司/职位/标签等" value="">
+                                    </div>
+                                    <i class="icon-candidate-search"></i>
+                                </div>
+                            </div>
+                            <div class="resume-tool-bar">
+                                <div class="btn green toolbar-btn toolbar-icon no-padding no-data-disabled">
+                                    <span>
+                                        <i class="icon-candidate-switch"></i>移动到待沟通
+                                    </span>
+                                    <i class="icon-down"></i>
+                                </div>
+                                <div class="btn green toolbar-btn toolbar-icon no-padding no-data-disabled">
+                                    <span>
+                                        <i class="icon-candidate-outresume"></i>淘汰
+                                    </span>
+                                    <i class="icon-down"></i>
+                                </div>
+                                <button id="transformResumeMembers" class="btn green toolbar-btn toolbar-icon no-padding no-data-disabled" type="button">
+                                    <div>
+                                        <i class="icon-candidate-at"></i>转发给同事
+                                    </div>
+                                </button>
+                                <div class="btn green toolbar-btn toolbar-icon no-padding">
+                                    <div>
+                                        <span style="padding-left: 0px; margin-right: 22px;">
+                                            <i class="icon-candidate-upload-resume"></i>导入简历
+                                        </span>
+                                        <i class="icon-down"></i>
+                                    </div>
+                                </div>
+                                <div class="btn green toolbar-btn no-padding-more">
+                                    <i class="icon-candidate-more-menu"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="position_listPages ">
+                    <div class="position_listPages_box">
+                        <div class="table_wrapper clearfix">
+                            <div class="table table-scroll-position-left">
+                                <div class="table-content">
+                                    <div class="">
+                                        <span>
+                                            <div class="table-body">
+                                                <table class="">
+                                                    <colgroup><col><col><col><col><col><col><col><col></colgroup>
+                                                    <thead class="table-thead">
+                                                    <tr>
+                                                        <th class="item-nickname">候选人</th>
+                                                        <th class="item-2">工作年限</th>
+                                                        <th class="item-1">学历</th>
+                                                        <th class="item-1">应聘职位</th>
+                                                        <th class="item-1">最近经历</th>
+                                                        <th class="item-1">应聘时间</th>
+                                                        <th class="item-1">渠道</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody class="table-tbody">
+                                                    [#if pager.content??]
+                                                    [#list pager.content as item]
+                                                    <tr class="table-row  table-row-level-0"
+                                                        onclick="location = '${siteurl}hr/can/detail.htm?id=${item.id}'">
+                                                        <td class="item-nickname">
+                                                            <span class="table-row-indent indent-level-0" style="padding-left: 0px;">
+
+                                                            </span>
+                                                            <span>
+                                                                <span class="noReadNum"></span>
+                                                                <span class="user_name">${(item.member.name)!""}</span>
+                                                            </span>
+                                                        </td>
+                                                        <td class="item-2">
+                                                            <span class="to_center_style">${(item.resume.workYear.name)!""}</span>
+                                                        </td>
+                                                        <td class="item-1">
+                                                            <span class="to_center_style">
+                                                                <span>${(item.resume.degree.name)!""}</span>
+                                                            </span>
+                                                        </td>
+                                                        <td class="item-1">
+                                                            <span class="name_cut to_center_style position_name">Java</span>
+                                                        </td>
+                                                        <td class="item-1">
+                                                            <span class="name_cut to_center_style last_experience">
+                                                                <div class="no_year_zero">
+                                                                    <span>
+                                                                        <i class="icon-candidate-job"></i>${(item.resume.shenfen)!""}
+                                                                    </span>
+
+                                                                </div>
+                                                            </span>
+                                                        </td>
+                                                        <td class="item-1">
+                                                            <span class="to_center_style">
+                                                                <div>
+                                                                    <span class="tips_orange">${(item.addDate?string("yyyy-MM-dd"))!""}</span>
+                                                                </div>
+                                                            </span>
+                                                        </td>
+                                                        <td class="item-1">
+                                                            <span class="to_center_style">寻鹰网</span>
+                                                        </td>
+                                                    </tr>
+                                                    [/#list]
+                                                    [/#if]
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix" style="text-align: right;">
+                                [@pagersimple page=pager url="hr/index.htm?tag="+tag /]
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content-form" style="display: none;"></div>
+                </div>
+            </div><!-- react-empty: 80 --></div>
+    </div>
+</div>
+
+<script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="${siteurl}dist/js/hr.js"></script>
+
+[#include "/theme/default/common/footer.html"]
+
+</body>
+</html>
+

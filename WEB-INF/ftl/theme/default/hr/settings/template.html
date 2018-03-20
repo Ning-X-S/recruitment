@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header_hr.html"]
+    [@header_hr title="个人信息" cssNames=[
+        "mds/static/pkg/settings/page/greeting-template/main.html_aio_f01ba92.css"
+    ]/]
+</head>
+<body>
+[#include "/theme/default/common/commonhr.html"]
+[@header index=4/]
+
+<!--编辑表单-->
+[#include "/theme/default/hr/settings/temlate_form.html"]
+
+<article class="global-search-box">
+    <form id="searchForm" action="">
+        <i class="icon-search"></i>
+        <fieldset class="fields">
+            <span class="" data-preType=""></span>
+            <input type="text" name="keyword" autocomplete="off" value="" placeholder="搜索人才、简历或职位"/>
+        </fieldset>
+        <input class="search-btn" type="button" name="search" value="搜索" />
+    </form>
+</article>
+
+<div class="modal fade" id="open-recruit-service-pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close icon-close" data-dismiss="modal"></button>
+            </div>
+            <div class="modal-body clearfix">
+                <div><img class="no-position" src="https://img.yingjobs.com/mds/static/common/widgets/open-recruit-service-pop/img/no-position_274e102.png" alt="no-position"></div>
+                <p class="tips">你还没有在拉勾网开通招聘服务</p>
+                <p><a class="to-open-service" href="https://hr.lagou.com/corpCenter/bindStep1.html" target="_blank">去开通招聘服务</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main-content-wrapper">
+
+    <div class="container">
+        <div class="setting-pannel">
+            <div class="head clearfix">
+                <div class="title">招聘设置</div>
+            </div>
+            <div class="menu-container head-son" id="recruit-menu">
+                [@settab index=2]
+                <div class="add-modules add-menu" id="add" data-target="#addForm">
+                    <i class="icon-add" style="font-size: 14px"></i>
+                    新增招呼模板（<span id="CurrTplNum">1</span>/<span id="maxTplNum">20</span>）
+                </div>
+                [/@settab]
+            </div>
+            <div class="setting-container" id="recruit-container">
+                <!-- 新增框 -->
+                [@form action='#' formId='addForm'/]
+
+                [#if list??]
+                [#list list as item]
+                <div class="display-molues" data-template-id="${item.id!''}">
+                    <div class="template-header clearfix">
+                        <span class="modules-name">${item.name!""}</span>
+                        <div class="template-operation clearfix fr">
+                            <span class="menu-item default">默认模板</span>
+                            <span class="menu-item edit">编辑</span>
+                            <span class="menu-item delete" data-href="#删除action">删除</span>
+                        </div>
+                    </div>
+                    <div class="template-body">
+                        <dl class="template-item">
+                            <dd>${item.note!""}</dd>
+                        </dl>
+                    </div>
+                </div>
+                [@form id="${(item.id)!''}" templateName="${(item.name)!''}" content="${(item.note)!''}" action="#" /]
+                [/#list]
+              [/#if]
+            </div>
+
+        </div>
+    </div>
+</div>
+[#include "/theme/default/hr/settings/common_footer.html"]
+[#include "/theme/default/common/footer.html"]
+
+</body>
+</html>
+

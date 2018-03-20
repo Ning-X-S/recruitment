@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- meta -->
+    <title>专注航空领域职位需求-寻鹰网</title>
+    <link rel="stylesheet" type="text/css" href="${siteurl}dist/third/pkg/pc/page/findpassword/step1.html_aio_61da046.css"/>
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/nicevalidator/jquery.validator.css"/>
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/layer/theme/default/layer.css">
+    <link rel="stylesheet" href="${siteurl}plugins/sweetalert/sweetalert.css">
+    <style>
+        .code .msg-box{
+            position: absolute;
+            top: 40px;
+        }
+    </style>
+</head>
+<body>
+<input type="hidden" id="siteurl" value="${siteurl!''}">
+<!-- 页面主体START -->
+<header class="sso_header">
+    <a href="${siteurl}" class="logo"></a>
+</header>
+<section class="content_box" id="findPwd1">
+    <!-- 通过手机号找回密码 -->
+    <div class="findPwd">
+        <h5 class="change_way">
+            <a rel="nofollow" href="${siteurl}frontLogin.htm">返回登录</a>
+        </h5>
+        <ul class="form_head clearfix">
+            <li class="active fl">
+                <span class="icon_step step1"></span>
+                验证手机号
+            </li>
+            <li class="line fr" id="step2Icon">
+                <span class="icon_step step2"></span>
+                重置密码
+            </li>
+        </ul>
+        <form id="step1" action="#">
+            <div class="form_body">
+                <div class="input_item clearfix">
+                    <input type="text" class="input input_white" id="phone" name="phone" placeholder="请输入注册时使用的手机号"
+                           data-required="required" autocomplete="off">
+                </div>
+                <div class="input_item clearfix">
+                    <div class="input_group clearfix code">
+                        <input type="text" class="input input_white first_child" id="code" name="code" placeholder="请输入短信验证码"
+                               data-required="required" autocomplete="off">
+                        <input id="send_verify" type="button" class="btn btn_active btn_lg last_child" value="获取验证码"
+                               data-required="required">
+                    </div>
+                </div>
+
+                <div class="input_item clearfix">
+                    <input id="step1Btn" type="button" class="btn btn_green btn_active btn_block" value="找回密码">
+                </div>
+            </div>
+        </form>
+        <form id="step2" action="${siteurl}account/resetpassword.htm" method="post" style="display:none">
+            <input type="hidden" id="submitPhone" name="phone">
+            <div class="form_body">
+                <div class="input_item clearfix">
+                    <input type="password" class="input input_white" name="password" placeholder="请输入新密码 "
+                           data-required="required" autocomplete="off">
+                </div>
+                <div class="input_item clearfix">
+                    <input type="password" class="input input_white" name="rePassword" placeholder="请再次输入密码"
+                           data-required="required" autocomplete="off">
+                </div>
+                <div class="input_item clearfix">
+                    <input id="step2Btn" type="button" class="btn btn_green btn_active btn_block" value="确定">
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="${siteurl}plugins/nicevalidator/jquery.validator.min.js?local=zh-CN"></script>
+<script src="${siteurl}/plugins/layer/layer.js"></script>
+<script src="${siteurl}dist/js/reset-pwd.js"></script>
+<script src="${siteurl}plugins/sweetalert/sweetalert.min.js"></script>
+
+<script>
+    [#if msg??]
+    swal("Oops!", "${msg}", "error")
+        [/#if]
+</script>
+</body>
+</html>

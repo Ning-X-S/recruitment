@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+
+
+    [#include "/theme/default/common/header.html"]
+
+
+
+    [@header title = "我的公司" cssNames=[
+    "pkg/company/page/index/main.html_aio_2_21f05d7.css","pkg/company/page/index/main.html_aio_3_72229c1.css","pkg/company/page/index/main.html_aio_e3595dc.css"] /]
+
+    <script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+    [#include "/theme/default/common/fileuploads.html"]
+
+    <!-- 引入批量上传js css。 表单ID 用于将返回url加到form中 -->
+    [@batchLib formId="photos" name="file"/]
+    <style>
+        .delete2 {
+            width: 24px;
+            height: 24px;
+            display: inline;
+            float: right;
+            text-indent: -9999px;
+            overflow: hidden;
+            background: url('${siteurl}plugins/webuploader/images/icons.png') no-repeat;
+            margin: 5px 1px 1px;
+            cursor: pointer;
+        }
+        .delete2:hover {
+            background-position: -48px 0;
+        }
+        .delete2 {
+            background-position: -48px -24px;
+        }
+        .company-note{
+            width: 90%;
+            height: 130px;
+            font-size: 14px;
+            border: 1px solid #f1f3e9;
+            background-color: #fff;
+            padding: 7px 15px;
+            margin: 0;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            border-radius: 5px;
+        }
+        #noteShow p,.zhuying{
+            line-height: 28px;
+        }
+        .jixing textarea{
+            width: 88%!important;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/layer/theme/default/layer.css">
+</head>
+<body>
+
+[#include "/theme/default/common/navBar.html"]
+
+[@navBar /]
+<input type="hidden" id="serverTime" value="1504168325249" />
+
+<input type="hidden" value="95580" id='companyId'>
+<div class="top_info">
+    <!-- 展示模式 -->
+    <div class="top_info_wrap">
+        <img  src="[@image src=model.logo /]"  alt="公司Logo" width="164" heihgt="164" />
+        <div class="company_info">
+            <div class="company_main">
+                <a id="companyedit" href="javascript:;" class="edit"><i></i>编辑</a>
+
+                <h1>
+                    <a  href="${model.url!''}" class="hovertips" target="_blank" rel="nofollow"  title="${model.name!''}">
+                        ${model.name!""}
+                    </a>
+                </h1>
+                <a href="${model.url!''}" class="icon-wrap" target="_blank" rel="nofollow" title="${model.url!''}">
+                    <i></i>
+                </a>
+
+                [#include "/theme/default/company/authen.html"]
+                <div class="company_word">
+                    ${model.demo!""}
+                </div>
+            </div>
+            <div class="company_data">
+                <ul>
+                    <li>
+                        <strong>
+                            暂无
+                        </strong>
+                        <br />
+                        <span class="tipsys" original-title="该公司的在招职位数量">
+                            <span>招聘职位</span><span class="tip"></span>
+                        </span>
+                    </li>
+                    <li>
+                        <strong>
+                            81%
+                        </strong>
+                        <span class="tipsys" original-title="该公司7日内处理简历数占收取简历数比例">
+                            <span>简历及时处理率</span><span class="tip"></span>
+                        </span>
+                    </li>
+                    <li>
+                        <strong>
+                            1天
+                        </strong>
+                        <br />
+                        <span class="tipsys" original-title="该公司7日内从简历收取到最终处理的平均用时">
+                            <span>简历处理用时</span><span class="tip"></span>
+                        </span>
+                    </li>
+                    <li id="mspj" style="cursor:pointer;">
+                        <strong>
+                            暂无
+                        </strong>
+                        <br />
+                        <span class="tipsys" original-title="该公司收到的面试评价数量">
+                            <span>面试评价</span><span class="tip"></span>
+                        </span>
+                    </li>
+                    <li>
+                        <strong>今天</strong><br />
+                        <span class="tipsys" original-title="该公司职位管理者最近一次登录时间">
+                            <span>企业最近登录</span><span class="tip"></span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑模式 -->
+    <div class="top_info_wrap_edit dn">
+        <form id="topInfoForm" action="${siteurl}setting/updatecompany.htm" method="post" >
+            <input type="hidden" name="id" value="${model.id}">
+            <div class="company_logo_edit">
+
+                [@imageinput name="logo" src=model.logo width=100 height=100 /]
+            </div>
+
+            <div class="company_info_edit">
+                <a href="javascript:;" class="cancel_edit">
+                    <i></i>
+                    取消编辑
+                </a>
+                <h1> ${model.name!''}</h1>
+
+
+                <label>
+                    <span class="redstar">*</span>
+                    <input class="companyUrl" name="url" value="${model.url!''}" placeholder="请输入公司网站" autocomplete="off" type="text">
+                </label>
+
+                <input class="companyName" name="name" value="${model.name!''}" type="hidden">
+                <div class="longname"><span>${model.name!''}</span><span class="tips">（修改公司全称或简称，请发送邮件至hr@company.com）</span></div>
+
+                <label class="edit_wrap">
+                    <span class="redstar">*</span>
+                    <input maxlength="50" class="edit_area long companyIntroduce " name="demo" value="${model.demo!''}" placeholder="一句话概括公司亮点，如：公司愿景、领导团队等" autocomplete="off" type="text">
+                </label>
+
+                <input value="保存" class="save" type="submit">
+                <a href="javascript:;" class="cancel">取消</a>
+                <div class="clearfix"><span class="error topinfo_all" style="display:none;"></span></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="company_navs" class="company_navs">
+    <div class="company_navs_wrap">
+        <ul data-pjax>
+            <li  class="current" >
+                <a target="_blank" href="${siteurl}company/${model.id}.htm">公司主页</a>
+            </li>
+            <li >
+                <a  href="${siteurl}company/j${model.id}.htm">招聘职位</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="company_navs_shadow"></div>
+
+<div id="main_container">
+    <div id="container_left">
+        <div id="containerNoteDetails">
+            <div class="item_container" id="company_note">
+                <div class="item_ltitle">公司介绍</div>
+
+                <span id="noteAdd" class="item_ropera item_add">
+                    <em class="item_ropeiconp"></em>
+                    <span class="item_ropetext" id="noteEditBtn">修改</span>
+                </span>
+                <div id="noteShow">
+                    <p>${model.noteWithTag!}</p>
+                </div>
+                <form id="noteEdit" action="${siteurl}setting/updatecompany.htm" method="post" class="dn" onsubmit="return noteSubmit();">
+                    <input type="hidden" name="id" value="${model.id!}">
+                    <textarea id="companyNote" name="note" class="company-note dn">${model.note!}</textarea>
+                    <!-- 加载编辑器的容器 -->
+                    <script id="container" name="noteWithTag" type="text/plain">${model.noteWithTag!}</script>
+                    <input value="保存" class="save" type="submit">
+                    <a href="javascript:;" class="cancel" id="noteEditCancel">取消</a>
+                </form>
+            </div>
+        </div>
+        <div id="containerPhotoDetails">
+            <div class="item_container" id="company_photos">
+                <div class="item_ltitle">公司照片</div>
+
+                <span id="photoAdd" class="item_ropera item_add">
+                    <em class="item_ropeiconp"></em>
+                    <span class="item_ropetext">新增</span>
+                </span>
+                <div class="item_content_edit" id="photoAddCont" style="display: none">
+                    [@batchUpload /]
+                    <form id="photos" action="${siteurl}company/addphotos.htm" method="post">
+                        <div style="text-align: center">
+                            <input value="保存" class="save" type="submit">
+                            <a href="javascript:;" id="photoAddCancel" class="cancel">取消</a>
+                        </div>
+                    </form>
+                </div>
+                <div id="imgCont" style="overflow: auto">
+                [@companyphotos id=model.id size=999]
+                [#if list?? && list?size>0]
+                [#list list as item]
+                    <div style="float: left;position: relative;padding: 10px">
+                        <span class="delete2" style="position: absolute;top:15px;right: 15px"
+                              onclick="removePhoto(${item.id})">删除</span>
+                        <img height="200px" src="[@image src=item.url /]" alt="图片"
+                             onerror="javascript:this.src='${item.url}';this.onerror=null;">
+                    </div>
+                [/#list]
+                [/#if]
+                [/@companyphotos]
+                </div>
+            </div>
+        </div>
+        <div id="containerCompanyDetails">
+
+            <div class="item_container" id="company_products">
+                <div class="item_ltitle">公司产品</div>
+
+                <span id="productadd" class="item_ropera item_add">
+                    <em class="item_ropeiconp"></em>
+                    <span  class="item_ropetext">新增</span>
+                </span>
+
+                <div class="item_content">
+                    <div id="productadddiv" class="item_content_edit_wrap product_item" style="display: none">
+                        <div class="product_edit_tip">
+                            简洁有趣的产品介绍，能让应聘者以最快的速度了解公司业务。
+                        </div>
+                        <span id="canceladdproduct" class="item_ropera1 item_ropera_cancel item_cancel_add">
+                            <em class="item_ropeiconp item_ropeicons"></em>
+                            <span  class="item_ropetext">取消新增</span>
+                        </span>
+                        <div class="item_content_edit">
+                            <form id="productForm" data-id="" action="${siteurl}company/addproduct.htm" method="post" novalidate="novalidate">
+                                <div class="upload_product_img">
+
+                                    [@imageinput name="productlogo"  width=100 height=100 /]
+                                </div>
+                                <div class="product_form">
+                                    <label>
+                                        <span class="redstar">*</span>
+                                        <input required="required" name="name" class="productName" value="" autocomplete="off" placeholder="请输入产品名称" type="text">
+                                    </label>
+                                    <div>
+                                        <span class="redstar">*</span>
+                                    </div>
+                                    <label>
+                                        <input name="url" class="productUrl" value="" autocomplete="off" placeholder="请输入产品主页或产品下载地址" type="text">
+                                    </label>
+                                    <label>
+                                        <div class="edui-container" style="width: 345.4px; z-index: 999;">
+                                            <textarea name="note"></textarea>
+                                        </div>
+                                        <span class="wordcount"></span>
+                                    </label>
+                                    <span class="error products_all" style="display:none;"></span>
+                                    <input value="保存" class="save" type="submit">
+                                    <a href="javascript:;" class="cancel">取消</a>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    [@companyproducts id=model.id size=999]
+                    [#if list?? && list?size>0]
+                    [#list list as item]
+                    <div class="product_content product_item clearfix" data-id="54547" data-index="0">
+                        <img  src="[@image src=item.logo /]"  alt="产品图片" width="300" height="180" />
+
+                        <div class="product_details">
+                            <h4 class="product_url_all">
+                                <div class="product_url">
+                                    <a >
+                                        ${item.name!""}
+                                    </a>
+                                </div>
+                            </h4>
+
+                            <span class="item_ropera item_edit">
+                        <em class="item_ropeiconp item_ropeicone"></em>
+                        <span class="item_ropetext"><a href="${siteurl}company/deleteproduct.htm?id=${item.id}">删除</a></span>
+                    </span>
+
+                            <ul class="clearfix">
+                                <li>${item.catalog!""}</li>
+                            </ul>
+                            <div class="product_profile">
+                                ${item.note!""}
+                            </div>
+                        </div>
+                    </div>
+                    [/#list]
+                    [/#if]
+                    [/@companyproducts]
+                </div>
+            </div>
+            <div id="history_container" class="item_container">
+                <div class="item_ltitle">发展历程</div>
+                <span class="item_ropera item_add" style="display: block;">
+                    <em class="item_ropeiconp"></em>
+                    <span class="item_ropetext">新增</span>
+                </span>
+                <!--编辑区域-->
+                <div  class="item_content_edit_wrap dn">
+                    <span class="item_ropera1 item_ropera_cancel">
+                        <em class="item_ropeiconp item_ropeicons"></em>
+                        <span class="item_ropetext">取消新增</span>
+                    </span>
+                    <div class="his_tip">向应聘者展示公司和产品不断壮大过程中的里程碑事件。</div>
+                    <form class="item_content_edit common_form history_form" action="${siteurl}company/history/saveOrUpdate.htm" method="post" novalidate="novalidate">
+                        <input type="hidden" name="company.id" value="${model.id!}">
+                        <input type="hidden" id="historyId" name="id">
+                        <div class="form_item form_date_type">
+                            <!-- 日期 -->
+                            <label class="form_date_con">
+                                <span class="redstar">*</span>
+                                <input class="form_vinput form_date hasDatepicker" name="eventDate" placeholder="选择事件发生日期" autocomplete="off" value="" readonly="" id="dp1520388973964" type="text">
+                            </label>
+                        </div>
+                        <div class="form_item">
+                            <label class="en">
+                                <span class="redstar">*</span>
+                                <input class="form_fullinput" name="name" placeholder="请输入该事件名称" value="" autocomplete="off" type="text">
+                            </label>
+                        </div>
+                        <label class="his_des tohide item_show">
+                            <div class="edui-container" style="width: 676px; z-index: 999;">
+                                <textarea id="history_des" class="form_fullinput form_des valid" name="note" placeholder="请输入该事件内容" maxlength="200" style="font-size:14px;color:#a9a9a9;width: 646px;height: 150px;" value="" aria-invalid="false"></textarea>
+                            </div>
+                            <span class="wordcount">还可输入<b>200</b>字</span>
+                        </label>
+                        <input value="保存" class="save" type="submit">
+                        <a href="javascript:;" class="cancel">取消</a>
+                        <a href="javascript:;" class="delete cmp_delete" style="position: relative;">删除本条信息<div class="mr_delete_pop dn" style="position: absolute;"><p>确定删除本条信息？</p><div class="del_content"><span class="mr_del_ok">删除</span><span class="mr_del_cancel">取消</span></div></div></a>
+                    </form>
+                </div>
+                [@companyhistorys id=model.id size=999]
+                [#if list?? && list?size>0]
+                <div class="item_content">
+                    <ul class="history_ul">
+                        [#list list as item]
+                        <li class="history_li clearfix" data-id="${item.id!}">
+                            <div class="li_date">
+                                <p class="date_day">${(item.eventDate?string("dd"))!""}</p>
+                                <p class="date_year">${(item.eventDate?string("yyyy MMM"))!""}</p>
+                            </div>
+                            <div class="li_type_icon li_type_icon5" title=""></div>
+                            <div class="li_desc">
+                                <p class="desc_title desc_hover clearfix" data-href="">
+                                <span class="desc_real_title ">
+                                    <a>${item.name!""}</a>
+                                    <span class="desc_edit" data-id="${item.id!}" data-date="${(item.eventDate?string('yyyy-MM-dd'))!''}" data-title="${item.name!''}" data-intro="${item.note!''}">
+                                        <em class="item_ropeicone"></em>
+                                        <span class="item_ropetext">编辑</span>
+                                    </span>
+                                </span>
+                                </p>
+                                <div class="desc_intro">
+                                    ${item.note!''}
+                                </div>
+                            </div>
+                            [#if item_has_next]
+                            <span class="history_ul_vspilt"></span>
+                            [/#if]
+                        </li>
+                        [/#list]
+                    </ul>
+                </div>
+                [/#if]
+                [/@companyhistorys]
+            </div>
+            <div id="containerAddrDetails">
+                <div class="item_container" id="company_addr">
+                    <div class="item_ltitle">公司地址</div>
+
+                    <span id="addrAdd" class="item_ropera item_add">
+                        <em class="item_ropeiconp"></em>
+                        <span class="item_ropetext" id="addrEditBtn">修改</span>
+                    </span>
+                    <div id="addrShow">
+                        <p>地址：${model.addr!}</p>
+                        [#if model.addrImg??]
+                        <p><img src="[@image src=model.addrImg/]" alt="地图" width="90%" height=""></p>
+                        [#else]
+                        <p><img src="${siteurl}dist/img/ditu.png" alt="地图" width="90%" height=""></p>
+                        [/#if]
+                    </div>
+                    <form id="addrEdit" action="${siteurl}setting/updatecompany.htm" class="dn">
+                        <input type="hidden" name="id" value="${model.id!}">
+                        <p>
+                            <span>地址：</span>
+                            <input type="text" name="addr" value="${model.addr!}">
+                        </p>
+                        <p>
+                            [@imageinput name="addrImg" src="${model.addrImg!}" width="300"/]
+                        </p>
+                        <input value="保存" class="save" type="submit">
+                        <a href="javascript:;" class="cancel" id="addrEditCancel">取消</a>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="container_right">
+
+        <div class="item_container" id="basic_container">
+            <div class="item_ltitle">公司基本信息</div>
+
+            <span class="item_ropera iedit">
+                <em class="item_ropeiconp item_ropeicone"></em>
+                <span class="item_ropetext">编辑</span>
+            </span>
+            <span class="item_ropera icanceledit dn">
+                <em class="item_ropeiconp item_ropeicons"></em>
+                <span class="item_ropetext">取消编辑</span>
+            </span>
+
+            <!-- 展示模式 -->
+            <div class="item_content">
+                <ul>
+                    <li>
+                        <span style="color: #000;">规模:</span>
+                        <span>${(model.scale.name)!'公司规模'}</span>
+                    </li>
+                    <li>
+                        <span style="color: #000;">地区:</span>
+                        <span>${(model.city.name)!'所在地区'}</span>
+                    </li>
+                    <li>
+                        <span style="color: #000;">介绍:</span>
+                        <span class="zhuying">${(model.other)!'机型、主营业务等'}</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 编辑模式 -->
+            <div class="item_content_edit_wrap" style="display: none">
+                <div class="item_content_edit">
+                    <form id="basicInfoForm" action="${siteurl}setting/updatecompany.htm" method="post" novalidate="novalidate">
+                        <input type="hidden" name="id" value="${model.id}">
+                        <label>
+                            <span class="redstar">*</span>
+                            <div class="simulate_select">
+                                <input id="companyscale" class="companyscale" name="scale.id" value="${(model.scale.id)!''}" type="hidden">
+                                <span>${(model.scale.name)!'公司规模'}</span>
+                                <i></i>
+                                <ul style="display: none;">
+                                    [@scales]
+                                    [#list list as item]
+                                    <li data-rid="companyscale" data-id="${item.id}" data-text="${item.name!''}">${item.name!""}</li>
+                                    [/#list]
+                                    [/@scales]
+                                </ul>
+                            </div>
+                        </label>
+                        <label>
+                            <span class="redstar">*</span>
+                            <div class="simulate_select">
+                                <input id="cityid" class="companyscale" name="city.id" value="${(model.city.id)!''}" type="hidden">
+                                <span>${(model.city.name)!'所在地区'}</span>
+                                <i></i>
+                                <ul style="display: none;">
+                                    [@arealevels level=2 size=50]
+                                    [#list list as item]
+                                    <li data-rid="cityid" data-id="${item.id}" data-text="${item.name!''}">${item.name!""}</li>
+                                    [/#list]
+                                    [/@arealevels]
+                                </ul>
+                            </div>
+                        </label>
+                        <label class="jixing">
+                            <textarea name="other" placeholder="飞机机型或主营业务等一句话介绍">${model.other!}</textarea>
+                        </label>
+                        <span class="error base_all" style="display:none;"></span>
+                        <input value="保存" class="save" type="submit">
+                        <a href="javascript:;" class="cancel">取消</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--
+@require "company/modules/common/main.less"
+@require "company/modules/managers/main.less"
+-->
+
+
+        <!--
+@require "company/modules/common/main.less"
+@require "company/modules/tags/main.less"
+-->
+
+
+        <!--
+@require "company/modules/common/main.less"
+@require "company/modules/navigator/main.less"
+-->
+
+
+    </div>
+</div>
+
+<!--
+@require "company/modules/common/main.less"
+@require "company/modules/completion/main.less"
+-->
+
+<!------------------------------------- 弹窗lightbox ----------------------------------------->
+<!--地图弹窗-->
+<div >
+    <div id="gaodeMap" class="popup dn">
+        <div id="address_form" class="address_form">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr>
+                    <td><span class="redstar" style='left:-3px;top:12px'>*</span><span class="txt">工作地址</span><em class='add_arrow'></em></td>
+                    <td class="address_select_cont">
+                        <input class="selectr" type="button" value="请选择">
+                        <dl id="place_container" class="place_container">
+                            <dt>
+                                <span class="item_terms focus">省份</span>
+                                <span class="item_terms disabled">城市</span>
+                                <span class="item_terms disabled">区县</span>
+                            </dt>
+                            <dd class="province"></dd>
+                            <dd class="dn"></dd>
+                            <dd class="dn"></dd>
+                        </dl>
+                    </td>
+                    <td class="address_input_cont">
+                        <input type="text" class="address_input" name="address_input" placeholder="请输入公司所在街道、楼宇等信息" disabled>
+                        <div class="address_suggest dn">
+                            <ul class="suggest_list">
+                                <!-- <li>拉勾网测试工作地址2</li> -->
+                            </ul>
+                        </div>
+                        <div class="address_layer"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="map_container">
+            <div id="allmap"></div>
+            <div class="layer dn">输入工作地址后，<span class="mark_words">单击此处</span>预览地图</div>
+            <div class="edit_address_bar dn">保存坐标为当前位置？
+                <input class="reset_coords" type="button" value="回原位置">
+                <input class="edit_coords" type="button" value="保存">
+            </div>
+            <div class="drag_tips dn">拖动地图可调整位置</div>
+        </div>
+        <dl id="business_bar" class="dn">
+            <dt>商区：</dt>
+            <input type="text" class="search_business" placeholder="搜索试试，点击添加">
+            <ul class="business_result">
+            </ul>
+        </dl>
+        <p class="default_tip1 default_tip" style='margin-bottom: 0px;'>商区将被保存为地址标签，支持求职者筛选。</p>
+        <p class="default_tip2 default_tip">绿色标签表示它将在职位页默认展示，点击其他标签可更改。</p>
+        <div class="address_btns">
+            <input id="address_save_btn" class="address_save_btn" type="button" value="保存">
+            <a href="javascript:;" id='delete_address'>删除</a>
+            <div id="if_delete">
+                <p>确定删除本条信息？</p>
+                <a href='javascript:;' class='sure_delete'>删除</a>
+                <a href='javascript:;' class='no_delete'>取消</a>
+            </div>
+        </div>
+    </div>
+    <!--/#baiduMap-->
+</div>
+
+[#include "/theme/default/common/footer.html"]
+<script src="${siteurl}ueditor/ueditor.config.js"></script>
+<script src="${siteurl}ueditor/ueditor.all.min.js"></script>
+<script src="${siteurl}plugins/layer/layer.js"></script>
+<script src="${siteurl}plugins/laydate/laydate.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var editor = UE.getEditor('container', {
+        toolbars: [
+            ['bold', 'italic', 'underline', '|','justifyleft', 'justifycenter', 'justifyright', '|',
+                'insertorderedlist', 'insertunorderedlist', '|', 'indent', '|', 'undo', 'redo']
+        ],
+        initialFrameHeight: 300
+    });
+    function noteSubmit() {
+        var txt = editor.getContentTxt();
+        $('#companyNote').html(txt);
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $("#companyedit").click(function () {
+            $(".top_info_wrap_edit").show();
+            $(".top_info_wrap").hide();
+            $(window).resize();
+            logofilepickerobj.refresh();
+            $(".webuploader-pick").resize();
+        });
+
+        $(".top_info_wrap_edit .cancel_edit").click(function () {
+            $(".top_info_wrap_edit").hide();
+            $(".top_info_wrap").show();
+        });
+        $(".top_info_wrap_edit .cancel").click(function () {
+            $(".top_info_wrap_edit").hide();
+            $(".top_info_wrap").show();
+        });
+
+        $("#productadd").click(function () {
+            $("#productadddiv").show();
+            productlogofilepickerobj.refresh();
+
+        });
+        $("#canceladdproduct").click(function () {
+            $("#productadddiv").hide();
+        });
+
+        $("#company_products .cancel").click(function () {
+            $("#productadddiv").hide();
+        });
+
+
+
+        $(".iedit").click(function () {
+            $("#basic_container .item_content ").hide();
+            $("#basic_container .item_content_edit_wrap ").show();
+            $(".icanceledit").removeClass("dn");
+        });
+
+        $(".icanceledit").click(function () {
+            $(".icanceledit").addClass("dn");
+            $("#basic_container .item_content ").show();
+            $("#basic_container .item_content_edit_wrap ").hide();
+        });
+
+        $("#basic_container .cancel").click(function () {
+            $(".icanceledit").addClass("dn");
+            $("#basic_container .item_content ").show();
+            $("#basic_container .item_content_edit_wrap ").hide();
+        });
+
+        $(".simulate_select").click(function () {
+
+            $(this).find("ul").toggle();
+        });
+
+        $(".simulate_select li").click(function () {
+
+            $("#"+$(this).data("rid")).val($(this).data("id"));
+
+            $(this).parent().parent().find("span").text($(this).data("text"));
+        });
+
+        $('#photoAdd span').click(function () {
+            $('#photoAddCont').show();
+            myUploader.refresh();
+        })
+        $('#photoAddCancel').click(function () {
+            $('#photoAddCont').hide();
+        })
+        $('#photos').submit(function (e) {
+            var photoList = $(this).find('input[type="hidden"]');
+            if (!photoList.length){
+                alert('请上传照片');
+                e.preventDefault();
+            }
+        })
+
+    });
+    function removePhoto(id) {
+        layer.confirm('确定要删除吗', {
+                btn: ['删除','取消'] //按钮
+            },
+            function () {
+                location.href = '${siteurl}company/deletephoto.htm?id='+id;
+                layer.closeAll();
+            },
+            function () {
+                console.log(`no`);
+            }
+        )
+    }
+    $('#noteEditBtn').click(function () {
+        if($(this).html() === '修改') {
+            $('#noteShow').hide();
+            $('#noteEdit').show();
+            editor.setHeight(300);
+            $(this).html('取消')
+        } else {
+            $('#noteShow').show();
+            $('#noteEdit').hide();
+            $(this).html('修改')
+        }
+    })
+    $('#noteEditCancel').click(function () {
+        $('#noteShow').show();
+        $('#noteEdit').hide();
+        $('#noteEditBtn').html('修改')
+    })
+    $('#addrEditBtn').click(function () {
+        if($(this).html() === '修改') {
+            $('#addrShow').hide();
+            $('#addrEdit').show();
+            $(this).html('取消')
+        } else {
+            $('#addrShow').show();
+            $('#addrEdit').hide();
+            $(this).html('修改')
+        }
+    })
+    $('#addrEditCancel').click(function () {
+        $('#addrShow').show();
+        $('#addrEdit').hide();
+        $('#addrEditBtn').html('修改')
+    })
+    $('#history_container .item_add').click(function () {
+        $('#history_container .item_content_edit_wrap').removeClass('dn');
+        $('#history_container .desc_edit').addClass('disabled');
+        $('#history_container .delete').addClass('dn');
+        $("input[name='date']").val('');
+        $("input[name='eventname']").val('');
+        $("textarea[name='des']").val('');
+    })
+    $('#history_container .item_ropera_cancel').click(function () {
+        $('#history_container .item_content_edit_wrap').addClass('dn');
+        $('#history_container .desc_edit').removeClass('disabled');
+        $('#history_container .delete').removeClass('dn');
+    })
+    $('#history_container .cancel').click(function () {
+        $('#history_container .item_content_edit_wrap').addClass('dn');
+        $('#history_container .desc_edit').removeClass('disabled');
+        $('#history_container .delete').removeClass('dn');
+    })
+    $('#history_container .desc_edit').click(function () {
+        $('#history_container .item_content_edit_wrap').removeClass('dn');
+        $('#history_container .desc_edit').addClass('disabled');
+        var id = $(this).data('id');
+        var date = $(this).data('date');
+        var title = $(this).data('title');
+        var intro = $(this).data('intro');
+        $("#historyId").val(id);
+        $("input[name='eventDate']").val(date);
+        $("input[name='name']").val(title);
+        $("textarea[name='note']").val(intro);
+    })
+    $('#history_container .delete').click(function () {
+        $(".mr_delete_pop").removeClass('dn');
+    })
+    $('#history_container .mr_del_ok').click(function (e) {
+        $(".mr_delete_pop").addClass('dn');
+        e.stopPropagation();
+        $('#history_container .item_content_edit_wrap').addClass('dn');
+        $('#history_container .desc_edit').removeClass('disabled');
+    })
+    $('#history_container .mr_del_cancel').click(function (e) {
+        $(".mr_delete_pop").addClass('dn');
+        e.stopPropagation();
+    })
+    lay('.form_date_con input').each(function(){
+        laydate.render({
+            elem: this
+            ,format: 'yyyy-MM-dd'
+            ,value: $(this).val()
+            ,showBottom: false
+        });
+    })
+    $("#history_des").bind("input",function(){
+        var max_num = $(this).attr("maxlength");
+        var cur_num = $(this).val().replace(/\n/g,'  ').length;
+        var left_num = max_num - cur_num;
+        $(".his_des b").text(left_num);
+    })
+
+</script>
+</body>
+</html>

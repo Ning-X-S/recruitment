@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>培训信息</title>
+    <link rel="Shortcut Icon" href="${siteurl}dist/img/favicon_logo.ico">
+    <link rel="stylesheet" type="text/css" href="${siteurl}dist/less/skill.css">
+    <link rel="stylesheet" type="text/css" href="${siteurl}dist/less/footer.css">
+    <link type="text/css" rel="stylesheet" href="${siteurl}dist/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="${siteurl}dist/third/pkg/community/page/index/main.html_aio_53823f4.css">
+</head>
+<body>
+<!-- 引入导航条 -->
+[#include "/theme/default/common/navBar.html"]
+[@navBar active = 5 /]
+<div class="banner">
+    <h2>培训信息</h2>
+    <h3>还在苦虑如何提升自己吗？</h3>
+</div>
+<div class="container clearfix">
+    <div class="content fl">
+        <div class="news">
+            <div class="newsTab">
+                <ul>
+                    <li class="current" data-news-category="RECOMMEND" data-lg-tj-id="1aB0" data-lg-tj-no="0002" data-lg-tj-cid="idnull">精选推荐</li>
+                </ul>
+            </div>
+            <div class="news_list news_recommended  current">
+                <ul class="list">
+                    [#if pageData?? && pageData.content??]
+                    [#list pageData.content as item ]
+                    <li>
+                        <div class="news_answer item">
+                            <div class="item_header">
+                                <div class="answerer_avatar">
+                                    <a class="anonymous">
+                                        <img src="//img.yingjobs.com/www/static/community/modules/common/img/avatar_default_7225407.png" alt="匿名用户" width="44" height="44">
+                                    </a>
+                                </div>
+                                <strong class="answerer_name">
+                                    <a class="anonymous" rel="nofollow" href="javascript:;">${(item.user.name)!"匿名用户"}</a>
+                                </strong>
+                            </div>
+                            <h4 class="item_question question_name">
+                                <a href="${siteurl}training/${item.id}.htm" target="_blank">${item.title!''}</a>
+                            </h4>
+                            <div class="item_content clearfix">
+                                [#if item.img??]
+                                <a class="answer_thumbnail_box fl" rel="nofollow" href="${siteurl}training/${item.id}.htm" style="display: block;">
+                                    <img class="answer_thumbnail" src="[@image src=item.img /]">
+                                </a>
+                                [/#if]
+                                <p class="answer_summary is-truncated" style="overflow-wrap: break-word; display: block;">
+                                    ${item.introduction!''}
+                                </p>
+                            </div>
+                            <div style="border-bottom:#EDEDED solid 1px;margin-bottom: 25px;">&nbsp;</div>
+                        </div>
+                    </li>
+                    [/#list]
+                    [/#if]
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--page right info-->
+    [#include "/theme/default/common/page-right.html"]
+</div>
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+</body>
+</html>

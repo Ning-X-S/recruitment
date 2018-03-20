@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "账号设置" cssNames = [
+        "pkg/account-c/page/userinfo/main.html_aio_c82924f.css"
+    ]/]
+    <style>
+        .txtinput{
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+    </style>
+    <script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+[#include "/theme/default/common/fileuploads.html"]
+<body>
+<!-- header -->
+[#include "/theme/default/common/navBar.html"]
+[@navBar /]
+
+<input type="hidden" id="serverTime" value="1504231178426" />
+
+<!-- 页面主体START -->
+<div class="container clearfix" id="container">
+    <!--
+@require "common/widgets/account-c-sidebar/main.less"
+-->
+    <div class="user_bindSidebar">
+        <ul class="user_sideBarmenu">
+            <li>
+                <a href="${siteurl}account/userInfo.htm" class="hover">个人信息</a>
+            </li>
+            <!--<li>
+                <a href="${siteurl}account/accountBind.htm">帐号绑定</a>
+            </li>-->
+            <li>
+                <a href="${siteurl}account/resumePrivacy.htm">隐私设置</a>
+            </li>
+            <li>
+                <a href="${siteurl}account/updatePwd.htm">修改密码</a>
+            </li>
+        </ul>
+    </div>
+    <input type="hidden" value="1" id="hasSidebar" />
+
+    <div class="user_userinfo_content">
+        <div class="c_section">
+            <div class="userinfo_edit" id="userinfoEdit">
+                <div class="hadInfo">
+                    <span class="edit_link">编辑</span>
+                    <div class="view_avatar">
+                        [#if model.avatar??]
+                        <img class="avatar_img" src="[@image src=model.avatar /]" width="100" height="100" alt="${model.name!''}" />
+                        [#else]
+                        <img class="avatar_img" src="${siteurl}dist/img/default_boy_headpic.png" width="100" height="100" alt="${model.name!''}" />
+                        [/#if]
+                    </div>
+                    <div class="view_nickname">
+                        <span>${model.name!""}</span>
+                        <i class="icon-gender man"></i>
+                        <span id="vip" style="cursor: pointer;color: #cba373;font-size: 16px;padding-left: 10px;" href="javascript:;">VIP0</span>
+                    </div>
+                    <div class="view_position">${model.position!""}</div>
+                    <div class="view_introduce">${model.introduce!""}</div>
+                </div>
+                <form id="userinfoEditForm" action="${siteurl}account/updateuserinfo.htm" method="post">
+                    <div class="avatar">
+                        <!-- 上传头像 含样式 -->
+                        [@uploadAvatar name="avatar" image="${model.avatar!''}"/]
+                    </div>
+                    <div class=" ">
+                        <input  class="txtinput"  type="text" name="name" placeholder="请输入常用昵称" value="${model.name!''}" maxlength="15" data-maxlength="15" />
+                    </div>
+                    <div class="userinfo_sex input_box">
+                        <input type="radio" class="magic-radio" id="userinfoEditSexMale" name="sex" value="男" [#if model.sex?? && model.sex="男"]  checked="checked" [/#if] />
+                        <label for="userinfoEditSexMale">男</label>
+                        <input type="radio" class="magic-radio" id="userinfoEditSexFemale" name="sex" value="女"   [#if model.sex?? && model.sex="女"]  checked="checked" [/#if] />
+                        <label for="userinfoEditSexFemale">女</label>
+                    </div>
+                    <div class="userinfo_job input_box">
+                        <input class="txtinput" type="text" name="position" placeholder="请输入职业" value="${model.position!''}" maxlength="70" data-maxlength="70" />
+                    </div>
+                    <div class="userinfo_intro input_box">
+                        <input  class="txtinput"   type="text" name="introduce" placeholder="个人介绍" value="${model.introduce!''}">
+                    </div>
+                    <div class="toolbar">
+                        <button class="btn userinfo_save" type="submit">保存</button><!-- <a class="btn btn_cancel userinfo_cancel" href="javascript:;">取消</a> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 页面主体END -->
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+<script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="${siteurl}plugins/layer/layer.js"></script>
+<script>
+    $('.edit_link').click(function () {
+        $(".hadInfo").hide()
+        $("#userinfoEditForm").css('visibility', 'visible');
+    });
+    $('.userinfo_save').click(function () {
+        $(".hadInfo").show(), $("#userinfoEditForm").hide()
+    });
+    $('#vip').click(function () {
+        layer.open({
+            type: 2,
+            title: 'vip开通服务',
+            maxmin: true,
+            shadeClose: true, //点击遮罩关闭层
+            area : ['800px' , '520px'],
+            content: '${siteurl}account/vip.htm'
+        });
+    });
+</script>
+</body>
+</html>

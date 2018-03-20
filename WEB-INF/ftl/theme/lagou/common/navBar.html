@@ -1,0 +1,128 @@
+[#macro navBar active = -1 header="true"]
+<div id="bar">
+    <div class="inner">
+        <div class="bar_l">
+            <!--<a href="javascript:alert('app')" class="app" target="_blank">寻鹰APP</a>-->
+            <a href="${siteurl}hr/index.htm" class="com">企业免费入驻</a>
+        </div>
+        [@shiro.guest]
+        <ul class="bar_r">
+            <li>
+                <a href="${siteurl}frontLogin.htm">登录</a>
+            </li>
+            <li>
+                <a href="${siteurl}frontRegister.htm" class="bl">注册</a>
+            </li>
+        </ul>
+        [/@shiro.guest]
+        [@shiro.authenticated]
+        <ul class="bar_r">
+            <li class="msg_dropdown" data-lg-tj-track-code="index_message">
+                <a class="msg_group" href="${siteurl}message/msgdetail.htm">消息</a>
+            </li>
+            <li>
+                <a href="${siteurl}resume/myresume.htm" class="bl">我的简历</a>
+            </li>
+            <li>
+                <a href="${siteurl}mycenter/delivery.htm" class="bl">投递箱</a>
+            </li>
+            <li>
+                <a href="${siteurl}mycenter/collections.htm" class="bl">收藏夹</a>
+            </li>
+            <li class="user_dropdown">
+                <span class="unick bl">${(user.name)!''}</span>
+                <i></i>
+                <ul id="userDropdown">
+                    <!--<li>-->
+                        <!--<a href="${siteurl}mycenter/subscribe.htm">我的订阅</a>-->
+                    <!--</li>-->
+                    <li>
+                        <a href="${siteurl}mycenter/invitation.htm" id="invitationLink">职位邀请</a>
+                        <em class="noticeDot dn" id="noticeDot_invitation"></em>
+                    </li>
+
+                    <li>
+                        <a href="${siteurl}account/userInfo.htm">帐号设置</a>
+                    </li>
+
+                    <li>
+                        <a href="${siteurl}hr/index.htm">去企业版</a>
+                    </li>
+                    [@shiro.hasPermission name="admin"]
+                    <li>
+                        <a href="${siteurl}admin/index.htm">后台管理</a>
+                    </li>
+                    [/@shiro.hasPermission]
+
+                    <li>
+                        <a href="${siteurl}signout.htm">退出</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        [/@shiro.authenticated]
+    </div>
+</div>
+[#if header=="true"]
+<div class="header">
+    <div class="inner">
+        <!--logo-->
+        <a href="${siteurl}index.htm">
+            <div class="logo-body">
+                <div class="logo"></div>
+            </div>
+        </a>
+        <!--navbar-->
+        <ul class="nav-wrap">
+            <li>
+                <a class="[#if active == 1]active[/#if]" href="${siteurl}index.htm">首页</a>
+            </li>
+            <li>
+                <a class="[#if active == 2]active[/#if]" href="${siteurl}company/index.htm">公司</a>
+            </li>
+            <li>
+                <a class="[#if active == 3]active[/#if]" href="${siteurl}personnel/index.htm">人才</a>
+            </li>
+            <li>
+                <a class="[#if active == 4]active[/#if]" href="${siteurl}school/index.htm">校招</a>
+            </li>
+            <li>
+                <a class="[#if active == 5]active[/#if]" href="${siteurl}training/index.htm">培训</a>
+            </li>
+            <li>
+                <a class="[#if active == 6]active[/#if]" href="${siteurl}skills/index.htm">发现</a>
+            </li>
+            <li>
+                <a class="[#if active == 7]active[/#if]" href="${siteurl}hr/index.htm">企业免费入驻</a>
+            </li>
+        </ul>
+        <!--login&register-->
+       <!-- [@shiro.authenticated]
+        <div class="user-info">
+            <div class="menu">
+                <a href="#">消息</a>
+                <a href="${siteurl}resume/myresume.htm">我的简历</a>
+                <a href="${siteurl}mycenter/delivery.htm">投递箱</a>
+                <a href="${siteurl}mycenter/collections.htm">收藏夹</a>
+                <a href="#" class="info">${(user.name)!''}</a>
+            </div>
+            <ul id="infoDropdown" class="dn">
+                <li><a href="${siteurl}mycenter/subscribe.htm">我的订阅</a></li>
+                <li><a href="${siteurl}mycenter/invitation.htm">职位邀请</a></li>
+                <li><a href="${siteurl}account/userInfo.htm">账号设置</a></li>
+                <li><a href="${siteurl}hr/index.htm">去企业版</a></li>
+                <li><a href="${siteurl}signout.htm">退出</a></li>
+            </ul>
+        </div>
+        [/@shiro.authenticated]
+        [@shiro.guest]
+        <div class="login-reg">
+            <a href="${siteurl}frontLogin.htm">登录</a>
+            <span> | </span>
+            <a href="${siteurl}frontRegister.htm">注册</a>
+        </div>
+        [/@shiro.guest]-->
+    </div>
+</div>
+[/#if]
+[/#macro]

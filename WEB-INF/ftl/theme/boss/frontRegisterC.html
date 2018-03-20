@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- meta -->
+    <title>专注航空领域职位需求-寻鹰网</title>
+    <link rel="stylesheet" type="text/css" href="${siteurl}dist/css/frontregistercompany.css"/>
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/nicevalidator/jquery.validator.css"/>
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/layer/theme/default/layer.css">
+    <style>
+        .content_box .input_item:first-child input {
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+<input type="hidden" id="registerSource" value="c">
+<input type="hidden" id="siteurl" value="${siteurl!''}">
+<!-- 页面主体START -->
+<header class="sso_header">
+    <a href="${siteurl}" class="logo"></a>
+</header>
+<section class="content_box cleafix">
+    [#if type=="b"]
+    <h2>招人 <i>|</i> <span>专注航空领域职业机会:</span><a href="${siteurl}frontRegister.htm?from=c">我要找工作</a></h2>
+    [#else]
+    <h2>找工作 <i>|</i> <span>航空领域人才都在寻鹰:</span><a href="${siteurl}frontRegister.htm?from=b">我要招人</a></h2>
+    [/#if]
+    <div class="left_area fl">
+        <form id="form" action="${siteurl}account/register.htm" method="post">
+            <!-- 注册类型 - 用于检测是否需要企业认证 -->
+            <input type="hidden" name="type" value="${type!'b'}">
+            <div class="form_body" data-view="phoneRegister">
+                <div class="input_item clearfix" data-propertyname="phone" data-controltype="Phone">
+                    <input type="text" class="input" id="phone" name="phone" placeholder="请输入常用手机号" data-required="required" autocomplete="off">
+                </div>
+                <div class="input_item clearfix">
+                    <input type="password" class="input" id="password" name="password" placeholder="请输入密码" data-required="required" autocomplete="off">
+                </div>
+                <div class="input_item clearfix">
+                    <input type="password" class="input" id="rePassword" placeholder="请输入确认密码" data-required="required" autocomplete="off">
+                </div>
+
+                <div class="input_item">
+                    <div class="input_group clearfix">
+                        <input type="text" class="input first_child" id="code" name="code" placeholder="请输入验证码"
+                               data-required="required" autocomplete="off">
+                        <input type="button" class="btn btn_active last_child" value="获取验证码" id="send_verify" data-required="required">
+                    </div>
+                </div>
+                <div class="input_item btn_group clearfix">
+                    <input type="submit" class="btn btn_green btn_active btn_block btn_lg" value="注&nbsp;册" >
+                </div>
+                <div class="agree_text">
+                    注册代表你已同意<a rel="nofollow" href='${siteurl}privacy.htm' target='_blank' >「用户协议」</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="divider fl"></div>
+    <div class="right_area fl">
+        <h5>已有帐号:</h5>
+        <a href="${siteurl}frontLogin.htm" class="login_now">直接登录</a>
+    </div>
+</section>
+<!-- 页面主体END -->
+
+<script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="${siteurl}plugins/nicevalidator/jquery.validator.min.js?local=zh-CN"></script>
+<script src="${siteurl}plugins/layer/layer.js"></script>
+<script src="${siteurl}dist/js/register.js"></script>
+[#if msg??]
+<script>
+    var err = "${msg!''}";
+    if (err){
+        layer.alert("${msg!''}", {
+            icon: 2,
+            skin: 'layer-ext-moon'
+        });
+    }
+</script>
+[/#if]
+</body>
+</html>

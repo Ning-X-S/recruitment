@@ -1,0 +1,189 @@
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "职位" cssNames = [
+    "pkg/service/page/new-open2-create-company/main.html_aio_9d1e2d7.css",
+    "pkg/service/page/new-open2-create-company/main.html_aio_2_2b4fed9.css"
+    ]/]
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/nicevalidator/jquery.validator.css"/>
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/layer/theme/default/layer.css">
+    <link rel="stylesheet" href="${siteurl}dist/js/element-ui/index.css">
+    <style>
+        .upload-area .msg-box {
+            top: 80px;
+            left: -54px;
+        }
+        input[type=text],.comp-wrap.vue-checkbox-select input.button,.comp-wrap.vue-select input.button{
+            height: auto;
+            box-sizing: content-box;
+        }
+        .el-input--suffix .el-input__inner{
+            padding-right: 16px;
+        }
+    </style>
+    [#include "/theme/default/common/fileuploads.html"]
+</head>
+<body style="background-color: #ffffff">
+[#include "/theme/default/common/navBar.html"]
+[#include "/theme/default/common/commonsite.html"]
+
+[@navBar header="false"/]
+<div id="lg_header">
+
+    <!--B端头部白色导航-->
+    <div id="lg_tnav">
+
+        <div class="inner">
+            <div class="lg_tnav_l">
+                <a href="${siteurl}index.htm" class="lg_logo">
+                    <h1>寻鹰网</h1>
+                    <span>企业版</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+</div><!--end #header-->
+
+<div id="banner">
+    <h1>加入公司，开始招聘</h1>
+</div>
+
+<div id="app">
+    <div id="step">
+        <div id="step_1" class="step_num"><span>完善个人信息</span></div>
+        <div class="step_line"></div>
+        <div id="step_2" class="step_num"><span>确认公司信息</span></div>
+    </div>
+    <form id="addform" action="${siteurl}account/openservice/step2.htm" autocomplete="off" method="post">
+        <input type="hidden" name="id" value="${company.id!}">
+        <div class="comp-wrap img-to-img clearfix">
+            <div class="left fl">
+                <img src="[@image src=staff.avatar/]" alt="用户头像" class="img1">
+                <p>${(staff.name)!''}</p>
+            </div>
+            <div class="horizon-line"></div>
+            <div class="right fr">
+                [#if company.logo??]
+                <img src="[@image src=company.logo /]" alt="公司头像" class="img2">
+                [#else]
+                [@uploadAvatarVueDom name="logo" id="companyLogo" image="${(company.logo)!''}" company="true"/]
+                [/#if]
+                <p style="margin-top: 20px;">${company.name!''}</p>
+            </div>
+        </div>
+        <table class="table-layout" style="margin-top: 20px">
+            <tbody>
+            <tr class="company-name">
+                <td class="title"><span class="required title">公司全称</span></td>
+                <td><span class="name">${company.name!''}</span></td>
+            </tr>
+            <tr>
+                <td class="title"><span class="required title">公司简称</span></td>
+                <td>
+                    <el-input v-model="companyShortName" placeholder="请填写全称简写或主要产品名称，将展示在公司主页" ></el-input>
+                    <input type="hidden" name="simpleName" v-model="companyShortName"/>
+                    <span class="vue-error" style="display: none;"><i class="icon-glyph-attention2"></i> </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="title"><span class="required title">行业领域</span></td>
+                <td>
+                    <div class="comp-wrap vue-checkbox-select inputer">
+                        <input type="hidden" name="industry.id" v-model="industry">
+                        <el-select v-model="industry" placeholder="请选择行业领域">
+                            <el-option
+                                    v-for="item in industrys"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value">
+                            </el-option>
+                        </el-select>
+                        <span class="vue-error" style="display: none;"><i class="icon-glyph-attention2"></i> </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="title"><span class="required title">公司规模</span></td>
+                <td>
+                    <div need-validate="true" class="comp-wrap vue-select inputer">
+                        <input type="hidden" name="scale.id" v-model="scale">
+                        <el-select v-model="scale" placeholder="请选择公司规模">
+                            <el-option
+                                    v-for="item in scales"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value">
+                            </el-option>
+                        </el-select>
+                        <span class="vue-error" style="display: none;"><i class="icon-glyph-attention2"></i> </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="title"><span class=" title">营业执照</span></td>
+                <td>
+                    <div need-validate="true" class="comp-wrap vue-select inputer">
+                        [@uploadLicenseVueDom id="license" name="license" image="${company.license!}"/]
+                        <span class="vue-error" style="display: none;"><i class="icon-glyph-attention2"></i> </span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <input type="submit" value="提交审核" class="submit">
+        <a href="${siteurl}account/openservice/step1.htm?staffId=${staff.id!}" class="content-after-submit">返回上一步</a>
+    </form>
+</div>
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+<script src="${siteurl}plugins/nicevalidator/jquery.validator.min.js?local=zh-CN"></script>
+<script src="${siteurl}/plugins/layer/layer.js"></script>
+<script src="${siteurl}dist/js/vue.js"></script>
+<script src="${siteurl}dist/js/element-ui/index.js"></script>
+<script>
+    var industrys = [[#list industrys as ind]{value:'${ind.id}', label: '${ind.name}'},[/#list]];
+    var scales = [[#list scales as ind]{value:'${ind.id}', label: '${ind.name}'},[/#list]];
+</script>
+<script>
+    $.validator.setTheme("default", {
+        msgClass: "n-bottom"
+    });
+
+    var app = new Vue({
+        el: '#app',
+        data(){
+            return {
+                companyShortName:'${company.simpleName!""}',
+                industrys: industrys,
+                industry: '${(company.industry.id)!}',
+                scales: scales,
+                scale: '${(company.scale.id)!}'
+            }
+        },
+
+    })
+    $('#addform').validator({
+        fields: {
+            'logo': {
+                rule: 'required',
+                msg: {
+                    required: '请上传公司logo'
+                }
+            },
+            'simpleName': {
+                rule: 'required',
+                msg: {
+                    required: '请输入公司简称'
+                }
+            }
+        }
+    })
+</script>
+<script>
+    [@uploadAvatarVueLib id="companyLogo"/]
+    [@uploadAvatarVueLib id="license"/]
+</script>
+</body>
+</html>

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- meta -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="renderer" content="webkit">
+  <meta property="qc:admins" content="23635710066417756375" />
+  <meta name="baidu-site-verification" content="QIQ6KC1oZ6" />
+  <meta charset="UTF-8">
+
+  <meta content="互联网招聘,找工作,招聘网,人才网" name="keywords">
+
+  <meta content="拉勾网是最权威的互联网行业招聘网站,提供全国真实的互联网招聘信息,工资不面议当面谈,找工作,招聘网,寻人才就来拉勾网,互联网行业找工作首选拉勾网" name="description">
+
+  <title>寻鹰网-最专业的互联网招聘平台_找工作_招聘_人才网_求职</title>
+
+  <link rel="Shortcut Icon" href="//img.yingjobs.com/www/static/common/static/favicon_faed927.ico">
+
+
+
+  <!-- global_domain FE_base... -->
+
+  <script type="text/javascript">
+
+      (function() {
+          var protocol = window.location.protocol;
+          var host = window.location.host;
+          var baseUrl = protocol + '//' + host;
+
+          window.GLOBAL_DOMAIN = window.GLOBAL_DOMAIN || {
+              ctx: 'https://www.lagou.com',
+              rctx: 'https://hr.lagou.com',
+              crctx: 'https://hr.lagou.com/company',
+              pctx: 'https://passport.lagou.com',
+              actx: 'https://account.lagou.com',
+              cpctx: 'https://xiaoyuan.lagou.com',
+              paictx: 'https://pai.lagou.com',
+              sctx: 'https://suggest.lagou.com',
+              zctx: 'https://yanzhi.lagou.com',
+              ectx: 'https://easy.lagou.com',
+              proctx: 'https://pro.lagou.com',
+              lgsctx: protocol + '//img.yingjobs.com',
+              FE_frontLogin: baseUrl + '/frontLogin.do',
+              FE_frontLogout: baseUrl + '/frontLogout.do',
+              FE_frontRegister: baseUrl + '/frontRegister.do'
+          };
+
+          window.GLOBAL_CDN_DOMAIN = 'img.yingjobs.com';
+      })();
+  </script>
+
+
+
+
+  <!-- SEO 需求-->
+  <link rel="canonical" href="">
+
+  <!-- 公共样式 -->
+  <!-- header样式 -->	<!-- footer样式 -->
+  <!-- 页面样式 -->
+  <!-- 动态token，防御伪造请求，重复提交 -->
+  <script type="text/javascript">
+      window.X_Anti_Forge_Token = '';
+      window.X_Anti_Forge_Code = '';
+  </script>
+
+  <link rel="stylesheet" type="text/css" href="${siteurl}dist/css/base.css" />
+
+  <!--<link rel="stylesheet" type="text/css" href="${siteurl}dist/css/mCustomScrollerbar.css">-->
+  <!--<link rel="stylesheet" type="text/css" href="${siteurl}dist/css/layout.css">-->
+  <!--<link rel="stylesheet" type="text/css" href="${siteurl}dist/css/main.css">-->
+  <!--<link rel="stylesheet" type="text/css" href="${siteurl}dist/css/main2.css">-->
+  <!--<link rel="stylesheet" type="text/css" href="${siteurl}dist/css/widgets.css">-->
+
+  <link rel="stylesheet" type="text/css" href="//img.yingjobs.com/www/static/dep/mCustomScrollbar/css/mCustomScrollbar_ac2fb8b.css" />
+  <link rel="stylesheet" type="text/css" href="//img.yingjobs.com/www/static/pkg/layout_9d65133.css" />
+  <link rel="stylesheet" type="text/css" href="//img.yingjobs.com/www/static/pkg/index/page/index/main.html_aio_bd6f622.css" />
+  <link rel="stylesheet" type="text/css" href="//img.yingjobs.com/www/static/pkg/widgets_bf2c4ac.css" />
+  <link rel="stylesheet" type="text/css" href="//img.yingjobs.com/www/static/pkg/index/page/index/main.html_aio_2_fb834eb.css" />
+</head>
+<body>
+
+<!-- 公共html -->
+<!-- 页面公用结构、velocity变量 --><input type="hidden" value="" name="userid" id="userid" />
+
+<!-- 城市分站 -->
+
+
+<!-- header -->
+<!--C端头部通栏广告位-->
+
+
+<!--验证注册邮箱-->
+<!--
+@require "common/widgets/header_c/modules/emailvalid/main.less"
+-->
+
+[#include "/theme/default/common/common.html"]
+
+[@header /]
+
+
+<input type="hidden" id="serverTime" value="1503900246093" />
+
+<!-- 页面主体START -->
+
+
+<div class="container clearfix  has-login-toolbar " id="container">
+  <div class="contain-header">
+    <!-- 搜索 -->
+    <div class="search-wrapper">
+      <div id="search_box" class="search_box" data-lg-tj-track-code="index_search" data-lg-tj-track-type="1">
+        <form id="searchForm" class="searchForm clearfix" name="searchForm" action="https://www.lagou.com/jobs/list_" method="get">
+          <input type="text" id="search_input" class="search_input" tabindex="1" maxlength="64" autocomplete="off" value="" placeholder="搜索职位、公司或地点" />
+          <input type="hidden" name="labelWords" id="labelWords" value="" />
+          <input type="hidden" name="fromSearch" id="fromSearch" value="true" />
+          <input type="hidden" name="suginput" id="suginput" />
+
+          <input type="submit" id="search_button" class="search_button" value="搜索" data-lg-tj-id="4V00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull"/>
+        </form>
+        <input type="hidden" id="search_py" value=""/>
+        <input type="hidden" id="isIndex" value="true"/>
+      </div>
+      <div class="pos-guess-wrapper">
+        <div class="guess_wrapper dn">
+          <span>猜你要搜</span>
+          <ul></ul>
+        </div>
+      </div>
+      <dl class="hotSearch" data-lg-tj-track-code="index_hotsearch" data-lg-tj-track-type="1"></dl>
+    </div>
+
+
+
+  </div>
+  <div class="container-body">
+    <div class="clearfix">
+      <div id="sidebar" class="sidebar" data-lg-tj-track-code="index_navigation" data-lg-tj-track-type="1">
+        <div class="mainNavs">
+          [@categorys ]
+          [#list list as item]
+          <div class="menu_box">
+            <div class="menu_main job_hopping">
+              <div class="category-list">
+                <h2>
+                  ${item.name!''}
+                </h2>
+
+
+
+                [@categorys id=item.id]
+                [#list list as item1]
+
+                <a href="${siteurl}jobs/index.htm" data-lg-tj-id="${item.code}" data-lg-tj-no="${item1.code}" data-lg-tj-cid="idnull">${item1.name}</a>
+                [/#list]
+                [/@categorys]
+
+
+
+                <i class="arrow"></i>
+              </div>
+            </div>
+            <div class="menu_sub dn">
+              [@categorys id=item.id]
+              [#list list as item1]
+              <dl>
+                <dt>
+                  <span>${item1.name}</span>
+                </dt>
+                <dd>
+                  [@categorys id=item1.id]
+                  [#list list as item2]
+                  <a href="https://www.lagou.com/zhaopin/Java/" data-lg-tj-id="${item.code}" data-lg-tj-no="${item2.code}" data-lg-tj-cid="idnull" class="curr">${item2.name}</a>
+                  [/#list]
+                  [/@categorys]
+                </dd>
+              </dl>
+              [/#list]
+              [/@categorys]
+            </div>
+          </div>
+          [/#list]
+          [/@categorys]
+        </div>
+        <!--     <div class="subscribe">
+                <a href="https://www.lagou.com/s/subscribe.html" target="_blank" rel="nofollow" data-lg-tj-id="4g00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">
+                    <span>订阅职位</span>
+                    <i></i>
+                </a>
+            </div> -->
+        <!-- <div class="suggestCity"><strong>北京站</strong><span id="changeCity_btn">[切换城市]</span></div> -->
+      </div>
+
+      <div id="home_banner" class="home_banner" data-lg-tj-track-code="index_bannerad" data-lg-tj-track-type="1">
+        <ul class="banner_bg" data-size="3">
+          <li class="banner_bg_1">
+
+
+            <a class="tj_exposure" rel="nofollow" href="https://activity.lagou.com/topic/t.html" target="_blank" data-lg-tj-id="es00" data-lg-tj-no="0001" data-lg-tj-cid="3906">
+              <img src="https://img.yingjobs.com/i/image/M00/68/1F/CgpEMlmivOSAcakzAAb-mIJfRto470.PNG" width="840" height="346" alt="腾讯系专题" />
+            </a>
+          </li>
+          <li class="banner_bg_2">
+
+
+            <a class="tj_exposure" rel="nofollow" href="https://activity.lagou.com/topic/dreampartner06.html" target="_blank" data-lg-tj-id="es00" data-lg-tj-no="0002" data-lg-tj-cid="3840">
+              <img src="https://img.yingjobs.com/i/image/M00/67/8C/CgpEMlmf7J-AbPIKAAKG8BguR7c869.JPG" width="840" height="346" alt="梦想合伙人7" />
+            </a>
+          </li>
+          <li class="banner_bg_3">
+
+
+            <a class="tj_exposure" rel="nofollow" href="https://activity.lagou.com/topic/vote_55450.html" target="_blank" data-lg-tj-id="es00" data-lg-tj-no="0003" data-lg-tj-cid="3950">
+              <img src="https://img.yingjobs.com/i/image/M00/67/63/CgpEMlmftMKAbwpqAAO6Wu_Ycmw683.JPG" width="840" height="346" alt="不服来辩23" />
+            </a>
+          </li>
+        </ul>
+
+        <div class="banner_control">
+          <em class="control control-left dn"></em>
+          <em class="control control-right dn"></em>
+          <ul class="thumbs">
+            <li  class="thumbs_1 current" >
+              <i class="circle"></i>
+            </li>
+            <li  class="thumbs_2" >
+              <i class="circle"></i>
+            </li>
+            <li  class="thumbs_3" >
+              <i class="circle"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+      <ul class="job_tab module-tabs can-click" id="jobTab">
+        <li class="current hotTab" data-lg-tj-id="4X00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">热门职位</li>
+        <li class="newTab" data-lg-tj-id="gD00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">最新职位</li>
+        <!-- 订阅职位的，暂时不上线，先注释掉 -->
+        <!-- <li class="subscribe-tab">订阅职位</li> -->
+      </ul>
+      <div class="job-list-wrapper">
+        <div class="job_list clearfix" id="jobList">
+
+          <div                 class="hot_posHotPosition position_list init_joblist"
+                               data-lg-tj-track-code="index_hotjob"
+                               data-lg-tj-track-type="1">
+            <ul class="clearfix position_list_ul">
+              [#list 1..9 as item]
+              <li class="position_list_item default_list"
+                  data-jobid="3536426"
+                  data-positionid="3536426"
+                  data-salary="8k-10k"
+                  data-company="酷吧"
+                  data-positionname="Web 前端工程师"
+                  data-companyid="32227">
+                <div class="pli_top">
+                  <div class="clearfix pli_top_l">
+                    <div class="position_name fl">
+
+
+                      <h2 class="dib clearfix">
+                        <a  href="${siteurl}jobs/3536426.htm"
+                            target="_blank"
+                            class="position_link fl wordCut"
+                            data-index="0"
+                            title="Web 前端工程师"
+                            data-lg-tj-id="rx00"
+                            data-lg-tj-no="0001"
+                            data-lg-tj-cid="3536426">Web 前端工程师</a>
+                      </h2>
+                      <!-- 此处需要和后台确认 -->
+                      <span class="dib create-time">&ensp;[12:54发布]&ensp;</span>
+                      <input type="hidden" class='hr_portrait' value='i/image/M00/13/51/CgpFT1j2xbyAElW8AACAE7OQJtI289.jpg' />
+                      <input type="hidden" class='hr_name' value='HR' />
+                      <input type="hidden" class='hr_position' value='HR' />
+                      <input type="hidden" class='erma_codeu' value='487811' />
+                      <input type="hidden" class='erma_codep' value='3536426' />
+                      <div class="chat_me dib"
+                           data-page="indexPage"
+                           data-item-class="position_list_item"
+                           data-item-wrapper-class="position_list"
+
+                           data-lg-tj-id="1WD0"
+                           data-lg-tj-no="0001"
+                           data-lg-tj-cid="3536426" data-lg-tj-track-code="index_code"
+                           data-lg-tj-track-type="1"></div>
+                    </div>
+                    <span class="salary fr">8k-10k</span>
+                  </div>
+                  <div class="position_main_info wordCut">
+                    <span>经验1-3年</span>
+                    <span>不限</span>
+                  </div>
+                  <div class="labels">
+                    <div class="pli_btm_l">
+                      <span class="wordCut" title="游戏">游戏</span>
+                      <span class="wordCut" title="web前端">web前端</span>
+                      <span class="wordCut" title="node.js">node.js</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pli_btm clearfix">
+                  <a href="https://www.lagou.com/gongsi/32227.html"
+                     class="fl"
+                     target="_blank"
+                     data-lg-tj-id="19vn"
+                     data-lg-tj-no="0001"
+                     data-lg-tj-cid="32227">
+                    <img src="//img.yingjobs.com/thumbnail_100x100/image1/M00/1F/58/Cgo8PFUzIyeAWUjrAABPmaTamn4618.png" alt="公司logo" class="company-logo" width="40" height="40" />
+                  </a>
+
+                  <div class="bottom-right">
+                    <div class="company_name wordCut">
+                      <a href="https://www.lagou.com/gongsi/32227.html"
+                         target="_blank"
+                         data-lg-tj-id="vz00"
+                         data-lg-tj-no="0001"
+                         data-lg-tj-cid="32227">酷吧</a>
+                    </div>
+                    <div class="industry wordCut">
+                      <span>移动互联网</span>
+                      <span>成长型(A轮)</span>
+                      <span>北京</span>
+
+
+                    </div>
+
+
+                  </div>
+
+                </div>
+              </li>
+              [/#list]
+            </ul>
+            <a href="https://www.lagou.com/zhaopin/" class="list_more" target="_blank" data-lg-tj-id="4p00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-tj-track-code="index_checkmore" data-lg-tj-track-type="1">查看更多</a>
+          </div>
+
+          <div class="new_posHotPosition position_list" style="display:none;" data-lg-tj-track-code="index_lastjob" data-lg-tj-track-type="1">
+            <ul class="clearfix position_list_ul">
+              [#list 1..9 as item]
+              <li class="position_list_item default_list" data-jobid="3486987" data-positionid="3486987" data-salary="15k-25k" data-company="洋钱罐" data-positionname="高级运维工程师" data-companyid="110502">
+
+                <div class="pli_top">
+                  <div class="clearfix pli_top_l">
+                    <div class="position_name fl">
+                      <h2 class="dib clearfix">
+                        <a href="${siteurl}jobs/3536426.htm"
+                           target="_blank"
+                           class="position_link fl wordCut"
+                           data-index="0"
+                           title="高级运维工程师"
+                           data-lg-tj-id="4q00"
+                           data-lg-tj-no="0001"
+                           data-lg-tj-cid="3486987">高级运维工程师</a>
+                      </h2>
+                      <!-- 此处需要和后台确认 -->
+                      <span class="dib create-time">&ensp;[13:57发布]&ensp;</span>
+
+                      <input type="hidden" class='hr_portrait' value='i/image/M00/38/62/CgpEMllCq7WAWo9dAAplN5PNRhA110.jpg' />
+                      <input type="hidden" class='hr_name' value='谢女士' />
+                      <input type="hidden" class='hr_position' value='招聘主管' />
+                      <input type="hidden" class='erma_codeu' value='8112108' />
+                      <input type="hidden" class='erma_codep' value='3486987' />
+                      <div class="chat_me dib"
+                           data-page="indexPage"
+                           data-item-class="position_list_item"
+                           data-item-wrapper-class="position_list"
+
+                           data-lg-tj-id="1WE0"
+                           data-lg-tj-no="0001"
+                           data-lg-tj-cid="!{item.positionVo.positionId}"
+                           data-lg-tj-track-code="index_code"
+                           data-lg-tj-track-type="1"></div>
+                    </div>
+                    <span class="salary fr">15k-25k</span>
+
+                  </div>
+                  <div class="position_main_info wordCut">
+                    <span>经验3-5年</span>
+                    <span>本科</span>
+                  </div>
+                  <div class="labels">
+                    <div class="pli_btm_l">
+                      <span class="wordCut" title="大数据">大数据</span>
+                      <span class="wordCut" title="linux">linux</span>
+                      <span class="wordCut" title="自动化">自动化</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pli_btm clearfix">
+                  <a href="https://www.lagou.com/gongsi/110502.html"
+                     class="fl"
+                     target="_blank"
+                     data-lg-tj-id="19vp"
+                     data-lg-tj-no="0001"
+                     data-lg-tj-cid="110502">
+                    <img src="//img.yingjobs.com/thumbnail_100x100/i/image/M00/8A/D7/Cgp3O1h3K6OAKU4FAACWYn0eTvU471.jpg" alt="公司logo" class="company-logo" width="40" height="40" />
+                  </a>
+
+                  <div class="bottom-right">
+                    <div class="company_name wordCut">
+                      <a href="https://www.lagou.com/gongsi/110502.html"
+                         target="_blank"
+                         data-lg-tj-id="4r00"
+                         data-lg-tj-no="0001"
+                         data-lg-tj-cid="110502">洋钱罐</a>
+                    </div>
+                    <div class="industry wordCut">
+                      <span>移动互联网,金融</span>
+                      <span>成长型(不需要融资)</span>
+                      <span>北京</span>
+
+
+                    </div>
+
+
+                  </div>
+                </div>
+              </li>
+              [/#list]
+            </ul>
+            <a href="https://www.lagou.com/zhaopin/" class="list_more" target="_blank" data-lg-tj-id="4s00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-tj-track-code="index_checkmore" data-lg-tj-track-type="1">查看更多</a>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+      <ul class="module-tabs">
+        <li class="current">热门公司</li>
+      </ul>
+      <div class="ad-companys">
+        <ul class="ad-company-list clearfix" data-lg-tj-track-code="index_logoad" data-lg-tj-track-type="1">
+          [@hotcompanys]
+          [#list list as item]
+          <li class="company-item">
+            <div class="top">
+              <p>
+                <a href="${siteurl}company/${item.id}.htm"
+                   target="_blank"
+
+                   class="tj_exposure"
+                   data-lg-tj-id="19w9"
+                   data-lg-tj-no="0001"
+                   data-lg-tj-cid="">
+                  <img src="${item.logo}" alt="公司logo" width="80" height="80">
+                </a>
+              </p>
+              <p class="company-name wordCut">
+                <a href="${siteurl}company//${item.id}.htm"
+                   target="_blank"
+
+                   data-lg-tj-id="19wa"
+                   data-lg-tj-no="0001"
+                   data-lg-tj-cid="">简单心理</a>
+              </p>
+              <p class="indus-stage wordCut">
+                <span>${(item.industry.name)!""}</span>
+                <span>${(item.financing.name)!""}</span>
+              </p>
+              <p class="advantage wordCut">${(item.demo)!""}</p>
+            </div>
+            <div class="bottom clearfix">
+              <a class="bottom-item bottom-1 fl"
+                 href="https://www.lagou.com/gongsi/interviewExperiences.html?companyId=28756"
+                 target="_blank"
+
+                 data-lg-tj-id="19wb"
+                 data-lg-tj-no="0001"
+                 data-lg-tj-cid="">
+                <p class="green">
+                  <span>${item.comments!"0"}</span>
+                </p>
+                <p class="gray">面试评价</p>
+              </a>
+              <a class="bottom-item bottom-2 fl"
+                 href="${siteurl}company/j28756.htm"
+                 target="_blank"
+
+                 data-lg-tj-id="19wc"
+                 data-lg-tj-no="0001"
+                 data-lg-tj-cid="">
+                <p class="green">
+                  <span>${item.jobs!"0"}</span>
+                </p>
+                <p class="gray">在招职位</p>
+              </a>
+              <a class="bottom-item bottom-3 fl"
+                 href="${siteurl}company/28756.htm"
+                 target="_blank"
+
+                 data-lg-tj-id="19wd"
+                 data-lg-tj-no="0001"
+                 data-lg-tj-cid="">
+                <p class="green">
+                  <span>${item.jobs!"100"}%</span>
+                </p>
+                <p class="gray">简历处理率</p>
+              </a>
+            </div>
+          </li>
+          [/#list]
+          [/@hotcompanys]
+        </ul>
+        <a href="${siteurl}company/index.htm" class="list_more" target="_blank" data-lg-tj-id="19x6" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-tj-track-code="index_checkmore" data-lg-tj-track-type="1">查看更多</a>
+      </div>
+
+      <div id="linkbox" class="linkbox show-linkbox">
+        <!--     <ul class="module-tabs">
+                <li class="current">友情链接</li>
+            </ul> -->
+
+        <dl>
+          <dt><span class="current">友情链接</span></dt>
+          <dd class="links">
+            [@link id=2 size=30]
+            [#list list as item]
+            <a href="${item.url!''}" target="${item.target!'_blank'}" class="friend-link">${item.name!""}</a>
+            [/#list]
+            [/@link]
+            <a
+                  href="https://www.lagou.com/af/flink.html" target="_blank" class="more" rel="nofollow">更多</a>
+
+          </dd>
+          <span rel="nofollow" href="javascript:;" class="expansion">展开<i></i></span>
+        </dl>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<input type="hidden" id="isIndexPage">
+<input type="hidden" id="subsiteCity" value="北京">
+
+<!-- 页面主体END -->
+
+<!-- footer <-->
+<a id="backtop" title="回到顶部" rel="nofollow"></a>
+<!-- feedback -->
+<!--
+    @require "common/widgets/footer_c/modules/feedback/feedback.less"
+-->
+
+<div id="product-fk">
+  <div id="feedback-icon">
+    <div class="fb-icon"></div>
+    <span>我要反馈</span>
+  </div>
+</div>
+
+<div id="footer">
+  <div class="wrapper">
+    <i class="footer_lagou_icon"></i>
+    <div class="inner_wrapper">
+      <a class="footer_app" href="https://www.lagou.com/app/download.html" rel="nofollow">拉勾APP<i class="icon_new">NEW</i><img data-delay-src="https://img.yingjobs.com/i/image/M00/35/06/CgpFT1lDioCAFqS2AAEeWsD3HHo535.PNG" width="160" height="160"></a>
+      <a href="http://e.weibo.com/lagou720" target="_blank" rel="nofollow">拉勾微博</a>
+      <a class="footer_wechat" href="javascript:;" rel="nofollow">拉勾微信<img data-delay-src="https://img.yingjobs.com/i/image/M00/38/BF/CgpEMllDipeAFlPXAABWmQdg7-E520.PNG" width="160" height="160"></a>
+      <a class="footer_mina" href="javascript:;" rel="nofollow">拉勾小程序<img src="//img.yingjobs.com/www/static/common/widgets/footer_c/layout/img/lagou-mina-code_d70848a.png" width="160" height="160"></a>
+      <a href="https://www.lagou.com/qa.html?t=1" target="_blank" rel="nofollow">帮助中心</a>
+      <a href="https://www.lagou.com/about.html" target="_blank" rel="nofollow">联系我们</a>
+      <a href="https://activity.lagou.com/activity/dist/business/index.html" target="_blank" rel="nofollow">招聘解决方案</a>
+      <span class="tel">服务热线：<em>4006-2828-35 (9:00 -18:00)</em></span>
+    </div>
+    <div class="copyright">
+      <span><em>&copy;</em>2017 Lagou</span>
+      <a target="_blank" href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" rel="nofollow">京ICP备14023790号-2</a>
+      <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802024043" rel="nofollow">京公网安备 11010802024043号</a>
+    </div>
+  </div>
+</div>
+
+<!-- 底部登录条 -->
+<!--
+@require "common/widgets/new_login_toolbar/main.less"
+-->
+
+<div id="loginToolBar" class="loginToolBar">
+  <div class="tool-bar-wrapper">
+    <em></em>
+    <p class="text">
+      <span class="text-ele"><span class="come-lagou">在拉勾，发现新的职业机会</span></span>
+      <span class="count-wrapper text-ele">
+                <span class="text-ele company"><span class="companycount"></span>公司</span>
+                <span class="text-ele line">|</span>
+                <span class="text-ele"><span class="positioncount"></span>职位</span>
+            </span>
+
+    </p>
+
+    <div class="right">
+      <a class="button bar_login passport_login_pop" href="javascript:;">登录</a>
+      <a rel="nofollow" href="${siteurl}frontRegister.htm?from=index_footerbar" onclick="_hmt.push(['_trackEvent', 'button', 'click', 'register'])" class="bar_register button" id="bar_register" target="_blank" data-lg-tj-id="4t00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">注册</a>
+    </div>
+    <input type="hidden" id="cc" value="243416" />
+    <input type="hidden" id="cp" value="3482150" />
+  </div>
+</div>
+
+
+<!-- jquery lib -->
+<!-- analytics js file -->	<!-- plat analytics js file -->
+<!-- plat ipinyou tj -->
+<!-- <script src="../../static/ipinyou.js"></script> -->
+<!-- <noscript><img src="//stats.ipinyou.com/adv.gif?a=ga..n3f5DPSWZXFMcbQa2-GxjX&e=" style="display:none;" /></noscript> -->
+
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/vendor_e3ddeee.js"></script>
+<script type="text/javascript">/*resourcemap*/
+require.config({paths:{
+    "common/components/artTemplate/template-helper": "//img.yingjobs.com/www/static/common/components/artTemplate/template-helper_4b2f5f0",
+    "common/widgets/common/msgPopup": "//img.yingjobs.com/www/static/common/widgets/common/msgPopup_92e712a"
+}});</script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/index/page/index/main.html_aio_b1a1945.js"></script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/widgets_00f507c.js"></script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/common/widgets/common/userinfo_7f282e9.js"></script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/layout_6a3a86f.js"></script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/index/page/index/main.html_aio_2_b0ef9b4.js"></script>
+<script type="text/javascript">
+    window.global = window.global || {};
+    global.userCtx = '';
+
+
+    window.global = window.global || {};
+    global.isLogin = false;
+    global.isFirst = false;
+    global.subSite = '北京';
+    global.subSites = '全国,上海,杭州,广州,深圳,成都'.split(',');
+
+
+    require(['common/widgets/header_c/modules/emailvalid/main']);
+
+
+    require(['common/widgets/passport/passport'], function() {
+
+
+        /* 设置自动登录监听器 */
+        PASSPORT.on('autologin:succ', function() {
+            PASSPORT.util.tinfo('autologin:succ');
+            window.location.reload();
+        });
+        PASSPORT.on('autologin:fail', function() {
+            PASSPORT.util.tinfo('autologin:fail');
+        });
+        // 触发自动登录
+        PASSPORT.auto();
+
+        /* 设置弹窗登录监听器 */
+        PASSPORT.on('popuplogin:succ', function() {
+            PASSPORT.util.tinfo('popuplogin:succ');
+            window.location.reload();
+        });
+        PASSPORT.on('popuplogin:fail', function() {
+            PASSPORT.util.tinfo('popuplogin:fail');
+        });
+        // 触发弹窗登录
+        //PASSPORT.popup();
+        jQuery('.passport_login_pop').each(function() {
+            jQuery(this).click(function() {
+                PASSPORT.popup();
+            });
+        });
+
+
+    });
+
+
+    require(['common/widgets/header_c/layout/main']);
+
+
+    require(['common/widgets/footer_c/modules/feedback/feedback']);
+
+
+    require(['common/widgets/footer_c/layout/main']);
+
+    $(document).ready(function () {
+        var selector = '#webchat7moor';
+        if ($(selector).length) {
+            return;
+        }
+
+        var jqIframe = $('<iframe>', {
+            id: selector.slice(1),
+            src: '//img.yingjobs.com/third-parties/webchat7moor/main_22faef3.html',
+            style: 'margin:0;'
+            + 'padding:0;'
+            + 'width:320px;'
+            + 'height:500px;'
+            + 'border-width:0;'
+            + 'border-radius: 3px;'
+            + 'transition: height 0.5s ease-out;'
+            + 'z-index:-99999;'
+            + 'display: none;'
+            + 'bottom:0;'
+            + 'right:0;'
+            + 'position:fixed;'
+        });
+        $(document.body).append(jqIframe);
+
+        var child = jqIframe[0].contentWindow;
+        var target = window.location.protocol + '//' + (window.GLOBAL_CDN_DOMAIN || 'img.yingjobs.com');
+
+        $('#onlineService, #feedback-icon').on('click', function (e) {
+            jqIframe.css('z-index', 99999).show();
+            child.postMessage('{"code":1,"message":"open webchat plugin"}', target);
+        });
+
+        $(window).on('message', function (e) {
+            var origin = e.origin || e.originalEvent.origin;
+            if (origin.indexOf(target) !== 0) {
+                return;
+            }
+
+            var data = e.data || e.originalEvent.data;
+            if (data.code === 2 && typeof data.css !== 'undefined') {
+                jqIframe.css(data.css);
+            } else {
+                jqIframe.css('z-index', -99999).hide();
+            }
+        });
+    });
+
+
+    require(['common/widgets/new_login_toolbar/main'])
+
+
+    //业务主模块入口
+    require(['index/page/index/main']);
+</script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/lg-analytics_ea85146.js"></script>
+<script type="text/javascript" src="https://www.lagou.com/upload/oss.js"></script></body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "简历库" cssNames = [
+        "mds/static/common/static/less/parent.base_142fcd4.css",
+        "pkg/resume-book/page/main.html_aio_696c773.css"
+    ]/]
+
+</head>
+
+<body>
+
+[#include "/theme/default/common/commonhr.html"]
+[#include "/theme/default/common/commonsite.html"]
+
+[@header index=3 /]
+
+<div id="resume_book">
+    <div class="wrapper">
+        <div class="wrapper_containers">
+            <div class="wrapper">
+                <div class="position_toolbar_box">
+                    <div class="position_toolbar">
+                        <div>
+                            <div class="toolbar-filter_btn"><i class="icon-candidate-filters null"></i>
+                                <span class="toolbar-filter_text null">筛选</span>
+                            </div>
+                            <div>
+                                <div class="input-wrapper">
+                                    <div class="input-wrapper">
+                                        <input type="text" class="input search_input" placeholder="搜索姓名/手机/邮箱/公司/职位/标签等"
+                                               value="">
+                                    </div>
+                                    <i class="icon-candidate-search"></i>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="position_listPages">
+                    <div class="table_wrapper clearfix">
+                        <div class="table table-scroll-position-left">
+                            <div class="table-content">
+                                <div class="">
+                                    <span>
+                                        <div class="table-body">
+                                            <table class="">
+                                                <colgroup><col><col><col><col><col><col><col><col></colgroup>
+                                                <thead class="table-thead">
+                                                <tr>
+                                                    <th class="item-1">姓名</th>
+                                                    <th class="item-1">职位</th>
+                                                    <th class="item-1">最近经历</th>
+                                                    <th class="item-1">学历</th>
+                                                    <th class="item-2">工作年限</th>
+                                                    <th class="item-1">阶段</th>
+                                                    <th class="item-1">应聘时间</th><th class="item-1">渠道</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody class="table-tbody">
+                                                [#if pager.content??]
+                                                [#list pager.content as item]
+                                                <tr class="table-row  table-row-level-0">
+                                                    <td class="item-1">
+                                                        <span class="table-row-indent indent-level-0" style="padding-left: 0px;"></span>
+                                                        <a href="${siteurl}hr/can/detail.htm?id=${item.id}" class="book_nick to_center_style">
+                                                            <span class="user_name">${(item.resume.member.name)!"应聘者"}</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="item-1">
+                                                        <a href="" class="name_cut to_center_style position_cut">${(item.job.name)!""}</a>
+                                                    </td>
+                                                    <td class="item-1">
+                                                        <a href="" class="name_cut to_center_style">
+                                                            <div class="no_year_zero">
+                                                                <span>
+                                                                    <i class="icon-candidate-job"></i>${(item.resume.shenfen)!""}
+                                                                </span>
+                                                            </div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="item-1">
+                                                        <a href="" class="to_center_style">
+                                                            <span>${(item.resume.degree.name)!""}</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="item-2">
+                                                        <a href="" class="to_center_style">${(item.resume.workYear.name)!""}</a>
+                                                    </td>
+                                                    <td class="item-1">
+                                                        <a href="" class="to_center_style">新简历</a>
+                                                    </td>
+                                                    <td class="item-1">
+                                                        <a href="" class="to_center_style">${(item.addDate?string("yyyy/MM/dd"))!""}</a>
+                                                    </td>
+                                                    <td class="item-1">
+                                                        <a href="" class="to_center_style">寻鹰网</a>
+                                                    </td>
+                                                </tr>
+                                                [/#list]
+                                                [/#if]
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix" style="text-align: right;">
+                            [@pagersimple page=pager url="hr/resumelist.htm?time=1" /]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="${siteurl}dist/js/hr.js"></script>
+
+[#include "/theme/default/common/footer.html"]
+</body>
+</html>
+

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "完善简历" cssNames=[
+        "common/widgets/country-code/main_a6d7b89.css",
+        "pkg/mycenter/page/threestep/main.html_aio_638aae2.css"
+    ]/]
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/nicevalidator/jquery.validator.css"/>
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/layer/theme/default/layer.css">
+    <link rel="stylesheet" href="${siteurl}dist/js/element-ui/index.css">
+    <style type="text/css">
+        .el-date-editor input[type=text]{
+            width: 210px;
+            height: 47px;
+            background: #f8f8f8;
+            font-size: 14px;
+            color: #b5b5b5;
+            text-align: left;
+            padding: 0 30px;
+            border: 1px solid #f8f8f8;
+            border-radius: 3px;
+            margin-top: 0;
+        }
+        .sel-xs input[type=text]{
+            width: 210px;
+            height: 47px;
+            margin-top: 0;
+        }
+        .n-bottom .msg-wrap {
+            margin-top: 2px;
+        }
+        [v-cloak] { display:none} /*v-cloak解决vue解析闪烁问题*/
+    </style>
+    [#include "/theme/default/common/fileuploads.html"]
+</head>
+<body>
+<!-- 页面主体START -->
+<div class="container clearfix" id="container">
+    <div>
+        <div id="mr_wrapper">
+            <div id="mrHeader">
+                <dl class="collapsible_menu">
+                    <dt>
+                        <span id="nowrap">${name!''}</span>
+                        <i></i>
+                    </dt>
+                    <dd class="logout dn">
+                        <a href="${siteurl}frontLogout.htm" rel="nofollow">退出</a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div id="app" class="mr_container mr_t threestep_main">
+            <div class="mr_threeBasic">
+                <!-- 需要抽出来作为公共样式 -->
+                <div class="mr_enoughWidth">
+                    <div class="mr_workexp" :style="swiper">
+                        <div class="hei104">
+                            <dl class="mr_head mr_thead">
+                                <!--alt="头像"改为昵称,头像需要判断是否使用默认头像-->
+                                <dt>
+                                    [@uploadAvatarVueDom id="avatar" name="member.avatar" image="${(model.avatar)!''}"/]
+                                </dt>
+                                <dd><h2>工作经历</h2></dd>
+                            </dl>
+                        </div>
+                        <div class="work">
+                            <form id="workForm" class="mr_workexpForm workform" action="javascript:;">
+                                <div class="mr_workexpFormTop" v-for="(item, index) in workFormCount">
+                                    <label>
+                                        <input type="text" name="companyName" v-model="companyName[index]" placeholder="公司名称" class="companyName" tabindex="-1" data-focus="0"/>
+                                    </label>
+                                    <label>
+                                        <input type="text" name="yourPosition" v-model="yourPosition[index]" placeholder="你的职位" class="yourPosition" tabindex="-1" data-focus="1"/>
+                                    </label>
+                                    <div class="clearfix workDate">
+                                        <div class="mr_workcity mr20 mrWork">
+                                            <input type="hidden" name="startTime" v-model="startTime[index]"/>
+                                            <el-date-picker
+                                                    id="startTimeSel"
+                                                    v-model="startTime[index]"
+                                                    type="month"
+                                                    format="yyyy-MM"
+                                                    placeholder="起始时间">
+                                            </el-date-picker>
+                                        </div>
+                                        <div class="mr_workcity mrWork">
+                                            <input type="hidden" name="endTime"  v-model="endTime[index]"/>
+                                            <el-date-picker
+                                                    id="endTimeSel"
+                                                    v-model="endTime[index]"
+                                                    type="month"
+                                                    format="yyyy-MM"
+                                                    placeholder="结束时间">
+                                            </el-date-picker>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- <div id="mradd"></div>  -->
+                            <div class="adddel clearfixs">
+                                <div class="addworkExp add" @click="addMoreWorkExp"><em></em>添加更多工作经历</div>
+                                <em class="mrworkdel" v-show="workFormCount > 1" @click="delWorkExp" title="删除本条">&nbsp;</em>
+                            </div>
+                            <input class="num" type="hidden" value="0"/>
+                            <div class="mr_button">
+                                <a href="${siteurl}resume/basic.htm?basicType=1">上一步</a>
+                                <a @click="skipWork" style="margin-left: 40px;cursor: pointer;">跳过此项，继续完善信息</a>
+                                <input type="submit" @click="saveWorkExp" value="下一步：教育经历" tabindex="-1" class="nextEdu">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mr_eduation" :style="swiper">
+                        <div class="hei104">
+                            <dl class="mr_head mr_thead">
+                                <!--alt="头像"改为昵称,头像需要判断是否使用默认头像-->
+                                <dt>
+                                    [@uploadAvatarVueDom id="avatar2" name="member.avatar" image="${(model.avatar)!''}"/]
+                                </dt>
+                                <dd><h2>教育经历</h2></dd>
+                            </dl>
+                        </div>
+                        <div class="education">
+                            <form id="eduForm" class="mr_educationForm eduform" action="javascript:;">
+                                <div class="mr_educationFormTop" v-for="(item, index) in eduFormCount">
+                                    <input type="hidden" class="eduHidden" value=""/>
+                                    <label><input type="text" name="schoolName" v-model="schoolName[index]" class="schoolName" placeholder="学校名称" tabindex="-1" data-focus1="0"/></label>
+                                    <label><input type="text" name="yourMajor" v-model="yourMajor[index]" class="yourMajor" placeholder="所学专业" tabindex="-1" data-focus1="1"/></label>
+                                    <div class="clearfix">
+                                        <div class="mr_education  mr20 degree sel" >
+                                            <input type="hidden" name="degree.id" v-model="degree[index]"/>
+                                            <el-select class="sel-xs" v-model="degree[index]" placeholder="学历">
+                                                <el-option
+                                                        id="degreeSel"
+                                                        v-for="item in degrees"
+                                                        :key="item.value"
+                                                        :label="item.label"
+                                                        :value="item.value">
+                                                </el-option>
+                                            </el-select>
+                                        </div>
+                                        <div class="mr_education flag nextSel">
+                                            <input type="hidden" name="schoolEnd" v-model="schoolEnd[index]"/>
+                                            <el-date-picker
+                                                    id="schoolEndSel"
+                                                    v-model="schoolEnd[index]"
+                                                    align="right"
+                                                    type="year"
+                                                    value-format="yyyy"
+                                                    placeholder="毕业年份">
+                                            </el-date-picker>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- <div  id="addEdu"></div> -->
+                            <div class="adddel">
+                                <div class="addworkEducation add" @click="addMoreEduExp"><em></em>添加更多教育经历</div>
+                                <em class="mrworkdel" v-show="eduFormCount > 1" @click="delEduExp" title="删除本条">&nbsp;</em>
+                            </div>
+                            <div class="mr_button">
+                                <a href="javascript:;" @click="prev">上一步</a>
+                                <input type="submit" @click="saveEduExp" tabindex="-1" value="最后一步：一句话介绍">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mr_self" :style="swiper">
+                        <dl class="mr_head mr_thead">
+                            <!--alt="头像"改为昵称,头像需要判断是否使用默认头像-->
+                            <dt>
+                                [@uploadAvatarVueDom id="avatar3" name="member.avatar" image="${(model.avatar)!''}"/]
+                            </dt>
+                            <dd><h2>一句话介绍自己</h2></dd>
+                        </dl>
+                        <form id="mySelfForm" class="mr_introduceSelf" action="javascript:;">
+                            <div class="selfCon">
+                                <textarea name="note" v-model="desc" placeholder="一句话介绍自己，告诉我为什么选择你而不是别人"></textarea>
+                                <div class="mr_example">
+                                    <div class="mr_exampleicon"
+                                         @mouseenter="example = true"
+                                         @mouseleave="example = false"><em></em><span>查看示例</span></div>
+                                    <div class="mr_exampleCon" v-show="example" style="margin-top: 15px"><i></i>
+                                        <dl>
+                                            <dt>[示例一]</dt>
+                                            <dd>3年航空经验，负责过大型项目，学习能力强</dd>
+                                        </dl>
+                                        <dl class="mt10">
+                                            <dt>[示例二]</dt>
+                                            <dd>前腾讯视频市场部负责人，有30人团队管理经验，人脉广</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mr_button">
+                                <a href="javascript:;" @click="prev">上一步</a>
+                                <input type="submit" @click="complete" value="创建完成！">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--下面的三个点点-->
+            <div class="mr_icon">
+                <ul class="reset clearfix">
+                    <li :class="{mr_workYearIcon: step == 1}">&nbsp;</li>
+                    <li :class="{mr_workYearIcon: step == 2}">&nbsp;</li>
+                    <li :class="{mr_workYearIcon: step == 3}">&nbsp;</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- 页面主体END -->
+<script>
+    var degrees = [[#list degrees as ind]{value:'${ind.id}', label: '${ind.name}'},[/#list]];
+</script>
+<script src="${siteurl}plugins/nicevalidator/jquery.validator.min.js?local=zh-CN"></script>
+<script src="${siteurl}/plugins/layer/layer.js"></script>
+<script src="${siteurl}dist/js/vue.js"></script>
+<script src="${siteurl}dist/js/element-ui/index.js"></script>
+<script src="${siteurl}dist/js/axios.min.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data(){
+            return{
+                step: 1,
+                swiper: {},
+                workFormCount: 1,
+                eduFormCount: 1,
+                avatar: '',
+                companyName: [],
+                yourPosition: [],
+                startTime: [],
+                endTime: [],
+                schoolName:[],
+                yourMajor:[],
+                degrees: degrees,
+                degree: [],
+                schoolEnd: [],
+                desc: '',
+                example: false
+            }
+        },
+        mounted(){
+            //初始化上传组件
+            [@uploadAvatarVueLib id="avatar"/]
+            [@uploadAvatarVueLib id="avatar2"/]
+            [@uploadAvatarVueLib id="avatar3"/]
+            //初始化validator
+            $.validator.setTheme("default", {
+                msgClass: "n-bottom"
+            });
+            var self = this;
+            $('#workForm').validator({
+                timely: 2,
+                fields: {
+                    'companyName': {
+                        rule: 'required;',
+                        msg: {
+                            required: '请输入公司名称'
+                        }
+                    },
+                    'yourPosition': {
+                        rule: 'required;',
+                        msg: {
+                            required: '请输入职位'
+                        }
+                    },
+                    'startTime': {
+                        rule: 'required;',
+                        msg: {
+                            required: '请选择起始日期'
+                        },
+                        target: '#startTimeSel'
+                    },
+                    'endTime': {
+                        rule: 'required;',
+                        msg: {
+                            required: '请选择结束日期'
+                        },
+                        target: '#endTimeSel'
+                    }
+                }
+            });
+            $('#eduForm').validator({
+                timely: 2,
+                fields: {
+                    'schoolName': {
+                        rule: 'required;',
+                        msg: {
+                            required: '请输入学校名称'
+                        }
+                    },
+                    'yourMajor': {
+                        rule: 'required;',
+                        msg: {
+                            required: '请输入所学专业'
+                        }
+                    },
+                    'degree.id': {
+                        rule: 'required;',
+                        msg: {
+                            required: '请选择学历'
+                        },
+                        target: '#degreeSel'
+                    },
+                    'schoolEnd': {
+                        rule: 'required;',
+                        msg: {
+                            required: '请选择毕业年份'
+                        },
+                        target: '#schoolEndSel'
+                    }
+                }
+            });
+            $('#mySelfForm').validator({
+                timely: 2,
+                fields: {
+                    'note': {
+                        rule: 'required;',
+                        msg: {
+                            required: '请输入自我介绍'
+                        }
+                    },
+                }
+            });
+        },
+        methods:{
+            addMoreWorkExp(){
+                this.workFormCount += 1;
+            },
+            addMoreEduExp(){
+                this.eduFormCount += 1;
+            },
+            delWorkExp(){
+                var len = this.workFormCount.length;
+                var preDels = [this.companyName, this.yourPosition, this.startTime, this.endTime];
+                this.removeHelper(preDels, len);
+                this.workFormCount -= 1;
+            },
+            delEduExp(){
+                var len = this.workFormCount.length;
+                var preDels = [this.schoolName, this.yourMajor, this.degree, this.schoolEnd];
+                this.removeHelper(preDels, len);
+                this.eduFormCount -= 1;
+            },
+            skipWork(){
+                this.step = 2;
+                this.swiper = { left: '-540px'};
+            },
+            saveWorkExp(){
+                var self = this;
+                $('#workForm').trigger("validate");
+                $('#workForm').on('valid.form', function(e, form, errors){
+                    var tmp = [];
+                    self.arrToJson(self.companyName,self.yourPosition,
+                        this.startTime,self.endTime, function (v1, v2, v3, v4) {
+                            tmp.push({companyName: v1, job: v2, start: v3, end: v4});
+                        });
+                    var params = JSON.stringify(tmp);
+                    axios.post('${siteurl}resume/saveWorkExp.htm',
+                        params,
+                        {headers: {"Content-Type": "application/json"}})
+                        .then(function (resp) {
+                            if (resp.status === 200){
+                                //next step
+                                self.step = 2;
+                                self.swiper = { left: '-540px'};
+                            }
+                        })
+                        .catch(function (resp) {
+                            layer.alert("保存失败，请稍后重试！", {
+                                icon: 7,
+                                skin: 'layer-ext-moon'
+                            });
+                        })
+                });
+            },
+            saveEduExp(){
+                var self = this;
+                $('#eduForm').trigger("validate");
+                $('#eduForm').on('valid.form', function(e, form, errors) {
+                    var tmp = [];
+                    self.arrToJson(self.schoolName, self.yourMajor,
+                        self.degree, self.schoolEnd, function (v1, v2, v3, v4) {
+                            tmp.push({schoolName: v1, major: v2, degreeId: v3, schoolEnd: v4});
+                        });
+                    var params = JSON.stringify(tmp);
+                    axios.post('${siteurl}resume/saveEduExp.htm',
+                        params,
+                        {headers: {"Content-Type": "application/json"}})
+                        .then(function (resp) {
+                            if (resp.status === 200) {
+                                //next step
+                                self.step = 3;
+                                self.swiper = {left: '-1080px'};
+                            }
+                        })
+                        .catch(function (resp) {
+                            layer.alert("保存失败，请稍后重试！", {
+                                icon: 7,
+                                skin: 'layer-ext-moon'
+                            });
+                        })
+                })
+            },
+            complete(){
+                var self = this;
+                $('#mySelfForm').trigger("validate");
+                $('#mySelfForm').on('valid.form', function(e, form, errors) {
+                    axios.post('${siteurl}resume/saveDesc.htm', {desc: self.desc})
+                        .then(function (resp) {
+                            if (resp.status === 200) {
+                                //complete
+                                window.location.href = "${siteurl}/index.htm";
+                            }
+                        })
+                        .catch(function (resp) {
+                            layer.alert("保存失败，请稍后重试！", {
+                                icon: 7,
+                                skin: 'layer-ext-moon'
+                            });
+                        })
+                });
+            },
+            prev(){
+                switch (this.step) {
+                    case 1:
+                        //not supper
+                        break;
+                    case 2:
+                        this.step = 1;
+                        this.swiper = { left: '0px'};
+                        // this.swiper = { left: '-540px'};
+                        break;
+                    case 3:
+                        this.step = 2;
+                        this.swiper = { left: '-540px'};
+                        // this.swiper = { left: '-1080px'};
+                        break;
+                    default:
+                        console.log(`error`);
+                }
+            },
+            removeHelper(preDelArr, cursor){
+                for (var i = 0; i < preDelArr.length; i++) {
+                    preDelArr[i].length >= cursor && this.removeLast(preDelArr[i]);
+                }
+            },
+            removeLast(arr){
+                arr.pop();
+            },
+            arrToJson(arr1, arr2, arr3, arr4, callback){
+                for (var i = 0; i < arr1.length; i++) {
+                    var val1 = arr1[i];
+                    var val2 = arr2[i];
+                    var val3 = arr3[i];
+                    var val4 = arr4[i];
+                    callback(val1,val2,val3,val4);
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

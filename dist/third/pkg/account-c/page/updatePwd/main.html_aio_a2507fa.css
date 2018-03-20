@@ -1,0 +1,1673 @@
+/*!common/widgets/country-code/main.less*/
+@charset "UTF-8";
+.area_code_list + input {
+    padding-left: 72px !important
+}
+
+.area_code {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    float: left;
+    width: 50px;
+    height: 44px;
+    padding-right: 22px;
+    line-height: 44px;
+    cursor: default
+}
+
+.area_code:after {
+    position: absolute;
+    right: 8px;
+    top: 19px;
+    display: block;
+    content: '';
+    width: 10px;
+    height: 5px;
+    background: url(../../../../common/widgets/country-code/code86_a209722.png) no-repeat
+}
+
+.area_code.active:after {
+    transform: scale(-1)
+}
+
+.area_code_list {
+    position: absolute;
+    left: 0;
+    top: 46px;
+    z-index: 10;
+    display: none;
+    width: 200px;
+    max-height: 288px;
+    border: 1px solid #eee;
+    overflow-y: scroll;
+    background-color: #fff
+}
+
+.area_code_list dl {
+    line-height: 36px;
+    cursor: default
+}
+
+.area_code_list dt {
+    padding: 0 12px;
+    color: #999;
+    background-color: #FBFBFB
+}
+
+.area_code_list dd {
+    padding: 0 12px;
+    color: #555
+}
+
+.area_code_list dd:hover {
+    background-color: #F4F4F4;
+    color: #0099ff
+}
+
+.area_code_list dd span {
+    float: right
+}
+
+.area_code_list .tips {
+    color: #B5B5B5;
+    padding: 40px 12px
+}
+
+/*!common/widgets/account-c-sidebar/main.less*/
+.user_bindSidebar {
+    width: 232px;
+    float: left
+}
+
+.user_sideBarmenu {
+    border-right: 1px solid #E3EBE9;
+    text-align: right;
+    line-height: 40px
+}
+
+.user_sideBarmenu li a {
+    color: #777;
+    font-size: 14px;
+    display: block;
+    padding-right: 30px
+}
+
+.user_sideBarmenu li a.hover, .user_sideBarmenu li a:hover {
+    border-right: 2px solid #0099ff;
+    padding-right: 28px;
+    color: #0099ff;
+}
+
+/*!account-c/modules/common/main.less*/
+::-webkit-input-placeholder {
+    color: #B5B5B5
+}
+
+:-moz-placeholder {
+    color: #B5B5B5
+}
+
+::-moz-placeholder {
+    color: #B5B5B5
+}
+
+:-ms-input-placeholder {
+    color: #B5B5B5
+}
+
+#container {
+    width: 1024px;
+    margin: 60px auto 0;
+    padding-bottom: 80px
+}
+
+.dn {
+    display: none
+}
+
+.c_section > dt {
+    font-size: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #D9D9D9
+}
+
+.content_mid {
+    width: 680px;
+    padding: 0 60px;
+    background: #fafafa;
+    margin: 0 auto
+}
+
+.c_section {
+    margin-bottom: 40px;
+    position: relative
+}
+
+.c_section .tips {
+    color: #999;
+    margin-top: 5px
+}
+
+.c_section .operate {
+    color: #019875;
+    cursor: pointer
+}
+
+.c_section h2 {
+    float: left;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+    height: 43px;
+    background: #91cebe;
+    margin: -8px 0 10px 40px;
+    padding: 0 20px;
+    line-height: 43px;
+    position: absolute;
+    z-index: 2
+}
+
+.c_section h2 em {
+    background: url(../../../../account-c/modules/common/img/title_arrow_d475769.png) no-repeat;
+    width: 6px;
+    height: 8px;
+    position: absolute;
+    left: -6px;
+    top: 0
+}
+
+.c_section > dd {
+    color: #555;
+    padding: 30px 0;
+    clear: both
+}
+
+.c_section_service > dd {
+    color: #555;
+    padding: 50px 0 20px 25px;
+    clear: both
+}
+
+.c_section span.error {
+    margin: 5px 0 10px
+}
+
+input[type=text], input[type=password] {
+    border: 2px solid #ededed;
+    outline: 0;
+    font: 20px/32px Arial, "Hiragino Sans GB", "微软雅黑", "宋体";
+    width: 600px;
+    height: 30px;
+    padding: 6px 10px;
+    margin-top: 20px;
+    transition: border .2s ease-in 0s
+}
+
+/*!account-c/modules/bind/main.less*/
+ul {
+    margin-left: 0
+}
+
+.bindemail_container {
+    margin-top: 50px !important
+}
+
+.user_firstBindContent {
+    width: 666px;
+    margin: 0 auto
+}
+
+.userbox {
+    width: 290px;
+    margin: 0 auto 50px
+}
+
+.user_hasAccountform {
+    padding: 40px 185px 0
+}
+
+.btn {
+    font-size: 16px;
+    line-height: 40px;
+    display: inline-block;
+    height: 40px;
+    padding: 0 30px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    outline: 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-transition: .05s linear;
+    -o-transition: .05s linear;
+    transition: .05s linear;
+    background-image: none;
+    margin-top: 0
+}
+
+.btn:hover, .btn_active {
+    text-decoration: none;
+    color: #0099ff;
+    background-color: #fff
+}
+
+.btn.btn_link {
+    color: #fff;
+    border: 0;
+    background-color: transparent
+}
+
+.bindclear {
+    zoom: 1;
+    display: table
+}
+
+.bindclear:after {
+    content: '';
+    display: block;
+    clear: both
+}
+
+.btn_outline:hover {
+    color: #999
+}
+
+.btn_outline.btn_active {
+    color: #333;
+    border-color: #0099ff !important
+}
+
+.btn_outline:last-child {
+    margin-right: 0
+}
+
+.btn_sm {
+    font-size: 14px;
+    line-height: 36px;
+    height: 36px
+}
+
+.btn_lg {
+    font-size: 18px;
+    line-height: 46px;
+    height: 46px
+}
+
+.btn_block {
+    display: block;
+    width: 100%
+}
+
+.btn_green {
+    color: #0099ff;
+    border-color: #0099ff;
+    background-color: #fff
+}
+
+.btn_green:hover, .btn_active {
+    color: #fff;
+    border-color: #0099ff;
+    background-color: #0099ff
+}
+
+.btn_green.btn_link {
+    color: #0099ff;
+    border: 0;
+    background-color: transparent
+}
+
+.btn_green.btn_outline {
+    color: #0099ff;
+    background-color: transparent
+}
+
+.btn_outline.last_child {
+    margin-right: 0
+}
+
+.btn_disabled {
+    color: #fff;
+    border-color: #b2b2b2;
+    background-color: #b2b2b2
+}
+
+.btn_disabled:hover {
+    cursor: default;
+    color: #fff;
+    border-color: #b2b2b2;
+    background-color: #b2b2b2
+}
+
+.btn_disabled.btn_outline {
+    color: #b2b2b2;
+    background-color: transparent
+}
+
+.box_checkbox {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    -webkit-backface-visibility: hidden;
+    color: #777
+}
+
+.box_checkbox .checkbox_icon {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    top: 3px \9;
+    left: 0;
+    display: block;
+    width: 13px;
+    height: 16px;
+    background-image: url(../../../../account-c/modules/bind/img/checkbox_6e7fcc3.png);
+    background-repeat: no-repeat;
+    background-position: 0 0
+}
+
+.box_checkbox .checkbox {
+    margin-left: 0;
+    zoom: 1;
+    width: 13px;
+    height: 13px;
+    opacity: 0;
+    outline: 0;
+    filter: alpha(opacity=0)
+}
+
+.box_checkbox a {
+    color: #0099ff
+}
+
+.box_checkbox a:hover {
+    text-decoration: underline
+}
+
+.user_bindLogin input[type=text], .user_bindLogin input[type=password] {
+    margin-top: 0
+}
+
+input[type=text], input[type=password] {
+    height: 44px
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    border: 1px solid #0099ff;
+}
+
+.popup .btn_s, .popup .btn {
+    border-radius: 0;
+    background: #0099ff
+}
+
+.user_bindLogin input[type=text], .user_bindLogin input[type=password] {
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+    height: 44px;
+    line-height: 44px;
+    vertical-align: middle;
+    color: #333;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    background: 0 0;
+    outline: 0
+}
+
+.input::-moz-placeholder {
+    color: #b5b5b5;
+    opacity: 1;
+    font-size: 14px
+}
+
+.input:-ms-input-placeholder {
+    color: #b5b5b5;
+    font-size: 14px
+}
+
+.input::-webkit-input-placeholder {
+    color: #b5b5b5;
+    font-size: 14px
+}
+
+.input_gray {
+    border-color: #f3f3f3;
+    background-color: #f3f3f3
+}
+
+.input_white {
+    border-color: #f8f8f8;
+    background-color: #f8f8f8
+}
+
+input.input:focus {
+    border-color: #0099ff;
+    border-width: 1px !important
+}
+
+input.input_warning {
+    border-color: #ff4351
+}
+
+input.input_warning:focus {
+    border-color: #0099ff;
+}
+
+.input_item {
+    display: block;
+    position: relative;
+    z-index: 1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: 20px
+}
+
+.input_item:first-child {
+    z-index: 2;
+    margin-top: 0
+}
+
+.input_item:first-child .phone_input {
+    padding-left: 80px
+}
+
+.agree_text {
+    margin-top: 12px;
+    text-align: center;
+    color: #999
+}
+
+.agree_text a {
+    color: #0099ff;
+    text-decoration: none
+}
+
+.input_tips {
+    position: relative;
+    z-index: 2;
+    display: block;
+    color: #fd5f39;
+    background: url(../../../../account-c/modules/bind/img/info_03c90e8.png) left 3px no-repeat;
+    background-size: 14px;
+    font-size: 12px;
+    padding-left: 20px;
+    line-height: 18px;
+    margin-top: 4px
+}
+
+.input_group {
+    height: 40px
+}
+
+.input_group:after {
+    clear: both;
+    _overflow: hidden
+}
+
+.input_group input {
+    float: left
+}
+
+.input_group > input.first_child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+.input_group > input.last_child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0
+}
+
+.verify_tips {
+    margin-top: 12px;
+    color: #777
+}
+
+.verify_tips .auto_phone {
+    outline: 0;
+    text-decoration: none;
+    color: #00b389;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    font-size: 14px
+}
+
+.verify_tips .verify_tips_main, .verify_tips .verify_tips_count_down {
+    display: none;
+    padding: 0
+}
+
+.form_head {
+    position: relative;
+    z-index: 1;
+    height: 33px;
+    margin-bottom: 29px;
+    border-bottom: 1px solid #ebebeb
+}
+
+.form_head li {
+    font-size: 16px;
+    line-height: 24px;
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 33px;
+    cursor: pointer;
+    text-align: center;
+    color: #333
+}
+
+.form_head li.active {
+    color: #0099ff
+}
+
+.form_head .tab_active {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    z-index: 1;
+    background-color: #0099ff;
+    width: 50%;
+    height: 1px
+}
+
+.form_head .tab_active:before, .form_head .tab_active:after {
+    position: absolute;
+    z-index: 2;
+    top: -12px;
+    left: 50%;
+    margin-left: -3px;
+    content: '';
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 6px solid transparent;
+    border-bottom-color: #007b5f
+}
+
+.form_head .tab_active:after {
+    z-index: 3;
+    top: -11px;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 6px solid transparent;
+    border-bottom-color: #fff
+}
+
+.form_body + .form_body {
+    display: none
+}
+
+input.input {
+    width: 290px;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    padding: 0;
+    font-size: 14px
+}
+
+.input_group > input.first_child {
+    padding-right: 80px
+}
+
+.input_group > input.last_child {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    height: 43px;
+    font-size: 14px;
+    padding: 0;
+    background: 0 0;
+    border: 0;
+    color: #0099ff;
+}
+
+.input_group > input.last_child.btn_disabled {
+    color: #777;
+    border: 0
+}
+
+.input_group > input.last_child:hover {
+    background: 0 0
+}
+
+[data-propertyname=request_form_verifyCode] input[type=text] {
+    padding-right: 130px
+}
+
+.yzm {
+    position: absolute;
+    right: 0;
+    top: 1px;
+    z-index: 1;
+    width: 98px;
+    line-height: 38px;
+    color: #777
+}
+
+.reflash {
+    position: absolute;
+    right: 0;
+    top: 1px;
+    z-index: 2;
+    height: 40px;
+    width: 98px
+}
+
+p.bding_title {
+    font-size: 18px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 0
+}
+
+#bindEmail .form_body, #bindPhone .form_body, #changePhone .form_body {
+    width: 290px;
+    margin: 0 auto
+}
+
+#bindEmail .form_body .btn_block, #bindPhone .form_body .btn_block, #changePhone .form_body .btn_block {
+    height: 46px;
+    width: 190px;
+    border-radius: 3px;
+    font-size: 16px;
+    background: #0099ff
+}
+
+#bindEmail .btn.btn_link, #bindPhone .btn.btn_link, #changePhone .btn.btn_link {
+    font-size: 16px;
+    height: 46px;
+    color: #333;
+    background: 0 0;
+    width: 100px
+}
+
+#bindEmail .btn_link:hover, #bindPhone .btn_link:hover, #changePhone .btn_link:hover {
+    font-size: 16px;
+    color: #333;
+}
+
+#bindPhone .input_group .btn, #changePhone .input_group .btn {
+    width: 110px;
+    font-size: 14px;
+    height: 46px;
+    line-height: 46px
+}
+
+#bindPhone input, #changePhone input {
+    margin-top: 0
+}
+
+#confirmbindEmail .user_confirmUnbind, #confirmbindPhone .user_confirmUnbind {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+    color: #555;
+    padding-top: 15px
+}
+
+#confirmbindEmail .user_confirm_tips, #confirmbindPhone .user_confirm_tips {
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+    margin-top: 15px
+}
+
+#confirmbindEmail a, #confirmbindPhone a {
+    width: 55px;
+    display: block;
+    margin: 40px auto 0;
+    border-radius: 0;
+    text-align: center;
+    background: #0099ff
+}
+
+#confirmbindEmail a:hover, #confirmbindPhone a:hover {
+    color: #fff
+}
+
+#changePhone .form_body .btn_disabled, #bindPhone .form_body .btn_disabled {
+    color: #777;
+    border: 0;
+    background: 0 0
+}
+
+#changePhone .form_body .btn_disabled:hover, #bindPhone .form_body .btn_disabled:hover {
+    cursor: default
+}
+
+/*!account-c/modules/popbox/main.less*/
+.popup {
+    font: 14px/22px Arial, "Hiragino Sans GB", "微软雅黑", "宋体";
+    color: #555;
+    padding: 30px;
+    width: 442px;
+    overflow: hidden
+}
+
+.popup h4 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 0 25px
+}
+
+.popup p {
+    margin: 0 0 25px
+}
+
+.popup p.mid {
+    text-align: center
+}
+
+.popup a {
+    color: #333;
+    text-decoration: none
+}
+
+.popup .color_green {
+    color: #0099ff
+}
+
+.popup .font_18 {
+    font-size: 18px
+}
+
+.popup .font_16 {
+    font-size: 16px
+}
+
+.popup .btn_s, .popup .btn {
+    font-size: 20px;
+    padding: 0 25px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    height: 37px;
+    color: #fff;
+    border: 0;
+    line-height: 37px;
+    transition: background .2s ease-in 0s
+}
+
+.popup .enter_msg {
+    width: 280px;
+    margin: 0 auto;
+    overflow: hidden;
+    font-size: 18px
+}
+
+.popup .reset_password {
+    color: #555;
+    font-size: 16px;
+    margin-left: 25px;
+    line-height: 37px
+}
+
+.popup .error_msg {
+    background: url(../../../../account-c/modules/popbox/img/lb_error_2e20d03.png) 0 5px no-repeat;
+    padding-left: 45px;
+    width: 380px;
+    margin: 0 auto 25px;
+    text-align: left;
+    min-height: 29px;
+    line-height: 36px
+}
+
+.popup .btn_addPic {
+    display: inline-block;
+    position: relative;
+    padding: 0 12px;
+    height: 37px;
+    overflow: hidden;
+    background: #0099ff;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+    cursor: pointer
+}
+
+.popup .btn_addPic_hover {
+    background: #0099ff
+}
+
+.popup .btn_addPic span {
+    display: block;
+    line-height: 37px
+}
+
+.popup .filePrew {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 145px;
+    height: 37px;
+    font-size: 100px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+#loginPop {
+    width: 540px
+}
+
+#loginPop div.form_bg {
+    background: #f3f3f3
+}
+
+.popup input[type=text], .popup input[type=password] {
+    background: none !important;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0
+}
+
+#deliverResumesSuccess i, .error_msg i {
+    color: #ff6a6a;
+    font-style: normal
+}
+
+#telTip input[type=text] {
+    width: 360px;
+    font-size: 16px;
+    color: #777
+}
+
+#telTip input[type=text]:focus {
+    border: 2px solid #fff;
+    -webkit-box-shadow: 0 0 4px #b5f0e7;
+    -moz-box-shadow: 0 0 4px #b5f0e7;
+    box-shadow: 0 0 4px #b5f0e7
+}
+
+#telTip .btn {
+    margin: 15px 0 0
+}
+
+#telTip .btn_s {
+    margin: 15px 0 0;
+    background: 0 0;
+    color: #333
+}
+
+#telTip span.error {
+    width: 370px;
+    margin: 3px 0 -10px 20px;
+    text-align: left
+}
+
+#sendNoResume form {
+    float: left;
+    margin: 20px 0 0 50px
+}
+
+#sendNoResume .btn {
+    margin: 20px 0 0
+}
+
+#bindTips h3, #bindReplace h3 {
+    font-size: 24px;
+    margin: 0 0 20px;
+    line-height: 34px
+}
+
+#bindTips .user_canOperatioin {
+    font-size: 18px;
+    color: #f63f27;
+    margin: 10px 0 20px;
+    padding: 0;
+    list-style: none
+}
+
+#bindTips .user_canOperatioin li {
+    line-height: 30px;
+    list-style: none
+}
+
+#bindTips .cancel, #bindReplace .cancel {
+    font-size: 20px;
+    color: #a3a3a3;
+    padding: 0 20px;
+    margin-left: 20px
+}
+
+.red_18 {
+    font-size: 18px;
+    line-height: 24px;
+    color: #f63f27
+}
+
+.red_20 {
+    font-size: 20px;
+    line-height: 26px;
+    color: #f63f27
+}
+
+#bindReplace .border_btm {
+    border-bottom: 1px dashed #d6d6d6;
+    padding-bottom: 25px
+}
+
+#bindReplace .border_btm {
+    border-bottom: 1px dashed #d6d6d6;
+    padding-bottom: 25px
+}
+
+#bindReplace .chooseAccount {
+    padding: 20px 0 10px
+}
+
+#bindReplace .chooseAccount label {
+    cursor: pointer;
+    display: block;
+    margin-top: 10px;
+    overflow: hidden
+}
+
+#bindReplace .chooseAccount label .f16 {
+    line-height: 24px
+}
+
+#bindReplace .chooseAccount em {
+    float: left;
+    height: 17px;
+    width: 17px;
+    background: url(../../../../account-c/modules/popbox/img/radio_2443bd2.png) no-repeat;
+    margin: 4px 10px 0 0
+}
+
+#bindReplace .chooseAccount label.current em {
+    background: url(../../../../account-c/modules/popbox/img/radioSel_cbc44be.png) no-repeat
+}
+
+#bindReplace .chooseAccount .acc_detail {
+    color: #777;
+    margin-left: 28px
+}
+
+#bindReplace .acc_detail span {
+    display: inline-block;
+    width: 190px
+}
+
+#bindReplace .chooseAccount i {
+    font-style: normal
+}
+
+.user_bindSuccecc {
+    font-size: 20px;
+    color: #555;
+    padding-top: 0;
+    line-height: 30px
+}
+
+.user_bindSuccecc span {
+    color: #0099ff
+}
+
+.user_confirmBind {
+    font-size: 20px;
+    color: #f63f27;
+    padding-top: 28px
+}
+
+.user_bindBtn {
+    width: 100%;
+    margin: 36px 0 14px
+}
+
+.user_bindBtn a {
+    display: inline-block;
+    width: 90px;
+    height: 46px;
+    text-align: center;
+    line-height: 46px;
+    font-size: 16px;
+    color: #a3a3a3;
+    border-radius: 3px
+}
+
+.user_bindBtn a.click {
+    background: #0099ff;
+    color: #fff
+}
+
+.user_bindBtn a.cancel {
+    color: #333
+}
+
+.user_noRecoverInfos {
+    margin-top: 20px;
+    background: #fafafa;
+    border: 1px dashed #e9e9e9;
+    font-size: 18px;
+    height: 40px
+}
+
+.noRecoverInfosTitle {
+    color: #6b6b6b
+}
+
+.noRecoverInfosContent {
+    color: #f63f27;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: center
+}
+
+#confirmUnbindEmail, #confirmUnbindQQ, #confirmUnbindSina, #confirmUnbindWeixin, #confirmUnbindBaidu {
+    text-align: center
+}
+
+.user_confirmUnbind {
+    font-size: 18px;
+    color: #333
+}
+
+.user_confirmNo {
+    font-size: 14px;
+    padding-top: 20px;
+    color: #333
+}
+
+.user_confirmNo .tips {
+    color: #f63f27
+}
+
+#updatePassword {
+    text-align: center
+}
+
+#updatePassword h3 {
+    font-size: 22px;
+    color: #555;
+    margin: 0 0 20px
+}
+
+#updatePassword h4 {
+    font-size: 16px;
+    color: #555;
+    margin: 0 0 10px
+}
+
+#unbindService {
+    text-align: center
+}
+
+#unbindService h3 {
+    font-size: 22px;
+    color: #555;
+    margin: 0 0 20px
+}
+
+#unbindService h4 {
+    font-size: 16px;
+    color: #555;
+    margin: 0 0 10px
+}
+
+#confirm_unbindService h3 {
+    font-size: 24px;
+    color: #555;
+    margin: 0 0 20px
+}
+
+#confirm_unbindService h4 {
+    font-size: 18px;
+    color: #f63f27;
+    margin: 0 0 20px;
+    line-height: 30px;
+    text-align: left
+}
+
+#confirm_unbindService .confirm_unbindSeerviceBtn {
+    text-align: center
+}
+
+#confirm_unbindService .confirm_unbindSeerviceBtn .cancel {
+    font-size: 20px;
+    color: #a3a3a3;
+    padding: 0 20px;
+    margin-left: 20px
+}
+
+.report_detail {
+    width: 100%;
+    height: 330px;
+    margin: 0 auto
+}
+
+.report_detail h2 {
+    color: #333;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0 0 15px;
+    line-height: 28px
+}
+
+#reportbox #report_submit {
+    width: 100%
+}
+
+#report_submit table {
+    width: 100%;
+    height: 100%
+}
+
+#report_submit table tr td:first-child {
+    vertical-align: top;
+    padding-top: 8px;
+    font-size: 16px;
+    color: #333
+}
+
+td.select_box, td.report_last {
+    position: relative;
+    clear: both
+}
+
+#report_submit table tr td a.report_select {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    display: block;
+    width: 55px;
+    height: 39px;
+    border-left: 2px solid #f1f1f1
+}
+
+#report_submit table tr td input[type=button] {
+    width: 352px;
+    *width: 345px;
+    height: 39px;
+    color: #A9A9A9;
+    font-size: 16px;
+    background: #fff;
+    margin: 0 0 10px;
+    padding-left: 10px;
+    text-align: left;
+    border: 2px solid #f1f1f1;
+    outline: 0;
+    cursor: pointer
+}
+
+#report_submit table tr td textarea {
+    width: 328px;
+    *width: 321px;
+    height: 160px;
+    overflow: auto;
+    color: #333;
+    line-height: 24px;
+    font-size: 16px;
+    background: #fff;
+    margin: 0;
+    padding: 6px 10px;
+    border: 2px solid #f1f1f1;
+    outline: 0
+}
+
+#report_submit table tr td a.report_select em {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    border-width: 8px 7px 0;
+    border-style: solid dashed;
+    border-color: #999 transparent transparent;
+    position: absolute;
+    left: 25%;
+    top: 40%
+}
+
+.report_last label.checkbox {
+    margin-right: 6px;
+    margin-top: 0;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #e0e0e0;
+    background: #fff
+}
+
+.report_last label.checkbox:hover {
+    border: 2px solid #0099ff
+}
+
+.report_last label.checkbox input[type=checkbox] {
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    border: 0;
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0
+}
+
+.report_last label.checkbox i {
+    display: block;
+    background: url(../../../../account-c/modules/popbox/img/report_select_56bef7b.png) 0 0 no-repeat;
+    width: 17px;
+    height: 14px;
+    position: absolute;
+    left: 0;
+    top: -5px
+}
+
+.report_last span {
+    display: block;
+    height: 100%;
+    line-height: 14px;
+    color: #999;
+    font-size: 14px
+}
+
+.report_last span.report_txt {
+    position: absolute;
+    right: 4px;
+    top: 0
+}
+
+.report_last span.report_txt b {
+    color: #ff7575;
+    font-weight: 400
+}
+
+.sure_submit {
+    float: right;
+    color: #fff;
+    margin: 0;
+    *margin: 5px 5px 0 0;
+    line-height: 37px;
+    font-size: 20px;
+    background: #0099ff;
+    padding: 0 20px;
+    *padding: 0 10px;
+    display: inline-block;
+    text-align: center;
+    height: 37px;
+    transition: background-color .4s ease-out
+}
+
+.sure_submit:hover {
+    background: #0099ff
+}
+
+.reason_content {
+    display: none;
+    position: absolute;
+    left: 1px;
+    top: 38px;
+    width: 348px;
+    *width: 341px;
+    border: 2px solid #0099ff;
+    z-index: 10;
+    background: #fff
+}
+
+.reason_content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.reason_content ul li {
+    font-size: 14px;
+    padding: 5px 10px;
+    cursor: pointer;
+    line-height: 22px
+}
+
+.reason_content ul li:hover {
+    background: #0099ff;
+    color: #fff
+}
+
+.select_box .error {
+    margin: -8px 0 5px 0
+}
+
+#problem_txt + span.error {
+    margin: -3px 0 5px 0
+}
+
+.anonymous_submit {
+    width: 77px;
+    cursor: default
+}
+
+#receive_report, #has_report {
+    position: relative
+}
+
+#receive_report h2, #has_report h2 {
+    color: #333;
+    font-size: 18px;
+    line-height: 30px
+}
+
+#has_report h2 {
+    text-align: center
+}
+
+#receive_report a, #has_report a {
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    margin-left: -40px;
+    display: block;
+    color: #fff;
+    line-height: 37px;
+    font-size: 20px;
+    background: #0099ff;
+    padding: 0 25px;
+    text-align: center;
+    height: 37px;
+    transition: background-color .4s ease-out
+}
+
+#receive_report a:hover, #has_report a:hover {
+    background: #0099ff
+}
+
+/*!common/components/jquery-colorbox-custom/jquery-colorbox.css*/
+@charset "utf-8";
+#colorbox, #cboxOverlay, #cboxWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    overflow: hidden
+}
+
+#cboxOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%
+}
+
+#cboxMiddleLeft, #cboxBottomLeft {
+    clear: left
+}
+
+#cboxContent {
+    position: relative
+}
+
+#cboxLoadedContent {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch
+}
+
+#cboxTitle {
+    margin: 0
+}
+
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+    cursor: pointer
+}
+
+.cboxPhoto {
+    float: left;
+    margin: auto;
+    border: 0;
+    display: block;
+    max-width: none;
+    -ms-interpolation-mode: bicubic
+}
+
+.cboxIframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0
+}
+
+#colorbox, #cboxContent, #cboxLoadedContent {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box
+}
+
+#cboxOverlay {
+    background: url(../../../../common/components/jquery-colorbox-custom/img/overlay_c2e5558.png) repeat 0 0
+}
+
+#colorbox {
+    outline: 0
+}
+
+#cboxTopLeft {
+    width: 13px;
+    height: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+}
+
+#cboxTopRight {
+    width: 13px;
+    height: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+}
+
+#cboxBottomLeft {
+    width: 13px;
+    height: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+}
+
+#cboxBottomRight {
+    width: 13px;
+    height: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+}
+
+#cboxMiddleLeft {
+    width: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+}
+
+#cboxMiddleRight {
+    width: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+}
+
+#cboxTopCenter {
+    height: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+}
+
+#cboxBottomCenter {
+    height: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+}
+
+#cboxContent {
+    overflow: hidden;
+    background: #fff
+}
+
+.cboxIframe {
+    background: #fff
+}
+
+#cboxError {
+    padding: 50px;
+    border: 1px solid #ccc
+}
+
+#cboxLoadedContent {
+    margin-top: 44px
+}
+
+#cboxTitle {
+    font-size: 18px;
+    color: #fff;
+    background: #0099ff;
+    height: 44px;
+    width: 100%;
+    text-indent: 1em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 44px
+}
+
+#cboxTitle span {
+    padding-left: 15px
+}
+
+#cboxCurrent {
+    position: absolute;
+    bottom: 4px;
+    left: 58px;
+    color: #949494
+}
+
+#cboxLoadingOverlay {
+    background: url(../../../../common/components/jquery-colorbox-custom/img/loading_background_acf427e.png) no-repeat center center
+}
+
+#cboxLoadingGraphic {
+    background: url(../../../../common/components/jquery-colorbox-custom/img/loading_e6611f8.gif) no-repeat center center
+}
+
+#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    width: auto;
+    background: 0
+}
+
+#cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {
+    outline: 0
+}
+
+#cboxSlideshow {
+    position: absolute;
+    bottom: 4px;
+    right: 30px;
+    color: #0092ef
+}
+
+#cboxPrevious {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(../../../../common/components/jquery-colorbox-custom/img/controls_74ddda3.png) no-repeat;
+    width: 19px;
+    height: 19px;
+    text-indent: -9999px
+}
+
+#cboxPrevious:hover {
+    background-position: -75px -25px
+}
+
+#cboxNext {
+    position: absolute;
+    bottom: 0;
+    left: 27px;
+    background: url(../../../../common/components/jquery-colorbox-custom/img/controls_74ddda3.png) no-repeat;
+    width: 19px;
+    height: 19px;
+    text-indent: -9999px
+}
+
+#cboxNext:hover {
+    background-position: -50px -25px
+}
+
+#cboxClose {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: url(../../../../common/components/jquery-colorbox-custom/img/controls_74ddda3.png) no-repeat;
+    width: 19px;
+    height: 19px;
+    text-indent: -9999px
+}
+
+#cboxClose:hover {
+}
+
+.cboxIE #cboxTopLeft, .cboxIE #cboxTopCenter, .cboxIE #cboxTopRight, .cboxIE #cboxBottomLeft, .cboxIE #cboxBottomCenter, .cboxIE #cboxBottomRight, .cboxIE #cboxMiddleLeft, .cboxIE #cboxMiddleRight {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF)
+}
+
+/*!account-c/modules/updatePwd/main.less*/
+.user_modifyContent {
+    float: left;
+    width: 400px;
+    margin-left: 120px;
+    position: relative
+}
+
+#updatePswForm input[type=text], #updatePswForm input[type=password] {
+    height: 34px;
+    width: 100%;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom-width: 1px;
+    font-size: 14px;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0
+}
+
+#updatePswForm input[type=submit] {
+    border-color: #0099ff;
+    width: 100%;
+    height: 46px;
+    margin: 0;
+    background-color: #0099ff;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px
+}
+
+span.error {
+    display: block;
+    margin: 5px 0 10px;
+    font-size: 12px;
+    color: #fd5f39;
+    text-align: left;
+    background: url(../../../../account-c/modules/updatePwd/img/error_727fcc2.png) 0 center no-repeat;
+    background-size: 14px;
+    padding-left: 20px;
+    line-height: 22px
+}

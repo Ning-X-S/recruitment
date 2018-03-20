@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "我的邀请" cssNames = [
+        "pkg/message/page/setting/main.html_aio_4f7f9e8.css",
+        "pkg/message/page/setting/main.html_aio_2_1a5eb72.css"
+    ]/]
+</head>
+<body>
+<!-- header -->
+[#include "/theme/default/common/navBar.html"]
+
+[@navBar /]
+<input type="hidden" id="serverTime" value="1504667979310" />
+
+<!-- 页面主体START -->
+<div class="container clearfix" id="messageContaner">
+
+    <div class="content-left">
+        <div class="left-wrap">
+            <!--
+@require "message/modules/common/css/common.less"
+@require "message/modules/setting/main.less"
+-->
+            <div class="setting-box">
+                <h2 class="main-title">消息设置</h2>
+                <div class="setting-btn">
+                    <a href="${siteurl}message/msgdetail.htm" data-lg-tj-id="17b0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">查看消息</a>
+                </div>
+            </div>
+            <div class="new_section">
+                <dl class="c_delivery">
+                    <dd>
+                        <h3>投递反馈</h3>
+                        <p class="desc">你可以设置投递之后需要接收的消息类型，投递反馈能帮助你及时得知投递职位进度。</p>
+                        <ul class="setting-table">
+                            <li>
+                                <div class="t-row">
+                                    <span>简历已接收</span>
+                                    <span>
+                            <input type="checkbox" id="RESUME_RECEIVE" data-entity-id="" class="css-checkbox" />
+					        <label for="RESUME_RECEIVE" class="css-label radGroup1" data-lg-tj-id="1830" data-lg-tj-no="0001" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="t-row">
+                                    <span>简历被查看</span>
+                                    <span>
+                            <input type="checkbox" id="RESUME_CHECK" data-entity-id="" class="css-checkbox" />
+					        <label for="RESUME_CHECK" class="css-label radGroup1" data-lg-tj-id="1830" data-lg-tj-no="0002" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="t-row">
+                                    <span>简历被转发</span>
+                                    <span>
+                            <input type="checkbox" id="RESUME_FORWARD" data-entity-id="" class="css-checkbox" />
+					        <label for="RESUME_FORWARD" class="css-label radGroup1" data-lg-tj-id="1830" data-lg-tj-no="0003" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="t-row">
+                                    <span>待沟通</span>
+                                    <span>
+                            <input type="checkbox" id="PREPARE_CONTACT" data-entity-id="" class="css-checkbox" />
+					        <label for="PREPARE_CONTACT" class="css-label radGroup1" data-lg-tj-id="1830" data-lg-tj-no="0004" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="t-row">
+                                    <span>面试通知</span>
+                                    <span>
+                            <input type="checkbox" id="INTERVIEW" data-entity-id="" class="css-checkbox" />
+					        <label for="INTERVIEW" class="css-label radGroup1" data-lg-tj-id="1830" data-lg-tj-no="0005" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="t-row">
+                                    <span>拒绝通知</span>
+                                    <span>
+                            <input type="checkbox" id="REFUSE" data-entity-id="" class="css-checkbox" />
+					        <label for="REFUSE" class="css-label radGroup1" data-lg-tj-id="1830" data-lg-tj-no="0006" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dd>
+                        <h3>职位邀请</h3>
+                        <p class="desc">你可以设置开启或关闭职位邀请通知。</p>
+                        <ul class="setting-table">
+                            <li>
+                                <div class="t-row">
+                                    <span>邀请通知</span>
+                                    <span>
+                            <input type="checkbox" id="INVITE_MESSAGE" data-entity-id="" class="css-checkbox" />
+					        <label for="INVITE_MESSAGE" class="css-label radGroup1" data-lg-tj-id="1840" data-lg-tj-no="0001" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dd>
+                        <h3>一拍消息</h3>
+                        <p class="desc">你可以设置接收一拍消息的类型。</p>
+                        <ul class="setting-table">
+                            <li>
+                                <div class="t-row">
+                                    <span>约会排期</span>
+                                    <span>
+                            <input type="checkbox" id="PAI_SCHEDULE" data-entity-id="" class="css-checkbox" />
+					        <label for="PAI_SCHEDULE" class="css-label radGroup1" data-lg-tj-id="1850" data-lg-tj-no="0001" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="t-row">
+                                    <span>约会开始</span>
+                                    <span>
+                            <input type="checkbox" id="PAI_BEGIN" data-entity-id="" class="css-checkbox" />
+					        <label for="PAI_BEGIN" class="css-label radGroup1" data-lg-tj-id="1850" data-lg-tj-no="0002" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="t-row">
+                                    <span>邀约动态</span>
+                                    <span>
+                            <input type="checkbox" id="PAI_STATE" data-entity-id="" class="css-checkbox" />
+					        <label for="PAI_STATE" class="css-label radGroup1"  data-lg-tj-id="1850" data-lg-tj-no="0003" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="t-row">
+                                    <span>约会结束</span>
+                                    <span>
+                            <input type="checkbox" id="PAI_END" data-entity-id="" class="css-checkbox" />
+					        <label for="PAI_END" class="css-label radGroup1"  data-lg-tj-id="1850" data-lg-tj-no="0004" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dd>
+                        <h3>社区消息</h3>
+                        <p class="desc">你可以设置接收社区消息的类型。</p>
+                        <ul class="setting-table">
+                            <li>
+                                <div class="t-row">
+                                    <span>收到点赞</span>
+                                    <span>
+                            <input type="checkbox" id="STAR_ANSWER" data-entity-id="" class="css-checkbox" />
+                            <label for="STAR_ANSWER" class="css-label radGroup1" data-lg-tj-id="1880" data-lg-tj-no="0001" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="t-row">
+                                    <span>关注问题收到回答</span>
+                                    <span>
+                            <input type="checkbox" id="ANSWER_ADD" data-entity-id="" class="css-checkbox" />
+                            <label for="ANSWER_ADD" class="css-label radGroup1" data-lg-tj-id="1880" data-lg-tj-no="0002" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="t-row">
+                                    <span>收到评论</span>
+                                    <span>
+                            <input type="checkbox" id="COMMENT_ADD" data-entity-id="" class="css-checkbox" />
+                            <label for="COMMENT_ADD" class="css-label radGroup1" data-lg-tj-id="1880" data-lg-tj-no="0003" data-lg-tj-cid="idnull" >接收</label>
+                        </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="t-row">
+                                    <span>收到提问</span>
+                                    <span>
+                            <input type="checkbox" id="QUESTION_ASKTO" data-entity-id="" class="css-checkbox" />
+                            <label for="QUESTION_ASKTO" class="css-label radGroup1" data-lg-tj-id="1880" data-lg-tj-no="0004" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="t-row">
+                                    <span>未通过审核</span>
+                                    <span>
+                            <input type="checkbox" id="COMMUNITY_AUDIT" data-entity-id="" class="css-checkbox" />
+                            <label for="COMMUNITY_AUDIT" class="css-label radGroup1" data-lg-tj-id="1880" data-lg-tj-no="0005" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dd>
+                        <h3>系统通知</h3>
+                        <ul class="setting-table">
+                            <li>
+                                <div class="t-row">
+                                    <span>系统通知</span>
+                                    <span>
+                            <input type="checkbox" id="SYSTEM_MESSAGE" data-entity-id="" class="css-checkbox" />
+					        <label for="SYSTEM_MESSAGE" class="css-label radGroup1" data-lg-tj-id="18a0" data-lg-tj-no="0001" data-lg-tj-cid="idnull">接收</label>
+                        </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="content-right">
+        <div class="right-wrap">
+            <div id="position_recommend">
+                <ul class="position_head">
+                    <li class="guess_selected">猜你喜欢</li>
+                </ul>
+                <input type="hidden" value="true" id="hasRecommendPositionList">     <div class="similar_content" id="similar_current">
+                <div class="position_detail_content">
+                    <ul class="guess_like reset">
+                        <li class="guess_like_list_item  clearfix" data-positionid="3005217">
+                            <a class="position_link clearfix" href="https://www.lagou.com/jobs/3005217.html" data-index="0" target="_blank" data-lg-tj-id="gp00" data-lg-tj-no="0001" data-lg-tj-cid="3005217" data-lg-tj-abt="fine_sort|0">
+                                <div class="guess_like_list_item_logo" data-lg-tj-id="1ka0" data-lg-tj-no="0001" data-lg-tj-cid="3005217">
+                                    <img src="//img.yingjobs.com/images/logo_default.png" alt="西安华微网络科技公司" width="56" height="56" />
+                                </div>
+                                <div class="guess_like_list_item_pos">
+                                    <h2 title="高级前端工程师" data-lg-tj-id="1kb0" data-lg-tj-no="0001" data-lg-tj-cid="3005217">高级前端工程师</h2>
+                                    <p data-lg-tj-id="1kc0" data-lg-tj-no="0001" data-lg-tj-cid="3005217">6k-8k</p>
+                                    <p class="company_name">
+                                        <span class="company_name_span" data-lg-tj-id="1kd0" data-lg-tj-no="0001" data-lg-tj-cid="3005217">西安华微网络科技公司</span>
+
+                                        <span class="company_position_span" data-lg-tj-id="1ke0" data-lg-tj-no="0001" data-lg-tj-cid="3005217">[西安·]</span>
+                                    </p>
+                                </div>
+                            </a>
+                            <!-- 鼠标划过时展示的公司信息 -->
+                            <div class="company_info dn">
+                                <div class="arr"><span></span></div>
+                                <p><span>领域：</span><span>移动互联网</span></p>
+                                <p><span>创始人：</span><span></span></p>
+                                <p><span>阶段：</span><span>未融资</span></p>
+                                <p ><span>规模：</span><span>15-50人</span></p>
+                                <div class="company_label">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="guess_like_list_item  clearfix" data-positionid="3164913">
+                            <a class="position_link clearfix" href="https://www.lagou.com/jobs/3164913.html" data-index="1" target="_blank" data-lg-tj-id="gp00" data-lg-tj-no="0002" data-lg-tj-cid="3164913" data-lg-tj-abt="fine_sort|0">
+                                <div class="guess_like_list_item_logo" data-lg-tj-id="1ka0" data-lg-tj-no="0002" data-lg-tj-cid="3164913">
+                                    <img src="//img.yingjobs.com/image1/M00/00/41/CgYXBlTUXMmAYGpcAAAq8jdPBIw524.png" alt="活跃网络" width="56" height="56" />
+                                </div>
+                                <div class="guess_like_list_item_pos">
+                                    <h2 title="Senior Front-end Engineer" data-lg-tj-id="1kb0" data-lg-tj-no="0002" data-lg-tj-cid="3164913">Senior Front-end Engineer</h2>
+                                    <p data-lg-tj-id="1kc0" data-lg-tj-no="0002" data-lg-tj-cid="3164913">15k-25k</p>
+                                    <p class="company_name">
+                                        <span class="company_name_span" data-lg-tj-id="1kd0" data-lg-tj-no="0002" data-lg-tj-cid="3164913">活跃网络</span>
+
+                                        <span class="company_position_span" data-lg-tj-id="1ke0" data-lg-tj-no="0002" data-lg-tj-cid="3164913">[西安·高新技…]</span>
+                                    </p>
+                                </div>
+                            </a>
+                            <!-- 鼠标划过时展示的公司信息 -->
+                            <div class="company_info dn">
+                                <div class="arr"><span></span></div>
+                                <p><span>领域：</span><span>移动互联网</span></p>
+                                <p><span>创始人：</span><span></span></p>
+                                <p><span>阶段：</span><span>上市公司</span></p>
+                                <p ><span>规模：</span><span>500-2000人</span></p>
+                                <div class="company_label">
+                                    <span>岗位晋升</span>
+                                    <span>五险一金</span>
+                                    <span>弹性工作</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="guess_like_list_item  clearfix" data-positionid="2755626">
+                            <a class="position_link clearfix" href="https://www.lagou.com/jobs/2755626.html" data-index="2" target="_blank" data-lg-tj-id="gp00" data-lg-tj-no="0003" data-lg-tj-cid="2755626" data-lg-tj-abt="fine_sort|0">
+                                <div class="guess_like_list_item_logo" data-lg-tj-id="1ka0" data-lg-tj-no="0003" data-lg-tj-cid="2755626">
+                                    <img src="//img.yingjobs.com/i/image/M00/41/E9/CgpFT1lcnpCAJ12GAAAYqdXOwLI046.jpg" alt="海航科技" width="56" height="56" />
+                                </div>
+                                <div class="guess_like_list_item_pos">
+                                    <h2 title="前端开发工程师(高级)" data-lg-tj-id="1kb0" data-lg-tj-no="0003" data-lg-tj-cid="2755626">前端开发工程师(高级)</h2>
+                                    <p data-lg-tj-id="1kc0" data-lg-tj-no="0003" data-lg-tj-cid="2755626">12k-20k</p>
+                                    <p class="company_name">
+                                        <span class="company_name_span" data-lg-tj-id="1kd0" data-lg-tj-no="0003" data-lg-tj-cid="2755626">海航科技</span>
+
+                                        <span class="company_position_span" data-lg-tj-id="1ke0" data-lg-tj-no="0003" data-lg-tj-cid="2755626">[西安·雁塔区]</span>
+                                    </p>
+                                </div>
+                            </a>
+                            <!-- 鼠标划过时展示的公司信息 -->
+                            <div class="company_info dn">
+                                <div class="arr"><span></span></div>
+                                <p><span>领域：</span><span>移动互联网,数据服务</span></p>
+                                <p><span>创始人：</span><span></span></p>
+                                <p><span>阶段：</span><span>不需要融资</span></p>
+                                <p ><span>规模：</span><span>2000人以上</span></p>
+                                <div class="company_label">
+                                    <span>节日礼物</span>
+                                    <span>年底双薪</span>
+                                    <span>折扣机票</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="guess_like_list_item  clearfix" data-positionid="3246030">
+                            <a class="position_link clearfix" href="https://www.lagou.com/jobs/3246030.html" data-index="3" target="_blank" data-lg-tj-id="gp00" data-lg-tj-no="0004" data-lg-tj-cid="3246030" data-lg-tj-abt="fine_sort|0">
+                                <div class="guess_like_list_item_logo" data-lg-tj-id="1ka0" data-lg-tj-no="0004" data-lg-tj-cid="3246030">
+                                    <img src="//img.yingjobs.com/i/image/M00/35/DB/CgqKkVdcunGAF4z0AAA3YYLLaV4020.png" alt="西安优逸客科技有限公司" width="56" height="56" />
+                                </div>
+                                <div class="guess_like_list_item_pos">
+                                    <h2 title="web前端工程师" data-lg-tj-id="1kb0" data-lg-tj-no="0004" data-lg-tj-cid="3246030">web前端工程师</h2>
+                                    <p data-lg-tj-id="1kc0" data-lg-tj-no="0004" data-lg-tj-cid="3246030">4K-8K</p>
+                                    <p class="company_name">
+                                        <span class="company_name_span" data-lg-tj-id="1kd0" data-lg-tj-no="0004" data-lg-tj-cid="3246030">西安优逸客科技有限公司</span>
+
+                                        <span class="company_position_span" data-lg-tj-id="1ke0" data-lg-tj-no="0004" data-lg-tj-cid="3246030">[西安·科技路…]</span>
+                                    </p>
+                                </div>
+                            </a>
+                            <!-- 鼠标划过时展示的公司信息 -->
+                            <div class="company_info dn">
+                                <div class="arr"><span></span></div>
+                                <p><span>领域：</span><span>教育,移动互联网</span></p>
+                                <p><span>创始人：</span><span>岳英俊</span></p>
+                                <p><span>阶段：</span><span>不需要融资</span></p>
+                                <p ><span>规模：</span><span>15-50人</span></p>
+                                <div class="company_label">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="guess_like_list_item  clearfix" data-positionid="3522756">
+                            <a class="position_link clearfix" href="https://www.lagou.com/jobs/3522756.html" data-index="4" target="_blank" data-lg-tj-id="gp00" data-lg-tj-no="0005" data-lg-tj-cid="3522756" data-lg-tj-abt="fine_sort|0">
+                                <div class="guess_like_list_item_logo" data-lg-tj-id="1ka0" data-lg-tj-no="0005" data-lg-tj-cid="3522756">
+                                    <img src="//img.yingjobs.com/i/image/M00/66/8F/CgpEMlmeIGuAYuCTAAAybY-j1WM224.png" alt="大数软件" width="56" height="56" />
+                                </div>
+                                <div class="guess_like_list_item_pos">
+                                    <h2 title="web前端、微信小程序" data-lg-tj-id="1kb0" data-lg-tj-no="0005" data-lg-tj-cid="3522756">web前端、微信小程序</h2>
+                                    <p data-lg-tj-id="1kc0" data-lg-tj-no="0005" data-lg-tj-cid="3522756">6k-10k</p>
+                                    <p class="company_name">
+                                        <span class="company_name_span" data-lg-tj-id="1kd0" data-lg-tj-no="0005" data-lg-tj-cid="3522756">大数软件</span>
+
+                                        <span class="company_position_span" data-lg-tj-id="1ke0" data-lg-tj-no="0005" data-lg-tj-cid="3522756">[西安·高新路]</span>
+                                    </p>
+                                </div>
+                            </a>
+                            <!-- 鼠标划过时展示的公司信息 -->
+                            <div class="company_info dn">
+                                <div class="arr"><span></span></div>
+                                <p><span>领域：</span><span>移动互联网</span></p>
+                                <p><span>创始人：</span><span></span></p>
+                                <p><span>阶段：</span><span>未融资</span></p>
+                                <p ><span>规模：</span><span>15-50人</span></p>
+                                <div class="company_label">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="https://www.lagou.com/jobs/mList.html" class="similar_position_footer" target="_blank" data-lg-tj-id="17a0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">更多猜你喜欢职位</a>         </div>
+            </div>
+            </div>
+
+            <!--广告位-->
+            <div key="ZHIWEITOUDIXIANGYAOQINGHANSHOUZANGJIADINGYUELAN_ZHIWEITOUDIXIANGYAOQINGHANSHOUZANGJIADINGYUELAN" class="lgad_jsonp" style="margin-top: 20px;"></div>
+        </div>
+    </div>
+</div>
+<!-- 页面主体END -->
+
+<!-- footer <-->
+<a id="backtop" title="回到顶部" rel="nofollow"></a>
+<!-- feedback -->
+<!--
+    @require "common/widgets/footer_c/modules/feedback/feedback.less"
+-->
+
+<div id="product-fk">
+    <div id="feedback-icon">
+        <div class="fb-icon"></div>
+        <span>我要反馈</span>
+    </div>
+</div>
+
+<div id="footer">
+    <div class="wrapper">
+        <i class="footer_lagou_icon"></i>
+        <div class="inner_wrapper">
+            <a class="footer_app" href="https://www.lagou.com/app/download.html" rel="nofollow">拉勾APP<i class="icon_new">NEW</i><img data-delay-src="https://img.yingjobs.com/i/image/M00/35/06/CgpFT1lDioCAFqS2AAEeWsD3HHo535.PNG" width="160" height="160"></a>
+            <a href="http://e.weibo.com/lagou720" target="_blank" rel="nofollow">拉勾微博</a>
+            <a class="footer_wechat" href="javascript:;" rel="nofollow">拉勾微信<img data-delay-src="https://img.yingjobs.com/i/image/M00/38/BF/CgpEMllDipeAFlPXAABWmQdg7-E520.PNG" width="160" height="160"></a>
+            <a class="footer_mina" href="javascript:;" rel="nofollow">拉勾小程序<img src="//img.yingjobs.com/www/static/common/widgets/footer_c/layout/img/lagou-mina-code_d70848a.png" width="160" height="160"></a>
+            <a href="https://www.lagou.com/qa.html?t=1" target="_blank" rel="nofollow">帮助中心</a>
+            <a href="https://www.lagou.com/about.html" target="_blank" rel="nofollow">联系我们</a>
+            <a href="https://activity.lagou.com/activity/dist/business/index.html" target="_blank" rel="nofollow">招聘解决方案</a>
+            <span class="tel">服务热线：<em>4006-2828-35 (9:00 -18:00)</em></span>
+        </div>
+        <div class="copyright">
+            <span><em>&copy;</em>2017 Lagou</span>
+            <a target="_blank" href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" rel="nofollow">京ICP备14023790号-2</a>
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802024043" rel="nofollow">京公网安备 11010802024043号</a>
+        </div>
+    </div>
+</div>
+
+<!-- jquery lib -->
+<!-- analytics js file -->	<!-- plat analytics js file -->
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/vendor_e3ddeee.js"></script>
+<script type="text/javascript">/*resourcemap*/
+require.config({paths:{
+    "common/components/artTemplate/template-helper": "//img.yingjobs.com/www/static/common/components/artTemplate/template-helper_4b2f5f0",
+    "common/widgets/common/msgPopup": "//img.yingjobs.com/www/static/common/widgets/common/msgPopup_92e712a"
+}});</script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/message/page/setting/main.html_aio_b1a1945.js"></script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/widgets_00f507c.js"></script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/common/widgets/common/userinfo_7f282e9.js"></script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/layout_6a3a86f.js"></script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/message/page/setting/main.html_aio_2_16f6c64.js"></script>
+<script type="text/javascript">
+    require(['common/widgets/header_c/modules/emailvalid/main']);
+
+
+    require(['common/widgets/passport/passport'], function() {
+
+
+        require(['common/widgets/common/msgPopup']);
+        // require('notice');
+
+
+    });
+
+
+    require(['common/widgets/header_c/layout/main']);
+
+
+    require(['message/modules/setting/main']);
+
+
+    require(['common/widgets/footer_c/modules/feedback/feedback']);
+
+
+    require(['common/widgets/footer_c/layout/main']);
+
+    $(document).ready(function () {
+        var selector = '#webchat7moor';
+        if ($(selector).length) {
+            return;
+        }
+
+        var jqIframe = $('<iframe>', {
+            id: selector.slice(1),
+            src: '//img.yingjobs.com/third-parties/webchat7moor/main_22faef3.html',
+            style: 'margin:0;'
+            + 'padding:0;'
+            + 'width:320px;'
+            + 'height:500px;'
+            + 'border-width:0;'
+            + 'border-radius: 3px;'
+            + 'transition: height 0.5s ease-out;'
+            + 'z-index:-99999;'
+            + 'display: none;'
+            + 'bottom:0;'
+            + 'right:0;'
+            + 'position:fixed;'
+        });
+        $(document.body).append(jqIframe);
+
+        var child = jqIframe[0].contentWindow;
+        var target = window.location.protocol + '//' + (window.GLOBAL_CDN_DOMAIN || 'img.lagou.com');
+
+        $('#onlineService, #feedback-icon').on('click', function (e) {
+            jqIframe.css('z-index', 99999).show();
+            child.postMessage('{"code":1,"message":"open webchat plugin"}', target);
+        });
+
+        $(window).on('message', function (e) {
+            var origin = e.origin || e.originalEvent.origin;
+            if (origin.indexOf(target) !== 0) {
+                return;
+            }
+
+            var data = e.data || e.originalEvent.data;
+            if (data.code === 2 && typeof data.css !== 'undefined') {
+                jqIframe.css(data.css);
+            } else {
+                jqIframe.css('z-index', -99999).hide();
+            }
+        });
+    });
+
+
+    //业务主模块入口
+    require(['message/page/setting/main']);
+</script>
+<script type="text/javascript" src="//img.yingjobs.com/www/static/pkg/lg-analytics_ea85146.js"></script>
+<script type="text/javascript" src="https://www.lagou.com/upload/oss.js"></script></body>
+</html>

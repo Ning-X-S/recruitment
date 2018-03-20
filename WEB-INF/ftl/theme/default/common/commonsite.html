@@ -1,0 +1,190 @@
+[#macro pagersimple page  url]
+    <ul class="pagination table-pagination" unselectable="unselectable">
+
+
+        [#if page.pageNumber > 1]
+        <li  class="pagination-disabled pagination-prev"><a href="${siteurl}${url}&pageNumber=${page.pageNumber-1}">上一页</a></li>
+        [#else]
+
+        [/#if]
+        [#if page.endNo gt 0]
+        [#list page.firstNo..page.endNo as item]
+        [#if page.pageNumber?number==item]
+        <li class="pagination-item pagination-item-1 pagination-item-active"><a href="${siteurl}${url}">${item}</a></li>
+        [#else]
+        <li class="pagination-item pagination-item-item"><a href="${siteurl}${url}&pageNumber=${item}">${item}</a></li>
+        [/#if]
+        [/#list]
+        [/#if]
+        [#if page.pageNumber lt page.totalPages]
+        <li class="pagination-next"><a href="${siteurl}${url}&pageNumber=${page.pageNumber+1}">下一页</a></li>
+        [#else]
+
+        [/#if]
+
+
+    </ul>
+[/#macro]
+
+
+[#macro pagersimple2 page  url]
+
+<div class="item_con_pager">
+    <div class="pager_container">
+
+        [#if page.pageNumber > 1]
+        <a href="${siteurl}${url}&pageNumber=${page.pageNumber-1}" class="page_no" data-index="">上一页</a>
+        [#else]
+
+        [/#if]
+        [#if page.endNo gt 0]
+            [#list page.firstNo..page.endNo as item]
+            [#if page.pageNumber?number==item]
+            <a href="${siteurl}${url}&pageNumber=${item}" class="page_no pager_is_current" data-index="${item}">${item}</a>
+            [#else]
+            <a href="${siteurl}${url}&pageNumber=${item}" class="page_no" data-index="${item}">${item}</a>        [/#if]
+            [/#list]
+        [/#if]
+        [#if page.pageNumber lt page.totalPages]
+            <a  href="${siteurl}${url}&pageNumber=${page.pageNumber+1}" class="page_no">下一页</a>
+        [/#if]
+    </div>
+</div>
+[/#macro]
+
+[#macro pagerx page ]
+
+<input type="hidden" id="searchProperty" name="searchProperty" value="${(page.searchProperty)!''}" />
+<input type="hidden" id="orderProperty" name="orderProperty" value="${(page.orderProperty)!}" />
+<input type="hidden" id="orderDirection" name="orderDirection" value="${(page.orderDirection)!}" />
+<div class="clearfix" style="text-align: right;">
+    [#if page.totalPages > 1]
+    <ul class="pagination table-pagination" unselectable="unselectable">
+        [#if page.pageNumber==1]
+        <li class="firstPage">&nbsp;</li>
+        [#else]
+        <li class="firstPage"><a class="firstPage" href="javascript: $.pageSkip(1);">首页</a></li>
+        [/#if]
+        [#if page.pageNumber > 2]
+        <li>	<a class="pagination-disabled pagination-prev" href="javascript: $.pageSkip(${page.pageNumber-1});">
+            <i class="ace-icon fa fa-angle-double-left"></i>
+        </a>
+        </li>
+        [#else]
+        [/#if]
+        [#list page.firstNo..page.endNo as  segmentPageNumber]
+        [#if segmentPageNumber_index == 0 && segmentPageNumber > 2]
+
+        [/#if]
+        [#if segmentPageNumber != page.pageNumber]
+        <li class="pagination-item pagination-item-item"><a href="javascript: $.pageSkip(${segmentPageNumber});">${segmentPageNumber}</a></li>
+        [#else]
+        <li class="pagination-item pagination-item-1 pagination-item-active"><span class="currentPage">${segmentPageNumber}</span></li>
+        [/#if]
+        [/#list]
+        [#if page.pageNumber lt page.totalPages]
+        <li><a class="pagination-next" href="javascript: $.pageSkip(${page.pageNumber+1});">
+            <i class="ace-icon fa fa-angle-double-right"></i>
+        </a></li>
+        [#else]
+        [/#if]
+        [#if page.pageNumber==page.totalPages]
+        <span class="lastPage">&nbsp;</span>
+        [#else]
+        <li><a class="lastPage" href="javascript: $.pageSkip(${page.totalPages});">最后一页</a></li>
+        [/#if]
+    </ul>
+
+    [/#if]
+</div>
+[/#macro]
+
+
+
+[#macro formpager page ]
+[#if page??]
+<div class="item_con_pager">
+    <div class="pager_container">
+
+     [#if page.totalPages > 1]
+
+        [#if page.pageNumber==1]
+        <a class="firstPage">&nbsp;</a>
+        [#else]
+        <a class="page_no" href="javascript: $.pageSkip(1);">首页</a>
+        [/#if]
+        [#if page.pageNumber > 2]
+       	<a class="page_no" href="javascript: $.pageSkip(${page.pageNumber-1});">上一页
+        </a>
+        </li>
+        [#else]
+        [/#if]
+        [#list page.firstNo..page.endNo as  segmentPageNumber]
+        [#if segmentPageNumber_index == 0 && segmentPageNumber > 2]
+
+        [/#if]
+        [#if segmentPageNumber != page.pageNumber]
+       <a class="page_no"  href="javascript:$.pageSkip(${segmentPageNumber});">${segmentPageNumber}</a>
+        [#else]
+        <a class="page_no pager_is_current ">${segmentPageNumber}</a>
+        [/#if]
+        [/#list]
+        [#if page.pageNumber lt page.totalPages]
+        <a class="page_no"  href="javascript: $.pageSkip(${page.pageNumber+1});">
+            下一页
+        </a>
+        [#else]
+        [/#if]
+        [#if page.pageNumber==page.totalPages]
+        [#else]
+        <a class="page_no" href="javascript: $.pageSkip(${page.totalPages});">最后一页</a>
+        [/#if]
+    [/#if]
+    </div>
+</div>
+[/#if]
+[/#macro]
+
+[#macro formpager2 page pageNumber2=1]
+[#if page?? && pageNumber2??]
+<div class="item_con_pager">
+    <div class="pager_container">
+
+        [#if page.totalPages > 1]
+
+        [#if pageNumber2==1]
+        <a class="firstPage">&nbsp;</a>
+        [#else]
+        <a class="page_no" href="javascript: $.pageSkip(1);">首页</a>
+        [/#if]
+        [#if pageNumber2 > 2]
+        <a class="page_no" href="javascript: $.pageSkip(${pageNumber2-1});">上一页
+        </a>
+        </li>
+        [#else]
+        [/#if]
+        [#list page.firstNo..page.endNo as  segmentPageNumber]
+        [#if segmentPageNumber_index == 0 && segmentPageNumber > 2]
+
+        [/#if]
+        [#if segmentPageNumber != pageNumber2]
+        <a class="page_no"  href="javascript:$.pageSkip(${segmentPageNumber});">${segmentPageNumber}</a>
+        [#else]
+        <a class="page_no pager_is_current ">${segmentPageNumber}</a>
+        [/#if]
+        [/#list]
+        [#if pageNumber2 lt page.totalPages]
+        <a class="page_no"  href="javascript: $.pageSkip(${pageNumber2+1});">
+            下一页
+        </a>
+        [#else]
+        [/#if]
+        [#if pageNumber2==page.totalPages]
+        [#else]
+        <a class="page_no" href="javascript: $.pageSkip(${page.totalPages});">最后一页</a>
+        [/#if]
+        [/#if]
+    </div>
+</div>
+[/#if]
+[/#macro]

@@ -1,0 +1,7 @@
+/*!static-page-available/modules/common/main.less*/
+body{line-height:22px}h2,h3,h4,p,p+p{margin:0}.container{width:1024px;margin:35px auto 0;padding-bottom:100px}
+/*!static-page-available/modules/common/css/content.less*/
+.content{position:relative;width:680px;margin:0 auto;padding:0 60px;background-color:#fafafa}.content h2{float:left;color:#fff;font-size:24px;font-weight:400;height:43px;background:#91cebe;margin:-8px 0 10px 40px;padding:0 20px;line-height:43px;position:absolute;z-index:2}.content h2 em{background:url(../../../../static-page-available/modules/common/img/title_arrow_d475769.png) 0 0 no-repeat;width:6px;height:8px;position:absolute;left:-6px;top:0}.content dd{color:#555;padding:50px 25px 20px;clear:both}
+/*!static-page-available/modules/flink-main/main.less*/
+.flink dd{padding:70px 25px;line-height:36px}.flink dd a{margin-right:20px;word-wrap:normal!important;float:left}
+/*!static-page-available/page/flink/main.less*/

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header_hr.html"]
+    [@header_hr title="个人信息" cssNames=[
+        "mds/static/pkg/settings/page/knock-out-template-setting/main.html_aio_1f9ae59.css"
+    ]/]
+</head>
+<body>
+
+[#include "/theme/default/common/commonhr.html"]
+[@header index=4/]
+
+<!--编辑表单-->
+[#include "/theme/default/hr/settings/refuse_temp_form.html"]
+
+<article class="global-search-box">
+    <form id="searchForm" action="">
+        <i class="icon-search"></i>
+        <fieldset class="fields">
+            <span class="" data-preType=""></span>
+            <input type="text" name="keyword" autocomplete="off" value="" placeholder="搜索人才、简历或职位"/>
+        </fieldset>
+        <input class="search-btn" type="button" name="search" value="搜索" />
+    </form>
+</article>
+
+<div id="main-content-wrapper">
+
+    <div class="container">
+        <div class="setting-pannel">
+            <div class="head clearfix">
+                <div class="title">招聘设置</div>
+            </div>
+            <div class="menu-container head-son clearfix" id="recruit-menu">
+               [@settab index=4 /]
+            </div>
+            <div class="setting-container" id="recruit-container">
+                <div class="display-molues" data-template-id="2577926">
+                    <div class="template-header clearfix">
+                        <span class="modules-name">条件不太匹配</span>
+                        <div class="template-operation set-tab clearfix fr">
+                            <span class="menu-item active edit">编辑</span>
+                        </div>
+                    </div>
+                    <div class="template-body">
+                        <dl class="template-item ">
+                            <dd >非常荣幸收到您的简历，经过我们评估，认为您与该职位不太合适，无法进入面试阶段。建议参考STAR法则对简历进行修改，并突出您在专业知识方面的优势。相信更好的机会一定还在翘首期盼着您，赶快调整心态，做好充足的准备重新出发吧！</dd>
+                        </dl>
+                    </div>
+                </div>
+                [@form id="${(item.id)!''}" templateName="${(item.name)!''}" content="${(item.note)!''}" action="#" /]
+                <div class="display-molues" data-template-id="2577927">
+                    <div class="template-header clearfix">
+                        <span class="modules-name">专业知识深度不够</span>
+                        <div class="template-operation set-tab clearfix fr">
+                            <span class="menu-item active">编辑</span>
+                        </div>
+                    </div>
+                    <div class="template-body">
+                        <dl class="template-item ">
+                            <dd >非常荣幸收到您的简历，经过我们评估，认为您的专业知识深度不够，无法进入面试阶段。建议参考STAR法则对简历进行修改，并突出您在专业知识方面的优势。相信更好的机会一定还在翘首期盼着您，赶快调整心态，做好充足的准备重新出发吧！</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="display-molues" data-template-id="2577928">
+                    <div class="template-header clearfix">
+                        <span class="modules-name">行业背景相差较大</span>
+                        <div class="template-operation set-tab clearfix fr">
+                            <span class="menu-item active">编辑</span>
+                        </div>
+                    </div>
+                    <div class="template-body">
+                        <dl class="template-item ">
+                            <dd >非常荣幸收到您的简历，经过我们评估，认为您的行业背景相差较大，无法进入面试阶段。建议参考STAR法则对简历进行修改，并突出您在专业知识方面的优势。相信更好的机会一定还在翘首期盼着您，赶快调整心态，做好充足的准备重新出发吧！</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="display-molues" data-template-id="2577929">
+                    <div class="template-header clearfix">
+                        <span class="modules-name">薪资要求过高</span>
+                        <div class="template-operation set-tab clearfix fr">
+                            <span class="menu-item active">编辑</span>
+                        </div>
+                    </div>
+                    <div class="template-body">
+                        <dl class="template-item ">
+                            <dd >非常荣幸收到您的简历，经过我们评估，认为您的薪资要求过高，无法进入面试阶段。相信更好的机会一定还在翘首期盼着您，赶快调整心态，做好充足的准备重新出发吧！</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="display-molues" data-template-id="2577930">
+                    <div class="template-header clearfix">
+                        <span class="modules-name">内容太简单</span>
+                        <div class="template-operation set-tab clearfix fr">
+                            <span class="menu-item active">编辑</span>
+                        </div>
+                    </div>
+                    <div class="template-body">
+                        <dl class="template-item ">
+                            <dd >非常荣幸收到您的简历，但您的简历信息太少，导致我们无法做出有效评估，因此无法进入面试阶段。建议参考STAR法则对简历进行修改，并突出您在专业知识方面的优势。相信更好的机会一定还在翘首期盼着您，赶快调整心态，做好充足的准备重新出发吧！</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="display-molues" data-template-id="2577931">
+                    <div class="template-header clearfix">
+                        <span class="modules-name">自定义</span>
+                        <div class="template-operation set-tab clearfix fr">
+                            <span class="menu-item active">编辑</span>
+                        </div>
+                    </div>
+                    <div class="template-body">
+                        <dl class="template-item ">
+                            <dd >自定义</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="display-molues" data-template-id="2577933">
+                    <div class="template-header clearfix">
+                        <span class="modules-name">系统模版</span>
+                        <div class="template-operation set-tab clearfix fr">
+                            <span class="menu-item active">编辑</span>
+                        </div>
+                    </div>
+                    <div class="template-body">
+                        <dl class="template-item ">
+                            <dd >非常荣幸收到你的简历，招聘方经过评估，认为你与该职位的条件不太匹配，无法进入面试阶段。
+
+                                相信更好的机会一定还在翘首期盼着你，赶快调整心态，做好充足的准备重新出发吧！</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+[#include "/theme/default/hr/settings/common_footer.html"]
+[#include "/theme/default/common/footer.html"]
+
+</body>
+</html>
+

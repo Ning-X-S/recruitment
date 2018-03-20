@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "账号设置" cssNames = [
+        "pkg/account-c/page/updatePwd/main.html_aio_a2507fa.css"
+    ]/]
+    <style type="text/css">
+        .input_item input{background-color: transparent};
+    </style>
+</head>
+<body>
+<!-- header -->
+[#include "/theme/default/common/navBar.html"]
+[@navBar /]
+
+<input type="hidden" id="serverTime" value="1504231801721" />
+<div id="container" class="clearfix">
+    <!--
+@require "common/widgets/account-c-sidebar/main.less"
+-->
+    <div class="user_bindSidebar">
+        <ul class="user_sideBarmenu">
+            <li>
+                <a href="${siteurl}account/userInfo.htm"  data-lg-tj-id="18g0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">个人信息</a>
+            </li>
+           <!-- <li>
+                <a href="${siteurl}account/accountBind.htm"   data-lg-tj-id="18h0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">帐号绑定</a>
+            </li>-->
+            <li>
+                <a href="${siteurl}account/resumePrivacy.htm"   data-lg-tj-id="18i0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">隐私设置</a>
+            </li>
+            <li>
+                <a href="${siteurl}account/updatePwd.htm"  class="hover"  data-lg-tj-id="18j0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">修改密码</a>
+            </li>
+        </ul>
+    </div>
+    <input type="hidden" value="1" id="hasSidebar" />
+
+    <!--
+@require "account-c/modules/common/main.less"
+@require "account-c/modules/bind/main.less"
+@require "account-c/modules/popbox/main.less"
+@require "common/components/jquery-colorbox-custom/jquery-colorbox.css"
+@require "account-c/modules/updatePwd/main.less"
+-->
+    <div class="user_modifyContent">
+        <dl class="c_section">
+            <dt class="dn">
+                <p>登录帐号： 15891785575 </p>
+            </dt>
+            <dd>
+                <form id="updatePswForm" method="post" action="${siteurl}account/updatepassword.htm">
+                    <div class="input_item">
+                        <input type="password" name="oldpassword" id="oldpassword" placeholder="请输入当前密码" maxlength="16" autocomplete="off"/>
+                    </div>
+                    <div class="input_item">
+                        <input type="password" name="password" id="newpassword" placeholder="请输入新密码"  maxlength="16" autocomplete="off"/>
+                    </div>
+                    <div class="input_item">
+                        <input type="password" name="comfirmpassword" id="comfirmpassword" placeholder="确认新密码"  maxlength="16" autocomplete="off"/>
+                    </div>
+                    <span class="error" style="display:none;" id="updatePwd_beError"></span>
+                    <div class="input_item">
+                        <input type="submit" value="保 存" />
+                    </div>
+
+                </form>
+            </dd>
+        </dl>
+    </div>
+</div>
+<!-- 弹窗lightbox -->
+<div style="display:none;">
+    <!-- 帐号绑定 : 改变手机号 -->
+    <div id="changePhone" class="popup user_popup">
+        <p class="bding_title" style="margin-bottom:28px">验证你的手机号，完成手机帐号的绑定</p>
+        <div class="form_body clearfix" data-view="phonechange" style="display: block;">
+            <div class="input_item clearfix" data-propertyname="phone" data-controltype="Phone" style="display: block;">
+                <!--
+@require "common/widgets/country-code/main.js"
+@require "common/widgets/country-code/main.less"
+-->
+                <span class="area_code"></span>
+                <div class="area_code_list">
+                    <dl class="code_list_main"></dl>
+                    <p class="tips">如果没有找到您的所在归属地，请拨打客服电话4006282835解决。</p>
+                </div>
+
+                <input type="text" class="input input_white" id="" name="" placeholder="请输入常用手机号" data-required="required" autocomplete="off">
+            </div>
+            <div class="input_item clearfix" data-propertyname="request_form_verifyCode" data-controltype="VerifyCode">
+                <div class="input_group clearfix">
+                    <input type="text" class="input input_white fl" name="" placeholder="请证明你不是机器人" data-required="required" autocomplete="off">
+                    <img src="" alt="点击重试" class="yzm" width="98" height="40">
+                    <a rel="nofollow" href="javascript:;" class="reflash"></a>
+                </div>
+            </div>
+            <div class="input_item" data-propertyname="phoneVerificationCode" data-controltype="PhoneVerificationCode">
+                <div class="input_group clearfix">
+                    <input type="text" class="input input_white first_child" id="" name="" placeholder="请输入验证码" data-required="required" autocomplete="off">
+                    <input type="button" class="btn btn_green btn_active btn_lg last_child" value="获取验证码" data-required="required">
+                </div>
+            </div>
+            <div class="input_item verify_tips" data-propertyname="autoPhoneVerificationCode" data-controltype="PhoneVerificationCode">
+                <p class="verify_tips_main">收不到短信？请使用
+                    <input type="button" class="auto_phone" value="语音验证">
+                </p>
+                <p class="verify_tips_count_down">语音发送成功</p>
+            </div>
+            <div class="input_item fl clearfix" data-propertyname="submit" data-controltype="Botton">
+                <input type="button" class="btn btn_green btn_active btn_block btn_lg" value="完成绑定">
+            </div>
+            <div class="input_item fl clearfix" data-propertyname="concel" data-controltype="Botton">
+                <input type="button" class="btn btn_link btn_lg" value="返回">
+            </div>
+        </div>
+    </div>
+<!-- end -->
+</div>
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+<script type="text/javascript">
+    [#if msg??]
+        alert("${msg!''}");
+    [/#if]
+</script>
+</body>
+</html>

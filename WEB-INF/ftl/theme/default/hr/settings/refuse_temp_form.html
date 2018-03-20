@@ -1,0 +1,21 @@
+[#macro form id="" templateName="" content="" action="" formId=""]
+<form class="edit-modules" id="${formId!''}" action="" method="post" style="display: none;">
+    <div class="form-item">
+        <label for="">原因</label>
+        <div class="form-input">
+            <input type="text" name="templateName" value="${templateName!''}" class="input input_white" placeholder="不超过10个字">
+        </div>
+    </div>
+    <div class="form-item">
+        <label class="textarea-label" for="">解释说明</label>
+        <div class="form-input">
+            <textarea name="content" class="input input_white" placeholder="不超过200个字">${content!''}</textarea>
+        </div>
+    </div>
+    <div class="form-item">
+        <label for=""></label>
+        <button class="btn btn_green btn_active" type="submit">保存</button>
+        <button class="btn btn_link cancel" type="reset">取消</button>
+    </div>
+</form>
+[/#macro]

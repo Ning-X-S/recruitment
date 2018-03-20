@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="${siteurl}dist/css/tipso.min.css">
+<style>
+    #authen {
+        position: relative;
+        display: inline-block;
+        height: 27px;
+        width: 30px;
+        top: 3px;
+        padding: 0px 6px;
+        margin-left: 6px;
+        color: #fff;
+        background: #0099ff;
+        border: 1px solid #0099ff;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+        border-radius: 20px;
+    }
+    #authen img{
+        position: absolute;
+        top: 2px;
+        left: 9px;
+        border: none;
+    }
+</style>
+<a id="authen" class="identification tipsys" title="已完成资质认证，并完善了更优质的公司主页信息">
+    <img src="${siteurl}dist/img/wan_vip.png" alt="寻鹰认证" style="width: 25px;height: 25px">
+</a>
+<script src="${siteurl}dist/js/tipso.min.js"></script>
+<script>
+    $('.tipsys').tipso({
+        background: '#0099ff'
+    })
+</script>

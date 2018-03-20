@@ -1,0 +1,230 @@
+[#compress]
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- meta -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <meta content="西安-公司列表-寻鹰网-最专业的互联网招聘平台" name="keywords">
+    <meta content="西安-公司列表-寻鹰网-最专业的互联网招聘平台" name="description">
+    <title>人才-互联网企业招聘-寻鹰网</title>
+    <link rel="Shortcut Icon" href="${siteurl}dist/img/favicon_logo.ico">
+    <link type="text/css" rel="stylesheet" href="${siteurl}dist/less/personnel.css">
+    <link type="text/css" rel="stylesheet" href="${siteurl}dist/css/layout.css">
+    <link type="text/css" rel="stylesheet" href="${siteurl}plugins/swiper/swiper-3.4.2.min.css">
+
+    <style type="text/css">
+        .citys li  a:hover{
+            background-color: #09f;
+            color: #fff;
+        }
+        .citys li  .active{
+            background-color: #09f;
+            color: #fff;
+        }
+        .multi-chosen.membertype   a:hover{
+            background-color: #09f;
+            color: #fff;
+        }
+        .multi-chosen.membertype   .active{
+            background-color: #09f;
+            color: #fff;
+        }
+        .pager_container span, .pager_container .page_no {
+            cursor: pointer;
+            color: #555;
+            display: inline-block;
+            border: 1px solid #ededed;
+            height: 21px;
+            line-height: 21px;
+            padding: 3px 10px;
+            margin: 0 5px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .pager_container .pager_is_current {
+            background-color: #0099ff !important;
+            color: #fff !important;
+            font-weight: 700;
+            border-color: #0099ff !important;
+        }
+        a{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!-- header -->
+<!-- 引入导航条 -->
+[#include "/theme/default/common/navBar.html"]
+[@navBar active = 3 /]
+[#include "/theme/default/common/commonsite.html"]
+
+<form id="listForm" method="get" action="${siteurl}personnel/index.htm">
+    <input id="pageNumber" name="pageNumber" value="${pageData.pageNumber!}" type="hidden">
+    <input  name="city" value="${so.city}" type="hidden">
+    <input  name="type" value="${so.type}" type="hidden">
+<!-- 顶部banner -->
+<div class="banner">
+    <div class="content">
+        <p class="title">优秀人才推荐</p>
+        <!-- Swiper -->
+        <div id="recommendSwiper" class="swiper-container">
+            <div class="swiper-wrapper">
+                [@memberrecommends]
+                [#list list as item]
+                <div class="swiper-slide">
+                    <div class="panel">
+                        <img src="[@image src=item.avatar /]" alt="logo" width="142" height="142"/>
+                        <p class="panel_b">${item.name!""}</p>
+                        <div class="panel_cont">
+                            <div class="panel_det" style="text-align: left">
+                                <p>目前职位：${(item.resume.shenfen)!((item.position)!'未填写')}</p>
+                                <p>学历：${(item.resume.degree.name)!"未填写"}</p>
+                                <p>工作年限：${(item.resume.workYear.name)!"未填写"}</p>
+                                <p>地区：${(item.resume.area.name)!"未填写"}</p>
+                                <div><a class="go_btn" href="${siteurl}personnel/${item.id}.htm" target="_blank">查看他/她的简历</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                [/#list]
+                [/@memberrecommends]
+            </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</div>
+
+<!-- 页面主体START -->
+<div id="content-container">
+    <div id="company_list_container">
+        <div id="positionHead">
+            <!-- 筛选 -->
+            <ul id="filterBox" class="filter-wrapper">
+                <div class="details" id="filterCollapse">
+                    <div class="has-more citys multi-chosen">
+                        <li>
+                            <span class="title">人才户籍：</span>
+                            <div class=" clearfix">
+                                <a data-id="-1"  data-nav="city" [#if so.city=-1] class="active"[/#if] >不限</a>
+                                [#if areaList??]
+                                [#list areaList as item]
+                                <a data-id="${item.id}"  data-nav="city"  [#if so.city=item.id] class="active"[/#if]  >${item.name!""}</a>
+                                [/#list]
+                                [/#if]
+                            </div>
+                        </li>
+                    </div>
+
+                    <li class="multi-chosen membertype"><span class="title">人才分类：</span>
+                        <a data-id="-1"  data-nav="type" [#if so.type=-1] class="active"[/#if]  >不限</a>
+                        [@membertype]
+                        [#list list as item]
+                        <a data-id="${item.id}"  data-nav="type"  [#if so.type=item.id] class="active"[/#if] >${item.name!""}</a>
+                        [/#list]
+                        [/@membertype]
+                    </li>
+                </div>
+            </ul>
+        </div>
+
+        <!-- 分站城市 -->
+
+        <!-- 公司列表 -->
+        <div id="company_list" data-lg-tj-track-code="gongsi_list">
+            <ul class="item_con_list">
+                [#if pageData.content??]
+                [#list pageData.content as item]
+                <li class="company-item">
+                    <div class="top">
+                        <p>
+                            <a href="${siteurl}personnel/${item.id}.htm" target="_blank">
+                                <img src="[@image src=item.avatar def='dist/img/default_headpic.png' /]" alt="人才logo" width="80" height="80">
+                            </a>
+                        </p>
+                        <p class="company-name wordCut">
+                            <a href="${siteurl}personnel/${item.id}.htm" target="_blank" title="${item.name!''}">${item.name!""}</a>
+                        </p>
+                        <p class="indus-stage wordCut">${(item.resume.shenfen)!((item.position)!'未填写')}</p>
+                        <p class="advantage wordCut">${(item.resume.degree.name)!"未填写"} | ${(item.resume.workYear.name)!"未填写"} | ${(item.resume.area.name)!"未填写"}</p>
+                    </div>
+                </li>
+                [/#list]
+                [/#if]
+            </ul>
+
+            <!-- 分页 -->
+            [@formpager page=pageData  /]
+        </div>
+
+        <script id="empty-list" type="text/htm">
+            <div class="empty_position">
+                <div class="pic"></div>
+                <div class="txt">
+                    <div>暂时没有符合该筛选条件的公司</div>
+                    <span>请重新修改筛选条件再进行筛选</span>
+                </div>
+            </div>
+        </script>
+
+    </div>
+</div>
+<!-- 页面主体END -->
+</form>
+
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+<script src="${siteurl}plugins/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script src="${siteurl}plugins/jquery.pin.min.js"></script>
+<script src="${siteurl}dist/js/company.js"></script>
+<script>
+    $('#city-unfold').mouseover(function () {
+        $('#city-more').show();
+        $('#city-unfold i').css("transform", "rotate(180deg)")
+    });
+    $('#city-more').hover(function () {
+        $('#city-more').show();
+    },function () {
+        $('#city-more').hide();
+        $('#city-unfold i').css("transform", "rotate(0deg)")
+    });
+    $('#exp-unfold').mouseover(function () {
+        $('#exp-more').show();
+    });
+    $('#exp-more').mouseout(function () {
+        $('#exp-more').hide();
+    });
+
+
+    $(document).ready(function () {
+        $(".multi-chosen a").click(function () {
+            $(this).addClass("active");
+            $(this).siblings().removeClass("active");
+            var url="${siteurl}personnel/index.htm?time=1"
+            $(".multi-chosen .active").each(function (data) {
+                console.log($(this).data("nav")+":"+$(this).data("id"));
+                url=url+"&"+$(this).data("nav")+"="+$(this).data("id");
+            });
+            console.log(url);
+            window.location.href=url;
+        });
+
+        var $listForm = $("#listForm");
+        var $pageNumber = $("#pageNumber");
+
+        // 页码跳转
+        $.pageSkip = function(pageNumber) {
+            $pageNumber.val(pageNumber);
+            $("#listForm").submit();
+            //return false;
+        };
+    });
+</script>
+</body>
+</html>
+[/#compress]

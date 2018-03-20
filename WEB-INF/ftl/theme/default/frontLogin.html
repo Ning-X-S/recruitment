@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- meta -->
+    [#include "/theme/default/common/header.html"]
+    [@header title = "专注航空领域职位需求-寻鹰网" cssNames = [
+        "pkg/pc/page/login/main.html_aio_c425276.css"
+    ]/]
+
+    <link rel="stylesheet" href="${siteurl}plugins/sweetalert/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/nicevalidator/jquery.validator.css"/>
+</head>
+
+<body>
+<input type="hidden" value = "" id = "isVisiable_request_form_verifyCode" />
+<!-- 页面主体START -->
+<header class="sso_header">
+    <a href="${siteurl}index.htm" class="logo ">
+    </a>
+</header>
+<section class="content_box cleafix">
+    <div class="left_area fl">
+        <div class="form_head">
+            <ul class="form_head clearfix">
+                <li class="active" data-lg-tj-id="1Us0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">
+                    密码登录
+                </li>
+                <li style="display: none" data-lg-tj-id="1Ut0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">
+                    验证码登录
+                </li>
+            </ul>
+            <!--<span class="tab_active"></span>-->
+        </div>
+        <div class="form_body" data-view="passwordLogin">
+            <form id="form" class="active" action="${siteurl}loginbypassword.htm">
+                <div class="input_item clearfix" data-propertyname="username" data-controltype="Phone">
+                    <input type="text" class="input input_white"  name="username" placeholder="请输入手机号码" data-required="required"  autocomplete = 'new-password'>
+                </div>
+                <div class="input_item clearfix" data-propertyname="password" data-controltype="Password">
+                    <input type="text"  onfocus="this.type='password'" class="input input_white"  name="password" placeholder="请输入密码" data-required="required" autocomplete="off">
+                </div>
+                <div class="input_item clearfix" data-propertyname="request_form_verifyCode" data-controltype="VerifyCode"  style="display: none;">
+                    <div class="input_group clearfix">
+                        <input type="text" class="input input_white verify_code_input fl" name="" placeholder="请证明你不是机器人" data-required="required" autocomplete="off">
+                        <img src="" alt="点击重试" class="yzm" width="98" height="40">
+                        <a rel="nofollow" href="javascript:;" class="reflash"></a>
+                    </div>
+                </div>
+                <div class="input_item clearfix">
+                    <a rel="nofollow" href="${siteurl}resetPwd.htm" class="forgot_pwd">忘记密码？</a>
+                </div>
+                <div class="input_item btn_group clearfix" data-propertyname="submit" data-controltype="Botton">
+                    <input type="submit" class="btn btn_green btn_active btn_block btn_lg" value="登&nbsp;录" data-lg-tj-id="1j90" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">
+                </div>
+            </form>
+        </div>
+        <div class="form_body" data-view="codeLogin">
+            <form action="${siteurl}loginbypassword.htm">
+                <div class="input_item clearfix" data-propertyname="username" data-controltype="Phone">
+                    <span class="area_code"></span>
+                    <div class="area_code_list">
+                        <dl class="code_list_main"></dl>
+                        <p class="tips">如果没有找到您的所在归属地，请拨打客服电话4006282835解决。</p>
+                    </div>
+
+                    <input type="text" class="input input_white" name="" placeholder="请输入常用手机号" data-required="required" autocomplete="off">
+                </div>
+                <div class="input_item clearfix" data-propertyname="request_form_verifyCode" data-controltype="VerifyCode">
+                    <div class="input_group clearfix">
+                        <input type="text" class="input input_white verify_code_input fl" name="" placeholder="请证明你不是机器人" data-required="required" autocomplete="off">
+                        <img src="" alt="点击重试" class="yzm" width="98" height="40">
+                        <a rel="nofollow" href="javascript:;" class="reflash"></a>
+                    </div>
+                </div>
+                <div class="input_item" data-propertyname="phoneVerificationCode" data-controltype="PhoneVerificationCode">
+                    <div class="input_group clearfix">
+                        <input type="text" class="input input_white first_child" name="" placeholder="请输入验证码" data-required="required" autocomplete="off">
+                        <input type="button" class="btn btn_active last_child" value="获取验证码" data-required="required" data-lg-tj-id="1UG0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">
+                    </div>
+                </div>
+                <div class="input_item verify_tips" data-propertyname="autoPhoneVerificationCode" data-controltype="PhoneVerificationCode">
+                    <p class="verify_tips_main">收不到短信？请使用
+                        <input type="button" class="auto_phone" value="语音验证">
+                    </p>
+                    <p class="verify_tips_count_down">语音发送成功</p>
+                </div>
+                <div class="input_item btn_group clearfix" data-propertyname="submit" data-controltype="Botton">
+                    <input type="submit" class="btn btn_green btn_active btn_block btn_lg" value="登&nbsp;录" data-lg-tj-id="1Uu0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="divider fl"></div>
+    <div class="right_area fl">
+        <h5>还没有帐号:</h5>
+        <a href="${siteurl}frontRegister.htm" class="register_now" data-lg-tj-id="1ja0" data-lg-tj-no="idnull" data-lg-tj-cid="idnull">立即注册</a>
+    </div>
+</section>
+<!-- 页面主体END -->    <!-- jquery lib -->    <!--拉勾UI框架 -->    <!-- analytics js file -->    <!-- plat analytics js file -->    <input type="hidden" id="serverTime" value="1503989372212" />
+
+<script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="${siteurl}plugins/nicevalidator/jquery.validator.min.js?local=zh-CN"></script>
+<script src="${siteurl}plugins/sweetalert/sweetalert.min.js"></script>
+<script>
+    $.validator.setTheme("default", {
+        msgClass: "n-bottom"
+    });
+    $('#form').validator({
+        fields: {
+            // 对字段 username 应用规则 mobile
+            'username': {
+                rule: 'required;',
+                msg: {
+                    required: '请输入手机号码'
+                }
+            },
+            'password': {
+                rule: 'required;',
+                msg: {
+                    required: '请输入密码'
+                }
+            },
+        }
+    });
+</script>
+<script>
+    [#if msg??]
+    swal("Oops!", "${msg}", "error")
+        [/#if]
+</script>
+
+</body>
+</html>

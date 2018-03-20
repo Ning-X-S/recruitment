@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "预览简历" cssNames=[
+    "pkg/mycenter/page/preview/main.html_aio_714f74a.css"
+    ]/]
+</head>
+<body>
+[#include "/theme/default/common/navBar.html"]
+[@navBar active = 3 /]
+<!-- 页面主体START -->
+<div class="container clearfix" id="container" style="margin-top: 20px;">
+    <div class="mr_created mr_preview">
+        <div class="mr_myresume_l mrcenter">
+            <div id="mr_mr_head">
+                <div class="mr_top_bg" id="baseinfo">
+                    <img class="mr_headimg" src="[@image src=model.avatar def='dist/img/default_headpic.png' /]" alt="头像" />
+                    <img class="opa" src="//img.lagou.com/www/static/mycenter/modules/common/img/tou_c3707c7.png" width="702" height="170" />
+                    <img class="shadow" src="//img.lagou.com/www/static/mycenter/modules/common/img/shadow_tx_a482008.png" width="119" height="119" />
+                </div>
+                <div class="mr_baseinfo">
+                    <i class="mr_left_bg"></i>
+                    <i class="mr_right_bg"></i>
+                    <div class="mr_p_name mr_w604 clearfixs">
+                        <span class="mr_name"> ${(model.name)!""} </span>
+                    </div>
+                    <div class="mr_p_introduce mr_w604 clearfixs">
+                        <span class="mr_intro">  ${(resume.edge)!""} </span>
+                    </div>
+                </div>
+                <div class="mr_p_info mr_infoed mr_w604 clearfixs">
+                    <div class="info_t">
+                            <span class="shenfen">
+                                    <i></i>
+                                    <em data-id="0" title="${model.shenfen!''}">${resume.shenfen!''}</em>
+                                </span>
+                        <span class="base_info">
+                            <i></i>
+                            <em class="s"></em>
+                                <em class="a" style="display:none;">
+                                <span class="age"></span>
+                                <span class="birth_span dn"></span>
+                            </em>
+                                <em class="x">${(resume.degree.name)!""}</em>
+                            <em class="j">
+                                <span class="job_span">${(resume.workYear.name)!""}</span>
+                            </em>
+                            <em class="mr0 d">${(resume.area.name)!""}</em>
+                        </span>
+                    </div>
+                    <div class="info_b">
+                        <span class="email"><i></i><em> ${(resume.email)!""}</em></span>
+                    </div>
+                    <div class="mr_sns dn">
+                    </div>
+                </div>
+            </div>
+            <div class="mr_content">
+                <div class="mr_w604">
+                    [#if model.workExperiences??]
+                    <div id="workExperience">
+                        <div>
+                            <div class="mr_moudle_head clearfixs">
+                                <div class="mr_head_l">
+                                    <div class="mr_title">
+                                        <span class="mr_title_l"></span><span class="mr_title_c"> 工作经历 </span><span
+                                            class="mr_title_r"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mr_moudle_content">
+                                <div class="list_show">
+                                    [#list model.workExperiences as item]
+                                    <div class="mr_jobe_list">
+                                        <div class="clearfixs">
+                                            <div class="mr_content_l">
+                                                <div class="l2">
+                                                    <h4>${item.companyName!""}</h4>
+                                                    <span>${item.post!""}</span>
+                                                </div>
+                                            </div>
+                                            <div class="mr_content_r">
+                                                <span>${(item.startDate?string("yyyy.MM"))!""} — ${(item.endDate?string("yyyy.MM"))!"至今"}</span>
+                                            </div>
+                                        </div>
+                                        <div class="mr_content_m ueditor_parse">
+                                            <p>${item.note!""}</p>
+                                        </div>
+                                    </div>
+                                    [/#list]
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    [/#if]
+                    [#if model.educationalExperiences??]
+                    <div id="educationalBackground">
+                        <div>
+                            <div class="mr_moudle_head clearfixs">
+                                <div class="mr_head_l">
+                                    <div class="mr_title">
+                                        <span class="mr_title_l"></span><span class="mr_title_c">教育经历</span><span
+                                            class="mr_title_r"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mr_moudle_content">
+                                [#list model.educationalExperiences as item]
+                                <div class="clearfixs mb46 mr_jobe_list">
+                                    <div class="mr_content_l">
+                                        <div class="l2">
+                                            <h4>${item.schoolName!""}</h4>
+                                            <span>${(item.degree.name)!""} · ${item.major!""}</span>
+                                        </div>
+                                    </div>
+                                    <div class="mr_content_r">
+                                        <span> ${item.year!""}年毕业</span>
+                                    </div>
+                                </div>
+                                [/#list]
+                            </div>
+                        </div>
+                    </div>
+                    [/#if]
+                    <!--[#if model.projectExperiences??]-->
+                    <!--<div id="projectExperience">-->
+                    <!--<div>-->
+                    <!--<div class="mr_moudle_head clearfixs">-->
+                    <!--<div class="mr_head_l">-->
+                    <!--<div class="mr_title">-->
+                    <!--<span class="mr_title_l"></span><span class="mr_title_c">项目经验</span><span-->
+                    <!--class="mr_title_r"></span>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="mr_moudle_content mr_w604">-->
+                    <!--<div class="list_show">-->
+                    <!--[#list model.projectExperiences as item]-->
+                    <!--<div class="mr_jobe_list" data-id="6479056">-->
+                    <!--<div class="clearfixs">-->
+                    <!--<div class="mr_content_l">-->
+                    <!--<div class="l2">-->
+                    <!--<a class="projectTitle" target="_blank"-->
+                    <!--[#if item.link??]href="${item.link}" [/#if]>
+                 <!--<span style="left: 69px;"></span>${item.name!""}</a>-->
+                    <!--<p>${item.duty!""}</p>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="mr_content_r">-->
+                    <!--<span>${(item.startDate?string("yyyy.MM"))!""} — ${(item.endDate?string("yyyy.MM"))!"至今"}</span>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="mr_content_m ueditor_parse">-->
+                    <!--<p>${item.note!""}</p>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--[/#list]-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--[/#if]-->
+                    [#if model.note??]
+                    <div id="self-introduction" class="item_container_target">
+                        <div class="mr_moudle_head clearfixs mr_w604">
+                            <div class="mr_head_l">
+                                <div class="mr_title">
+                                    <span class="mr_title_l"></span><span class="mr_title_c">自我描述</span><span
+                                        class="mr_title_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mr_moudle_content mr_w604">
+                            <div class="self_des_list clearfixs">
+                                <div class="mr_content_l">
+                                    <div class="mr_content_m ueditor_parse">
+                                        ${model.note!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    [/#if]
+                    [#if certs??]
+                    <div id="certShow" class="item_container_target">
+                        <div class="mr_moudle_head clearfixs mr_w604">
+                            <div class="mr_head_l">
+                                <div class="mr_title">
+                                    <span class="mr_title_l"></span><span class="mr_title_c">证件展示</span><span
+                                        class="mr_title_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mr_moudle_content mr_w604">
+                            <div id="imgCont" style="overflow: auto">
+                                [#if certs?? && certs?size>0]
+                                [#list certs as item]
+                                <div style="float: left;position: relative;padding: 10px">
+                                    <img height="200px" layer-src="${siteurl}${item.path!}" src="${siteurl}${item.path!}" alt="图片"
+                                         onerror="javascript:this.src='${item.path!}';this.onerror=null;">
+                                </div>
+                                [/#list]
+                                [/#if]
+                            </div>
+                        </div>
+                    </div>
+                    [/#if]
+                    <div class="mr_self_state">
+                        <!-- <div class="mr_show_state">
+                            <span>· </span><span>我目前已离职，可快速到岗</span><span> ·</span>
+                        </div> -->
+                        <div class="form_wrap mr_self_s resume_status">
+                            ·&nbsp;${model.selfState!""}&nbsp;·
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mr_bottom_r" id="mr_pre_bot">
+                    <span>© ${(model.member.name)!""}  简历更新于${model.lastDate!""}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- 页面主体END -->
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+</body>
+</html>

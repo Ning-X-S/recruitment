@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "公司其他职位" cssNames = [
+        "mds/static/common/static/less/parent.base_142fcd4.css",
+        "pkg/positions/page/my-positions-list-offline/main.html_aio_141ee9a.css"
+    ]/]
+</head>
+
+<body>
+
+[#include "/theme/default/common/commonhr.html"]
+
+[@header index=2 /]
+
+<article class="global-search-box ">
+    <form id="searchForm" action="">
+        <i class="icon-search"></i>
+        <fieldset class="fields">
+            <input type="text" name="keyword" autocomplete="off" value="" placeholder="职位名称 / 职位描述 / 城市 / 发布渠道 等"/>
+        </fieldset>
+        <input class="search-btn" type="button" name="search" value="搜索"/>
+    </form>
+</article>
+
+<div id="main-content-wrapper">
+
+    <div class="container">
+        <div class="mds-sub-content mds-member-list">
+            <div class="clearfix header">
+                <ul class="position-tab">
+                    <li>
+                        <a href="${siteurl}hr/my_online_positions.htm"><span>在线</span><span>（0）</span></a>
+                    </li>
+                    <li>
+                        <a href="${siteurl}hr/my_offline_positions.htm"><span>已下线</span><span>（1）</span></a>
+                    </li>
+                    <li class="active">
+                        <a href="${siteurl}hr/company_other_positions.htm"><span>公司其他职位</span><span>（0）</span></a>
+                    </li>
+                </ul>
+                <ul class="position-tab " style="float:right;">
+                    <li>
+                        <a class="create-position add-position" href="../parentposition/createPosition.htm"
+                           target="_blank"><i class="icon-add icon-style"></i> 发布新职位</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <ul class="position-list clearfix">
+                <li class="position-list-item">
+                    <div class="position-item-top clearfix">
+                        <div>
+                            <div class="title">
+                                <a href="redirectOriginalPage.htm@positionId=3277937" target="_blank">
+                                    <span class="position-name">java软件工程师</span>
+                                </a><span class="source">[寻鹰网]</span>
+                            </div>
+                            <div class="infomation">
+                                <span class="department">研发部</span>
+                                <span class="salary">6K-12K</span>
+                                <span class="workYear">5-10年</span>
+                                <span class="education">学历不限</span>
+                                <span class="city">西安</span>
+                            </div>
+                        </div>
+                        <div class="num-box">
+                            <a href="../can/index.htm@positionId=3277937&stage=NEW" target="_blank">
+                                <div class="num">0</div>
+                                <div class="text">未阅读</div>
+                            </a>
+                            <a href="../interview/index.htm@positionId=3277937&range=0&view=0" target="_blank">
+                                <div class="num">0</div>
+                                <div class="text">面试</div>
+                            </a>
+                            <a href="../can/index.htm@positionId=3277937&stage=NEW" target="_blank">
+                                <div class="num">0</div>
+                                <div class="text">候选人</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="position-item-bottom">
+                        <div>
+                            下线时间：<span>2017/02/16</span>
+                            <span class="selecter add-recruiter" style="cursor:pointer;">陈豪等<span>1</span>人可处理该职位下的简历</span>
+                        </div>
+                        <div class="options">
+                            <span class="add-recruiter">将职位共享给同事</span><span class="line">|</span>
+                            <a class="republish-offline" href="../parentposition/editPosition2Hr.htm@positionId=2664057"
+                               target="_blank">再发布</a>
+                            <span class="line">|</span>
+                            <span class="dropdown">
+                                <a class="more_toggle">更多 <i class="icon-arrow-down-after"></i></a>
+                                    <ul class="toggle_menu" style="display:none">
+                                        <li>
+                                            <a href="processList.htm@positionId=3277937" target="_blank">编辑记录</a>
+                                        </li>
+                                        <li>
+                                            <a href="redirectOriginalPage.htm@positionId=3277937" target="_blank">查看职位</a>
+                                        </li>
+                                    </ul>
+                                </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="bottom_options">
+                <a href="my_shield_positions.htm" class="baned_positions clearfix" target="_blank">&gt;&gt; 查看已屏蔽职位</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

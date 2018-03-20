@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "我的简历" cssNames=[
+    "pkg/mycenter/page/myresume/main.html_aio_7e9ee05.css",
+    "pkg/mycenter/page/myresume/main.html_aio_2_12feb30.css"
+    ]/]
+    <link rel="stylesheet" href="${siteurl}plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css">
+    <script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+    [#include "/theme/default/common/fileuploads.html"]
+
+    <!-- 引入批量上传js css 表单ID 用于将返回url加到form中 -->
+    [@batchLib formId="photos" name="file"/]
+    <style type="text/css">
+        .delete {
+            width: 24px;
+            height: 24px;
+            display: inline;
+            float: right;
+            text-indent: -9999px;
+            overflow: hidden;
+            background: url('${siteurl}plugins/webuploader/images/icons.png') no-repeat;
+            margin: 5px 1px 1px;
+            cursor: pointer;
+        }
+        .delete:hover {
+            background-position: -48px 0;
+        }
+        .delete {
+            background-position: -48px -24px;
+        }
+        .save{
+            font-size: 16px;
+            color: #fff;
+            background-color: #0099ff;
+            padding: 10px 15px;
+            margin-top: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            border-radius: 5px;
+        }
+        .uploadCancel{
+            cursor: pointer;
+            font-size: 16px;
+            color: #0099ff;
+            padding: 10px 25px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 引入导航条 -->
+[#include "/theme/default/common/navBar.html"]
+[@navBar /]
+
+<!-- 页面主体START -->
+<div class="container clearfix" id="container" style="font-size: 14px;">
+    <div>
+        <input type="hidden" id="isShowDefault" value="1"/>
+        <div class="clearfixs mr_created">
+            <div class="mr_myresume_l">
+                <div id="mr_mr_head">
+                    <div class="privacy_settings">
+                        <span class="privacy_settings_img"></span>
+                    </div>
+                    <div class="mr_top_bg" id="baseinfo">
+                        [#if (model.member.avatar)??]
+                        <img class="mr_headimg" id="userpic" src="[@image src= model.member.avatar/]"
+                             width="120" height="120" alt="头像"/>
+                        [#else]
+                        <img class="mr_headimg" id="userpic" src="//img.lagou.com/images/myresume/default_headpic.png"
+                             width="120" height="120" alt="头像"/>
+                        [/#if]
+                        <img class="opa" src="//img.lagou.com/www/static/mycenter/modules/common/img/tou_c3707c7.png"
+                             width="702" height="170"/>
+                        <img class="shadow"
+                             src="//img.lagou.com/www/static/mycenter/modules/common/img/shadow_tx_a482008.png"
+                             width="119" height="119"/>
+                    </div>
+                    <div class="mr_baseinfo">
+                        <i class="mr_left_bg"></i>
+                        <i class="mr_right_bg"></i>
+                        <div class="over mr_p_name mr_w604 clearfixs">
+                            <span id="name_edit" class="mr_edit dn"><i></i><em>编辑</em></span><span class="mr_name">${(model.member.name)!''}</span>
+                        </div>
+                        <form id="nameForm" action="${siteurl}account/updateResume.htm" method="post">
+                            <div class="mr_name_edit dn">
+                                <input type="text" id="mr_name" name="member.name" class="ed_name" autocomplete="off"/>
+                                <input type="submit" class="save" value="保存"/>
+                                <a href="javascript:;" class="cancel">取消</a>
+                            </div>
+                        </form>
+                        <div class="over mr_p_introduce mr_w604 clearfixs">
+                            <span id="intro_edit" class="mr_edit dn" data-type="0"><i></i><em>编辑</em></span><span
+                                class="mr_intro mr_intro_normal" title="oc,swift,js,html,go,python,java...未完待续">${(model.edge)!''}</span>
+                        </div>
+                        <form id="introduceForm" action="${siteurl}account/updateResume.htm" method="post">
+                            <div class="mr_intro_edit dn">
+                                <input type="text" id="mr_intro" name="edge" placeholder="一句话介绍自己，告诉我为什么选择你而不是别人"
+                                       class="ed_name" autocomplete="off"/>
+                                <input type="submit" class="save" value="保存"/>
+                                <a href="javascript:;" class="cancel">取消</a>
+                                <span class="mroneError dn"></span>
+                            </div>
+                        </form>
+                        <div class="over mr_p_info mr_infoed mr_w604 clearfixs">
+                            <div class="info_t">
+                                                                                                                                    <span class="shenfen">
+                                        <i></i>
+                                        <em data-id="0" title="${model.shenfen!''}">${model.shenfen!''}</em>
+                                    </span>
+                            </div>
+                            <div class="info_j">
+                            <span class="base_info">
+                                <i></i>
+                                <em class="s"></em>
+                                                                    <em class="a" style="display:none;">
+                                        <span class="age"></span>
+                                        <span class="birth_span dn"></span>
+                                    </em>
+                                                                <em class="x">${(model.degree.name)!""}</em>
+                                <em class="j">
+                                    <span class="job_span">${(model.workYear.name)!""}</span>
+                                </em>
+                                <em class="mr0 d">${(model.area.name)!""}</em>
+                            </span>
+                            </div>
+                            <div class="info_b">
+                                <span class="mobile"><i></i><em title="${(model.phone)!''}">${(model.phone)!''}</em></span>
+                                <span class="email"><i></i><em title="${(model.email)!''}">${(model.email)!''}</em></span></div>
+                            <div class="mr_sns dn">
+                            </div>
+                            <span class="mr_edit mr_edit_on dn" ><i></i><em>编辑</em></span>
+                        </div>
+                        <form id="olinfoForm" action="${siteurl}account/updateResume.htm" method="post">
+                            <div class="mr_info_edit mr_info_on dn">
+                                <div class="mr_showidentity_div">
+                                    <label>显示身份</label>
+                                    <div class="form_wrap " >
+                                        <input id="shenfen" type="text" name="shenfen" placeholder="身份" class="mr_input"  value="${model.shenfen!''}"/>
+                                    </div>
+                                </div>
+                                <label>性别</label>
+                                <div class="clearfixs mr_sex">
+                                    <input type="hidden" id="sex" name="sex" value="${model.sex!''}">
+                                    <span class="mr_man fl [#if model.sex?? && model.sex='男']active[/#if]" ><i class="[#if model.sex?? && model.sex='男']active[/#if]"></i><em>男</em></span>
+                                    <span class="mr_women fl [#if model.sex?? && model.sex='女']active[/#if]"><i class="[#if model.sex?? && model.sex='女']active[/#if]"></i><em>女</em></span>
+                                </div>
+                                <label>生日</label>
+                                <div class="form_wrap">
+                                    <input id="birthday" type="text" name="birthday" placeholder="生日" class="mr_input"  value="${(model.birthday?string('yyyy-MM-dd'))!''}"/>
+                                </div>
+                                <label>最高学历</label>
+                                <div class="form_wrap normal_s" style="*z-index:4;">
+                                    <input id="degreeid" type="hidden" name="degree.id" value="${(model.degree.id)!''}">
+                                    <input id="xl" name="xl" type="button" class="mr_button" value="${(model.degree.name)!''}"/>
+                                    <i class="mr_sj"></i>
+                                    <div class="xl_list dn">
+                                        <ul class="ul_xl">
+                                            [@degrees]
+                                            [#list list as item]
+                                            <li data-rid="degreeid" data-id="${item.id}" data-text="${item.name!''}">${item.name}</li>
+                                            [/#list]
+                                            [/@degrees]
+                                        </ul>
+                                    </div>
+                                </div>
+                                <label>工作年限</label>
+                                <div class="form_wrap normal_s" style="*z-index:3;">
+                                    <input id="workyearid" type="hidden" name="workYear.id" value="${(model.workYear.id)!''}">
+                                    <input id="gznx" name="gznx" type="button" class="mr_button" value="${(model.workYear.name)!''}"/>
+                                    <i class="mr_sj"></i>
+                                    <div class="xl_list dn">
+                                        <ul class="ul_gznx">
+                                            [@resumeworkyears]
+                                            [#list list as item]
+                                            <li data-rid="workyearid" data-id="${item.id}" data-text="${item.name!''}">${item.name}</li>
+                                            [/#list]
+                                            [/@resumeworkyears]
+                                        </ul>
+                                    </div>
+                                </div>
+                                <label>所在省份</label>
+                                <div class="form_wrap normal_s" style="*z-index:3;">
+                                    <input id="areaid" type="hidden" name="area.id" value="${(model.area.id)!''}">
+                                    <input type="button" class="mr_button" value="${(model.area.name)!''}"/>
+                                    <i class="mr_sj"></i>
+                                    <div class="xl_list dn">
+                                        <ul class="ul_gznx">
+                                            [@arealevels level=2 size=50]
+                                            [#list list as item]
+                                            <li data-rid="areaid" data-id="${item.id}" data-text="${item.name!''}">${item.name}</li>
+                                            [/#list]
+                                            [/@arealevels]
+                                        </ul>
+                                    </div>
+                                </div>
+                                <label>手机号码</label>
+                                <div class="form_wrap mobile_s">
+                                    <input id="mr_mobile" type="text" name="phone"  class="mr_input" value="${model.phone!''}"
+                                           placeholder="手机号"/>
+
+
+                                    <!--<i class="mr_locks"><em>在简历中保密，仅投递后对方才可查看<i></i></em></i>-->
+                                </div>
+
+                                <label>联系邮箱</label>
+                                <div class="form_wrap email_s">
+                                    <input id="mr_email" type="text" name="email" placeholder="联系邮箱" class="mr_input"  value="${model.email!''}"/>
+                                    <!--<i class="mr_locks"><em>在简历中保密，仅投递后对方才可查看<i></i></em></i>-->
+                                </div>
+                                <div class="mr_ope">
+                                    <input type="submit" class="mr_save" value="保存"/>
+                                    <a href="javascript:;" class="mr_cancel" >取消</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="mr_content">
+                    <div id="workExperience" class="item_container_target">
+                        <div class="mr_moudle_head clearfixs mr_w604">
+                            <div class="mr_head_l">
+                                <div class="mr_title">
+                                    <span class="mr_title_l"></span><span class="mr_title_c"> 工作经历  </span><span
+                                        class="mr_title_r"></span>
+                                </div>
+                            </div>
+                            <div class="mr_head_r">
+                                <i></i><em>添加</em>
+                            </div>
+                        </div>
+                        <div class="mr_moudle_content mr_w604">
+                            <form class="jobExpForm dn" id="addJobForm">
+                                <div class="mr_add_work">
+                                    <label>公司</label>
+                                    <div class="mr_input_div mr_click_flag">
+                                        <input class="mr_btn companyName" id="companyName" name="companyName" value=""/>
+                                    </div>
+                                    <label>职位</label>
+                                    <div class="mr_input_div mr_click_flag">
+                                        <input class="mr_btn autoPosition" id="positionName" name="positionName"
+                                               value=""/>
+                                    </div>
+                                    <label>在职时间</label>
+                                    <div class="clearfixs mr_time_area">
+                                        <div class="mr_timed_div fl">
+                                            <i class="mr_sj"></i>
+                                            <input id="startDate" name="startDate" type="text" class="mr_btn"/>
+                                        </div>
+                                        <div class="mr_timed_div fl">
+                                            <i class="mr_sj"></i>
+                                            <input id="endDate" name="endDate" type="text" class="mr_btn"/>
+                                        </div>
+                                    </div>
+                                    <label>工作内容</label>
+                                    <div class="wrap_editor">
+                                        <textarea maxlength="100" style="width: 390px;height: 120px;resize: none" id="note"></textarea>
+                                    </div>
+                                    <div class="mr_ope clearfixs">
+                                        <input id="addwork" type="button" class="mr_save" value="保存"/>
+                                        <a href="javascript:;" class="mr_cancel">取消</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="mr_empty_add  dn ">
+                                <i></i><span> 添加工作经历  </span>
+                            </div>
+                            <div class="list_show">
+                                <div class="dn new_addjob_hide">
+                                    <div class="mr_jobe_list">
+                                        <div class="clearfixs">
+                                            <div class="mr_content_l clearfixs">
+                                                <div class="l1">
+                                                    <img src="" alt="公司logo" class="my_company_logo dn"/>
+                                                </div>
+                                                <div class="l2">
+                                                    <h4></h4>
+                                                    <span></span>
+                                                </div>
+                                            </div>
+                                            <div class="mr_content_r">
+                                                <div class="mr_edit mr_c_r_t">
+                                                    <i></i><em>编辑</em>
+                                                </div>
+                                                <span></span><span> — </span><span></span>
+                                            </div>
+                                        </div>
+                                        <div class="dn mr_content_m ueditor_parse">
+
+                                        </div>
+                                    </div>
+                                    <form class="jobExpForm dn" id="">
+                                        <input class="mr_expid" type="hidden" value=""/>
+                                        <div class="mr_add_work">
+                                            <label>公司</label>
+                                            <div class="mr_input_div mr_click_flag">
+                                                <input class="mr_btn companyName" name="companyName" value=""/>
+                                            </div>
+                                            <label>职位</label>
+                                            <div class="mr_input_div mr_click_flag">
+                                                <input class="mr_btn autoPosition" name="positionName" value=""/>
+                                            </div>
+                                            <label>在职时间</label>
+                                            <div class="clearfixs mr_time_area">
+                                                <div class="mr_timed_div mr_sta_time fl">
+                                                    <i class="mr_sj"></i>
+                                                    <input type="button" class="mr_btn" value=""/>
+                                                    <input type="hidden" name="startTime" class="startTime" value=""/>
+                                                </div>
+                                                <div class="mr_timed_div mr_end_time fl">
+                                                    <i class="mr_sj"></i>
+                                                    <input type="button" class="mr_btn" value=""/>
+                                                    <input type="hidden" name="endTime" class="endTime" value=""/>
+                                                </div>
+                                            </div>
+                                            <label>工作内容</label>
+                                            <div class="wrap_editor">
+                                                <textarea maxlength="100" style="width: 390px;height: 120px;resize: none"></textarea>
+                                            </div>
+                                            <div class="mr_ope clearfixs">
+                                                <div class="mr_delete">
+                                                    <div class="mr_delete_pop dn">
+                                                        <p>确定删除本条信息？</p>
+                                                        <div>
+                                                            <span data-id="" class="mr_del_ok">删除</span>
+                                                            <span class="mr_del_cancel">取消</span>
+                                                        </div>
+                                                    </div>
+                                                    <span>删除本条</span>
+                                                </div>
+                                                <input class="mr_save" type="submit" value="保存"/>
+                                                <a href="javascript:;" class="mr_cancel">取消</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="updatejob_wrap" id="works">
+                                    [#if model.workExperiences??]
+                                    [#list model.workExperiences as item]
+                                    <div class="workitem" id="workitem${item.id}">
+                                        <div class="mr_jobe_list">
+                                            <div class="clearfixs">
+                                                <div class="mr_content_l clearfixs">
+                                                    <div class="l1">
+                                                        <img src="" alt="公司logo" class="my_company_logo dn"/>
+                                                    </div>
+                                                    <div class="l2">
+                                                        <h4>${item.companyName!""}</h4>
+                                                        <span>${item.post!""}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="mr_content_r">
+                                                    <div class="mr_edit mr_c_r_t"  onclick="showEdit('workitem${item.id}');">
+                                                        <i></i><em>编辑</em>
+                                                    </div>
+                                                    <span>${(item.startDate?string("yyyy.MM"))!""}</span><span> — </span><span>${(item.endDate?string("yyyy.MM"))!"至今"}</span>
+                                                </div>
+                                            </div>
+                                            <div class="mr_content_m ueditor_parse" >
+                                                <p>${item.note!""}</p>
+                                            </div>
+                                        </div>
+                                        <form class="jobExpForm dn"  action="${siteurl}resume/updatework.htm" method="post">
+                                            <input class="mr_expid" name="id" type="hidden" value="${item.id}"/>
+                                            <div class="mr_add_work">
+                                                <label>公司</label>
+                                                <div class="mr_input_div mr_click_flag">
+                                                    <input class="mr_btn companyName" name="companyName"
+                                                           value="${item.companyName!''}"/>
+                                                </div>
+                                                <label>职位</label>
+                                                <div class="mr_input_div mr_click_flag">
+                                                    <input class="mr_btn autoPosition" name="post"
+                                                           value="${item.post!''}"/>
+                                                </div>
+                                                <label>在职时间</label>
+                                                <div class="clearfixs mr_time_area">
+                                                    <div class="mr_timed_div mr_sta_time fl">
+                                                        <i class="mr_sj"></i>
+                                                        <input type="text" class="mr_btn" name="startDate" value="${(item.startDate?string('yyyy-MM'))!''}"/>
+                                                    </div>
+                                                    <div class="mr_timed_div mr_end_time fl">
+                                                        <i class="mr_sj"></i>
+                                                        <input type="text" class="mr_btn" name="endDate" value="${(item.endDate?string('yyyy-MM'))!''}"/>
+                                                    </div>
+                                                </div>
+                                                <label>工作内容</label>
+                                                <div class="wrap_editor">
+                                                    <textarea name="note"  maxlength="100" style="width: 390px;height: 120px;resize: none">${item.note!""}</textarea>
+                                                </div>
+                                                <div class="mr_ope clearfixs">
+                                                    <div class="mr_delete">
+                                                        <span class="deleteitem" data-deleteid="workitem${item.id}" data-url="${siteurl}rest/resume/deletework.htm?id=${item.id}">删除本条</span>
+                                                    </div>
+                                                    <input class="mr_save" type="submit" value="保存"/>
+                                                    <a href="javascript:;" class="mr_cancel">取消</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    [/#list]
+                                    [/#if]
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="educationalBackground" class="item_container_target">
+                        <div class="mr_moudle_head clearfixs mr_w604">
+                            <div class="mr_head_l">
+                                <div class="mr_title">
+                                    <span class="mr_title_l"></span><span class="mr_title_c">教育经历</span><span
+                                        class="mr_title_r"></span>
+                                </div>
+                            </div>
+                            <div class="mr_head_r">
+                                <i></i><em>添加</em>
+                            </div>
+                        </div>
+                        <div class="mr_moudle_content mr_w604">
+                            <form class="eduExpForm dn" id="addEduForm" method="post" action="${siteurl}resume/addedu.htm">
+                                <div class="mr_add_work">
+                                    <label>学校名称</label>
+                                    <div class="mr_input_div mr_click_flag">
+                                        <input class="mr_btn autoCollege" type="text" name="schoolName"/>
+                                    </div>
+                                    <label>所学专业</label>
+                                    <div class="mr_input_div mr_click_flag">
+                                        <input class="mr_btn autoMajor" type="text" name="major"/>
+                                    </div>
+                                    <label><span>学历</span><span class="label_by_y">毕业年份</span></label>
+                                    <div class="clearfixs mr_time_area">
+                                        <div class="mr_timed_div normal_s fl">
+                                            <i class="mr_sj"></i>
+                                            <input type="hidden" name="degree.id" id="xdegreeid"/>
+                                            <input type="button" class="mr_btn" />
+                                            <div class="xl_list dn">
+                                                <ul class="ul_gznx">
+                                                    [@degrees]
+                                                    [#list list as item]
+                                                    <li data-rid="xdegreeid" data-id="${item.id}" data-text="${item.name!''}">${item.name!""}</li>
+                                                    [/#list]
+                                                    [/@degrees]
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="graduate_year mr_timed_div normal_s fl">
+                                            <i class="mr_sj"></i>
+                                            <input type="text" class="mr_btn" name="year"/>
+                                        </div>
+                                    </div>
+                                    <div class="mr_ope clearfixs">
+                                        <input type="submit" class="mr_save" value="保存"/>
+                                        <a href="javascript:;" class="mr_cancel">取消</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="mr_empty_add  dn ">
+                                <i></i><span>添加教育经历</span>
+                            </div>
+
+                            <div class="list_show">
+                                [#if model.educationalExperiences??]
+                                [#list model.educationalExperiences as item]
+                                <div class="clearfixs mb46 mr_jobe_list">
+                                    <div class="mr_content_l">
+                                        <div class="l2">
+                                            <h4>${item.schoolName!""}</h4>
+                                            <span>${(item.degree.name)!""} · ${item.major!""}</span>
+                                        </div>
+                                    </div>
+                                    <div class="mr_content_r">
+                                        <div class="mr_edit mr_c_r_t">
+                                            <i></i><em>编辑</em>
+                                        </div>
+                                        <span>${item.year!""}年毕业</span>
+                                    </div>
+                                </div>
+
+                                <form class="eduExpForm dn" id="upEduForm" novalidate="novalidate" method="post" action="${siteurl}resume/updateedu.htm">
+                                    <input  name="id" value="${item.id}" type="hidden">
+                                    <div class="mr_add_work">
+                                        <label>学校名称</label>
+                                        <div class="mr_input_div mr_click_flag">
+                                            <input class="mr_btn autoCollege valid" name="schoolName"
+                                                   aria-required="true" aria-invalid="false" type="text" value="${item.schoolName!''}">
+                                        </div>
+                                        <label>所学专业</label>
+                                        <div class="mr_input_div mr_click_flag">
+                                            <input class="mr_btn autoMajor valid" name="major"
+                                                   aria-required="true" aria-invalid="false" type="text" value="${item.major!''}">
+                                        </div>
+                                        <label><span>学历</span><span class="label_by_y">毕业年份</span></label>
+                                        <div class="clearfixs mr_time_area">
+                                            <div class="mr_timed_div normal_s fl">
+                                                <i class="mr_sj"></i>
+                                                <input name="degree.id" id="xdegreeid${item.id}" value="${(item.degree.id)!''}" type="hidden">
+                                                <input class="mr_btn" name="degree_val" value="${(item.degree.name)!''}" type="button">
+                                                <div class="xl_list dn" >
+                                                    <ul class="ul_edubg">
+                                                        [@degrees]
+                                                        [#list list as ditem]
+                                                        <li data-rid="xdegreeid${item.id}" data-id="${ditem.id}" data-text="${ditem.name!''}">${ditem.name!""}</li>
+                                                        [/#list]
+                                                        [/@degrees]
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="graduate_year mr_timed_div normal_s fl">
+                                                <i class="mr_sj"></i>
+                                                <input class="mr_btn" name="year"
+                                                       value="${item.year!''}" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="mr_ope clearfixs">
+                                            <div class="mr_delete">
+                                                <div class="mr_delete_pop dn">
+                                                    <p>确定删除本条信息？</p>
+                                                    <div>
+                                                        <span data-id="6169674" class="mr_del_ok">删除</span>
+                                                        <span class="mr_del_cancel">取消</span>
+                                                    </div>
+                                                </div>
+                                                <span ><a onclick="return confirm('删除后无法恢复,确定要删除吗')" href="${siteurl}resume/deleteedu.htm?id=${item.id}">删除本条</a></span>
+                                            </div>
+                                            <input class="mr_save" value="保存" type="submit">
+                                            <a href="javascript:;" class="mr_cancel">取消</a>
+                                        </div>
+                                    </div>
+                                </form>
+                                [/#list]
+                                [/#if]
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div id="projectExperience" class="item_container_target" style="">-->
+                        <!--<div class="mr_moudle_head clearfixs mr_w604">-->
+                            <!--<div class="mr_head_l">-->
+                                <!--<div class="mr_title">-->
+                                    <!--<span class="mr_title_l"></span><span class="mr_title_c">项目经验</span><span-->
+                                        <!--class="mr_title_r"></span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="mr_head_r" style="cursor: pointer;">-->
+                                <!--<i></i><em>添加</em>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="mr_moudle_content mr_w604" style="">-->
+                            <!--<form class="proExpForm dn" id="addProForm" action="${siteurl}resume/addproject.htm" method="post">-->
+                                <!--<div class="mr_add_work">-->
+                                    <!--<label>项目名称</label>-->
+                                    <!--<div class="mr_input_div mr_click_flag">-->
+                                        <!--<input class="mr_btn"  name="name">-->
+                                    <!--</div>-->
+                                    <!--<label>你的职责</label>-->
+                                    <!--<div class="mr_input_div mr_click_flag">-->
+                                        <!--<input class="mr_btn"  name="duty">-->
+                                    <!--</div>-->
+                                    <!--<label>项目起止时间</label>-->
+                                    <!--<div class="clearfixs mr_time_area">-->
+                                        <!--<div class="mr_timed_div mr_sta_time fl">-->
+                                            <!--<i class="mr_sj"></i>-->
+                                            <!--<input name="startDate" class="mr_btn" type="text">-->
+                                        <!--</div>-->
+                                        <!--<div class="mr_timed_div mr_end_time fl">-->
+                                            <!--<i class="mr_sj"></i>-->
+                                            <!--<input name="endDate" class="mr_btn" type="text">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<label>项目描述</label>-->
+                                    <!--<div class="mr_time_area wrap_editor">-->
+                                        <!--<script id="ueditor_addpro" type="text/plain"></script>-->
+                                    <!--</div>-->
+                                    <!--<label>项目链接（若有）</label>-->
+                                    <!--<div class="mr_input_div mr_click_flag  mr_prolink">-->
+                                        <!--<input class="mr_btn" id="pro_link" name="link">-->
+                                    <!--</div>-->
+                                    <!--<div class="mr_ope clearfixs">-->
+                                        <!--<input class="mr_save" value="保存" type="submit">-->
+                                        <!--<a href="javascript:;" class="mr_cancel">取消</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</form>-->
+                            <!--<div class="mr_empty_add  dn" style="display: none;">-->
+                                <!--<i></i><span>添加项目经验</span>-->
+                            <!--</div>-->
+                            <!--<div class="temp_hide dn">-->
+                                <!--<div class="dn new_addpro_hide">-->
+                                    <!--<div class="mr_jobe_list" data-id="">-->
+                                        <!--<div class="clearfixs">-->
+                                            <!--<div class="mr_content_l">-->
+                                                <!--<div class="l2">-->
+                                                    <!--<a class="projectTitle"></a>-->
+                                                    <!--<p></p>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="mr_content_r">-->
+                                                <!--<div class="mr_edit mr_c_r_t" style="cursor: pointer;">-->
+                                                    <!--<i></i><em>编辑</em>-->
+                                                <!--</div>-->
+                                                <!--<span></span><span> - </span><span></span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="mr_content_m ueditor_parse">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+
+                                    <!--<form class="proExpForm dn" id="">&lt;!&ndash;upProForm js赋值  &ndash;&gt;-->
+                                        <!--<div class="mr_add_work">-->
+                                            <!--<label>项目名称</label>-->
+                                            <!--<div class="mr_input_div mr_click_flag">-->
+                                                <!--<input class="mr_btn" id="projectName" name="projectName">-->
+                                            <!--</div>-->
+                                            <!--<label>你的职责</label>-->
+                                            <!--<div class="mr_input_div mr_click_flag">-->
+                                                <!--<input class="mr_btn" id="thePost" name="thePost">-->
+                                            <!--</div>-->
+                                            <!--<label>项目起止时间</label>-->
+                                            <!--<div class="clearfixs mr_time_area">-->
+                                                <!--<div class="mr_timed_div mr_sta_time fl">-->
+                                                    <!--<i class="mr_sj"></i>-->
+                                                    <!--<input name="startTime" class="mr_btn" type="text">-->
+                                                <!--</div>-->
+                                                <!--<div class="mr_timed_div mr_end_time fl">-->
+                                                    <!--<i class="mr_sj"></i>-->
+                                                    <!--<input name="endTime" class="mr_btn" type="text">-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<label>项目描述</label>-->
+                                            <!--<div class="mr_time_area wrap_editor">-->
+                                                <!--<script id="" type="text/plain" class="ueditor_updatepro"></script>-->
+                                            <!--</div>-->
+                                            <!--<label>项目链接（若有）</label>-->
+                                            <!--<div class="mr_input_div mr_click_flag mr_prolink">-->
+                                                <!--<input class="mr_btn" id="yourDuty" name="pro_link">-->
+                                            <!--</div>-->
+                                            <!--<div class="mr_ope clearfixs">-->
+                                                <!--<div class="mr_delete">-->
+                                                    <!--<div class="mr_delete_pop dn">-->
+                                                        <!--<p>确定删除本条信息？</p>-->
+                                                        <!--<div>-->
+                                                            <!--<span class="mr_del_ok">删除</span>-->
+                                                            <!--<span class="mr_del_cancel">取消</span>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                    <!--<span>删除本条</span>-->
+                                                <!--</div>-->
+                                                <!--<input class="mr_save" value="保存" type="submit">-->
+                                                <!--<a href="javascript:;" class="mr_cancel">取消</a>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</form>-->
+                                <!--</div>-->
+                                <!--<div class="updatepro_wrap"></div>-->
+                            <!--</div>-->
+
+                            <!--<div class="list_show" style="">-->
+                                <!--<div class="dn new_addpro_hide">-->
+                                    <!--<div class="mr_jobe_list" data-id="">-->
+                                        <!--<div class="clearfixs">-->
+                                            <!--<div class="mr_content_l">-->
+                                                <!--<div class="l2">-->
+                                                    <!--<a class="projectTitle"></a>-->
+                                                    <!--<p></p>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="mr_content_r">-->
+                                                <!--<div class="mr_edit mr_c_r_t" style="cursor: pointer;">-->
+                                                    <!--<i></i><em>编辑</em>-->
+                                                <!--</div>-->
+                                                <!--<span></span><span> - </span><span></span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="mr_content_m ueditor_parse">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+
+                                    <!--<form class="proExpForm dn" id="">&lt;!&ndash;upProForm js赋值  &ndash;&gt;-->
+                                        <!--<div class="mr_add_work">-->
+                                            <!--<label>项目名称</label>-->
+                                            <!--<div class="mr_input_div mr_click_flag">-->
+                                                <!--<input class="mr_btn" id="projectName" name="projectName">-->
+                                            <!--</div>-->
+                                            <!--<label>你的职责</label>-->
+                                            <!--<div class="mr_input_div mr_click_flag">-->
+                                                <!--<input class="mr_btn" id="thePost" name="thePost">-->
+                                            <!--</div>-->
+                                            <!--<label>项目起止时间</label>-->
+                                            <!--<div class="clearfixs mr_time_area">-->
+                                                <!--<div class="mr_timed_div mr_sta_time fl">-->
+                                                    <!--<i class="mr_sj"></i>-->
+                                                    <!--<input name="startTime" class="mr_btn" type="text">-->
+                                                <!--</div>-->
+                                                <!--<div class="mr_timed_div mr_end_time fl">-->
+                                                    <!--<i class="mr_sj"></i>-->
+                                                    <!--<input name="endTime" class="mr_btn" type="text">-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<label>项目描述</label>-->
+                                            <!--<div class="mr_time_area wrap_editor">-->
+                                                <!--<textarea maxlength="100" style="width: 390px;height: 120px;resize: none">-->
+
+                                                <!--</textarea>-->
+                                            <!--</div>-->
+                                            <!--<label>项目链接（若有）</label>-->
+                                            <!--<div class="mr_input_div mr_click_flag mr_prolink">-->
+                                                <!--<input class="mr_btn" id="yourDuty" name="pro_link">-->
+                                            <!--</div>-->
+                                            <!--<div class="mr_ope clearfixs">-->
+                                                <!--<div class="mr_delete">-->
+                                                    <!--<div class="mr_delete_pop dn">-->
+                                                        <!--<p>确定删除本条信息？</p>-->
+                                                        <!--<div>-->
+                                                            <!--<span class="mr_del_ok">删除</span>-->
+                                                            <!--<span class="mr_del_cancel">取消</span>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                    <!--<span>删除本条</span>-->
+                                                <!--</div>-->
+                                                <!--<input class="mr_save" value="保存" type="submit">-->
+                                                <!--<a href="javascript:;" class="mr_cancel">取消</a>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</form>-->
+                                <!--</div>-->
+
+                                <!--<div class="updatepro_wrap" style="">-->
+                                    <!--[#if model.projectExperiences??]-->
+                                    <!--[#list model.projectExperiences as item]-->
+                                    <!--<div class="mr_jobe_list" data-id="6479056" style="display: block;">-->
+                                        <!--<div class="clearfixs">-->
+                                            <!--<div class="mr_content_l">-->
+                                                <!--<div class="l2">-->
+                                                    <!--<a class="projectTitle" target="_blank"-->
+                                                       <!--[#if item.link??]href="${item.link}" [/#if]>
+                                                        <!--${item.name!""}-->
+                                                        <!--<i></i>-->
+                                                    <!--</a>-->
+                                                    <!--<p>${item.duty!""}</p>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="mr_content_r">-->
+                                                <!--<div class="mr_edit mr_c_r_t" style="cursor: pointer;">-->
+                                                    <!--<i></i><em>编辑</em>-->
+                                                <!--</div>-->
+                                                <!--<span>${(item.startDate?string("yyyy-MM"))!""} — ${(item.endDate?string("yyyy-MM"))!"至今"}</span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="mr_content_m ueditor_parse">-->
+                                            <!--<p>${item.note!""}</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<form action="${siteurl}resume/updateproject.htm" class="proExpForm dn" id="currentUpProForm" style="display: none;"-->
+                                          <!--novalidate="novalidate" method="post">&lt;!&ndash;upProForm js赋值  &ndash;&gt;-->
+                                        <!--<input type="hidden" name="id" value="${item.id}">-->
+                                        <!--<div class="mr_add_work" style="">-->
+                                            <!--<label>项目名称</label>-->
+                                            <!--<div class="mr_input_div mr_click_flag">-->
+                                                <!--<input class="mr_btn valid" id="projectName" name="name"-->
+                                                       <!--aria-required="true" aria-invalid="false" value="${item.name!''}">-->
+                                            <!--</div>-->
+                                            <!--<label>你的职责</label>-->
+                                            <!--<div class="mr_input_div mr_click_flag">-->
+                                                <!--<input class="mr_btn valid" id="thePost" name="duty"-->
+                                                       <!--aria-required="true" aria-invalid="false" value="${item.duty!''}">-->
+                                            <!--</div>-->
+                                            <!--<label>项目起止时间</label>-->
+                                            <!--<div class="clearfixs mr_time_area">-->
+                                                <!--<div class="mr_timed_div mr_sta_time fl">-->
+                                                    <!--<i class="mr_sj"></i>-->
+                                                    <!--<input name="startDate" class="mr_btn" value="${(item.startDate?string('yyyy-MM'))!''}" type="text">-->
+                                                <!--</div>-->
+                                                <!--<div class="mr_timed_div mr_end_time fl">-->
+                                                    <!--<i class="mr_sj"></i>-->
+                                                    <!--<input name="endDate" class="mr_btn" value="${(item.endDate?string('yyyy-MM'))!''}" type="text">-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<label>项目描述</label>-->
+                                            <!--<div class="mr_time_area wrap_editor" style="">-->
+                                                <!--<textarea name="note" maxlength="100" style="width: 390px;height: 120px;resize: none"> ${item.note!""}</textarea>-->
+                                            <!--</div>-->
+                                            <!--<label>项目链接（若有）</label>-->
+                                            <!--<div class="mr_input_div mr_click_flag mr_prolink">-->
+                                                <!--<input class="mr_btn" id="yourDuty" name="link" value="${item.link!''}">-->
+                                            <!--</div>-->
+                                            <!--<div class="mr_ope clearfixs">-->
+                                                <!--<div class="mr_delete">-->
+                                                    <!--<div class="mr_delete_pop dn">-->
+                                                        <!--<p>确定删除本条信息？</p>-->
+                                                        <!--<div>-->
+                                                            <!--<span class="mr_del_ok" data-id="6479056">删除</span>-->
+                                                            <!--<span class="mr_del_cancel">取消</span>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                    <!--<span><a onclick="return confirm('删除后无法恢复,确定要删除吗')" href="${siteurl}resume/deleteproject.htm?id=${item.id}">删除本条</a></span>-->
+                                                <!--</div>-->
+                                                <!--<input class="mr_save" value="保存" type="submit">-->
+                                                <!--<a  class="mr_cancel">取消</a>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<textarea name="editorValue" id="ueditor_textarea_editorValue"-->
+                                                  <!--style="display: none;"></textarea></form>-->
+                                    <!--[/#list]-->
+                                    <!--[/#if]-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div id="self-introduction" class="item_container_target">
+                        <div class="mr_moudle_head clearfixs mr_w604">
+                            <div class="mr_head_l">
+                                <div class="mr_title">
+                                    <span class="mr_title_l"></span><span class="mr_title_c">自我描述</span><span
+                                        class="mr_title_r"></span>
+                                </div>
+                            </div>
+                            <div class="mr_head_r" style="cursor: pointer;">
+                                <i></i><em>编辑</em>
+                            </div>
+                        </div>
+                        <div class="mr_moudle_content mr_w604">
+                            <form id="upIntroForm" class=" dn" action="${siteurl}account/updateResume.htm" method="post">
+                                <div class="mr_add_work">
+                                    <div class="wrap_editor">
+                                        <textarea name="note" maxlength="100" style="width: 490px;height: 120px;resize: none">${model.note!}</textarea>
+                                    </div>
+                                    <div class="mr_ope clearfixs">
+                                        <input class="mr_save" value="保存" type="submit">
+                                        <a class="mr_cancel" href="javascript:;">取消</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="mr_empty_add dn">
+                                <i></i><span>更新自我描述</span>
+                            </div>
+                            <div class="self_des_list clearfixs">
+                                <div class="mr_content_l">
+                                    <div class="mr_content_m ueditor_parse">
+                                        ${model.note!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="certChecked" class="item_container_target">
+                        <div class="mr_moudle_head clearfixs mr_w604">
+                            <div class="mr_head_l">
+                                <div class="mr_title">
+                                    <span class="mr_title_l"></span><span class="mr_title_c">证件选择</span><span
+                                        class="mr_title_r"></span>
+                                </div>
+                            </div>
+                            <!--<div id="certsEdit" class="mr_head_r" style="cursor: pointer;">
+                                <i></i><em>编辑</em>
+                            </div>-->
+                        </div>
+                        <div class="mr_moudle_content mr_w604">
+                            <form action="${siteurl}resume/addcerts.htm">
+
+
+                            [#include "/theme/default/common/certsTpl.html"]
+                            [@commonCerts checkedCerts=model.certNames name="certs"  /]
+
+                                <div class="mr_ope clearfixs">
+                                    <input style="float: right" class="mr_save" value="保存" type="submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="certShow" class="item_container_target">
+                        <div class="mr_moudle_head clearfixs mr_w604">
+                            <div class="mr_head_l">
+                                <div class="mr_title">
+                                    <span class="mr_title_l"></span><span class="mr_title_c">证件展示</span><span
+                                        class="mr_title_r"></span>
+                                </div>
+                            </div>
+                            <div id="photoAdd" class="mr_head_r" style="cursor: pointer;">
+                                <i></i><em>上传</em>
+                            </div>
+                        </div>
+                        <div class="mr_moudle_content mr_w604">
+                            <div class="mr_add_work" id="photoAddCont" style="display: none">
+                                [@batchUpload /]
+                                <form id="photos" action="${siteurl}resume/addCerts.htm" method="post">
+                                    <div style="text-align: center">
+                                        <input value="保存" class="save" type="submit">
+                                        <a href="javascript:;" id="photoAddCancel" class="uploadCancel">取消</a>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="imgCont" style="overflow: auto">
+                                [#if certs?? && certs?size>0]
+                                [#list certs as item]
+                                <div style="float: left;position: relative;padding: 10px">
+                        <span class="delete" style="position: absolute;top:15px;right: 15px"
+                              onclick="removePhoto(${item.id})">删除</span>
+                                    <img height="200px" layer-src="${siteurl}${item.path!}" src="${siteurl}${item.path!}" alt="图片"
+                                         onerror="javascript:this.src='${item.path!}';this.onerror=null;">
+                                </div>
+                                [/#list]
+                                [/#if]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mr_self_state">
+                        <div class="form_wrap mr_self_s active">
+                            <input id="self_state" name="self_state" type="button" class="mr_button"
+                                   value="${model.selfState!'我目前已离职，可快速到岗'}"/>
+                            <i class="mr_sj"></i>
+                            <div class="xl_list dn">
+                                <ul class="ul_self_state">
+                                    <li>我目前已离职，可快速到岗</li>
+                                    <li>我目前正在职，正考虑换个新环境</li>
+                                    <li>我暂时不想找工作</li>
+                                    <li>我是应届毕业生</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mr_myresume_r">
+                <!--
+    @require "mycenter/modules/common/sidebar_mr/main.less"
+-->
+                <div class="mr_r_nav">
+                    <ul class="clearfixs">
+                        <li>
+                            <a href="${siteurl}mycenter/delivery.htm" target="_blank" data-lg-tj-id="7e00"
+                               data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-gatj-msg="resume,投递箱,button">
+                                投递箱<i class="td"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="${siteurl}mycenter/invitation.htm" target="_blank" data-lg-tj-id="7f00"
+                               data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-gatj-msg="resume,邀请函,button">邀请函<i
+                                    class="yq"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="${siteurl}mycenter/collections.htm" target="_blank" data-lg-tj-id="7g00"
+                               data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-gatj-msg="resume,收藏夹,button">收藏夹<i
+                                    class="sc"></i></a>
+                        </li>
+                        <!--<li class="mr_none">
+                            <a href="${siteurl}mycenter/subscribe.htm" target="_blank" data-lg-tj-id="7h00"
+                               data-lg-tj-no="idnull" data-lg-tj-cid="idnull" data-lg-gatj-msg="resume,订阅栏,button">订阅栏<i
+                                    class="dy"></i></a>
+                        </li>-->
+                    </ul>
+                </div>
+                <!--<div class="mr_upload">-->
+                    <!--<i></i><a class="inline" href="#uploadFile" title="上传附件简历">我要上传附件简历</a>-->
+                <!--</div>-->
+
+                <div class="mr_uploaded clearfixs dn">
+                    <a href="javascript:;" class="mr_del"></a>
+                    <div class="mr_up_main">
+                        <a href="" title=""></a>
+                        <p></p>
+                    </div>
+                    <div class="mr_set_default">
+                        <div class="set_default_wrap">
+                            <input id="default_resume" type="button" class="mr_button" value="默认投递：在线简历"/>
+                            <span><i class="mr_sj"></i></span>
+                            <div class="xl_list dn">
+                                <ul class="ul_resume_type">
+                                    <li data-type="1">默认投递：在线简历</li>
+                                    <li data-type="0">默认投递：附件简历</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scroll_fix">
+                    <div class="mr_integrity">
+                        <li>
+                            <!--<span class="mr_tip_l"><em class="mr_tip">简历完整度：</em><em class="mr_bfb">34%</em></span>-->
+                            <a class="" target="_blank" href="${siteurl}resume/preview.htm">预览简历</a>
+                        </li>
+                        <li>
+                            <a class="recommend" href="${siteurl}resume/recommend.htm">推荐我的简历</a>
+                        </li>
+                    </div>
+                    <div class="mr_module">
+                        <ul>
+                            <li class="active md_flag" data-md="baseinfo">
+                                <a class="clearfixs">
+                                    <i class="mr_base_i"></i>
+                                    <span class="mr_m_name">基本信息</span>
+                                </a>
+                            </li>
+                            <li data-md="workExperience" class="md_flag">
+                                <a class="clearfixs">
+                                    <i class="mr_works_i"></i>
+                                    <span class="mr_m_name"> 工作经历  </span>
+                                </a>
+                            </li>
+                            <li data-md="educationalBackground" class="md_flag">
+                                <a class="clearfixs">
+                                    <i class="mr_edu_i"></i>
+                                    <span class="mr_m_name">教育经历</span>
+                                </a>
+                            </li>
+                            <li data-md="self-introduction" class="md_flag">
+                                <a class="clearfixs">
+                                    <i class="mr_self_i"></i>
+                                    <span class="mr_m_name">自我描述</span>
+                                </a>
+                            </li>
+                            <li data-md="certShow" class="md_flag">
+                                <a class="clearfixs">
+                                    <i class="mr_production_i"></i>
+                                    <span class="mr_m_name">证件展示</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sns_hide" style="display:none;">
+        <div class="form_wrap mr_sns_m">
+            <i class="sns8"></i>
+            <em class="mr_no"></em>
+            <a href="javascript:;" class="sns_del"></a>
+            <input type="text" id="sns8" name="sns8" class="mr_button"/>
+        </div>
+    </div>
+    <div id="del_hide_tip" class="dn">
+        <div class="mr_md_del">
+            <div class="mr_tip_div">
+                <span class="mr_ic">?</span><span class="mr_del_tip">确定删除本条信息？</span>
+            </div>
+            <p>
+                删除后，该模块将不在简历中出现；<br>
+                同时，该模块内已经填写的信息将被删除
+            </p>
+            <div class="mr_btn_area">
+                <span class="mr_del_btn">删除</span><span class="mr_del_cel">取消</span>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="del_hide_tip" class="dn">
+    <div class="mr_md_del">
+        <div class="mr_tip_div">
+            <span class="mr_ic">?</span><span class="mr_del_tip">确定删除本条信息？</span>
+        </div>
+        <p>
+            删除后，该模块将不在简历中出现；<br>
+            同时，该模块内已经填写的信息将被删除
+        </p>
+        <div class="mr_btn_area">
+            <span class="mr_del_btn">删除</span><span class="mr_del_cel">取消</span>
+        </div>
+    </div>
+</div> -->
+    <!--教育经历修改框  -->
+    <div id="edu_update_hide" class="dn">
+        <form class="eduExpForm" id="">
+            <input type="hidden" id="eduId" name="eduId" value=""/>
+            <div class="mr_add_work">
+                <label>学校名称</label>
+                <div class="mr_input_div mr_click_flag">
+                    <input class="mr_btn autoCollege" type="text" name="schoolName"/>
+                </div>
+                <label>所学专业</label>
+                <div class="mr_input_div mr_click_flag">
+                    <input class="mr_btn autoMajor" type="text" name="positionName"/>
+                </div>
+                <label><span>学历</span><span class="label_by_y">毕业年份</span></label>
+                <div class="clearfixs mr_time_area">
+                    <div class="mr_timed_div normal_s mr_sta_time fl">
+                        <i class="mr_sj"></i>
+                        <input type="hidden" name="degree_text"/>
+                        <input type="button" class="mr_btn" name="degree_val"/>
+                        <div class="xl_list dn">
+                            <ul class="ul_edubg">
+                                <li>大专</li>
+                                <li>本科</li>
+                                <li>硕士</li>
+                                <li>博士</li>
+                                <li>其他</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mr_timed_div normal_s fl">
+                        <i class="mr_sj"></i>
+                        <input type="hidden" name="graduate_text"/>
+                        <input type="button" class="mr_btn" onchange="validateChange(this);" name="graduate"/>
+                        <div class="xl_list dn">
+                            <ul class="ul_eduy">
+                                <li>2019</li>
+                                <li>2018</li>
+                                <li>2017</li>
+                                <li>2016</li>
+                                <li>2015</li>
+                                <li>2014</li>
+                                <li>2013</li>
+                                <li>2012</li>
+                                <li>2011</li>
+                                <li>2010</li>
+                                <li>2009</li>
+                                <li>2008</li>
+                                <li>2007</li>
+                                <li>2006</li>
+                                <li>2005</li>
+                                <li>2004</li>
+                                <li>2003</li>
+                                <li>2002</li>
+                                <li>2001</li>
+                                <li>2000</li>
+                                <li>1999</li>
+                                <li>1998</li>
+                                <li>1997</li>
+                                <li>1996</li>
+                                <li>1995</li>
+                                <li>1994</li>
+                                <li>1993</li>
+                                <li>1992</li>
+                                <li>1991</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mr_ope clearfixs">
+                    <div class="mr_delete">
+                        <div class="mr_delete_pop dn">
+                            <p>确定删除本条信息？</p>
+                            <div>
+                                <span data-id="" class="mr_del_ok">删除</span>
+                                <span class="mr_del_cancel">取消</span>
+                            </div>
+                        </div>
+                        <span>删除本条</span>
+                    </div>
+                    <input type="submit" class="mr_save" value="保存"/>
+                    <a href="javascript:;" class="mr_cancel">取消</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div style="display:none">
+        <div class="popup" id="cropimageContainer" style="overflow:hidden;width:360px;height:470px;">
+            <div id="">
+                <div class="crop">
+                    <div id="cropzoom_container" style="overflow:hidden;"></div>
+                    <div class="page_btn">
+                        <input type="button" class="btn" id="cropimageEnsure" value="确定"/>
+                        <input type="button" class="cancel" id="cropimageRestore" value="取消"/>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display:none">
+        <div class="popup" id="uploadImages" style="overflow:hidden;width:360px;height:470px;">
+            <div class="crop">
+                <div id="cropzoom_container" style="overflow:hidden;"></div>
+                <div class="page_btn">
+                    <input type="button" class="btn" id="crop" value="确定"/>
+                    <input type="button" class="cancel" id="restore" value="取消"/>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div style="display:none">
+        <div class="popup" id="uploadLogos" style="overflow:hidden;width:360px;height:470px;">
+            <div class="crop">
+                <div id="cropzoom_container" style="overflow:hidden;"></div>
+                <div class="page_btn">
+                    <input type="button" class="btn" id="crop" value="确定"/>
+                    <input type="button" class="cancel" id="restore" value="取消"/>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 确定关闭plus弹窗 by honge -->
+    <div style="display:none;">
+        <div id="closeplus" class="popup" style="overflow:hidden">
+            <h2>关闭后将错失许多职业机会</h2>
+                <a href="javascript:;" class="btn" data-lg-tj-id="7500" data-lg-tj-no="idnull" data-lg-tj-cid="idnull"
+                   data-lg-gatj-method="send" data-lg-gatj-msgtype="event" data-lg-gatj-msg="plus,关闭,button">关 闭</a>
+        </div>
+    </div>
+</div>
+<!-- 页面主体END -->
+
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+<script src="${siteurl}dist/js/myresume.js"></script>
+<script src="${siteurl}plugins/laydate/laydate.js"></script>
+<script src="${siteurl}plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="${siteurl}plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="${siteurl}plugins/layer/layer.js"></script>
+<script src="${siteurl}dist/js/handlebars-v4.0.11.js"></script>
+<script id="work-template" type="text/x-handlebars-template">
+    <div class="workitem" id="workitem{{id}}">
+        <div class="mr_jobe_list">
+            <div class="clearfixs">
+                <div class="mr_content_l clearfixs">
+                    <div class="l1">
+                        <img src="" alt="公司logo" class="my_company_logo dn"/>
+                    </div>
+                    <div class="l2">
+                        <h4>{{companyName}}</h4>
+                        <span>{{post}}</span>
+                    </div>
+                </div>
+                <div class="mr_content_r">
+                    <div class="mr_edit mr_c_r_t"  onclick="showEdit('workitem{{id}}');">
+                        <i></i><em>编辑</em>
+                    </div>
+                    <span>{{startDate}}</span><span> — </span><span>{{endDate}}</span>
+                </div>
+            </div>
+            <div class="mr_content_m ueditor_parse" >
+                <p>{{note}}</p>
+            </div>
+        </div>
+        <form class="jobExpForm dn" id="">
+            <input class="mr_expid" type="hidden" value="10390762"/>
+            <div class="mr_add_work">
+                <label>公司</label>
+                <div class="mr_input_div mr_click_flag">
+                    <input class="mr_btn companyName" name="companyName"
+                           value="{{companyName}}"/>
+                </div>
+                <label>职位</label>
+                <div class="mr_input_div mr_click_flag">
+                    <input class="mr_btn autoPosition" name="positionName"
+                           value="{{post}}"/>
+                </div>
+                <label>在职时间</label>
+                <div class="clearfixs mr_time_area">
+                    <div class="mr_timed_div mr_sta_time fl">
+                        <i class="mr_sj"></i>
+                        <input type="text" class="mr_btn" value="{{startDate}}"/>
+                    </div>
+                    <div class="mr_timed_div mr_end_time fl">
+                        <i class="mr_sj"></i>
+                        <input type="text" class="mr_btn" value="{{endDate}}"/>
+                    </div>
+                </div>
+                <label>工作内容</label>
+                <div class="wrap_editor">
+                    <textarea maxlength="100" style="width: 390px;height: 120px;resize: none">{{note}}</textarea>
+                </div>
+                <div class="mr_ope clearfixs">
+                    <div class="mr_delete">
+                        <span class="deleteitem" data-deleteid="workitem{{id}}" data-url="${siteurl}rest/resume/deletework.htm?id={{id}}">删除本条</span>
+                    </div>
+                    <input class="mr_save" type="button" value="保存"/>
+                    <a href="javascript:;" class="mr_cancel">取消</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</script>
+<script>
+    $(document).ready(function () {
+        $('.ul_self_state').on("click","li",function () {
+            $("#self_state").val($(this).text());
+            var data={};
+            data.state=$(this).text();
+            $.post("${siteurl}account/updateresumestate.htm",data,function (backdate) {
+
+            })
+            $(this).parent().parent().removeClass('dn');
+        });
+
+        laydate.render({
+            elem: '#birthday' //指定元素
+        });
+        laydate.render({
+            elem: '#startDate'//指定元素
+            ,type: 'month'
+        });
+        laydate.render({
+            elem: '#endDate' //指定元素
+            ,type: 'month'
+        });
+        lay('.mr_sta_time input').each(function(){
+            laydate.render({
+                elem: this
+                ,type: 'month'
+                ,format: 'yyyy-MM'
+                ,value: $(this).val()
+            });
+        });
+        lay('.mr_end_time input').each(function(){
+            laydate.render({
+                elem: this
+                ,type: 'month'
+                ,format: 'yyyy-MM'
+                ,value: $(this).val()
+            });
+        });
+        lay('.graduate_year input').each(function(){
+            laydate.render({
+                elem: this
+                ,type: 'year'
+                ,format: 'yyyy'
+                ,value: $(this).val()
+                ,min: '1991-1-1'
+                ,max: '2019-12-31'
+            });
+        });
+
+        $(".form_wrap.normal_s .mr_button").click(function () {
+            console.info("btn click")
+            if ($(this).parent().find("div").hasClass("dn")){
+                $(".form_wrap.normal_s div").addClass("dn");
+                $(this).parent().find("div").removeClass("dn");
+            }else {
+                $(".form_wrap.normal_s div").addClass("dn");
+                $(this).parent().find("div").addClass("dn");
+            }
+        });
+
+        $(".form_wrap.normal_s li").click(function () {
+            console.info("li click")
+            $("#"+$(this).data("rid")).val($(this).data("id"));
+            $(this).parent().parent().parent().find(".mr_button").val($(this).data("text"));
+            $(this).parent().parent().parent().find("div").addClass("dn");
+        });
+
+        $(".mr_timed_div.normal_s .mr_btn").click(function () {
+            console.info("btn click")
+            if ($(this).parent().find("div").hasClass("dn")){
+                $(this).parent().find("div").removeClass("dn");
+            }else {
+                $(this).parent().find("div").addClass("dn");
+            }
+        });
+
+        $(".mr_timed_div.normal_s.fl li").click(function () {
+            console.info("li click")
+            $("#"+$(this).data("rid")).val($(this).data("id"));
+            $(this).parent().parent().parent().find(".mr_btn").val($(this).data("text"));
+            $(this).parent().parent().parent().find("div").addClass("dn");
+        });
+
+
+        function resetWorkForm() {
+            $("#companyName").val("");
+            $("#positionName").val("");
+            $("#note").val("");
+            $("#positionName").val("");
+            $("#startDate").val("");
+            $("#endDate").val("");
+            //window.location.reload();
+        }
+
+         $("#addwork").click(function () {
+             var data={};
+             data.companyName=$("#companyName").val();
+             data.post=$("#positionName").val();
+             data.note=$("#note").val();
+             data.post=$("#positionName").val();
+             data.startDate=$("#startDate").val();
+             data.endDate=$("#endDate").val();
+             if (data.companyName == "" || data.post == "" || data.startDate == "" || data.endDate == "" || data.note == "") {
+                 layer.msg('请补全信息！', {icon: 2});
+                 return;
+             }
+             $.post("${siteurl}rest/resume/addwork.htm",data,function (backdata) {
+                 if (backdata.code==0){
+                     layer.msg(''+backdata.msg, {icon: 1});
+                     var source   = document.getElementById("work-template").innerHTML;
+                     var template = Handlebars.compile(source);
+                     var html    = template(backdata);
+                     $("#works").prepend(html);
+                     resetWorkForm();
+
+
+                      $("#workitem"+backdata.id+"  .deleteitem").click(function () {
+                         var url=$(this).data("url");
+                         var divid=$(this).data("deleteid");
+
+                         layer.confirm('您确定要删除工作经验吗？', {
+                             btn: ['取消','确定'] //按钮
+                         }, function(){
+                             layer.closeAll();
+                         }, function(){
+
+                             $.get(url,function (backdata) {
+                                 if (backdata.code==0){
+                                     $("#"+divid).empty();
+                                     layer.msg('删除成功', {icon: 1});
+                                     //window.location.reload();
+                                 }
+                             })
+                         });
+
+                     });
+
+                 }
+             });
+
+         });
+
+         $(".deleteitem").click(function () {
+             var url=$(this).data("url");
+             var divid=$(this).data("deleteid");
+
+             layer.confirm('您确定要删除工作经验吗？', {
+                 btn: ['取消','确定'] //按钮
+             }, function(){
+                 layer.closeAll();
+             }, function(){
+
+                 $.get(url,function (backdata) {
+                     if (backdata.code==0){
+                         $("#"+divid).empty();
+                         layer.msg('删除成功', {icon: 1});
+                         //window.location.reload();
+                     }
+                 })
+             });
+
+         });
+        $(".recommend").click(function () {
+
+        });
+        $('#photoAdd').click(function () {
+            $('#photoAddCont').show();
+            myUploader.refresh();
+        })
+        $('#photoAddCancel').click(function () {
+            $('#photoAddCont').hide();
+        })
+        $('#photos').submit(function (e) {
+            var photoList = $(this).find('input[type="hidden"]');
+            if (!photoList.length){
+                alert('请上传照片');
+                e.preventDefault();
+            }
+        })
+    });
+    
+    function showEdit(div) {
+                if ($("#"+div+" .mr_c_r_t").hasClass("mr_up_grey")){return;}
+                $("#"+div+" .jobExpForm").removeClass("dn");
+                $("#"+div+" .mr_jobe_list").addClass("dn");
+                $('.mr_head_r').addClass('mr_add_grey');
+                $('.mr_c_r_t').addClass('mr_up_grey');
+    }
+    function removePhoto(id) {
+        layer.confirm('确定要删除吗', {
+                btn: ['删除','取消'] //按钮
+            },
+            function () {
+                location.href = '${siteurl}resume/deleteCert.htm?id='+id;
+                layer.closeAll();
+            },
+            function () {
+                console.log(`no`);
+            }
+        )
+    }
+    layer.photos({
+        photos: '#imgCont'
+        ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<style>
+    #backtop:hover {
+        background-position: right top!important;
+    }
+    #backtop {
+        background: url(${siteurl}dist/img/backtop.png);
+        width: 28px;
+        height: 46px;
+        position: fixed;
+        left: 50%;
+        bottom: 146px;
+        margin-left: 631px;
+        cursor: pointer;
+    }
+    #product-fk {
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        left: 50%;
+        bottom: 80px;
+        margin-left: 620px;
+        cursor: pointer;
+        z-index: 21;
+    }
+    #feedback-icon {
+        position: relative;
+        text-align: center;
+    }
+    #feedback-icon .fb-icon {
+        width: 28px;
+        height: 28px;
+        margin: 0 auto;
+        background: url(${siteurl}dist/img/feedback.png) left center no-repeat;
+        background-position: 0 0;
+    }
+    #feedback-icon span {
+        font-size: 12px;
+        color: #555;
+    }
+    .fb-btn{
+        width: 100px;
+        height: 35px;
+        font-size: 15px;
+        color: #FFF;
+        border: 0;
+        background: #09f;
+        cursor: pointer;
+    }
+</style>
+<a href="javascript:void(0)" id="backtop" title="回到顶部" rel="nofollow" style="display: block;background-position-x: 0px;"></a>
+<div id="product-fk">
+    <div id="feedback-icon">
+        <div class="fb-icon"></div>
+        <span>我要反馈</span>
+    </div>
+</div>
+<script id="feedback-content" type="text/html">
+    <div style="text-align: center;padding: 10px">
+        <div style="margin-bottom: 5px;">
+            <textarea class="fb-area" name="" id="fbContent" cols="50" rows="8"></textarea>
+        </div>
+        <button class="fb-btn" type="button" onclick="submitFb()">提交</button>
+    </div>
+</script>
+<script src="${siteurl}plugins/layer/layer.js"></script>
+<script>
+    function c() {
+        $("#backtop").css("background-position-x", "-38px"), $("html, body").animate({scrollTop: 0}, 1e3, function () {
+            $("#backtop").css("background-position-x", "0")
+        })
+    }
+    $("#backtop").click(function () {
+        c()
+    })
+    var min_height = 100;
+    $(window).scroll(function(){
+        //获取窗口的滚动条的垂直位置
+        var s = $(window).scrollTop();
+        //当窗口的滚动条的垂直位置大于页面的最小高度时，让返回顶部元素渐现，否则渐隐
+        if( s > min_height){
+            $("#backtop").fadeIn(100);
+        }else{
+            $("#backtop").fadeOut(100);
+        };
+    });
+    $("#backtop").hide();
+    $('#product-fk').click(function (e) {
+        layer.open({
+            type: 1,
+            title: '反馈',
+            skin: 'layui-layer-rim', //加上边框
+            area: ['420px', '250px'], //宽高
+            content: $('#feedback-content').html()
+        });
+    })
+    function submitFb() {
+        var url = "${siteurl}feedback/add.htm";
+        $.post(url, {content: $('#fbContent').val()}, function (res) {
+            if (res.code !== 0) {
+                layer.alert(res.msg);
+            }else {
+                layer.alert("反馈成功！")
+            }
+        })
+    }
+</script>

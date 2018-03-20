@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "编辑职位 - 寻鹰简招" cssNames = [
+    "mds/static/common/static/less/parent.base_142fcd4.css",
+    "pkg/resume-positions/page/release-my-position/main.html_aio_107994c.css"
+    ]/]
+    <link rel="stylesheet" href="${siteurl}dist/js/element-ui/index.css">
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/layer/theme/default/layer.css">
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/nicevalidator/jquery.validator.css"/>
+    <style>
+        .el-cascader{
+            width: 468px;
+            font-size: 14px;
+            line-height: 44px;
+            border-radius: 2px;
+        }
+        .el-input__inner{
+            height: 46px;
+        }
+        .edui-default .edui-toolbar{
+            width: 100%!important;
+        }
+        .el-tag + .el-tag {
+            margin-left: 10px;
+        }
+        .button-new-tag {
+            margin-left: 10px;
+            height: 32px;
+            line-height: 30px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .input-new-tag {
+            width: 90px;
+            margin-left: 10px;
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+
+<body>
+
+[#include "/theme/default/common/commonhr.html"]
+
+[@header index=3 /]
+
+<div id="main-content-wrapper">
+
+    <div class="container">
+        <div class="mds-sub-content mds-member-list">
+            <div class="head clearfix" style="margin-top: 20px;">
+                <div class="title">编辑职位</div>
+            </div>
+
+            <div class="release_position_container" id="release-container">
+                <form class="position_item" id="editPositionForm" method="post" action="${siteurl}/job/update.htm">
+                    <div class="other-container">
+                        <input type="hidden" name="id" value="${item.id!''}">
+                        <div class="position_item_header">请填写职位描述</div>
+                        <div class="form-item">
+                            <label class="required" aria-required="true">职位类型: </label>
+                            <div class="form-input">
+                                <ul class="recruit-radio-list">
+                                    <li class="area-tip recruit-area-tip">
+                                        <label class="recruit-radio" for="radioSocial">
+                                            <input type="radio" name="jobType.id" value="2" id="radioSocial"
+                                                   [#if item.jobType?? && item.jobType.id == 2]checked="checked"[/#if]>
+                                            <span class="profile-text recruit-radio-text">社招</span>
+                                            <span class="icon-contain">
+                                                <span class="check-icon"><i class="icon-yes"></i></span>
+                                            </span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="recruit-radio" for="radioSchool">
+                                            <input type="radio" name="jobType.id" value="3" id="radioSchool"
+                                                   [#if item.jobType?? && item.jobType.id == 2]checked="checked"[/#if]>
+                                            <span class="profile-text">校招</span>
+                                            <span class="icon-contain">
+                                                <span class="check-icon"><i class="icon-yes"></i></span>
+                                            </span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="area-tip top_tip_ele" id="topTipEle">
+                            <div class="form-item">
+                                <label class="required">职位类别: </label>
+                                <input type="hidden" name="category.id" v-model="categoryId">
+                                <div class="form-input">
+                                    <el-cascader
+                                            :options="jobTypes"
+                                            :props="jobTypeProps"
+                                            v-model="selectedJobType"
+                                            placeholder="请选择职位类别"
+                                            @change="handleChange">
+                                    </el-cascader>
+                                </div>
+                            </div>
+
+                            <div class="form-item">
+                                <label class="required">职位名称: </label>
+                                <div class="form-input">
+                                    <input type="text" name="name" class="input input_white"
+                                           placeholder="请输入职位名称,如: 产品经理" value="${item.name!''}" maxlength="25">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-item clearfix">
+                            <label class="required">职位描述: </label>
+                            <span class="position-detail-tips">(请勿输入公司邮箱、联系电话、薪资面议及其他外链，否则将自动删除，不可恢复。)</span>
+                            <textarea id="positionDetail" style="display: none;"></textarea>
+                            <span class="pdplaceholder"> 请输入岗位职责、任职要求等，建议尽量使用短句并分条列出 </span>
+                            <!-- 加载编辑器的容器 -->
+                            <script id="container" name="note" type="text/plain">${item.note!'请输入职位描述'}</script>
+                        </div>
+                        <div class="form-item clearfix">
+                            <label class="">职位标签: </label>
+                            <div class="form-input">
+                                <input type="hidden" name="tags" v-model="dynamicTags.join(',')">
+                                <el-tag
+                                        :key="tag"
+                                        v-for="tag in dynamicTags"
+                                        closable
+                                        :disable-transitions="false"
+                                        @close="handleClose(tag)">
+                                    {{tag}}
+                                </el-tag>
+                                <el-input
+                                        class="input-new-tag"
+                                        v-if="inputVisible"
+                                        v-model="inputValue"
+                                        ref="saveTagInput"
+                                        size="small"
+                                        @keyup.enter.native="handleInputConfirm"
+                                        @blur="handleInputConfirm"
+                                >
+                                </el-input>
+                                <el-button v-else class="button-new-tag" size="small" @click="showInput">+ 标签</el-button>
+                            </div>
+                        </div>
+                        <div class="line"></div>
+                        <div id="layer-sign">
+                            <div class="form-item">
+                                <label class="required">工作性质: </label>
+                                <div class="form-input">
+                                    <ul class="profile-radio-list">
+                                        <li>
+                                            <label class="profile-radio" for="radio-full-time">
+                                                <input type="radio" name="workType.id" value="3" id="radio-full-time"
+                                                       [#if item.workType??] [#if item.workType.id == 3]checked="checked"[/#if][/#if]>
+                                                <span class="profile-text">全职</span>
+                                                <span class="icon-contain">
+                                                    <span class="check-icon"><i class="icon-yes"></i></span>
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label class="profile-radio" for="radio-part-time">
+                                                <input type="radio" name="workType.id" value="4" id="radio-part-time"
+                                                       [#if item.workType?? && item.workType.id == 4]checked="checked"[/#if]>
+                                                <span class="profile-text" data-lg-tj-id="19hi">兼职</span>
+                                                <span class="icon-contain">
+                                                    <span class="check-icon"><i class="icon-yes"></i></span>
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label class="profile-radio" for="radio-intern">
+                                                <input type="radio" name="workType.id" value="5" id="radio-intern"
+                                                       [#if item.workType?? && item.workType.id == 5]checked="checked"[/#if]>
+                                                <span class="profile-text">实习</span>
+                                                <span class="icon-contain">
+                                                    <span class="check-icon"><i class="icon-yes"></i></span>
+                                                </span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="area-tip" data-tip-content="明确地填写具体“年限”与“学历”，可以使职位排名更加靠前。">
+                                <div class="form-item clearfix">
+                                    <label class="">工作经验: </label>
+                                    <input type="hidden" name="workYear.id" v-model="exp">
+                                    <el-select v-model="exp" placeholder="请选择工作经验">
+                                        <el-option
+                                                v-for="item in experiences"
+                                                :key="item.value"
+                                                :label="item.label"
+                                                :value="item.value">
+                                        </el-option>
+                                    </el-select>
+                                </div>
+                                <div class="form-item clearfix">
+                                    <label class="required">学历要求: </label>
+                                    <input type="hidden" name="degree.id" v-model="edu">
+                                    <el-select v-model="edu" placeholder="请选择学历要求">
+                                        <el-option
+                                                v-for="item in educations"
+                                                :key="item.value"
+                                                :label="item.label"
+                                                :value="item.value">
+                                        </el-option>
+                                    </el-select>
+                                </div>
+                            </div>
+
+                            <div class="line"></div>
+
+                            <div class="form-item">
+                                <label class="">所属部门: </label>
+                                <div class="form-input">
+                                    <input type="text" name="deparment" class="input input_white"
+                                           placeholder="请输入所属部门" value="${item.deparment!''}" maxlength="20">
+                                </div>
+                            </div>
+                            <div class="form-item area-tip">
+                                <label class="">职位亮点: </label>
+                                <ul class="position_advantage">
+                                    <li class="advantage_input">
+                                        <div class="form-input" data-propertyname="position_advantage_first">
+                                            <input type="text" id="positionAdvantageInputFirst"
+                                                   name="position_advantage_first"
+                                                   class="advantage_small_input input input_white input-mar"
+                                                   placeholder="最多5个字" value="" maxlength="5">
+                                        </div>
+                                    </li>
+                                    <li class="advantage_input">
+                                        <div class="form-input" data-propertyname="position_advantage_second">
+                                            <input type="text" id="positionAdvantageInputSecond"
+                                                   name="position_advantage_second"
+                                                   class="advantage_small_input input input_white" placeholder="最多5个字"
+                                                   value="" maxlength="5">
+                                        </div>
+                                    </li>
+                                    <li class="advantage_input">
+                                        <div class="form-input" data-propertyname="position_advantage_third">
+                                            <input type="text" id="positionAdvantageInputThird"
+                                                   name="position_advantage_third"
+                                                   class="advantage_small_input input input_white" placeholder="最多5个字"
+                                                   value="" maxlength="5">
+                                        </div>
+                                    </li>
+                                    <li class="advantage_input">
+                                        <div class="form-input" data-propertyname="position_advantage_fourth">
+                                            <input type="text" id="positionAdvantageInputFourth"
+                                                   name="position_advantage_fourth"
+                                                   class="advantage_small_input input input_white" placeholder="最多5个字"
+                                                   value="" maxlength="5">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="form-item area-tip" data-tip-content="最高月薪不能大于最低月薪的 2 倍">
+                                <label class="">月薪范围: </label>
+                                <ul class="salary">
+                                    <li class="salary_input">
+                                        <div class="form-input">
+                                            <input type="text" name="minMoney"
+                                                   class="input input_white" placeholder="最低" value="${item.minMoney!''}">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span>至</span>
+                                    </li>
+                                    <li class="salary_input">
+                                        <div class="form-input">
+                                            <input type="text" name="maxMoney"
+                                                   class="input input_white" placeholder="最高" value="${item.maxMoney!''}">
+                                        </div>
+                                    </li>
+                                    <li class="salary_text">只能输入整数,如"9"</li>
+                                </ul>
+                            </div>
+                            <div class="line"></div>
+                            <div class="form-item clearfix">
+                                <label class="required">工作地址: </label>
+                                <div id="address_container" class="form-input">
+                                    <input type="hidden" name="address.id" v-model="addr">
+                                    <el-select v-model="addr" placeholder="请选择工作地址">
+                                        <el-option
+                                                v-for="item in addrs"
+                                                :key="item.value"
+                                                :label="item.label"
+                                                :value="item.value">
+                                        </el-option>
+                                    </el-select>
+                                    <a href="javascript:;" @click="addNewAddr" id="addAddr" style="color:#0099ff">暂无可选地址，添加新地址</a>
+                                </div>
+                            </div>
+
+                            <div class="form-item" data-propertyname="submit">
+                                <label></label>
+                                <button type="submit" class="btn btn_green btn_active">提交</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="${siteurl}dist/js/vue.js"></script>
+<script src="${siteurl}dist/js/element-ui/index.js"></script>
+<script src="${siteurl}ueditor/ueditor.config.js"></script>
+<script src="${siteurl}ueditor/ueditor.all.min.js"></script>
+<script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="${siteurl}plugins/layer/layer.js"></script>
+<script src="${siteurl}plugins/nicevalidator/jquery.validator.min.js?local=zh-CN"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var editor = UE.getEditor('container', {
+        toolbars: [
+            ['bold', 'italic', 'underline', '|','justifyleft', 'justifycenter', 'justifyright', '|',
+                'insertorderedlist', 'insertunorderedlist', '|', 'indent', '|', 'undo', 'redo']
+        ],
+        initialFrameHeight: 300
+    });
+</script>
+<script>
+    var exps = [[@workyears][#list list as item]{value: '${item.id}', label: '${item.name}'},[/#list][/@workyears]];
+    var edus = [[@degrees][#list list as item]{value: '${item.id}', label: '${item.name}'},[/#list][/@degrees]];
+    var addrs = [[#list address as item]{value: '${item.id}', label: '${item.name}'},[/#list]];
+    var selectedJobType = [[#if selectedJobType??][#list selectedJobType as item]${item},[/#list][/#if]];
+    var dynamicTags = [[#if labels??][#list labels as lab]"${lab.name}",[/#list][/#if]];
+</script>
+<script>
+    var app = new Vue({
+        el:'#editPositionForm',
+        data() {
+            return {
+                jobTypes: ${jobCat![]},
+                jobTypeProps: {
+                    value: 'id',
+                    label: 'name'
+                },
+                selectedJobType: selectedJobType,
+                categoryId: 0,
+                experiences: exps,
+                exp: '${(item.workYear.id!"")}',
+                educations: edus,
+                edu: '${(item.degree.id!"")}',
+                dynamicTags: dynamicTags,
+                inputVisible: false,
+                inputValue: '',
+                addrs: addrs,
+                addr:'${(item.address.id)!""}'
+            };
+        },
+        methods: {
+            handleChange(value) {
+                this.categoryId = value[value.length - 1];
+            },
+            handleClose(tag) {
+                this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
+            },
+
+            showInput() {
+                this.inputVisible = true;
+                this.$nextTick(_ => {
+                    this.$refs.saveTagInput.$refs.input.focus();
+                });
+            },
+
+            handleInputConfirm() {
+                let inputValue = this.inputValue;
+                if (inputValue) {
+                    this.dynamicTags.push(inputValue);
+                }
+                this.inputVisible = false;
+                this.inputValue = '';
+            },
+            addNewAddr(){
+                layer.open({
+                    type: 2,
+                    area: ['800px', '550px'],
+                    fixed: true, //不固定
+                    maxmin: true,
+                    scrollbar: false,
+                    content: '${siteurl}hr/add_new_addr.htm'
+                });
+            },
+            updateAddrs(item){
+                this.addrs.push(item)
+            }
+        }
+    })
+</script>
+<script>
+    $('#editPositionForm').validator({
+        fields: {
+            'category.id': {
+                rule: 'required;',
+                msg: {
+                    required: '请选择分类'
+                }
+            },
+            'name': {
+                rule: 'required;',
+                msg: {
+                    required: '请输入职位名称'
+                }
+            },
+            'note': {
+                rule: 'required;',
+                msg: {
+                    required: '请输入职位描述'
+                }
+            }
+        }
+    });
+</script>
+[#include "/theme/default/common/footer.html"]
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- meta -->
+    [#include "/theme/default/common/header.html"]
+    [@header title = "我的投递" cssNames = [
+        "pkg/mycenter-sidenav/page/deliveries/main.html_aio_be25e6c.css",
+        "pkg/mycenter-sidenav/page/deliveries/main.html_aio_2_b9a55e6.css"
+    ]/]
+</head>
+<body>
+
+[#include "/theme/default/common/navBar.html"]
+[#include "/theme/default/common/commonsite.html"]
+
+[@navBar /]
+
+<input type="hidden" id="serverTime" value="1504167381576" />
+
+<!-- 页面主体START -->
+<div id="container">
+    <div class="content clearfix">
+        <div class="new_section fl">
+            <dl class="c_delivery">
+                <dt>
+                    <h1><em></em>已投递简历状态</h1>
+
+                    <div class="select_input">
+                        <span>2个月内投递</span>
+                        <i></i>
+                    </div>
+                    <div class="select_options dn">
+                        <span>2个月前投递</span>
+                    </div>
+
+                    <a href="javascript:;" class="d_refresh">刷新</a>
+                </dt>
+                <dd>
+                    <div class="delivery_tabs">
+                        <ul class="reset">
+                            <li   [#if tag=-1]class="current"[/#if] >
+                                <a href="${siteurl}mycenter/delivery.htm?tag=-1" class="all_border">全部</a>
+                            </li>
+                            <li [#if tag=0]class="current"[/#if]>
+                                <a href="${siteurl}mycenter/delivery.htm?tag=0">投递成功</a>
+                            </li>
+                            <li  [#if tag=1]class="current"[/#if]>
+                                <a href="${siteurl}mycenter/delivery.htm?tag=1">被查看</a>
+                            </li>
+                            <li  [#if tag=2]class="current"[/#if]>
+                                <a href="${siteurl}mycenter/delivery.htm?tag=2">待沟通</a>
+                            </li>
+                            <li  [#if tag=4]class="current"[/#if]>
+                                <a href="${siteurl}mycenter/delivery.htm?tag=4">邀请面试</a>
+                            </li>
+                            <li    class="last  [#if tag=5]current[/#if]" >
+                                <a href="${siteurl}mycenter/delivery.htm?tag=5">不合适</a>
+                            </li>
+                        </ul>
+                    </div>
+                    [#if page?? && page.content?? && page.content?size>0]
+                    <form id="deliveryForm">
+                        <ul class="reset my_delivery">
+                            [#list page.content as item]
+                            <li data-id="913221999794442240">
+                                <div class="d_item clearfix">
+                                    <div class="d_job">
+                                        <a class="d_job_link" href="${siteurl}jobs/${(item.job.id)!''}.htm" data-index="0" target="_blank" title="Java架构师">
+                                            <em class="d_job_name">${(item.job.name)!""}</em>
+                                            <span class="d_job_salary">（${(item.job.minMoney)!""}-${(item.job.maxMoney)!""}）</span>
+                                            <!--  -->
+                                        </a>
+                                    </div>
+                                    <div class="d_company">
+                                        <a href="${siteurl}company/${(item.job.company.id)!''}.htm" target="_blank" title="${(item.job.company.name)!''}">${(item.job.company.name)!""} <span>[西安]</span></a>
+                                    </div>
+                                    <div class="d_resume">
+                                        使用简历：
+                                        <span class="d_resume_type">
+                                                                            在线简历
+                                                                        </span>
+                                        <a href="javascript:;" class="btn_showprogress">
+                                        <span>
+                                              [#if item.state?? ]
+                                                [#if item.state==1]被查看
+                                                [#elseif item.state==0]投递成功
+                                                [#elseif item.state==2]待沟通
+                                                [#elseif item.state==4]邀请面试
+                                                [#elseif item.state==5]不合适
+                                                [/#if]
+                                              [/#if]
+                                        </span>
+                                            <i></i>
+                                        </a>
+                                        <span class="d_time">${item.addDate!""}</span>
+                                    </div>
+                                </div>
+                                <div class="progress_status dn">
+                                    <ul class="status_steps">
+                                        <li class="status_done status_1">1</li>
+                                        <li class="status_line status_line_done"><span></span></li>
+                                        <li class="status_done"><span>2</span></li>
+                                        <li class="status_line status_line_grey"><span></span></li>
+                                        <li class="status_grey"><span>3</span></li>
+                                        <li class="status_line status_line_grey"><span></span></li>
+                                        <li class="status_grey"><span>4</span></li>
+                                    </ul>
+                                    <ul class="status_text clearfix">
+                                        <li>投递成功</li>
+                                        <li class="status_text_2">简历被查看</li>
+                                        <li class="status_text_3">待沟通</li>
+                                        <li class="status_text_4 status_text_6">面试</li>
+                                    </ul>
+                                    <ul class="status_list" data-id="913221999794442240">
+                                        <li class="top">
+                                            <div class="list_time"><em></em>2017-09-28 10:33</div>
+                                            <div class="list_body">
+                                                <!-- 1.如果是通知面试，无举报入口 -->
+
+                                                <img src="//img.yingjobs.com/" style="border-radius:50%;" heigth="60" width="60">
+                                                <h3 class="contact_title" style="position:relative;z-index:2;display:inline-block;">
+
+                                                    louisa&nbsp;查看了你的简历
+                                                </h3>
+
+                                            </div>
+                                        </li>
+                                        <li class="bottom">
+                                            <div class="list_time"><em></em>2017-09-28 10:01</div>
+                                            <div class="list_body">
+                                                <!-- 1.如果是通知面试，无举报入口 -->
+
+                                                <h3 class="contact_title">
+                                                    louisa&nbsp;已成功接收你的简历
+                                                </h3>
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <a href="javascript:;" class="btn_closeprogress"></a>
+                                </div>
+                            </li>
+                            [/#list]
+                        </ul>
+                        <input name="tag" value="1" type="hidden">
+                        <input name="r" value="" type="hidden">
+
+                        <div class="clearfix" style="text-align: right;">
+                            [@pagersimple2 page=page url="mycenter/delivery.htm?tag="+tag /]
+                        </div>
+                    </form>
+                    [#else]
+                    <div class="no_delivery">当前没有符合条件的投递记录</div>
+                    [/#if]
+                </dd>
+            </dl>
+        </div>
+        <div class="content_r">
+            <div class="deliveries_nav_button">
+                <div class="mr_r_nav">
+                    <ul class="clearfix">
+                        <li data-lg-tj-track-code="deliver_deliver" data-lg-tj-track-type="1">
+                            <a  href="${siteurl}mycenter/delivery.htm"  target="_blank">
+                                投递箱<i class="td"></i>
+                            </a>
+                            <!-- <a  href="https://www.lagou.com/mycenter/delivery.html" target="_blank">我的投递<i class="td"></i><em class="count2">99</em></a> -->
+                        </li>
+                        <li data-lg-tj-track-code="invite_invite" data-lg-tj-track-type="1">
+                            <a href="${siteurl}mycenter/invitation.htm" target="_blank">邀请函<i class="yq"></i>
+                            </a>
+                        </li>
+                        <li data-lg-tj-track-code="favorite_favorite" data-lg-tj-track-type="1">
+                            <a href="${siteurl}mycenter/collections.htm" target="_blank">收藏夹<i class="sc"></i></a>
+                        </li>
+                        <!--<li class="mr_none">
+                            <a href="${siteurl}mycenter/subscribe.htm" target="_blank">订阅栏<i class="dy"></i></a>
+                        </li>-->
+                    </ul>
+                </div>
+
+            </div>
+            <div class="deliveries_recommend" data-lg-tj-track-code="deliver_guess" data-lg-tj-track-type="1">
+                <div id="position_recommend">
+                    <input type="hidden" value="false" id="hasRecommendPositionList"> </div>
+
+            </div>
+
+
+
+            <!--广告位-->
+            <div key="ZHIWEITOUDIXIANGYAOQINGHANSHOUZANGJIADINGYUELAN_ZHIWEITOUDIXIANGYAOQINGHANSHOUZANGJIADINGYUELAN" class="lgad_jsonp" style="margin-top: 20px;"></div>
+
+        </div>
+    </div>
+    <input type="hidden" value="8816059" name="userid" id="userid" />
+    <!-- 用户确认反馈后-添加内容模板 -->
+    <ul id="feedback_tem" style="display:none;">
+        <li class="top">
+            <div class="list_time"><em></em><span></span></div>
+            <div class="list_body">
+
+            </div>
+        </li>
+    </ul>
+
+    <div style="display:none;">
+        <div id="unReceivePop" class="popup" style="overflow:auto;">
+            <p>hr可能通过电话或者邮件的方式通知你面试，你确定没有收到通知吗?</p>
+            <div class="btn_div">
+                <a href="javascript:;" class="unreceive_save">确定</a><a href="javascript:;" class="unreceive_cancel">取消</a>
+            </div>
+        </div>
+        <div id="no_receive_communication" class="popup">
+            <p> 如果企业没有与你沟通，你可以尝试通过邮件联系HR，或者直接向拉勾反馈。</p>
+            <span class="confirm">是的，没有收到任何渠道的沟通</span>
+            <span class="cancle">再等等看</span>
+        </div>
+        <div id="no_receive_confirm" class="popup">
+            <p>感谢你的反馈，我们将会在核实后对职位发布者进行惩罚</p>
+        </div>
+    </div>
+
+</div>
+<!-- 页面主体END -->
+
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+</body>
+</html>

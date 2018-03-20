@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .content
+        {
+            background-color: #fff;
+        }
+        .vipWays
+        {
+            height: 120px;
+        }
+        .vip_way
+        {
+            float: left;
+            list-style: none;
+            width: 150px;
+            height:90px;
+            margin: 15px;
+            text-align: center;
+        }
+        .vip_way a
+        {
+            width: 150px;
+            height:90px;
+            position: relative;
+            display: block;
+            border: 1px #ddd solid;
+        }
+        .select a
+        {
+            border: 2px #0099ff solid;
+        }
+        .vip_way a:hover
+        {
+            border: 2px #0099ff solid;
+        }
+        .vip_price
+        {
+            float: left;
+            width: 130px;
+            color: #0099ff;
+            font-size: 20px;
+        }
+        .payValue
+        {
+            font-size: 36px;
+
+        }
+        .vip_mon
+        {
+            position: absolute;
+            background-color: #ededed;
+            width: 11px;
+            font-size: 12px;
+            right: 0;
+            top: 0;
+            padding: 4px 10px 3px;
+            color: #333;
+        }
+        .payTitle
+        {
+            margin: 10px 0 10px 5px;
+        }
+        .leftContent
+        {
+            width: 138px;
+            border-left: 2px solid #f5f5f5;
+            position: relative;
+            z-index: 2;
+            float: left;
+            background: #f5f5f5;
+            border-radius: 4px 0 0 4px;
+        }
+        .select_item
+        {
+            list-style: none;
+        }
+        .rightContent
+        {
+            border: 2px solid #f5f5f5;
+            margin-left: 140px;
+            background: #fff;
+            border-radius: 0 4px 4px 0;
+            position: relative;
+            color: #666;
+            font-size: 12px;
+            height: 250px;
+            text-align: center;
+        }
+        .qrPic
+        {
+            margin-top: 30px;
+            display: block;
+            padding: 5px;
+            background: #fff;
+            margin-bottom: 5px;
+        }
+        .qr_txt
+        {
+            background: #f3f3f3;
+            color: #666;
+            height: 28px;
+            line-height: 28px;
+            width: 140px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <ul id="vip_ways" class="vipWays">
+            <li class="vip_way select">
+                <a href="javascript:void(0);">
+                    <p class="vip_price">
+                        ￥
+                        <strong class="payValue">198</strong>
+                    </p>
+                    <span class="vip_mon">12个月</span>
+                </a>
+            </li>
+            <li class="vip_way">
+                <a href="javascript:void(0);">
+                    <p class="vip_price">
+                        ￥
+                        <strong class="payValue">108</strong>
+                    </p>
+                    <span class="vip_mon">6个月</span>
+                </a>
+            </li>
+            <li class="vip_way">
+                <a href="javascript:void(0);">
+                    <p class="vip_price">
+                        ￥
+                        <strong class="payValue">58</strong>
+                    </p>
+                    <span class="vip_mon">3个月</span>
+                </a>
+            </li>
+            <li class="vip_way">
+                <a href="javascript:void(0);">
+                    <p class="vip_price">
+                        ￥
+                        <strong class="payValue">19.8</strong>
+                    </p>
+                    <span class="vip_mon">1个月</span>
+                </a>
+            </li>
+        </ul>
+        <div class="payTitle">
+            开通方式
+        </div>
+        <div class="payContent">
+            <div class="leftContent">
+                <ul class="select_list">
+                    <li class="select_item">
+                        <span>支付宝支付</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="rightContent">
+                <div class="pay_qr">
+                    <div class="qrPic">
+                        <img src="" width="128px" height="128px">
+                    </div>
+                    <div class="qr_txt">支付宝扫一扫支付</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script>
+    $('#vip_ways li').click(function () {
+       var list = $('#vip_ways li');
+        for (var i = 0; i < list.length; i++) {
+            var obj = list[i];
+            $(obj).removeClass('select');
+        }
+        $(this).addClass('select');
+    });
+</script>
+</html>

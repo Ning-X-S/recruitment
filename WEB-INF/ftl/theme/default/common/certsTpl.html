@@ -1,0 +1,39 @@
+[#macro commonCerts checkedCerts name="certs" ]
+    [@allCerts pid=1]
+    [#list list as item]
+        [#if !item_has_next]
+        <br>
+        [/#if]
+        <h4 style="color: #555">${item.name!}：</h4>
+        [@allCerts pid=item.id]
+            [#list list as second]
+            [#if second.leaf?? && second.leaf == true]
+                <br>
+                <span style="margin-left: 20px;color: #999">
+                    <label for="cc${second.id!}">${second.name!}</label>
+
+
+                     <input id="cc${second.id!}" type="checkbox" name="${name}" value="${second.id!}" [#if checkedCerts?? && checkedCerts?seq_contains(second)]checked="checked" [/#if] style="zoom: 120%;vertical-align: sub;">
+
+                </span>
+            [#else]
+                [#if second_index != 0]
+                <br/>
+                [/#if]
+                <span style="margin-left: 20px;color: #666">${second.name!}：</span>
+                [@allCerts pid=second.id]
+                [#list list as third]
+                    [#if third.leaf?? && third.leaf == true]
+                    <span style="margin-left: 20px;color: #999">
+                    <label for="cc${third.id!}">${third.name!}</label>
+                        <input id="cc${second.id!}" type="checkbox" name="${name}" value="${third.id!}" [#if checkedCerts?? && checkedCerts?seq_contains(third)]checked="checked" [/#if] style="zoom: 120%;vertical-align: sub;">
+                    </span>
+                    [/#if]
+                [/#list]
+                [/@allCerts]
+            [/#if]
+            [/#list]
+        [/@allCerts]
+    [/#list]
+    [/@allCerts]
+[/#macro]

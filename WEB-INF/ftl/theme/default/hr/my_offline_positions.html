@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "已下线职位" cssNames = [
+        "mds/static/common/static/less/parent.base_142fcd4.css",
+        "pkg/parent-positions/page/main.html_aio_4deef7f.css"
+    ]/]
+</head>
+
+<body>
+
+[#include "/theme/default/common/commonhr.html"]
+
+[@header index=2 /]
+
+<div id="root">
+    <div class="wrapper wrapper_containers">
+        <div class="clearfix wrapper-header">
+            <div class="postionListTages">
+                <div class="stage_list">
+                    <ul class="stage_li">
+                        <li class="stage_item ">
+                            <a href="${siteurl}hr/my_online_positions.htm">
+                                <div class="stage_item_inner" data-stage="NORMAL">
+                                    <span class="stage_item_name">在线</span>
+                                    <span>( ${onsize!""} )</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="stage_item  stage_item_select">
+                            <a href="${siteurl}hr/my_offline_positions.htm">
+                            <div class="stage_item_inner" data-stage="OFFLINE">
+                                <span class="stage_item_name">已下线</span>
+                                <span>( ${pager.total!"0"} )</span>
+                            </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="position_toolbar_box">
+                <div class="fl">
+                    <span class="btn-more filter ">
+                        <i class="icon-candidate-filters"></i>筛选
+                    </span>
+                    <div class="filter-mask" style="display: none;">
+                        <span class="close-btn">
+                            <i class="icon-close"></i>
+                        </span>
+                    </div>
+                    <div class="filter-search-position">
+                    <form id="searchForm" action="${siteurl}hr/my_offline_positions.htm" method="post">
+                        <i class="icon-search" onclick="this.submit()"></i>
+                        <input class="input" name="keyword" autocomplete="off" value="${(so.keyword)!''}" placeholder="搜索职位名称" maxlength="20">
+                    </form>
+                    </div>
+                </div>
+                <div>
+                    <div class="fr">
+                        <a href="${siteurl}hr/createPosition.htm" target="_blank" class="toolbar_btn toolbar-search_btn">
+                            <i class="icon-candidate-edit2"></i>
+                            <span class="toolbar_btn_txt">发布新职位</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <ul class="position-list clearfix">
+                    [#if pager.content??]
+                    [#list pager.content as item]
+                    <li class="position-list-item" data-item="292890" data-position-owner-id="2573158">
+                        <div class="position-item-top clearfix">
+                            <div class="position-top-left">
+                                <div class="title">
+                                    <a href="${siteurl}jobs/${item.job.id}.htm?hr=true" target="_blank">
+                                        <span class="position-name">${(item.job.name)!""}</span>
+                                    </a>
+                                    <span class="source">[寻鹰网]</span>
+                                </div>
+                                <div class="infomation">
+                                    <span class="department">开发部</span>
+                                    <span class="salary">${(item.job.minMoney)!""}-${(item.job.maxMoney)!""}</span>
+                                    <span class="workYear">${(item.job.workYear.name)!""}</span>
+                                    <span class="education">${(item.job.degree.name)!""}</span>
+                                    <span class="city">西安</span>
+                                </div>
+                            </div>
+                            <div class="num-box">
+                                <a href="${siteurl}hr/index.htm" target="_blank">
+                                    <div class="num">0</div>
+                                    <div class="text">未阅读</div>
+                                </a>
+                                <a href="${siteurl}hr/index.htm?tag=4" target="_blank">
+                                    <div class="num">0</div>
+                                    <div class="text">面试</div>
+                                </a>
+                                <a href="${siteurl}hr/index.htm?tag=2" target="_blank">
+                                    <div class="num">0</div>
+                                    <div class="text">候选人</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="position-item-bottom">
+                            <div class="position-handle-container">
+                                <span class="position-publish-date">下线时间：${(item.job.addDate?string("yyyy/MM/dd"))!""}</span>
+                                <span class="selecter add-recruiter" style="cursor: pointer;">
+                                    <span class="highlight"></span></span>
+                                    <div class="options">
+                                        <span>
+                                            <a class="republish-offline main-position-opt" href="${siteurl}hr/onlinejob.htm?id=${item.id}" >再发布</a>
+                                        </span>
+                                        <span class="lagou_dropdown_link">
+                                            <i class="icon-candidate-more-menu lagou_icon_down"></i>
+                                        </span>
+                                    </div>
+                            </div>
+                        </div>
+                    </li>
+                    [/#list]
+                    [/#if]
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="${siteurl}plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="${siteurl}dist/js/hr.js"></script>
+
+[#include "/theme/default/common/footer.html"]
+</body>
+</html>
+

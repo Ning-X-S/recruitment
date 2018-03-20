@@ -1,0 +1,165 @@
+@main-color: #0099ff;
+@logo: '../img/logo.png';
+@header-height: 54px;
+@logo-height: 52px;
+@body-width: 1200px;
+* {
+  outline: 0
+}
+html{
+  padding: 0;
+  margin: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
+  color: #333;
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {
+  display: block
+}
+
+progress {
+  display: inline-block;
+  vertical-align: baseline
+}
+
+a {
+  color: #555;
+  background-color: transparent;
+  text-decoration: none
+}
+
+a:hover {
+  color: #0099ff;
+  text-decoration: none;
+}
+
+h1,h2,h3,h4 {
+  margin: 10px 0;
+  font-weight: 400
+}
+
+p {
+  margin: 0
+}
+
+p+p {
+  margin-top: 10px
+}
+
+img {
+  border: 0;
+  vertical-align: top;
+  display: inline-block
+}
+
+button,input,optgroup,select,textarea {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ededed;
+  font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica
+}
+
+textarea {
+  overflow: auto
+}
+
+label,select,button,input[type=button],input[type=reset],input[type=submit],input[type=radio],input[type=checkbox],input[type=file] {
+  cursor: pointer
+}
+
+input[type=text],input[type=password],textarea {
+  font-family: "Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+th,td {
+  padding: 0
+}
+
+strong {
+  font-weight: 400
+}
+
+em,i {
+  font-style: normal
+}
+
+dl,dt,dd {
+  margin: 0
+}
+
+::selection {
+  color: #fff;
+  background-color: #0099ff
+}
+
+::-moz-selection {
+  color: #fff;
+  background-color: #0099ff
+}
+
+ul,ol {
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+.fl {
+  float: left
+}
+
+.fr {
+  float: right
+}
+
+.clearfix {
+  *zoom:1
+}
+
+.clearfix:before,.clearfix:after {
+  content: "";
+  display: table
+}
+
+.clearfix:after {
+  clear: both
+}
+.arrow-right{
+  position: absolute;
+  right: 0;
+  top: 6px;
+  width: 6px;
+  height: 11px;
+  margin-right: 8px;
+  background: url(//img.yingjobs.com/www/static/index/modules/sidebar/img/arrow_32aaad2.png) 0 0 no-repeat;
+}
+.dn{
+  display: none;
+}
+.triangle{
+  position: absolute;
+  font-size: 0;
+  height: 0;
+  width: 0;
+  border-width: 5px 4px 0;
+  border-style: solid dashed;
+  border-color: #ccc transparent transparent;
+  overflow: hidden;
+  -webkit-transition: all .4s ease 0s;
+  -moz-transition: all .4s ease 0s;
+  -ms-transition: all .4s ease 0s;
+  -o-transition: all .4s ease 0s;
+  transition: all .4s ease 0s;
+}

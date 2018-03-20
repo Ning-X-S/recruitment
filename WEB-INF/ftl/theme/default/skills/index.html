@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>求职技巧</title>
+    <link rel="Shortcut Icon" href="${siteurl}dist/img/favicon_logo.ico">
+    <link rel="stylesheet" type="text/css" href="${siteurl}dist/less/skill.css">
+    <link rel="stylesheet" type="text/css" href="${siteurl}dist/less/footer.css">
+    <link type="text/css" rel="stylesheet" href="${siteurl}dist/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="${siteurl}dist/third/pkg/community/page/index/main.html_aio_53823f4.css">
+
+    <style type="text/css">
+        .pager_container span, .pager_container .page_no {
+            cursor: pointer;
+            color: #555;
+            display: inline-block;
+            border: 1px solid #ededed;
+            height: 21px;
+            line-height: 21px;
+            padding: 3px 10px;
+            margin: 0 5px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .pager_container .pager_is_current {
+            background-color: #0099ff !important;
+            color: #fff !important;
+            font-weight: 700;
+            border-color: #0099ff !important;
+        }
+    </style>
+</head>
+<body>
+<!-- 引入导航条 -->
+[#include "/theme/default/common/navBar.html"]
+[#include "/theme/default/common/commonsite.html"]
+
+[@navBar active = 6 /]
+<form id="listForm" method="get" action="${siteurl}skills/index.htm">
+    <input id="pageNumber" name="pageNumber" value="${page.pageNumber}" type="hidden">
+<div class="banner">
+    <h2>最有趣的航空知识社区</h2>
+    <h3>找工作，看这里，给你想要的</h3>
+</div>
+<div class="container clearfix">
+    <div class="content fl">
+        <div class="news">
+            <div class="newsTab">
+                <ul>
+                    <li class="current">精选推荐</li>
+                </ul>
+            </div>
+            <div class="news_list news_recommended  current">
+                <ul class="list">
+                    [#if pageData?? && pageData.content??]
+                    [#list pageData.content as item ]
+                    <li>
+                        <div class="news_answer item">
+                            <div class="item_header">
+                                <div class="answerer_avatar">
+                                    <a class="anonymous">
+                                        <img src="//img.yingjobs.com/www/static/community/modules/common/img/avatar_default_7225407.png" alt="匿名用户" width="44" height="44">
+                                    </a>
+                                </div>
+                                <strong class="answerer_name">
+                                    <a class="anonymous" rel="nofollow" href="javascript:;">${(item.user.name)!"匿名用户"}</a>
+                                </strong>
+                            </div>
+                            <h4 class="item_question question_name">
+                                <a href="${siteurl}skills/${item.id}.htm" target="_blank">${item.title!''}</a>
+                            </h4>
+                            <div class="item_content clearfix">
+                                [#if item.img??]
+                                <a class="answer_thumbnail_box fl" rel="nofollow" href="${siteurl}skills/${item.id}.htm" style="display: block;">
+                                    <img class="answer_thumbnail" src="[@image src=item.img /]">
+                                </a>
+                                [/#if]
+                                <p class="answer_summary is-truncated" style="overflow-wrap: break-word; display: block;">
+                                    ${item.introduction!''}
+                                </p>
+                            </div>
+                            <div style="border-bottom:#EDEDED solid 1px;margin-bottom: 25px;">&nbsp;</div>
+                        </div>
+                    </li>
+                    [/#list]
+                    [/#if]
+                </ul>
+
+                <!-- 分页 -->
+                <div class="item_con_pager">
+                    [@formpager page=pageData  /]
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--page right info-->
+    [#include "/theme/default/common/page-right.html"]
+</div>
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+</form>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var $listForm = $("#listForm");
+        var $pageNumber = $("#pageNumber");
+
+        // 页码跳转
+        $.pageSkip = function(pageNumber) {
+            $pageNumber.val(pageNumber);
+            $("#listForm").submit();
+            //return false;
+        };
+    });
+</script>
+</body>
+</html>

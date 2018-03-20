@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "基本信息" cssNames=[
+        "pkg/mycenter/page/basic/main.html_aio_600e9e8.css",
+        "pkg/mycenter/page/basic/main.html_aio_2_cb301e0.css"
+    ]/]
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/nicevalidator/jquery.validator.css"/>
+    <link rel="stylesheet" type="text/css" href="${siteurl}plugins/layer/theme/default/layer.css">
+    <link rel="stylesheet" href="${siteurl}dist/js/element-ui/index.css">
+    <style>
+        .sel-xs input[type=text]{
+            width: 140px;
+            height: 47px;
+        }
+        .sel-addr input[type=text]{
+            width: 300px;
+            height: 47px;
+        }
+        .n-top, .n-right, .n-bottom, .n-left {
+            display: initial;
+            line-height: 2;
+            outline: 0;
+        }
+    </style>
+    <style>
+        [v-cloak] { display:none} /*v-cloak解决vue解析闪烁问题*/
+    </style>
+    [#include "/theme/default/common/fileuploads.html"]
+</head>
+<body>
+<!-- 页面主体START -->
+<div class="container clearfix" id="container">
+
+    <div id="app">
+        <div id="mr_wrapper">
+            <div id="mrHeader">
+                <dl class="collapsible_menu">
+                    <dt>
+                        <span id="nowrap">${phone!''}&nbsp;</span>
+                        <i></i>
+                    </dt>
+                    <dd class="logout dn"><a href="/frontLogout.do" rel="nofollow">退出</a></dd>
+                </dl>
+            </div>
+        </div>
+        <div class="mr_container">
+            <div class="mr_basic">
+                <dl class="mr_head">
+                    <dt>
+                        [@uploadAvatarVueDom id="avatar" name="member.avatar" image=""/]
+                    </dt>
+                    <dd><h2>基本信息</h2></dd>
+                </dl>
+                <form id="form" class="mr_basicform" action="${siteurl}resume/basic/save.htm" method="post">
+                    <input type="hidden" class="avatarCls" name="avatar">
+                    <div class="mr_basicname">
+                        <input type="text" name="member.name" placeholder="姓名"/>
+                    </div>
+                    <div class="endWork clearfixs">
+                        <div class="mr_topdegree degree sel">
+                            <input type="hidden" name="degree.id" v-model="degree"/>
+                            <el-select name="degreeSel" class="sel-xs" v-model="degree"
+                                       @change="validDegree" placeholder="最高学历">
+                                <el-option
+                                        v-for="item in degrees"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+                        <div class="mr_workyear nextSel">
+                            <input type="hidden" name="workYear.id" v-model="workYear" />
+                            <el-select name="workYearSel" class="sel-xs" v-model="workYear"
+                                       @change="validWorkYear" placeholder="工作年限">
+                                <el-option
+                                        v-for="item in workYears"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+                    </div>
+
+                    <div class="mr_phone">
+                        <input type="text" name="phone" id="mrPhone" value="${phone!''}" placeholder="手机号" />
+                        <div class="tips dn">
+                            <i></i>未经你的授权，企业不会看到你的联系方式，请放心填写：）
+                        </div>
+                    </div>
+
+                    <div class="mr_phone">
+                        <input type="text"  name="email" id="mrEmail" placeholder="邮箱" />
+                        <div class="tips dn">
+                            <i></i>未经你的授权，企业不会看到你的联系方式，请放心填写：）
+                        </div>
+                    </div>
+
+                    <div class="mr_workcity" id="selectCity">
+                        <input type="hidden" name="area.id" v-model="addrId" />
+                        <el-cascader
+                                class="sel-addr"
+                                style="width: 100%"
+                                :options="addrs"
+                                :props="props"
+                                v-model="addr"
+                                placeholder="省/市/区"
+                                @change="handleChange">
+                        </el-cascader>
+                    </div>
+
+                    <label><input type="submit" value="下一步：继续完善职业信息" data-val="0"/></label>
+                    <input type="hidden" name="skip" v-model="skip">
+                    <label><a @click="skipForm">保存以上信息，但暂不继续完善信息</a></label>
+                </form>
+
+                <div class="mr_btm">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- 页面主体END -->
+<script>
+    var degrees = [[#list degrees as ind]{value:'${ind.id}', label: '${ind.name}'},[/#list]];
+    var workYears = [[#list workYears as ind]{value:'${ind.id}', label: '${ind.name}'},[/#list]];
+    var addrs = ${areas};
+</script>
+<script src="${siteurl}plugins/nicevalidator/jquery.validator.min.js?local=zh-CN"></script>
+<script src="${siteurl}/plugins/layer/layer.js"></script>
+<script src="${siteurl}dist/js/vue.js"></script>
+<script src="${siteurl}dist/js/element-ui/index.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data(){
+            return {
+                degrees: degrees,
+                degree: '',
+                workYears: workYears,
+                workYear: '',
+                addrs: ${areas},
+                addr: [],
+                addrId: '',
+                props: {
+                    value: 'id',
+                    label: 'name'
+                },
+                skip: false
+            }
+        },
+        mounted(){
+            //初始化上传组件
+            [@uploadAvatarVueLib id="avatar"/]
+            //初始化validator
+            $.validator.setTheme("default", {
+                msgClass: "n-bottom"
+            });
+            var self = this;
+            $('#form').validator({
+                fields: {
+                    'member.name': {
+                        rule: 'required;',
+                        msg: {
+                            required: '请输入姓名'
+                        }
+                    },
+                    'degreeSel': {
+                        rule: 'required;',
+                        msg: {
+                            required: '请选择学历'
+                        }
+                    },
+                    'workYearSel': {
+                        rule: 'required;',
+                        msg: {
+                            required: '请选择工作年限'
+                        }
+                    },
+                    'phone': {
+                        rule: 'required;mobile;',
+                        msg: {
+                            required: '请输入手机'
+                        }
+                    },
+                    'email': {
+                        rule: 'required;email;',
+                        msg: {
+                            required: '请输入邮箱'
+                        }
+                    },
+                    'area.id': {
+                        rule: 'required;',
+                        msg: {
+                            required: '请选择地址'
+                        }
+                    },
+                }
+            })
+        },
+        methods: {
+            validDegree(val){
+                if (val) {
+                    $("input[name='degreeSel']").trigger("hidemsg");
+                } else {
+                    $("input[name='degreeSel']").trigger("showmsg");
+                }
+            },
+            validWorkYear(val){
+                if (val) {
+                    $("input[name='workYearSel']").trigger("hidemsg");
+                } else {
+                    $("input[name='workYearSel']").trigger("showmsg");
+                }
+            },
+            handleChange(value){
+                this.addrId = value[value.length - 1];
+                $("input[name='area.id']").trigger("hidemsg");
+            },
+            skipForm(){
+                this.skip = true;
+                $(form).submit();
+            }
+        }
+    })
+</script>
+</body>
+</html>

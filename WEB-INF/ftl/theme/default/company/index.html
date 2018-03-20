@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- meta -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <meta content="西安-公司列表-寻鹰网-最专业的互联网招聘平台" name="keywords">
+    <meta content="西安-公司列表-寻鹰网-最专业的互联网招聘平台" name="description">
+    <title>名企招聘-互联网企业招聘-寻鹰网</title>
+    <link rel="Shortcut Icon" href="${siteurl}dist/img/favicon_logo.ico">
+    <link type="text/css" rel="stylesheet" href="${siteurl}dist/less/company.css">
+    <link type="text/css" rel="stylesheet" href="${siteurl}plugins/swiper/swiper-3.4.2.min.css">
+    <!--<style>
+        #content-container #company_list_container #positionHead ul.filter-wrapper .details .has-more .more{
+            z-index: 11;
+        }
+    </style>-->
+    <style type="text/css">
+        .industry li  a:hover{
+            background-color: #09f;
+            color: #fff;
+        }
+        .industry li  .active{
+            background-color: #09f;
+            color: #fff;
+        }
+        .has-more.workcity li div a:hover{
+            background-color: #09f;
+            color: #fff;
+        }
+        .has-more.workcity li div .active{
+            background-color: #09f;
+            color: #fff;
+        }
+        .pager_container span, .pager_container .page_no {
+            cursor: pointer;
+            color: #555;
+            display: inline-block;
+            border: 1px solid #ededed;
+            height: 21px;
+            line-height: 21px;
+            padding: 3px 10px;
+            margin: 0 5px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .pager_container .pager_is_current {
+            background-color: #0099ff !important;
+            color: #fff !important;
+            font-weight: 700;
+            border-color: #0099ff !important;
+        }
+        a{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!-- header -->
+<!-- 引入导航条 -->
+[#include "/theme/default/common/navBar.html"]
+[@navBar active = 2 /]
+[#include "/theme/default/common/commonsite.html"]
+<form id="listForm" method="get" action="${siteurl}company/index.htm">
+    <input id="pageNumber" name="pageNumber" value="${page.pageNumber}" type="hidden">
+    <input  name="city" value="${so.city}" type="hidden">
+    <input  name="industry" value="${so.industry}" type="hidden">
+    <input  name="sort" value="${so.sort}" type="hidden">
+
+    <!-- 顶部banner -->
+<div class="banner">
+    <div class="content">
+        <p class="title">优秀公司推荐</p>
+        <!-- Swiper -->
+        [@companyrecommends size=20]
+        [#if list??]
+        <div id="recommendSwiper" class="swiper-container">
+            <div class="swiper-wrapper">
+
+
+                [#list list as item]
+                <div class="swiper-slide">
+                    <div class="panel">
+                        <img  src="[@image src=item.logo /]"  alt="logo" width="142" height="142"/>
+                        <p class="panel_b">[@html.textcut s=item.name len=12 append=".." /]</p>
+                        <div class="panel_cont">
+                            <div class="panel_det">
+                                <p>[@html.textcut s=item.note len=30 append=".." /]</p>
+                                <div><a class="go_btn" href="${siteurl}company/${item.id}.htm" target="_blank">进入公司主页</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                [/#list]
+
+            </div>
+        </div>
+        [/#if]
+        [/@companyrecommends]
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</div>
+
+<!-- 页面主体START -->
+<div id="content-container">
+    <div id="company_list_container">
+        <div id="positionHead">
+            <!-- 筛选 -->
+            <ul id="filterBox" class="filter-wrapper">
+                <div class="details" id="filterCollapse">
+                    <div class="has-more workcity">
+                        <li>
+                            <span class="title">公司地点：</span>
+                            <div class="multi-chosen clearfix">
+                                <a data-id="-1"  data-nav="city" [#if so.city=-1] class="active"[/#if]>全国</a>
+                                [#list areaList as item]
+                                <a data-id="${item.id}"  data-nav="city"  [#if so.city=item.id] class="active"[/#if] >${item.name!""}</a>
+                                [/#list]
+                            </div>
+                        </li>
+                    </div>
+                    <div class="has-more industry">
+                        <li style="border-bottom:none;" class="multi-chosen">
+                            <span class="title">行业领域：</span>
+                            [@industrys]
+                            <a data-id="-1"  data-nav="industry" [#if so.industry=-1] class="active"[/#if]>不限</a>
+                            [#list list as item]
+                            [#if item_index < 14]
+                            <a  data-id="${item.id}"  data-nav="industry"  [#if so.industry=item.id] class="active"[/#if] >${item.name!""}<i class="delete"></i></a>
+                            [/#if]
+                            [/#list]
+                            [/@industrys]
+                        </li>
+                    </div>
+                </div>
+            </ul>
+            <!-- 排序 -->
+            <ul class="sub_filter" id="order">
+                <li class="wrapper">
+                    <div class="item order multi-chosen">
+                        <span class="title">排序方式：</span>
+                        <a data-id="-1"  data-nav="sort" [#if so.sort=-1] class="active"[/#if] >默认排序</a>
+                        <a  data-id="1"  data-nav="sort" [#if so.sort=1] class="active"[/#if] >职位数量&darr;</a>
+                        <a  data-id="2"  data-nav="sort" [#if so.sort=2] class="active"[/#if] >面试评价数&darr;</a>
+                        <a  data-id="3"  data-nav="sort" [#if so.sort=3] class="active"[/#if] >简历处理率&darr;</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- 分站城市 -->
+
+        <!-- 公司列表 -->
+        <div id="company_list" data-lg-tj-track-code="gongsi_list">
+            <ul class="item_con_list">
+                [#if page.content??]
+                [#list page.content as item]
+                <li class="company-item">
+                    <div class="top">
+                        <p>
+                            <a href="${siteurl}company/${item.id}.htm" target="_blank">
+                                <img src="[@image src=item.logo /]" alt="公司logo" width="80" height="80">
+                            </a>
+                        </p>
+                        <p class="company-name wordCut">
+                            <a href="${siteurl}company/${item.id}.htm" target="_blank" title="${item.name!''}">[@html.textcut s=item.name len=18 append=".." /]</a>
+                        </p>
+                        <!--<p class="indus-stage wordCut">${(item.financing.name)!""}</p>-->
+                        <p class="advantage wordCut">${item.note!""}</p>
+                    </div>
+                    <div class="bottom clearfix">
+                        <a class="bottom-item bottom-1 fl" href="${siteurl}company/interviewExperiences.html?companyId=3422" target="_blank">
+                            <p class="green">${item.comments!"0"}</p>
+                            <p class="gray">面试评价</p>
+                        </a>
+                        <a class="bottom-item bottom-2 fl" href="${siteurl}company/j${item.id}.htm" target="_blank">
+                            <p class="green">${item.jobs!"0"}</p>
+                            <p class="gray">在招职位</p>
+                        </a>
+                        <a class="bottom-item bottom-3 fl" href="${siteurl}company/${item.id}.htm" target="_blank">
+                            <p class="green">${item.ratio!"100"}%</p>
+                            <p class="gray">简历处理率</p>
+                        </a>
+                    </div>
+                </li>
+                [/#list]
+                [/#if]
+            </ul>
+
+            <!-- 分页 -->
+            <div class="item_con_pager">
+                [@formpager page=page  /]
+            </div>
+        </div>
+
+        <script id="empty-list" type="text/htm">
+            <div class="empty_position">
+                <div class="pic"></div>
+                <div class="txt">
+                    <div>暂时没有符合该筛选条件的公司</div>
+                    <span>请重新修改筛选条件再进行筛选</span>
+                </div>
+            </div>
+        </script>
+
+    </div>
+</div>
+<!-- 页面主体END -->
+</form>
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+<script src="${siteurl}plugins/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script src="${siteurl}plugins/jquery.pin.min.js"></script>
+<script src="${siteurl}dist/js/company.js"></script>
+<script>
+    $('#place').mouseover(function() {
+        $('#place-more').show();
+        $('#place i').css("transform", "rotate(180deg)")
+    });
+    $('#place-more').hover(function(){
+        $('#place-more').show();
+    },function() {
+        $('#place-more').hide();
+        $('#place i').css("transform", "rotate(0deg)")
+    });
+
+    $('#field').mouseover(function() {
+        $('#field-more').show();
+    });
+    $('#field').mouseout(function() {
+        $('#field-more').hide();
+    });
+
+
+    $(document).ready(function () {
+        $(".multi-chosen a").click(function () {
+            $(this).addClass("active");
+            $(this).siblings().removeClass("active");
+            var url="${siteurl}company/index.htm?time=1"
+            $(".multi-chosen .active").each(function (data) {
+                console.log($(this).data("nav")+":"+$(this).data("id"));
+                url=url+"&"+$(this).data("nav")+"="+$(this).data("id");
+            });
+            console.log(url);
+            window.location.href=url;
+        });
+
+        var $listForm = $("#listForm");
+        var $pageNumber = $("#pageNumber");
+
+        // 页码跳转
+        $.pageSkip = function(pageNumber) {
+            $pageNumber.val(pageNumber);
+            $("#listForm").submit();
+            //return false;
+        };
+    });
+</script>
+</body>
+</html>

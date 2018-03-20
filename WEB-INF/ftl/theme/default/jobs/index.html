@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header.html"]
+    [@header title = "职位" cssNames = [
+    "pkg/search-result/page/index/main.html_aio_be25e6c.css",
+    "pkg/search-result/page/index/main.html_aio_2_b2e893f.css"
+    ]/]
+</head>
+<body>
+
+[#include "/theme/default/common/navBar.html"]
+[#include "/theme/default/common/commonsite.html"]
+
+[@navBar /]
+
+<!-- 页面主体START -->
+<div id="content-container">
+    <form id="listForm" method="post" action="${siteurl}jobs/index.htm">
+    <div class="search-wrapper no-related-word ">
+        <div id="searchBar" class="search-bar">
+            <div class="tab-wrapper">
+                <a id="tab_pos" class="" rel="nofollow" href="javascript:;">职位 ( <span>${page.total!'0'}</span> ) </a>
+                <a id="tab_comp" class="" rel="nofollow" href="javascript:;">公司 ( <span>${companyPage.total!'0'}</span> ) </a>
+            </div>
+
+                <input id="pageNumber" name="pageNumber" value="${page.pageNumber}" type="hidden">
+                <input id="pageNumber2" name="pageNumber2" value="${pageNumber2!'0'}" type="hidden">
+                <input type="hidden" name="showCompany" id="showComapny">
+                <input  name="workYear" value="${so.workYear}" type="hidden">
+               <input  name="degree" value="${so.degree}" type="hidden">
+                <input  name="financing" value="${so.financing}" type="hidden">
+                <div class="input-wrapper">
+                <div class="keyword-wrapper">
+                    <input type="text" id="keyword" name="name" autocomplete="off" maxlength="64" placeholder="搜索职位"
+                           value="${(so.name)!''}"/>
+                </div>
+                <input type="submit" value="搜索"/>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 搜索输入框模块 -->
+    <div id="main_container">
+        <!-- 左侧 -->
+        <div class="content_left">
+
+            <!-- 依次填入左侧各个模块 -->
+
+            <!--当前为公司标签时，隐藏筛选条件栏-->
+            <div id="positionHead" class="">
+                <!-- 公司卡片 -->
+                [#if companyPage.content??]
+                <div class="company-card">
+
+                    <ul class="item_con_list">
+                        [#list companyPage.content as item]
+                        [#if item_index == 0]
+                        <li class="c_list_item">
+
+                            <div class="cl_left">
+                                <a href="${siteurl}company/${item.id}.htm" target="_blank">
+                                    <img src="[@image src=item.logo /]" alt="公司" width="80" height="80">
+                                </a>
+                            </div>
+
+                            <div class="cl_r">
+
+                                <div class="cl_r_top">
+                                    <h3><a href="${siteurl}company/${item.id}.htm" target="_blank">
+                                        [@html.textcut s=item.name len=12 append=".." /]</a></h3>
+
+                                    <div>[@html.textcut s=item.note len=30 append=".." /]</div>
+                                </div>
+
+                                <div class="cl_r_bot">
+                                    <ul class="list_c">
+                                        <li class="address"><span></span>${(item.city.name)!''}</li>
+                                        <li class="indu"><span></span>${(item.industry.name)!''}</li>
+                                        <li class="posi"><a href="${siteurl}company/j${item.id}.htm" target="_blank"><span></span>${item.jobs!'0'}个在招职位</a></li>
+                                        <li class="c_btn"><a href="${siteurl}company/${item.id}.htm" target="_blank">公司主页&nbsp;></a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                        </li>
+                        [/#if]
+                        [/#list]
+                    </ul>
+                </div>
+                [/#if]
+                <!-- 筛选 -->
+
+                <ul id="filterBox" class="filter-wrapper">
+                    <input id="filterOption" type="hidden" value="1">
+                    <li class="li-taller brief dn" id="filterBrief">
+                        <span class="title">工作地点：</span>
+                        <a rel="nofollow" href="javascript:;" class="active">全国</a>
+
+                        <span class="title">工作经验：</span>
+                        <a rel="nofollow" href="javascript:;" class="active">不限</a>
+
+                        <span class="title">学历要求：</span>
+                        <a rel="nofollow" href="javascript:;" class="active">不限</a>
+
+                        <span class="title">融资阶段：</span>
+                        <a rel="nofollow" href="javascript:;" class="active">不限</a>
+
+                        <span class="title">行业领域：</span>
+                        <a rel="nofollow" href="javascript:;" class="active">不限</a>
+                    </li>
+                    <div class="details" id="filterCollapse">
+                        <div class="has-more">
+                            <div class="more more-positions workPosition">
+                                <li class="hot">
+                                    <span class="title">工作地点：</span>
+                                    <a rel="nofollow" href="javascript:;" class="active">全国</a>
+                                    <a rel="nofollow" href="javascript:;">北京</a>
+                                    <a rel="nofollow" href="javascript:;">上海</a>
+                                    <a rel="nofollow" href="javascript:;">深圳</a>
+                                    <a rel="nofollow" href="javascript:;">广州</a>
+                                    <a rel="nofollow" href="javascript:;">杭州</a>
+                                    <a rel="nofollow" href="javascript:;">成都</a>
+                                    <a rel="nofollow" href="javascript:;">南京</a>
+                                    <a rel="nofollow" href="javascript:;">武汉</a>
+                                    <a rel="nofollow" href="javascript:;">西安</a>
+                                    <a rel="nofollow" href="javascript:;">厦门</a>
+                                    <a rel="nofollow" href="javascript:;">长沙</a>
+                                    <a rel="nofollow" href="javascript:;">苏州</a>
+                                    <a rel="nofollow" href="javascript:;">天津</a>
+                                </li>
+                                <li class="other">
+                                    <a rel="nofollow" href="javascript:;">重庆</a>
+                                    <a rel="nofollow" href="javascript:;">郑州</a>
+                                    <a rel="nofollow" href="javascript:;">青岛</a>
+                                    <a rel="nofollow" href="javascript:;">合肥</a>
+                                    <a rel="nofollow" href="javascript:;">福州</a>
+                                    <a rel="nofollow" href="javascript:;">济南</a>
+                                    <a rel="nofollow" href="javascript:;">大连</a>
+                                    <a rel="nofollow" href="javascript:;">珠海</a>
+                                    <a rel="nofollow" href="javascript:;">无锡</a>
+                                    <a rel="nofollow" href="javascript:;">佛山</a>
+                                    <a rel="nofollow" href="javascript:;" id="all_city">全部城市 > </a>
+                                </li>
+                            </div>
+
+                            <!-- 处理工作地点深层选择 -->
+                            <div class="choose-detail">
+                                <li class="position-head">
+
+                                    <div class="current-handle-position">
+                                        <span class="title">工作地点：</span>
+                                        <a class="current_city current">全国</a>
+                                    </div>
+
+                                    <div class="other-hot-city">
+                                        <div class="city-wrapper dn">
+                                            <a data-id="5" class="hot-city-name">北京</a>
+                                            <a data-id="6" class="hot-city-name">上海</a>
+                                            <a data-id="765" class="hot-city-name">深圳</a>
+                                            <a data-id="763" class="hot-city-name">广州</a>
+                                            <a data-id="653" class="hot-city-name">杭州</a>
+                                            <a data-id="801" class="hot-city-name">成都</a>
+                                            <a data-id="635" class="hot-city-name">南京</a>
+                                            <a data-id="736" class="hot-city-name">武汉</a>
+                                            <a data-id="854" class="hot-city-name">西安</a>
+                                            <a data-id="682" class="hot-city-name">厦门</a>
+                                            <a data-id="749" class="hot-city-name">长沙</a>
+                                            <a data-id="639" class="hot-city-name">苏州</a>
+                                            <a data-id="7" class="hot-city-name">天津</a>
+                                        </div>
+                                        <a rel="nofollow" class="btn-more" href="javascript:;">更多&ensp;<i></i></a>
+                                    </div>
+
+                                </li>
+                            </div>
+                        </div>
+                        <li class="multi-chosen"><span class="title">工作经验：</span>
+                            <a rel="nofollow" data-id="-1"  data-nav="workYear"  href="javascript:;" [#if so.workYear=-1] class="active"[/#if]>不限
+                            </a>
+                            [@workyears]
+                            [#list list as item]
+                            <a rel="nofollow" data-id="${item.id}" data-nav="workYear" href="javascript:;" [#if so.workYear=item.id] class="active"[/#if]>${item.name}</a>
+                            [/#list]
+                            [/@workyears]
+                        </li>
+
+                        <li class="multi-chosen"><span class="title">学历要求：</span>
+
+                            <a rel="nofollow"  data-id="-1" data-nav="degree"  href="javascript:;"  [#if so.degree=-1] class="active"[/#if]>不限</a>
+                            [@degrees]
+                            [#list list as item]
+                            <a rel="nofollow"  data-id="${item.id}" data-nav="degree"  href="javascript:;" [#if so.degree=item.id] class="active"[/#if]>${item.name}</a>
+                            [/#list]
+                            [/@degrees]
+
+                        </li>
+                       
+                    </div>
+                </ul>
+                <!-- 排序 -->
+
+                <ul class="order" id="order">
+                    <li class="wrapper">
+                        <div class="item order">
+                            <span class="title">排序方式：</span>
+                            <a id="sortdefault" [#if so.sort="default"] class="active"[/#if] rel="nofollow" href="${siteurl}jobs/index.htm?workYear=${so.workYear}&degree=${so.degree}&financing=${so.financing}&sort=default">默认</a>
+                            <a  id="sortnew" [#if so.sort="new"] class="active"[/#if]  rel="nofollow" href="${siteurl}jobs/index.htm?workYear=${so.workYear}&degree=${so.degree}&financing=${so.financing}&sort=new" >最新</a>
+                        </div>
+                        <div style="display:none;" class="item salary selectUI">
+                            <span class="title">月薪：</span>
+                            <div class="selectUI-text text"><span>不限</span><i></i>
+                                <ul>
+
+                                    <li><a rel="nofollow" href="https://www.lagou.com/jobs/list_?px=new&city=全国#order">不限</a>
+                                    </li>
+                                    <li><a rel="nofollow"
+                                           href="https://www.lagou.com/jobs/list_?px=new&yx=2k以下&city=全国#order">2k以下</a>
+                                    </li>
+                                    <li><a rel="nofollow"
+                                           href="https://www.lagou.com/jobs/list_?px=new&yx=2k-5k&city=全国#order">2k-5k</a>
+                                    </li>
+                                    <li><a rel="nofollow"
+                                           href="https://www.lagou.com/jobs/list_?px=new&yx=5k-10k&city=全国#order">5k-10k</a>
+                                    </li>
+                                    <li><a rel="nofollow"
+                                           href="https://www.lagou.com/jobs/list_?px=new&yx=10k-15k&city=全国#order">10k-15k</a>
+                                    </li>
+                                    <li><a rel="nofollow"
+                                           href="https://www.lagou.com/jobs/list_?px=new&yx=15k-25k&city=全国#order">15k-25k</a>
+                                    </li>
+                                    <li><a rel="nofollow"
+                                           href="https://www.lagou.com/jobs/list_?px=new&yx=25k-50k&city=全国#order">25k-50k</a>
+                                    </li>
+                                    <li><a rel="nofollow"
+                                           href="https://www.lagou.com/jobs/list_?px=new&yx=50k以上&city=全国#order">50k以上</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="display:none;" class="item type selectUI">
+                            <span class="title">工作性质：</span>
+                            <div class="selectUI-text value text"><span>不限</span><i></i>
+                                <ul>
+                                    <li><a rel="nofollow" href="https://www.lagou.com/jobs/list_?px=new&city=全国#order">不限</a>
+                                    </li>
+                                    <li><a rel="nofollow"
+                                           href="https://www.lagou.com/jobs/list_?px=new&gx=全职&city=全国#order">全职</a>
+                                    </li>
+                                    <li><a rel="nofollow"
+                                           href="https://www.lagou.com/jobs/list_?px=new&gx=兼职&city=全国#order">兼职</a>
+                                    </li>
+                                    <li><a rel="nofollow"
+                                           href="https://www.lagou.com/jobs/list_?px=new&gx=实习&city=全国&isSchoolJob=1#order">实习</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="display:none;" class="item page">
+                            <div class="prev ban">
+                                &lt;
+                            </div>
+                            <div class="next_disabled next ">
+                                &gt;
+                            </div>
+                            <div class="page-number">
+                                <span class="curNum">1</span>
+                                /
+                                <span class="span totalNum">30</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+
+                <!--活动位-->
+
+            </div>
+
+            <!-- 公司列表 -->
+
+            <div class="company_list dn" id="company_list">
+
+                <ul class="item_con_list">
+                    [#if companyPage.content??]
+                    [#list companyPage.content as item]
+                    <li class="c_list_item" data-index="0" data-companyid="161484">
+                        <div class="cl_left">
+                            <a href="${siteurl}company/${item.id}.htm" target="_blank">
+                                <img src="[@image src=item.logo /]" alt="${item.name!'公司'}" width="80" height="80">
+                            </a>
+                        </div>
+                        <div class="cl_r">
+                            <div class="cl_r_top">
+                                <h3><a class="company_link" href="${siteurl}company/${item.id}.htm" target="_blank">
+                                    [@html.textcut s=item.name len=12 append=".." /]</a></h3>
+                                <div>[@html.textcut s=item.note len=30 append=".." /]</div>
+                            </div>
+
+                            <div class="cl_r_bot">
+                                <ul class="list_c">
+                                    <li class="address"><span></span>${(item.city.name)!''}</li>
+                                    <li class="indu"><span></span>${(item.industry.name)!''}</li>
+                                    <li class="posi"><a href="${siteurl}company/j${item.id}.htm" target="_blank"><span></span>${item.jobs!'0'}个在招职位</a></li>
+                                    <li class="c_btn"><a href="${siteurl}company/${item.id}.htm" target="_blank">公司主页&nbsp;></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    [/#list]
+                    [/#if]
+                </ul>
+
+                <!-- 分页 -->
+                <!--<div class="item_con_pager"></div>-->
+                [@formpager2 page=companyPage pageNumber2=pageNumber2 /]
+            </div>
+
+            <script id="empty-comp" type="text/html">
+                <div class="empty_position">
+                    <div class="pic"></div>
+                    <div class="txt">
+                        <div>暂时没有符合该搜索条件的公司</div>
+                        <span>请重新修改搜索条件后再进行搜索</span>
+                    </div>
+                </div>
+            </script>
+
+
+            <!-- 职位列表 -->
+
+            <div class="s_position_list " id="s_position_list">
+
+                <!-- 切换分站 -->
+
+                <ul class="item_con_list" style="display: block;">
+                    [#if page.content??]
+                    [#list page.content as item]
+                    <li class="con_list_item first_row default_list" data-index="0" data-positionid="3476321"
+                        data-salary="20k-35k" data-company="玩吧" data-positionname="Java开发工程师" data-companyid="95651"
+                        data-hrid="8052678" data-tpladword="9">
+
+                        <span class="hurry_up"></span>
+
+                        <div class="list_item_top">
+                            <div class="position">
+                                <div class="p_top">
+                                    <a class="position_link" href="${siteurl}jobs/${item.id}.htm" target="_blank">
+                                        <h3 style="max-width: 180px;">${item.name!""}</h3>
+                                        <span class="add" style="display: none">[<em>北京·东城区</em>]</span>
+                                    </a>
+                                    <span class="format-time">${(item.addDate?string("hh:mm"))!""}发布</span>
+                                    <i class="pos_icon pos_icon_12"></i></div>
+                                <div class="p_bot">
+                                    <div class="li_b_l">
+                                        <span class="money">${(item.minMoney)!""}-${(item.maxMoney)!""}</span>
+                                        <!--<i></i>-->${(item.workYear.name)!""} / ${(item.degree.name)!""}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="company">
+                                <div class="company_name">
+                                    <a href="${siteurl}company/${(item.company.id)!'-1'}.htm" target="_blank">${(item.company.name)!""}</a>
+                                    <i class="company_mark"><span>该企业已上传营业执照并通过资质验证审核</span></i>
+                                </div>
+                                <div class="industry">
+                                    ${(item.company.industry.name)!''}
+                                </div>
+                            </div>
+                            <div class="com_logo">
+                                <a href="${siteurl}company/${(item.company.id)!'-1'}.htm" target="_blank">
+                                    [#if (item.company.logo)??]
+                                    <img src="[@image src=item.company.logo /]"
+                                         alt="${(item.company.name)!''}" width="60" height="60">
+                                    [/#if]
+                                </a>
+                            </div>
+                        </div>
+                        <div class="list_item_bot">
+                            <div class="li_b_l">
+                                [#if item.labels??]
+                                [#list item.labels as item]
+                                <span>${item.name!""}</span>
+                                [/#list]
+                                [/#if]
+                            </div>
+                            <div class="li_b_r">${(item.highlights)!''}</div>
+                        </div>
+                    </li>
+                    [#else]
+                    <div class="empty_position">
+                        <div class="pic"></div>
+                        <div class="txt">
+                            <div>暂时没有符合该搜索条件的职位</div>
+                            <span>请重新修改搜索条件后再进行搜索</span>
+                        </div>
+                    </div>
+                    [/#list]
+                    [/#if]
+                </ul>
+
+                <!-- 推荐公司、城市 -->
+                <!-- <div class="recommend-comp-city dn">
+                <div class="r_search_tit">相关搜索：</div>
+                <ul class="r_search_con">
+
+                </ul>
+                </div> -->
+
+                <!-- 分页 -->
+                <div class="item_con_pager"></div>
+                <input id="isSEO" type="hidden" value="false">
+                <input id="pageNoSEO" type="hidden" value="">
+                <input id="pageSizeSEO" type="hidden" value="">
+                <input id="totalPageCountSEO" type="hidden" value=""
+                >
+                <input id="resultLengthSEO" type="hidden" value="">
+                <input type="hidden" name="abtCode" value="dm-csearch-useUserInterest|1"/>
+
+                [@formpager page=page  /]
+            </div>
+
+            <!-- template -->
+
+            <!-- 数据为空 template -->
+            <script id="empty-position" type="text/html">
+                <div class="empty_position">
+                    <div class="pic"></div>
+                    <div class="txt">
+                        <div>暂时没有符合该搜索条件的职位</div>
+                        <span>请重新修改搜索条件后再进行搜索</span>
+                    </div>
+                </div>
+            </script>
+
+
+        </div>
+
+        <!-- 右侧 -->
+        <!-- 依次填入右侧各个模块 -->
+        <div class="content_right">
+
+            <!-- 最近浏览 -->
+
+            <div class="history dn" data-lg-tj-track-code="search_history">
+                <div class="title">最近浏览过</div>
+                <ul class="history_position_list" id="history_position_list">
+                </ul>
+            </div>
+
+
+            <!-- 广告位  -->
+
+
+
+            <!-- 待验证 广告位 -->
+
+        </div>
+    </div>
+    </form>
+</div>
+<!-- 页面主体END -->
+[#include "/theme/default/common/footer.html"]
+[#include "/theme/default/common/backTop.html"]
+<script>
+    $(document).ready(function () {
+        $(".multi-chosen a").click(function () {
+            $(this).addClass("active");
+            $(this).siblings().removeClass("active");
+            var url="${siteurl}jobs/index.htm?time=1"
+            $(".multi-chosen .active").each(function (data) {
+                console.log($(this).data("nav")+":"+$(this).data("id"));
+                url=url+"&"+$(this).data("nav")+"="+$(this).data("id");
+            });
+            console.log(url);
+            window.location.href=url;
+            $("#sortdefault").href(url);
+            $("#sortnew").href(url);
+        });
+
+        var $listForm = $("#listForm");
+        var $pageNumber = $("#pageNumber");
+        var $pageNumber2 = $("#pageNumber2");
+
+        var companyTab = false;
+        var $showComapny = $('#showComapny');
+
+        // 页码跳转
+        $.pageSkip = function(pageNumber) {
+            if (companyTab) {
+                $pageNumber2.val(pageNumber);
+            } else {
+                $pageNumber.val(pageNumber);
+            }
+            $("#listForm").submit();
+            //return false;
+        };
+        $("#tab_pos").click(function () {
+            $('#tab_comp').removeClass('active');
+            $(this).addClass('active');
+            $('#company_list').hide();
+            $('#positionHead').show();
+            $('#s_position_list').show();
+            companyTab = false;
+            $showComapny.val(false)
+        })
+        $('#tab_comp').click(function () {
+            showCompany();
+        })
+            function showCompany() {
+                $('#tab_pos').removeClass('active');
+                $('#tab_comp').addClass('active');
+                $('#s_position_list').hide();
+                $('#positionHead').hide();
+                $('#company_list').show();
+                companyTab = true;
+                $showComapny.val(true)
+            }
+        [#if showCompany?? && showCompany == true]
+        showCompany();
+        [/#if]
+    });
+</script>
+
+</body>
+</html>

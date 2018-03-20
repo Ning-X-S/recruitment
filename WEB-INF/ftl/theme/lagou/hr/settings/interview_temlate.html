@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    [#include "/theme/default/common/header_hr.html"]
+    [@header_hr title="个人信息" cssNames=[
+    "mds/static/pkg/settings/page/greeting-template/main.html_aio_f01ba92.css"
+    ]/]
+</head>
+<body>
+
+[#include "/theme/default/common/commonhr.html"]
+
+[@header index=4/]
+
+<!--搜索框-->
+[#include "/theme/default/hr/settings/common_search.html"]
+
+<!--编辑表单-->
+[#include "/theme/default/hr/settings/interview_temlate_form.html"]
+
+<div id="main-content-wrapper">
+
+    <div class="container">
+        <div class="setting-pannel">
+            <div class="head clearfix">
+                <div class="title">招聘设置</div>
+            </div>
+            <div class="menu-container head-son clearfix" id="recruit-menu">
+                [@settab index=3]
+                <div class="add-modules add-menu" id="add" data-target="#addForm">
+                    <i class="icon-add" style="font-size: 14px"></i>
+                    新增面试信息（<span id="CurrTplNum">1</span>/<span id="maxTplNum">20</span>）
+                </div>
+                [/@settab]
+            </div>
+            <div class="setting-container" id="recruit-container">
+
+                <!-- 新增框 -->
+                [@form action='#' formId='addForm'/]
+
+                <div class="display-molues">
+                    <div class="template-header clearfix">
+                        <span class="modules-name">默认模版</span>
+                        <div class="template-operation set-tab clearfix fr">
+                            <span class="menu-item active edit" style="padding: 0;border: none">编辑</span>
+                            <span class="divider"></span>
+                            <span class="menu-item active delete" data-href="#删除action" style="padding: 0;">删除</span>
+                        </div>
+                    </div>
+                    <div class="template-body">
+                        <dl class="template-item clearfix">
+                            <dt class="fl">联系人：</dt>
+                            <dd class="fl">lianbin</dd>
+                        </dl>
+                        <dl class="template-item clearfix">
+                            <dt class="fl">面试地点：</dt>
+                            <dd class="fl">陕西省西安市高新区唐延南路逸翠园i都会3号楼513室</dd>
+                        </dl>
+                        <dl class="template-item clearfix">
+                            <dt class="fl">联系电话：</dt>
+                            <dd class="fl">18681839090</dd>
+                        </dl>
+                    </div>
+                </div>
+                [@form id="1" templateName="自定义模板" linkMan="联系人"
+                    address="地址" linkPhone="18888888888" action="#" /]
+            </div>
+        </div>
+    </div>
+</div>
+[#include "/theme/default/hr/settings/common_footer.html"]
+[#include "/theme/default/common/footer.html"]
+
+</body>
+</html>
+

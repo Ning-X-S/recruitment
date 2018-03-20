@@ -1,0 +1,2134 @@
+/* 简历 * 我的简历 */
+.content {
+    width: 1024px;
+    margin: 35px auto 0;
+    padding-bottom: 80px;
+    overflow:hidden;
+}
+/* 我的简历 * 左侧 */
+.content .mr_myresume_l {
+    float: left;
+    width: 702px;
+    margin-bottom: 20px;
+}
+/* 我的简历 * 顶部 */
+.content .mr_myresume_l .mr_mr_head {
+    position: relative;
+}
+.content .mr_myresume_l .mr_mr_head .mr_top_bg {
+     position: relative;
+     height: 135px;
+     background: #fafafa url(//www.lgstatic.com/www/static/mycenter/modules/common/img/tou_c3707c7.png) center top no-repeat;
+     z-index: 2;
+}
+.content .mr_myresume_l .mr_mr_head .mr_top_bg .mr_headimg {
+    position: absolute;
+    left: 287px;
+    top: 39px;
+    width: 129px;
+    height: 129px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_top_bg input {
+    position: absolute;
+    left: 287px;
+    top: 39px;
+    width: 129px;
+    height: 129px;
+    opacity: 0;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.content .mr_myresume_l .mr_mr_head .mr_top_bg .opa {
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 170px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_top_bg .shadow {
+    left: 293px;
+    top: 45px;
+    width: 116px;
+    height: 116px;
+    position:absolute;
+}
+.content .mr_myresume_l .mr_mr_head .privacy_settings {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    z-index: 999;
+    height: 30px;
+}
+.content .mr_myresume_l .mr_mr_head .privacy_settings .privacy_settings_img {
+    display: block;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/privacy_settings_img_c7ce5f7.png) no-repeat center center;
+}
+.content .mr_myresume_l .mr_mr_head .privacy_settings .privacy_settings_tip {
+    position: absolute;
+    top: 29px;
+    right: -12px;
+    width: 200px;
+    padding: 15px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    color: #777;
+    border-radius: 3px;
+    background-color: #fcfed5;
+    display:none;
+}
+.content .mr_myresume_l .mr_mr_head .privacy_settings .privacy_settings_btn {
+    display: block;
+    margin: 8px 0 0 98px;
+    padding: 5px 10px;
+    color: #fff;
+    background-color: #00b38a;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.content .mr_myresume_l .mr_mr_head .privacy_settings .privacy_settings_close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+    z-index: 999;
+    cursor: pointer;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/privacy_settings_close_ea65960.png) no-repeat center center;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -ms-transition: all .5s;
+    transition: all .5s;
+}
+.content .mr_myresume_l .mr_mr_head .privacy_settings .privacy_settings_close:hover {
+    transform:rotate(180deg);
+    -ms-transform:rotate(180deg); 	/* IE 9 */
+    -moz-transform:rotate(180deg); 	/* Firefox */
+    -webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+    -o-transform:rotate(180deg); 	/* Opera */
+}
+.content .mr_myresume_l .mr_mr_head .privacy_settings .privacy_settings_arrow {
+    position: absolute;
+    top: -7px;
+    right: 14px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #fcfed5;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo {
+    position: relative;
+    min-height: 118px;
+    padding: 56px 0 10px!important;
+    background-color: #fafafa;
+    /*border: 1px solid #f2f2f2;*/
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_left_bg {
+    position: absolute;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/top_bg_3c61ee8.png) no-repeat;
+    width: 12px;
+    height: 34px;
+    top: 76px;
+    left: -1px;
+    background-position: 0 0;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_right_bg {
+    position: absolute;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/top_bg_3c61ee8.png) no-repeat;
+    width: 12px;
+    height: 34px;
+    top: 76px;
+    right: -2px;
+    background-position: -40px 0;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_my_qr {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    right: 52px;
+    top: 0;
+    width: 48px;
+    height: 50px;
+    background: #f2f2f2 url(//www.lgstatic.com/www/static/mycenter/modules/common/img/qr_bg_9ac44b7.png) 10px 10px no-repeat;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_my_qr .dropdown_menu {
+    width: 313px;
+    height: 172px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/myresume_qr3_7e2d5c9.png) no-repeat;
+    color: #fff;
+    display: block;
+    padding: 12px 168px 109px 5px;
+    margin: 50px 0 0 -225px;
+    opacity: 1;
+     visibility: visible;
+    -webkit-transition: .25s;
+    transition: .25s;
+    cursor: auto;
+     margin-top: 58px!important;
+     display:none;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_name {
+    height: 40px;
+    line-height: 38px;
+    margin-bottom: 8px!important;
+    width: 604px;
+    margin: 0 auto;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_name .mr_name {
+    display: block;
+    height: 40px;
+    width: 468px;
+    margin: 0 auto;
+    line-height: 40px;
+    font-size: 30px;
+    color: #333;
+    text-align: center;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_edit {
+    float: right;
+    margin-right: 12px;
+    cursor: pointer;
+    height: 34px;
+    display:none;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_name .mr_edit i {
+    display: inline-block;
+    width: 12px;
+    height: 14px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) -53px -6px no-repeat;
+    margin-right: 7px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_name .mr_edit em {
+    font-size: 16px;
+    color: #00b38a;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_name:hover {
+    background-color:#fefef2;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_name:hover .mr_edit {
+    display:block;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo form .mr_name_edit {
+    padding-left: 155px;
+    min-height: 40px;
+    line-height: 30px;
+    padding-bottom: 8px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo form .mr_name_edit .ed_name {
+    width: 368px;
+    height: 38px;
+    border: 1px solid #eeeff1;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin: 0;
+    text-align: center;
+    font: 30px/30px Arial,"Hiragino Sans GB","微软雅黑","宋体";
+    margin-right: 12px;
+    padding: 0 10px;
+    line-height: 38px;
+    vertical-align: middle;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo form .mr_name_edit .save {
+    border: 0;
+    margin: 0;
+    display: inline-block;
+    padding: 0 11px;
+    font-size: 14px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    background-color: #00b38a;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin-right: 12px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo form .mr_name_edit .cancel {
+    color: #00b38a;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_info {
+    position: relative;
+    color: #666;
+    padding: 5px 0 7px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_info .info_t {
+    text-align: center;
+    margin-bottom: 8px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_info .shenfen {
+    margin-right: 15px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_info i {
+    display: inline-block;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) -53px -6px no-repeat;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 14px;
+    height: 12px;
+    background-position: -90px -72px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_info em {
+    vertical-align: middle;
+    position:relative;
+}
+.content .mr_myresume_l .mr_mr_head .mr_p_info .info_j {
+    text-align: center;
+    margin-bottom: 8px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_p_info i {
+    display: inline-block;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) -53px -6px no-repeat;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 13px;
+    height: 13px;
+    background-position: -111px -70px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_p_info .base_info em {
+    margin-right: 6px;
+    height: 24px;
+}
+.content .mr_myresume_l .mr_mr_head .birth_span {
+    position: absolute;
+    left: 50%;
+    top: -4px;
+    margin-left: -50px;
+    margin-top: -20px;
+    padding: 0 5px;
+    height: 20px;
+    line-height: 20px;
+    background-color: #666;
+    white-space: nowrap;
+    text-align: center;
+    color: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_p_info .base_info em.mr0 {
+    margin: 0;
+    display: inline-block;
+    max-width: 74px;
+    overflow: hidden;
+    height: 24px;
+    line-height: 24px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.content .mr_myresume_l .mr_mr_head .mr_p_info .mobile {
+    margin-right: 18px;
+}
+.mr_p_info .info_b {
+    text-align: center;
+    margin-bottom: 8px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_p_info .base_info i {
+    width: 13px;
+    height: 13px;
+    background-position: -111px -70px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_p_info .mr_edit {
+    position: absolute;
+    right: 0;
+    top: 4px;
+    font-size: 16px;
+    color: #00b38a;
+}
+.content .mr_myresume_l .mr_mr_head .mr_p_info .mobile i {
+    width: 12px;
+    height: 14px;
+    background-position: -131px -70px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_p_info .email i {
+    width: 14px;
+    height: 10px;
+    background-position: -150px -73px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_info:hover {
+    background-color:#fefef2;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_info:hover .mr_edit {
+    display:block;
+}
+.content .mr_myresume_l .mr_mr_head .mr_info_edit {
+    padding: 40px 0 50px 155px;
+    background-color: #fefef2;
+}
+.content .mr_myresume_l .mr_mr_head .mr_info_edit label {
+    display: block;
+    color: #afafa9;
+    padding-bottom: 4px;
+    padding-left: 3px;
+}
+.content .mr_myresume_l .mr_mr_head .form_wrap {
+    position: relative;
+    cursor: pointer;
+    width: 396px;
+    height: 46px;
+    border: 1px solid #f1f3e9;
+    background-color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin: 0;
+    margin-bottom: 9px;
+}
+.content .mr_myresume_l .mr_mr_head .form_wrap .mr_button {
+    border:0;
+    text-align: left;
+    padding-left: 17px;
+    width: 327px;
+    height: 44px;
+    background-color: #fff;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_sj {
+    position: absolute;
+    right: 18px;
+    top: 20px;
+    border: 6px solid #fff;
+    border-color: #d3d3d3 transparent transparent;
+    display: block;
+    font-size: 0;
+    height: 0;
+    width: 0;
+}
+.content .mr_myresume_l .mr_mr_head .xl_list {
+    position: absolute;
+    top: 45px;
+    left: -1px;
+    z-index: 2;
+    width: 396px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-shadow: 2px 2px 4px #efefe4;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.content .mr_myresume_l .mr_mr_head .ul_shenfen li {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 36px;
+    line-height: 36px;
+    padding-left: 17px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_info_edit label {
+    display: block;
+    color: #afafa9;
+    padding-bottom: 0px;
+    padding-left: 3px;
+    font-weight: 400;
+}
+.content .mr_myresume_l .mr_mr_head .mr_sex {
+    margin-bottom: 9px;
+    overflow:hidden;
+}
+.content .mr_myresume_l .mr_mr_head span.mr_man {
+    width: 90px;
+    padding-left: 27px;
+    color: #b5b5b5;
+    height: 46px;
+    line-height: 37px;
+    border: 1px solid #f1f3e9;
+    background-color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 12px;
+}
+.content .mr_myresume_l .mr_mr_head span.mr_women {
+    width: 90px;
+    padding-left: 27px;
+    color: #b5b5b5;
+    height: 46px;
+    line-height: 37px;
+    border: 1px solid #f1f3e9;
+    background-color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.content .mr_myresume_l .mr_mr_head .mr_sex i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) no-repeat;
+    background-position: -27px -25px;
+    margin-right: 11px;
+    vertical-align: middle;
+}
+.content .mr_myresume_l .mr_mr_head .xl_list li:hover {
+    background-color: #f4f4f4;
+}
+.content .mr_myresume_l .mr_mr_head .mr_sex span em {
+    vertical-align: middle;
+}
+.content .mr_myresume_l .mr_mr_head .mr_sex .active i {
+    background-position: -4px -5px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_sex .active em {
+    color: #333
+}
+.content .mr_myresume_l .mr_mr_head .xl_list li:hover {
+    background-color: #f4f4f4;
+}
+.content .mr_myresume_l .mr_mr_head .mr_years {
+    margin-right: 12px;
+}
+.content .mr_myresume_l .mr_mr_head .form_wrap {
+    position: relative;
+    cursor: pointer;
+    width: 396px;
+    height: 46px;
+    border: 1px solid #f1f3e9;
+    background-color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 9px;
+}
+.content .mr_myresume_l .mr_mr_head .form_wrap_y {
+    width: 188px;
+}
+.content .mr_myresume_l .mr_mr_head .form_wrap_y .mr_button {
+    width: 185px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_sj {
+    position: absolute;
+    right: 18px;
+    top: 20px;
+    border: 6px solid #fff;
+    border-color: #d3d3d3 transparent transparent;
+    display: block;
+    font-size: 0;
+    height: 0;
+    width: 0;
+}
+.content .mr_myresume_l .mr_mr_head .xl_list {
+    position: absolute;
+    top: 45px;
+    left: -1px;
+    z-index: 2;
+    width: 396px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-shadow: 2px 2px 4px #efefe4;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.xl_list li {
+    height: 36px;
+    line-height: 36px;
+    padding-left: 17px;
+    text-align:left;
+}
+.content .mr_myresume_l .mr_mr_head .form_wrap_y .xl_list {
+    width: 188px;
+}
+.content .mr_myresume_l .mr_mr_head .ul_year {
+    max-height: 182px;
+    overflow: auto;
+}
+.content .mr_myresume_l .mr_mr_head .mr_months {
+    margin-right: 12px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_months .form_wrap_y {
+    width: 90px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_months .form_wrap_y .mr_button {
+    width: 52px;
+}
+.content .mr_myresume_l .mr_mr_head .ul_month {
+    max-height: 182px;
+    overflow: auto;
+}
+.content .mr_myresume_l .mr_mr_head .mr_months .form_wrap_y .xl_list {
+    width: 90px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_days .form_wrap_y {
+    width: 90px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_days .form_wrap_y .mr_button {
+    width: 52px;
+}
+.content .mr_myresume_l .mr_mr_head .ul_day {
+    max-height: 182px;
+    overflow: auto;
+}
+.content .mr_myresume_l .mr_mr_head .xl_list li {
+    height: 34px;
+    font-size: 14px;
+    line-height: 34px;
+    cursor: pointer;
+}
+.mr_selCity .mr_province li .mr_city li {
+    float: left;
+    height: 24px;
+    margin: 4px 2px;
+    padding: 0 8px;
+    line-height: 24px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.ul_gznx {
+    max-height: 182px;
+    overflow: auto;
+}
+.content .mr_myresume_l .mr_mr_head .mr_days .form_wrap_y .xl_list {
+    width: 90px;
+}
+.content .mr_myresume_l .mr_mr_head .form_wrap .mr_input {
+    width: 327px;
+    padding: 0 0 0 17px;
+    border: 0;
+    height: 44px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_locks {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 8px;
+    right: 8px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) -150px -83px no-repeat;
+}
+.content .mr_myresume_l .mr_mr_head .sns_empty {
+    width: 450px;
+    height: 90px;
+    margin:0;
+    margin-bottom: 20px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/sns_add_bg_e38cbb6.png) no-repeat 0 0;
+    background-size:100%;
+}
+.content .mr_myresume_l .mr_mr_head .sns_empty .sns_add_empty {
+    position: relative;
+    width: 173px;
+    height: 37px;
+    cursor: pointer;
+}
+.content .mr_myresume_l .mr_mr_head .mr_ope {
+    padding-top: 34px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_ope .mr_save {
+    padding: 12px 18px;
+    font-size: 16px;
+    vertical-align: middle;
+    border:0;
+}
+.content .mr_myresume_l .mr_mr_head .mr_ope .mr_cancel {
+    padding: 12px 18px;
+    font-size: 16px;
+    vertical-align: middle;
+    color: #00b88d;
+}
+.content .mr_myresume_l .mr_mr_head .mr_save {
+    background-color: #00b38a;
+    margin-right: 5px;
+    color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+/* 简历 * 中部 */
+.content .mr_myresume_l .mr_content {
+    padding-top: 26px;
+    background-color: #fafafa;
+    border: 1px solid #f2f2f2;
+    border-bottom: 2px solid #f2f2f2;
+    border-top: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.content .mr_myresume_l .mr_content .mr_moudle_head {
+    padding-bottom: 23px;
+    width: 604px;
+    margin: 0 auto;
+}
+.mr_moudle_head .mr_head_l {
+    float: left;
+}
+.mr_title {
+    position: relative;
+}
+.mr_title .mr_title_l {
+    width: 230px;
+    height: 0;
+    border-top: 1px solid #ededed;
+    vertical-align: middle;
+    display: inline-block;
+}
+.mr_title .mr_title_c {
+    font-size: 18px;
+    padding: 6px 24px;
+    text-align: center;
+    background-color: #eee;
+    -moz-border-radius: 26px;
+    -webkit-border-radius: 26px;
+    border-radius: 26px;
+    margin: 0 13px;
+}
+.mr_title .mr_title_r {
+    width: 152px;
+    height: 0;
+    border-top: 1px solid #ededed;
+    vertical-align: middle;
+    display: inline-block;
+}
+.mr_moudle_head .mr_head_r {
+    float: right;
+    margin-top: 3px;
+    cursor: pointer;
+}
+.mr_moudle_head .mr_head_r i {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) -5px -69px no-repeat;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+.mr_moudle_head .mr_head_r em {
+    font-size: 16px;
+    color: #00b88d;
+    vertical-align: middle;
+}
+.mr_moudle_content .mr_add_work {
+    position: relative;
+    padding: 48px 88px;
+    background-color: #fefef2;
+    margin: 0 -48px;
+    margin-bottom: 20px;
+}
+.mr_upload_logo {
+    position: absolute;
+    right: 88px;
+    top: 74px;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #f1f3e9;
+    background-color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.mr_upload_logo div {
+    position: absolute;
+    text-align: center;
+    z-index: 2;
+    width: 120px;
+    height: 52px;
+    padding-top: 68px;
+}
+.mr_upload_logo input {
+    position: absolute;
+    top:0px;
+    z-index: 3;
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+.mr_upload_logo img {
+    position: absolute;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+}
+.mr_upload_logo div i {
+    position: absolute;
+    left: 50px;
+    top: 37px;
+    width: 21px;
+    height: 18px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/upload_logo_shadow_61afa0b.png) -1px 0 no-repeat;
+}
+.mr_upload_logo div span {
+    color: #999;
+}
+.mr_moudle_content .mr_add_work label {
+    display: block;
+    color: #afafa9;
+    padding-bottom: 4px;
+    padding-left: 3px;
+    cursor: pointer;
+    font-weight: 100;
+}
+.mr_input_div {
+    position: relative;
+    cursor: pointer;
+    width: 390px;
+    height: 46px;
+    border: 1px solid #f1f3e9;
+    background-color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin:0;
+    margin-bottom: 9px;
+}
+.mr_input_div .mr_btn {
+    border: 0;
+    text-align: left;
+    padding: 0 17px;
+    width: 356px;
+    height: 44px;
+    line-height: 24px;
+    background-color: #fff;
+}
+.mr_time_area {
+    margin-bottom: 9px;
+}
+.mr_ope {
+    padding-top: 34px;
+}
+.mr_ope .mr_save {
+    padding: 12px 18px;
+    font-size: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 0;
+}
+.mr_ope .mr_cancel {
+    padding: 12px 18px;
+    font-size: 16px;
+    vertical-align: middle;
+}
+.mr_w604 {
+    width: 604px;
+    margin: 0 auto;
+}
+.mr_timed_div {
+    position: relative;
+    width: 190px;
+    height: 46px;
+    cursor: pointer;
+    border: 1px solid #f1f3e9;
+    background-color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.edui-default .edui-editor-toolbarboxouter {
+    border-bottom: 1px solid #d4d4d4;
+    background-color: #fafafa;
+    background-image: -moz-linear-gradient(top,#fff,#f2f2f2);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#f2f2f2));
+    background-image: -webkit-linear-gradient(top,#fff,#f2f2f2);
+    background-image: -o-linear-gradient(top,#fff,#f2f2f2);
+    background-image: linear-gradient(to bottom,#fff,#f2f2f2);
+    background-repeat: repeat-x;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    box-shadow: 0 1px 4px rgba(0,0,0,.065);
+}
+.edui-default .edui-editor-toolbarboxinner {
+    padding: 2px;
+}
+.edui-default .edui-toolbar {
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    padding: 1px;
+    overflow: hidden;
+    zoom: 1;
+    width: auto;
+    height: auto;
+}
+.edui-default .edui-toolbar {
+    position: relative;
+    line-height: 22px;
+}
+.edui-default .edui-toolbar .edui-button, .edui-default .edui-toolbar .edui-splitbutton, .edui-default .edui-toolbar .edui-menubutton, .edui-default .edui-toolbar .edui-combox {
+    margin: 1px;
+}
+div.edui-box {
+    position: relative;
+    display: -moz-inline-box!important;
+    display: inline-block!important;
+    vertical-align: top;
+}
+.edui-default .edui-toolbar .edui-button .edui-icon, .edui-default .edui-toolbar .edui-menubutton .edui-icon, .edui-default .edui-toolbar .edui-splitbutton .edui-icon {
+    height: 20px!important;
+    width: 20px!important;
+    background-image: url(https://www.lgstatic.com/www/static/common/static/ueditor1_4_3-utf8-jsp/themes/default/images/icons.png);
+    background-image: url(https://www.lgstatic.com/www/static/common/static/ueditor1_4_3-utf8-jsp/themes/default/images/icons.gif) \9;
+}
+.edui-default .edui-for-insertunorderedlist .edui-icon {
+    background-position: -20px 0;
+}
+.edui-default .edui-toolbar .edui-splitborder {
+    width: 1px;
+    height: 20px;
+}
+.edui-default .edui-toolbar .edui-splitbutton-body .edui-arrow, .edui-default .edui-toolbar .edui-menubutton-body .edui-arrow {
+    background: url(https://www.lgstatic.com/www/static/common/static/ueditor1_4_3-utf8-jsp/themes/default/images/icons.png) -741px 0;
+    _background: url(https://www.lgstatic.com/www/static/common/static/ueditor1_4_3-utf8-jsp/themes/default/images/icons.gif) -741px 0;
+    height: 20px;
+    width: 9px;
+}
+.edui-default .edui-for-insertorderedlist .edui-icon {
+    background-position: -80px 0;
+}
+.edui-default .edui-toolbar .edui-splitbutton-body .edui-arrow, .edui-default .edui-toolbar .edui-menubutton-body .edui-arrow {
+    background: url(https://www.lgstatic.com/www/static/common/static/ueditor1_4_3-utf8-jsp/themes/default/images/icons.png) -741px 0;
+    _background: url(https://www.lgstatic.com/www/static/common/static/ueditor1_4_3-utf8-jsp/themes/default/images/icons.gif) -741px 0;
+    height: 20px;
+    width: 9px;
+}
+.mr_empty_add {
+    cursor: pointer;
+    margin-bottom: 20px;
+    text-align: center;
+    height: 98px;
+    line-height: 98px;
+    border: 1px dashed #d7d7d7;
+    background-color: #fcfcfc;
+}
+.mr_empty_add.addgrey i {
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) -43px -69px no-repeat!important;
+}
+.mr_empty_add i {
+    vertical-align: middle;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) -5px -69px no-repeat;
+    margin-right: 6px;
+}
+.mr_empty_add span {
+    vertical-align: middle;
+    font-size: 16px;
+    color: #00b88d;
+}
+.mr_empty_add.addgrey span {
+    color: #999!important;
+}
+.mr_sta_time {
+    margin-right: 8px;
+}
+.mr_sj {
+    position: absolute;
+    right: 18px;
+    top: 20px;
+    border: 6px solid #fff;
+    border-color: #d3d3d3 transparent transparent;
+    display: block;
+    font-size: 0;
+    height: 0;
+    width: 0;
+}
+.mr_timed_div .mr_btn {
+    border: 0;
+    text-align: left;
+    padding-left: 17px;
+    width: 130px;
+    height: 44px;
+    background-color: #fff;
+    font-size:14px;
+}
+
+.mr_calendar_ym {
+    position: absolute;
+    top: 45px;
+    left: -1px;
+    height: 160px;
+    width: 244px;
+    background-color: #fff;
+    z-index: 5000;
+    border: 1px solid #e7e7e7;
+    border-radius: 3px;
+    box-shadow: 2px 2px 4px #e7e7e7;
+}
+.mr_calendar_ym .mr_year {
+    width: 90px;
+    height: 160px;
+    overflow: auto;
+}
+.mr_calendar_ym .mr_month {
+    word-wrap: normal;
+    padding: 20px 0 10px 15px;
+    background-color: #fff;
+    width: 151px;
+}
+.mr_calendar_ym .mr_year li {
+    width: 72px;
+    height: 32px;
+    cursor: pointer;
+    line-height: 32px;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+}
+.mr_calendar_ym .mr_year li.active {
+    background-color: #4ed6b7!important;
+    color: #fff!important;
+}
+.mr_calendar_ym .mr_month li {
+    float: left;
+    cursor: pointer;
+    width: 33%;
+    height: 22px;
+    line-height: 22px;
+    color: #333;
+    background-color: #fff;
+    margin: 0 0 10px;
+}
+.mr_calendar_ym .mr_month span {
+    padding: 0 6px;
+    border-radius: 3px;
+}
+.mr_save {
+    background-color: #00b38a;
+    margin-right: 5px;
+    color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+#workExperience .list_show {
+    padding-bottom: 6px;
+}
+.mr_jobe_list {
+    padding-bottom: 44px;
+}
+#workExperience .mr_content_m {
+    padding-bottom: 1px;
+    padding-top: 4px;
+}
+.mr_moudle_content .mr_content_l {
+    float: left;
+    max-width: 445px;
+}
+.mr_moudle_content .mr_content_r {
+    float: right;
+    text-align: right;
+}
+.mr_moudle_content .mr_content_l .l1 {
+    float: left;
+    margin-right: 10px;
+}
+.mr_moudle_content .mr_content_l .l1 img {
+    width: 46px;
+    height: 46px;
+    border: 2px solid #eee;
+    display: inline-block;
+}
+.mr_moudle_content .mr_content_l .l2 h4 {
+    font-size: 16px;
+}
+.mr_moudle_content .mr_content_l .l2 {
+    position: relative;
+    float: left;
+    padding-top: 10px;
+    max-width: 380px;
+}
+.mr_edit i {
+    display: inline-block;
+    width: 12px;
+    height: 14px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) -53px -6px no-repeat;
+    margin-right: 7px;
+}
+.mr_edit i {
+    display: inline-block;
+    width: 12px;
+    height: 14px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) -53px -6px no-repeat;
+    margin-right: 7px;
+}
+.mr_up_grey em {
+    color: #999!important;
+}
+.mr_ope .mr_delete {
+    position: relative;
+    cursor: pointer;
+    float: right;
+    font-size: 16px;
+    color: #ff685e;
+    margin-top: 13px;
+    z-index: 10;
+}
+.mr_delete_pop {
+    position: absolute;
+    width: 146px;
+    height: 80px;
+    right: -56px;
+    top: -128px;
+    font-size: 16px;
+    border: 1px solid #e7e7e7;
+    background-color: #fff;
+    padding: 18px 24px;
+    box-shadow: 2px 2px 4px #efefe4;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.mr_created input {
+    font-size: 14px;
+}
+.mr_cancel {
+    color: #00b88d;
+}
+.mr_calendar_ym .mr_month .mr0 {
+    margin-right: 0;
+}
+.mr_calendar_ym ul {
+    float: left;
+}
+.mr_moudle_head {
+    margin-bottom: 23px;
+}
+.fl {
+    float: left!important;
+}
+.mr_content_m {
+    padding-bottom: 1px;
+    padding-top: 4px;
+}
+.mr_moudle_content .mr_content_l {
+    float: left;
+    max-width: 445px;
+}
+.mr_moudle_content .mr_content_r {
+    float: right;
+    text-align: right;
+}
+.mr_c_r_t {
+    text-align: right;
+    margin: 5px 0 2px;
+    float: none;
+    height: 34px;
+    cursor: pointer;
+}
+.mr_self_state .xl_list {
+    width: 270px;
+}
+.xl_list li:hover {
+    background-color: #f4f4f4;
+}
+.mr_moudle_content .mr_content_l .l2 span {
+    color: #999;
+    display: block;
+    margin-top:4px;
+    display:inline-block;
+}
+.mr_moudle_content .mr_content_r span {
+    color: #999;
+}
+#expectJob .mr_moudle_content {
+    padding-bottom: 25px;
+}
+#expectJob .expectjob_list {
+    position: relative;
+}
+.mr_moudle_content .mr_job_info {
+    text-align: center;
+    padding-left: 28px;
+}
+.mr_job_info li {
+    float: left;
+    text-align: left;
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#expectJob .expectjob_list .clearfixs li {
+    font-size: 16px;
+}
+.mr_jobtype_li {
+    width: 128px;
+}
+.mr_name_li {
+    width: 188px;
+}
+.mr_city_li {
+    width: 124px;
+}
+.mr_jobrange_li {
+    width: 94px;
+}
+.mr_job_info i {
+    display: inline-block;
+    margin-right: 10px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) no-repeat;
+}
+.mr_job_info li * {
+    vertical-align: middle;
+}
+.mr_name_li i {
+    width: 9px;
+    height: 19px;
+    background-position: -97px -220px;
+}
+.mr_jobtype_li i {
+    width: 17px;
+    height: 17px;
+    background-position: -93px -247px;
+}
+.mr_city_li i {
+    width: 14px;
+    height: 17px;
+    background-position: -93px -273px;
+}
+.mr_jobrange_li i {
+    width: 18px;
+    height: 18px;
+    background-position: -92px -294px;
+}
+.exp_job_mb {
+    margin-bottom: 9px;
+}
+.mr_expinput_div {
+    float: left;
+    width: 254px;
+    height: 46px;
+    cursor: pointer;
+    border: 1px solid #f1f3e9;
+    background-color: #fff;
+    margin-right: 8px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.mr_expinput_div .mr_btn {
+    font-size: 14px;
+    line-height: 24px;
+    border: 0;
+    text-align: left;
+    padding: 0;
+    padding-left: 17px;
+    width: 237px;
+    height: 44px;
+    background-color: #fff;
+}
+.mr_sj {
+    position: absolute;
+    right: 18px;
+    top: 20px;
+    border: 6px solid #fff;
+    border-color: #d3d3d3 transparent transparent;
+    display: block;
+    font-size: 0;
+    height: 0;
+    width: 0;
+}
+.mr_exp_type .mr_btn {
+    width: 59px;
+    padding-left: 17px;
+    height: 44px;
+    border: 0;
+    background-color: #fff;
+    text-align: left;
+}
+.mr_created input {
+    font-size: 14px;
+}
+/*.xl_list {
+    position: absolute;
+    top: 45px;
+    left: -1px;
+    z-index: 2;
+    width: 396px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-shadow: 2px 2px 4px #efefe4;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}*/
+.mr_exp_type {
+    position: relative;
+    float: left;
+    width: 126px;
+    height: 46px;
+    cursor: pointer;
+    border: 1px solid #f1f3e9;
+    background-color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.mr_exp_type .xl_list {
+    width: 126px;
+}
+.xl_list li {
+    height: 36px;
+    line-height: 36px;
+    padding-left: 17px;
+}
+label .label_yx {
+    margin-left: 148px;
+}
+.mr_job_city {
+    position: relative;
+    margin-right: 8px;
+    width: 190px;
+    height: 46px;
+    cursor: pointer;
+    border: 1px solid #f1f3e9;
+    background-color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.mr_sj {
+    position: absolute;
+    right: 18px;
+    top: 20px;
+    border: 6px solid #fff;
+    border-color: #d3d3d3 transparent transparent;
+    display: block;
+    font-size: 0;
+    height: 0;
+    width: 0;
+}
+.mr_job_city .mr_btn {
+    border: 0;
+    text-align: left;
+    padding: 0;
+    padding-left: 17px;
+    width: 130px;
+    height: 44px;
+    line-height: 44px;
+    background-color: #fff;
+}
+.mr_pay_div {
+    position: relative;
+    margin-right: 8px;
+    width: 190px;
+    height: 46px;
+    cursor: pointer;
+    border: 1px solid #f1f3e9;
+    background-color: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+/*.xl_list {
+    position: absolute;
+    top: 45px;
+    left: -1px;
+    z-index: 2;
+    width: 396px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-shadow: 2px 2px 4px #efefe4;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.mr_job_city .xl_list {
+    width: 390px;
+}*/
+.mr_created .city_s .xl_list {
+    height: 136px;
+}
+.mr_selCity .mr_province {
+    width: 90px;
+    height: 136px;
+    padding: 0;
+    overflow: auto;
+    font-size: 14px;
+    line-height: 34px;
+    text-align: center;
+    border-right: 1px solid #ececec;
+    float:left;
+}
+.mr_selCity .mr_province li {
+    height: 34px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 34px;
+    text-align: center;
+    cursor: pointer;
+}
+.mr_selCity .mr_province li span {
+    display: block;
+    cursor: pointer;
+}
+.mr_on {
+    color: #fff;
+    background: #4ed6b7!important;
+}
+.mr_selCity .mr_province li .mr_city {
+    position: absolute;
+    top: 0;
+    left: 91px;
+    right: 0;
+    padding: 5px;
+    height: 126px;
+    overflow: auto;
+    color: #555;
+    white-space: nowrap;
+    zoom: 1;
+}
+.mr_selCity .mr_province li .mr_city li {
+    float: left;
+    height: 24px;
+    margin: 4px 2px;
+    padding: 0 8px;
+    line-height: 24px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.mr_pay_div .xl_list {
+    width: 190px;
+}
+.mr_self_state {
+    position: relative;
+    height: 94px;
+    background-color: #f6f6f6;
+}
+.mr_self_state .form_wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -24px 0 0 -135px;
+    border: 1px solid #eaeced;
+    width: 270px;
+}
+.mr_self_state .form_wrap.active {
+    background-color: ##f6f6f6;
+}
+.mr_self_state .form_wrap.active input {
+    background-color: #f6f6f6;
+    color: #999;
+}
+.mr_self_state .form_wrap.active:hover {
+    background-color: #fff;
+}
+.mr_self_state .form_wrap.active:hover input{
+    background-color: #fff;
+}
+.mr_self_state .mr_button {
+    width: 240px;
+}
+/*.mr_timed_div .xl_list {
+    width: 190px;
+}*/
+.xl_list {
+    position: absolute;
+    top: 45px;
+    left: -1px;
+    z-index: 2;
+    width: 396px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-shadow: 2px 2px 4px #efefe4;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.xl_list li {
+    height: 36px;
+    line-height: 36px;
+    padding-left: 17px;
+}
+.form_wrap .mr_button {
+    text-align: left;
+    padding-left: 17px;
+    width: 220px;
+    height: 44px;
+    background-color: #fff;
+    border:0;
+}
+/* 简历 * 底部 */
+.mr_bottom {
+    margin-top: 5px;
+}
+.mr_bottom .mr_bottom_l {
+    float: left;
+    position: relative;
+    cursor: pointer;
+}
+.mr_bottom .mr_bottom_r {
+    float: right;
+    text-align: right;
+    color: #c6c6c6;
+}
+.mr_bottom .mr_down_tip {
+    position: absolute;
+    width: 96px;
+    top: -120px;
+    left: 12px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 4px #efefe4;
+}
+.mr_bottom .mr_bottom_l i {
+    display: inline-block;
+    margin-right: 10px;
+    width: 16px;
+    height: 12px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) -90px -140px no-repeat;
+}
+.mr_bottom .mr_down_tip i {
+    position: absolute;
+    background: 0 0;
+    border: 8px solid #e7e7e7;
+    border-color: #e7e7e7 transparent transparent;
+    display: block;
+    font-size: 0;
+    height: 0;
+    width: 0;
+    right: 30px;
+    bottom: -16px;
+}
+.mr_bottom .mr_down_tip em {
+    position: absolute;
+    background: 0 0;
+    border: 8px solid #e7e7e7;
+    border-color: #e7e7e7 transparent transparent;
+    display: block;
+    font-size: 0;
+    height: 0;
+    width: 0;
+    right: 40px;
+    bottom: -15px;
+    border-color: #fff transparent transparent;
+}
+.mr_bottom .mr_down_tip li {
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+}
+.mr_bottom .mr_bottom_l i {
+    display: inline-block;
+    margin-right: 10px;
+    width: 16px;
+    height: 12px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) -90px -140px no-repeat;
+}
+.mr_bottom .mr_bottom_l em {
+    color: #c5c5c5;
+}
+/* 我的简历 * 右侧 */
+.content .mr_myresume_r {
+    float: right;
+    width: 282px;
+}
+.mr_r_nav {
+    margin-bottom: 18px!important;
+}
+.mr_r_nav li {
+    float: left;
+    width: 66px;
+    height: 66px;
+    margin-right: 3px;
+    border: 1px solid #f2f2f2;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.mr_r_nav .mr_none {
+    margin-right: 0;
+}
+.mr_r_nav li a {
+    position: relative;
+    display: block;
+    padding-top: 40px;
+    height: 64px;
+    text-align: center;
+    background-color: #fafafa;
+}
+.mr_r_nav li a i {
+    position: absolute;
+    left: 50%;
+    margin-left: -14px;
+    top: 12px;
+    width: 30px;
+    height: 25px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) no-repeat;
+}
+.mr_r_nav li a .td {
+    background-position: 0 -316px;
+}
+.mr_r_nav li a .yq {
+    background-position: -101px -316px;
+}
+.mr_r_nav li a .sc {
+    background-position: -35px -316px;
+}
+.mr_r_nav li a .dy {
+    background-position: -67px -316px;
+}
+.mr_upload {
+    position: relative;
+    height: 57px;
+    border: 1px solid #f2f2f2;
+    background-color: #fafafa;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 18px!important;
+}
+.mr_upload i {
+    position: absolute;
+    top: 22px;
+    left: 58px;
+    width: 16px;
+    height: 15px;
+    margin-right: 10px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) -64px -70px no-repeat;
+}
+.mr_upload * {
+    vertical-align: middle;
+}
+.mr_upload a {
+    cursor: pointer;
+    text-decoration: none;
+}
+.mr_upload a.inline {
+    display: block;
+    text-align: center;
+    line-height: 57px;
+}
+.mr_integrity {
+    padding: 16px 16px 18px;
+    border: 1px solid #f2f2f2;
+    background-color: #fafafa;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 18px;
+}
+.mr_integrity .mr_top {
+    margin-bottom: 16px;
+}
+.mr_integrity .mr_top .mr_tip_l {
+    vertical-align: middle;
+    float: left;
+}
+.mr_bfb {
+    color: #00b88d;
+}
+.mr_integrity .mr_top .mr_tip_r {
+    vertical-align: middle;
+    float: right;
+    color: #00b88d;
+}
+.mr_integrity_m {
+    position: relative;
+    height: 6px;
+    background-color: #eee;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.mr_integrity_m .mr_solid {
+    position: absolute;
+    height: 100%;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    z-index: 3;
+    background-color: #00b88d;
+}
+.mr_integrity_m .mr_dashed {
+    position: absolute;
+    height: 100%;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    z-index: 2;
+    background-color: #a6ded1;
+}
+.mr_module li {
+    height: 50px;
+    line-height: 50px;
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+    border-left: 1px solid #e5e5e5;
+    padding-left: 6px;
+    cursor: pointer;
+}
+.mr_module li.active {
+    border-color: #00b88d;
+    border-width: 2px;
+}
+.md_flag {
+    position: relative;
+}
+.mr_module .mr_module_add {
+    border-color: #fff;
+    margin-left: -2px;
+    padding-left: 6px;
+}
+.mr_module li.hide_md {
+    border-color: #f2f2f2;
+}
+.mr_module li a {
+    display: block;
+    height: 100%;
+    color: #333;
+}
+.mr_module li i {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) no-repeat;
+    margin: 0 24px 0 29px;
+}
+.mr_module li a * {
+    vertical-align: middle;
+}
+.mr_module li.active i {
+    margin-left: 28px;
+}
+.mr_module li.active .mr_base_i {
+    background-position: -5px -117px;
+}
+.mr_module li .mr_works_i {
+    background-position: -24px -137px;
+}
+.mr_module li .mr_edu_i {
+    background-position: -24px -156px;
+}
+.mr_module li.m_hide .mr_project_i {
+    background-position: -67px -177px;
+}
+.mr_module li.m_hide .mr_production_i {
+    background-position: -67px -198px;
+}
+.mr_module li.m_hide .mr_self_i {
+    background-position: -67px -219px;
+}
+.mr_module li .mr_hopework_i {
+    background-position: -67px -240px;
+}
+.mr_module li.m_hide .mr_skill_i {
+    background-position: -67px -262px;
+}
+.mr_module li.m_hide .mr_moudle_i {
+    background-position: -67px -285px;
+}
+.mr_module li .mr_addmd_i {
+    background-position: -24px -177px;
+}
+.mr_module li.hide_md .mr_project_i {
+    background-position: -44px -177px;
+}
+.mr_module li.hide_md .mr_production_i {
+    background-position: -44px -198px;
+}
+.mr_module li.hide_md .mr_self_i {
+    background-position: -44px -219px;
+}
+.mr_module li .mr_hopework_i {
+    background-position: -67px -240px;
+}
+.mr_module li.hide_md .mr_skill_i {
+    background-position: -44px -262px;
+}
+.mr_module li.hide_md .mr_moudle_i {
+    background-position: -44px -285px;
+}
+.mr_module li a:hover {
+    background-color: #fafafa;
+    color: #333;
+}
+span.error {
+    display: block;
+    margin: 5px 0 10px;
+    font-size: 14px;
+    color: #ff6a6a;
+    text-align: left;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/error_727fcc2.png) 0 3px no-repeat;
+    padding-left: 20px;
+    line-height: 22px;
+}
+.mr_calendar_ym .mr_year li:hover {
+    color: silver!important;
+    cursor: normal!important;
+    background-color: #fff!important;
+}
+.mr_calendar_ym .mr_month span:hover {
+    background-color: #f4f4f4;
+    color: #333;
+}
+.mr_calendar_ym .mr_month span.active {
+    background-color: #4ed6b7!important;
+    color: #fff!important;
+}
+#companyLogo div {
+    padding:0;
+    height:120px;
+}
+.mr_add_grey{
+    pointer-events: none;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_head_r.mr_add_grey {
+     pointer-events: none;
+}
+label .label_by_y {
+    margin-left: 172px;
+}
+.mr_p_introduce {
+    line-height: 32px;
+    margin-bottom: 8px;
+    min-height: 34px;
+    text-align:center;
+}
+.mr_intro {
+    display: block;
+    color: #333;
+    text-align: center;
+    margin: 0 auto;
+}
+.mr_intro_edit {
+    padding-left: 155px;
+    margin-bottom: 8px;
+}
+.mr_intro_edit .ed_name {
+    width: 368px;
+    height: 30px;
+    border: 1px solid #eeeff1;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin: 0;
+    text-align: center;
+    font: 30px/30px Arial,"Hiragino Sans GB","微软雅黑","宋体";
+    margin-right: 12px;
+    font-size: 16px;
+}
+.mr_intro_edit .cancel {
+    color: #00b38a;
+}
+
+.mr_edit em {
+    font-size: 16px;
+    color: #00b38a;
+}
+.mr_p_introduce .mr_intro {
+    font-size: 16px;
+    width: 468px;
+    line-height: 34px;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_introduce:hover {
+    background-color: #fefef2;
+}
+.content .mr_myresume_l .mr_mr_head .mr_baseinfo .mr_p_introduce:hover .mr_edit {
+    display:block;
+}
+.mr_intro_edit .save {
+    border: 0;
+    margin: 0;
+    display: inline-block;
+    padding: 0 11px;
+    font-size: 14px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    background-color: #00b38a;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+.mr_worksshow_tab {
+    width: 305px;
+    margin: 0 auto;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+.mr_worksshow_tab span.selected {
+    border-bottom: 2px solid #00b88d;
+    height: 47px;
+    background: transparent;
+}
+.mr_worksshow_tab span {
+    display: inline-block;
+    width: 150px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    color: #777;
+    font-size: 17px;
+    border-bottom: 1px solid #f1f1e6;
+}
+.mr_worksshow_upimage {
+    position: relative;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #f1f3e9;
+    margin-bottom: 15px;
+    width: 530px;
+    height: 360px;
+}
+.mr_worksshow_upimage div {
+    position: absolute;
+    z-index: 9;
+    text-align: center;
+    width: 495px;
+    height: 184px;
+    padding: 176px 0 0 35px;
+}
+.mr_worksshow_upimage div i {
+    position: absolute;
+    left: 162px;
+    top: 152px;
+    width: 60px;
+    height: 46px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/upPicCloud_66cc6f7.png) 0 0 no-repeat;
+}
+.mr_worksshow_upimage div.active i {
+    background-position: 0 -56px;
+}
+.mr_worksshow_upimage div.active span {
+    color: #00b88d;
+}
+.mr_worksshow_upimage .worksshow_up {
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+.mr_worksshow_upimage .worksshow_img {
+    z-index: 5;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.add_worksshow_form .mr_btn {
+    width: 484px;
+}
+.add_worksshow_form .mr_input_div {
+    width: 520px;
+}
+.mr_wo_show {
+    padding: 13px 25px 38px;
+    background-color: #00b88d;
+    margin-bottom: 38px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.add_worksshow_form .mr_wo_show {
+    padding-top: 46px;
+}
+.mr_self_site {
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+.mr_self_sitelink {
+    font-weight: 700;
+    word-break: break-all;
+    color: #fff;
+}
+.wh43 {
+    width: 100%;
+}
+.mr_wo_show .mr_c_r_t em {
+    color: #50f9d2;
+}
+.mr_wo_show .mr_c_r_t i {
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/icons_mr_0ef4596.png) -131px -115px no-repeat;
+}
+.mr_wo_preview {
+    color: #fff;
+}
+.mr_wo_show p {
+    line-height: 26px;
+    color: #fff;
+}
+#upSelfForm .mr_add_work i {
+    position: absolute;
+    z-index: 2;
+    right: 88px;
+    top: 48px;
+    width: 81px;
+    height: 81px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/mr_tx_e4ac53f.png) no-repeat;
+}
+#upSelfForm .mr_add_work img {
+    position: absolute;
+    width: 73px;
+    height: 73px;
+    right: 92px;
+    top: 52px;
+}
+#upSelfForm h3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 9px;
+}
+#upSelfForm p {
+    color: #777;
+    line-height: 24px;
+}
+#upSelfForm .self_tip {
+    margin-bottom: 20px;
+}
+.mr_moudle_content .mr_add_work label {
+    display: block;
+    color: #afafa9;
+    padding-bottom: 4px;
+    padding-left: 3px;
+}
+.wrap_editor {
+    position: relative!important;
+    width: 522px!important;
+}
+.mr_moudle_content .mr_self_l {
+    float: left;
+    width: 100px;
+    padding-top: 5px;
+}
+.mr_self_l {
+    position: relative;
+    height: 81px;
+}
+.mr_self_l i {
+    position: absolute;
+    z-index: 2;
+    width: 81px;
+    height: 81px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/mr_txs_7b69a3f.png) no-repeat;
+}
+.mr_self_l img {
+    position: absolute;
+    top: 8px;
+    left: 4px;
+    width: 73px;
+    height: 73px;
+}
+#selfDescription .mr_moudle_content {
+    padding-bottom: 48px;
+}
+.mr_moudle_content .mr_self_r {
+    float: left;
+    width: 504px;
+    color: #555;
+    line-height: 26px;
+}
+.mr_moudle_content {
+    padding-bottom: 21px;
+    color: #555;
+    font-size: 14px;
+}
+.mr_skill_con {
+    padding-left: 10px;
+    margin-bottom: 18px;
+    position: relative;
+}
+.mr_skill_con span {
+    vertical-align: middle;
+    display: inline-block;
+}
+.mr_skill_con .mr_skill_plan {
+    position: relative;
+    width: 420px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #eee;
+    margin-right: 21px;
+    overflow: hidden;
+}
+.mr_skill_con .mr_skill_circle {
+    display: none;
+    width: 20px;
+    height: 19px;
+    position: absolute;
+    left: 122px;
+    top: 3px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/skill_circle_752598c.png) no-repeat center top;
+    cursor: pointer;
+}
+.mr_skill_con .mr_skill_delete {
+    display: none;
+    width: 13px;
+    height: 13px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/skill_delete_b0062d9.png) center top no-repeat;
+    cursor: pointer;
+}
+.mr_skill_con .mr_skill_plan em {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    height: 8px;
+    background-color: #00b88d;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.mr_skill_con .mr_skill_name {
+    width: 102px;
+    height: 24px;
+    text-align: right;
+    margin-right: 13px;
+    word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mr_skill_con .mr_skill_delete {
+    display: none;
+    width: 13px;
+    height: 13px;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/skill_delete_b0062d9.png) center top no-repeat;
+    cursor: pointer;
+}
+.mr_skill_con .mr_skill_circle em {
+    display: inline-block;
+    width: 29px;
+    height: 23px;
+    line-height: 17px;
+    position: absolute;
+    right: -4px;
+    top: -22px;
+    text-align: center;
+    padding: 0;
+    color: #fff;
+    background: url(//www.lgstatic.com/www/static/mycenter/modules/common/img/skill_img_f5a4aab.png) center top no-repeat;
+    font-size: 10px;
+}
+.dn {
+    display:none;
+}
+.fl {
+    float: left!important;
+}
+.clearfixs:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+    font-size:0;
+}
